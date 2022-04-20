@@ -221,7 +221,7 @@ macro_rules! bitfield {
             )*
         }
     ) => {
-        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [usize] [usize::MAX] { $( $(#[$member_doc])* $idx : $field )* });
+        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [usize] [usize::BITS as usize] { $( $(#[$member_doc])* $idx : $field )* });
     };
 }
 
@@ -939,6 +939,7 @@ pub mod example {
 #[allow(unused_variables)]
 #[cfg(test)]
 mod test {
+    use std::{u16, u32, u64, usize};
     use super::*;
 
     macro_rules! tests {
@@ -1011,6 +1012,32 @@ mod test {
         }
     }
 
+    #[cfg(target_pointer_width = "64")]
+    bitfield! {
+        /// My Test Thing
+        (pub) MyFieldUsize MyFlagsUsize usize {
+            0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
+            8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
+            16 : Flag16 17 : Flag17 18 : Flag18 19 : Flag19 20 : Flag20 21 : Flag21 22 : Flag22 23 : Flag23
+            24 : Flag24 25 : Flag25 26 : Flag26 27 : Flag27 28 : Flag28 29 : Flag29 30 : Flag30 31 : Flag31
+            32 : Flag32 33 : Flag33 34 : Flag34 35 : Flag35 36 : Flag36 37 : Flag37 38 : Flag38 39 : Flag39
+            40 : Flag40 41 : Flag41 42 : Flag42 43 : Flag43 44 : Flag44 45 : Flag45 46 : Flag46 47 : Flag47
+            48 : Flag48 49 : Flag49 50 : Flag50 51 : Flag51 52 : Flag52 53 : Flag53 54 : Flag54 55 : Flag55
+            56 : Flag56 57 : Flag57 58 : Flag58 59 : Flag59 60 : Flag60 61 : Flag61 62 : Flag62 63 : Flag63
+        }
+    }
+
+    #[cfg(target_pointer_width = "32")]
+    bitfield! {
+        /// My Test Thing
+        (pub) MyFieldUsize MyFlagsUsize usize {
+            0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
+            8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
+            16 : Flag16 17 : Flag17 18 : Flag18 19 : Flag19 20 : Flag20 21 : Flag21 22 : Flag22 23 : Flag23
+            24 : Flag24 25 : Flag25 26 : Flag26 27 : Flag27 28 : Flag28 29 : Flag29 30 : Flag30 31 : Flag31
+        }
+    }
+
     const U8: u8 = 123;
     const B8: &str = "1111011";
     const U16: u16 = 51526;
@@ -1021,6 +1048,16 @@ mod test {
     const B64: &str = "1111111001010010000111110001110100100001110111000000100101010111";
     const U128: u128 = 160140183460469230739687303714882104727;
     const B128: &str = "1111000011110011110000010100001011000111110000100101011010111011111111110000110011101100010110100100000110001101010110110010111";
+
+    #[cfg(target_pointer_width = "64")]
+    const USIZE: usize = 18325744043706550615;
+    #[cfg(target_pointer_width = "64")]
+    const BSIZE: &str = "1111111001010010000111110001110100100001110111000000100101010111";
+
+    #[cfg(target_pointer_width = "32")]
+    const USIZE: usize = 2828091834;
+    #[cfg(target_pointer_width = "32")]
+    const BSIZE: &str = "10101000100100010100000110111010";
 
     // constructors
     tests! {
@@ -1038,6 +1075,9 @@ mod test {
         }
         new_u128 => {
             MyFieldU128(U128);
+        }
+        new_usize => {
+            MyFieldUsize(USIZE);
         }
     }
 
@@ -1058,29 +1098,36 @@ mod test {
         default_u128 => {
             assert_eq!(0, MyFieldU128::default().as_integer())
         }
+        default_usize => {
+            assert_eq!(0, MyFieldUsize::default().as_integer())
+        }
     }
 
     // bit count
     tests! {
         bit_count_u8 => {
             let field = MyFieldU8(U8);
-            assert_eq!(8, MyFieldU8::BITS)
+            assert_eq!(u8::BITS as usize, MyFieldU8::BITS)
         }
         bit_count_u16 => {
             let field = MyFieldU16(U16);
-            assert_eq!(16, MyFieldU16::BITS)
+            assert_eq!(u16::BITS as usize, MyFieldU16::BITS)
         }
         bit_count_u32 => {
             let field = MyFieldU32(U32);
-            assert_eq!(32, MyFieldU32::BITS)
+            assert_eq!(u32::BITS as usize, MyFieldU32::BITS)
         }
         bit_count_u64 => {
             let field = MyFieldU64(U64);
-            assert_eq!(64, MyFieldU64::BITS)
+            assert_eq!(u64::BITS as usize, MyFieldU64::BITS)
         }
         bit_count_u128 => {
             let field = MyFieldU128(U128);
-            assert_eq!(128, MyFieldU128::BITS)
+            assert_eq!(u128::BITS as usize, MyFieldU128::BITS)
+        }
+        bit_count_usize => {
+            let field = MyFieldUsize(USIZE);
+            assert_eq!(usize::BITS as usize, MyFieldUsize::BITS)
         }
     }
 
@@ -1106,6 +1153,10 @@ mod test {
             let field = MyFieldU128(U128);
             assert_eq!(16, MyFieldU128::BYTES)
         }
+        byte_count_usize => {
+            let field = MyFieldUsize(USIZE);
+            assert_eq!((usize::BITS as usize) / 8, MyFieldUsize::BYTES)
+        }
     }
 
     // integer value
@@ -1130,6 +1181,10 @@ mod test {
             let field = MyFieldU128(U128);
             assert_eq!(U128, field.as_integer())
         }
+        integer_usize => {
+            let field = MyFieldUsize(USIZE);
+            assert_eq!(USIZE, field.as_integer())
+        }
     }
 
     // binary value
@@ -1153,6 +1208,10 @@ mod test {
         binary_u128 => {
             let field = MyFieldU128(U128);
             assert_eq!(B128, field.as_binary())
+        }
+        binary_usize => {
+            let field = MyFieldUsize(USIZE);
+            assert_eq!(BSIZE, field.as_binary())
         }
     }
 
@@ -1209,6 +1268,18 @@ mod test {
         get_index_u128 => {
             let field = MyFieldU128(U128);
             for (index, char) in B128.chars().rev().enumerate() {
+                if char == '1' {
+                    assert!(field.get_index(index as u8))
+                } else if char == '0' {
+                    assert!(!field.get_index(index as u8))
+                } else {
+                    panic!("invalid char in binary string")
+                }
+            }
+        }
+        get_index_usize => {
+            let field = MyFieldUsize(USIZE);
+            for (index, char) in BSIZE.chars().rev().enumerate() {
                 if char == '1' {
                     assert!(field.get_index(index as u8))
                 } else if char == '0' {
@@ -1287,6 +1358,19 @@ mod test {
                 }
             }
         }
+        set_index_usize => {
+            let mut field = MyFieldUsize(0);
+            for (index, char) in BSIZE.chars().rev().enumerate() {
+                field.set_index(index as u8);
+                for (s_index, _char) in BSIZE.chars().rev().enumerate() {
+                    if s_index <= index {
+                        assert!(field.get_index(s_index as u8), "{:#?}", field);
+                    }  else {
+                        assert!(!field.get_index(s_index as u8), "{:#?}", field);
+                    }
+                }
+            }
+        }
     }
 
     // clear index
@@ -1353,6 +1437,20 @@ mod test {
                 assert!(field.get_index(index as u8), "{:#?}", field);
                 field.clear_index(index as u8);
                 for (s_index, _char) in B128.chars().rev().enumerate() {
+                    if s_index <= index {
+                        assert!(!field.get_index(s_index as u8), "{:#?}", field);
+                    }  else {
+                        assert!(field.get_index(s_index as u8), "{:#?}", field);
+                    }
+                }
+            }
+        }
+        clear_index_usize => {
+            let mut field = MyFieldUsize(usize::MAX);
+            for (index, char) in BSIZE.chars().rev().enumerate() {
+                assert!(field.get_index(index as u8), "{:#?}", field);
+                field.clear_index(index as u8);
+                for (s_index, _char) in BSIZE.chars().rev().enumerate() {
                     if s_index <= index {
                         assert!(!field.get_index(s_index as u8), "{:#?}", field);
                     }  else {
@@ -1445,6 +1543,22 @@ mod test {
                 }
             }
         }
+        toggle_index_usize => {
+            let mut field = MyFieldUsize(USIZE);
+            for (index, char) in BSIZE.chars().rev().enumerate() {
+                if char == '1' {
+                    assert!(field.get_index(index as u8));
+                    field.toggle_index(index as u8);
+                    assert!(!field.get_index(index as u8));
+                } else if char == '0' {
+                    assert!(!field.get_index(index as u8));
+                    field.toggle_index(index as u8);
+                    assert!(field.get_index(index as u8));
+                } else {
+                    panic!("invalid char in binary string")
+                }
+            }
+        }
     }
 
     // get
@@ -1504,6 +1618,18 @@ mod test {
                     assert!(field.get(MyFlagsU128::from(index as u8)))
                 } else if char == '0' {
                     assert!(!field.get(MyFlagsU128::from(index as u8)))
+                } else {
+                    panic!("invalid char in binary string")
+                }
+            }
+        }
+        get_usize => {
+            let field = MyFieldUsize(USIZE);
+            for (index, char) in BSIZE.chars().rev().enumerate() {
+                if char == '1' {
+                    assert!(field.get(MyFlagsUsize::from(index as u8)))
+                } else if char == '0' {
+                    assert!(!field.get(MyFlagsUsize::from(index as u8)))
                 } else {
                     panic!("invalid char in binary string")
                 }
@@ -1578,6 +1704,19 @@ mod test {
                 }
             }
         }
+        set_usize => {
+            let mut field = MyFieldUsize(0);
+            for (index, char) in BSIZE.chars().rev().enumerate() {
+                field.set(MyFlagsUsize::from(index as u8));
+                for (s_index, _char) in BSIZE.chars().rev().enumerate() {
+                    if s_index <= index {
+                        assert!(field.get_index(s_index as u8), "{:#?}", field);
+                    }  else {
+                        assert!(!field.get_index(s_index as u8), "{:#?}", field);
+                    }
+                }
+            }
+        }
     }
 
     // clear
@@ -1644,6 +1783,20 @@ mod test {
                 assert!(field.get_index(index as u8), "{:#?}", field);
                 field.clear(MyFlagsU128::from(index as u8));
                 for (s_index, _char) in B128.chars().rev().enumerate() {
+                    if s_index <= index {
+                        assert!(!field.get_index(s_index as u8), "{:#?}", field);
+                    }  else {
+                        assert!(field.get_index(s_index as u8), "{:#?}", field);
+                    }
+                }
+            }
+        }
+        clear_usize => {
+            let mut field = MyFieldUsize(usize::MAX);
+            for (index, char) in BSIZE.chars().rev().enumerate() {
+                assert!(field.get_index(index as u8), "{:#?}", field);
+                field.clear(MyFlagsUsize::from(index as u8));
+                for (s_index, _char) in BSIZE.chars().rev().enumerate() {
                     if s_index <= index {
                         assert!(!field.get_index(s_index as u8), "{:#?}", field);
                     }  else {
@@ -1730,6 +1883,22 @@ mod test {
                 } else if char == '0' {
                     assert!(!field.get_index(index as u8));
                     field.toggle(MyFlagsU128::from(index as u8));
+                    assert!(field.get_index(index as u8));
+                } else {
+                    panic!("invalid char in binary string")
+                }
+            }
+        }
+        toggle_usize => {
+            let mut field = MyFieldUsize(USIZE);
+            for (index, char) in BSIZE.chars().rev().enumerate() {
+                if char == '1' {
+                    assert!(field.get_index(index as u8));
+                    field.toggle(MyFlagsUsize::from(index as u8));
+                    assert!(!field.get_index(index as u8));
+                } else if char == '0' {
+                    assert!(!field.get_index(index as u8));
+                    field.toggle(MyFlagsUsize::from(index as u8));
                     assert!(field.get_index(index as u8));
                 } else {
                     panic!("invalid char in binary string")
