@@ -123,32 +123,16 @@ macro_rules! __bitmask_unchecked {
         }
     ) => {
 
-        $(#[$flag_doc])*
-        #[derive(Debug, Copy, Clone, PartialEq)]
-        #[repr(u8)]
-        $( $access )? enum $flag {
-            $( $(#[$member_doc])* $field = $idx ),*
+        __def_flag_enum! {
+            $(#[$flag_doc])*
+            $( ($access) )? $name
+            $flag {
+                $(
+                    $(#[$member_doc])*
+                    $idx : $field
+                )*
+            }
         }
-
-        // $flag + $flag
-        __impl_bitwise_operators! {
-            [Self] for $flag : (self rhs -> $name)
-            BitAnd => { $name(0).set(self) & rhs }
-            BitOr => { $name(0).set(self) | rhs }
-            BitXor => { $name(0).set(self) ^ rhs }
-        }
-
-        // u8 -> $flag
-        __impl_from! { u8 as $flag (value) => {
-            $crate::transmute_one::<$flag>(&[value]).expect("") // TODO
-        }}
-
-        // $flag -> u8
-        __impl_from! { $flag as u8 (value) => {
-            value as u8
-        }}
-
-        unsafe impl TriviallyTransmutable for $flag {}
 
         $(#[$mask_doc])*
         $( #[derive($($derive:ident ),*)] )?
@@ -376,17 +360,17 @@ macro_rules! __bitmask_unchecked {
             }
         }
 
-        // $name
+        // Name: $name
         __impl_default! {
             $name => { $name(0) }
         }
 
-        // $type -> $name
+        // From: $type -> $name
         __impl_from! { $type as $name (value) => {
             $name(value)
         }}
 
-        // $name + $name
+        // Bitwise: $name + $name
         __impl_bitwise_operators! {
             [Self] for $name : (self rhs -> Self)
             BitAnd => { Self(self.0 & rhs.0) }
@@ -397,7 +381,7 @@ macro_rules! __bitmask_unchecked {
             BitXorAssign => { self.0 ^= rhs.0; }
         }
 
-        // $name + $flag
+        // Bitwise: $name + $flag
         __impl_bitwise_operators! {
             [$flag] for $name : (self rhs -> $name)
             BitAnd => { $name(self.0  & (rhs as $type)) }
@@ -408,7 +392,7 @@ macro_rules! __bitmask_unchecked {
             BitXorAssign => { self.toggle(rhs); }
         }
 
-        // &$name + $flag
+        // Bitwise: &$name + $flag
         __impl_bitwise_operators! {
             [$flag] for & $name : (self rhs -> $name)
             BitAnd => { $name(self.0  & (rhs as $type)) }
@@ -416,7 +400,7 @@ macro_rules! __bitmask_unchecked {
             BitXor => { $name(self.0 ^ (rhs as $type)) }
         }
 
-        // $mut $name + $flag
+        // Bitwise: $mut $name + $flag
         __impl_bitwise_operators! {
             [$flag] for &mut $name : (self rhs -> $name)
             BitAnd => { $name(self.0  & (rhs as $type)) }
@@ -424,7 +408,7 @@ macro_rules! __bitmask_unchecked {
             BitXor => { $name(self.0 ^ (rhs as $type)) }
         }
 
-        // Debug & Binary
+        // Bitwise: Debug & Binary
         __impl_formatters! {
             $name (self f) {
                 Debug => { core::write!(f, "{}({:b})", core::stringify!($name), self) }
@@ -434,9 +418,47 @@ macro_rules! __bitmask_unchecked {
     };
 }
 
+#[doc(hidden)]
+#[macro_export(local_inner_macros)]
 macro_rules! __def_flag_enum {
-    () => {
+    (
+        $(#[$flag_doc:meta])*
+        $( ($access:vis) )? $name:ident
+        $flag:ident {
+            $(
+                $(#[$member_doc:meta])*
+                $idx:literal : $field:ident
+            )*
+        }
+    ) => {
 
+        // Enum: $flag
+        $(#[$flag_doc])*
+        #[derive(Debug, Copy, Clone, PartialEq)]
+        #[repr(u8)]
+        $( $access )? enum $flag {
+            $( $(#[$member_doc])* $field = $idx ),*
+        }
+
+        // Bitwise: $flag + $flag
+        __impl_bitwise_operators! {
+            [Self] for $flag : (self rhs -> $name)
+            BitAnd => { $name(0).set(self) & rhs }
+            BitOr => { $name(0).set(self) | rhs }
+            BitXor => { $name(0).set(self) ^ rhs }
+        }
+
+        // Bitwise: u8 -> $flag
+        __impl_from! { u8 as $flag (value) => {
+            $crate::transmute_one::<$flag>(&[value]).expect("") // TODO
+        }}
+
+        // Bitwise: $flag -> u8
+        __impl_from! { $flag as u8 (value) => {
+            value as u8
+        }}
+
+        unsafe impl TriviallyTransmutable for $flag {}
     };
 }
 
