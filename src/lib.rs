@@ -151,17 +151,13 @@ macro_rules! __bitmask_unchecked {
             }
         }
 
-        impl From<u8> for $flag {
-            fn from(value: u8) -> $flag {
-                $crate::transmute_one::<$flag>(&[value]).expect("") // TODO
-            }
-        }
+        __impl_from! { u8 as $flag (value) => {
+            $crate::transmute_one::<$flag>(&[value]).expect("") // TODO
+        }}
 
-        impl From<$flag> for u8 {
-            fn from(value: $flag) -> u8 {
-                value as u8
-            }
-        }
+        __impl_from! { $flag as u8 (value) => {
+            value as u8
+        }}
 
         unsafe impl TriviallyTransmutable for $flag {}
 
@@ -397,11 +393,9 @@ macro_rules! __bitmask_unchecked {
             }
         }
 
-        impl From<$type> for $name {
-            fn from(value: $type) -> $name {
-                $name(value)
-            }
-        }
+        __impl_from! { $type as $name (value) => {
+            $name(value)
+        }}
 
         impl std::ops::BitAnd for $name {
             type Output = Self;
@@ -551,6 +545,16 @@ macro_rules! __bitmask_unchecked {
             fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
                 core::write!(f, "{:b}", self.0)
             }
+        }
+    };
+}
+
+#[doc(hidden)]
+#[macro_export]
+macro_rules! __impl_from {
+    ($from:ty as $to:ident ($arg:ident) => $block:block) => {
+        impl From<$from> for $to {
+            fn from($arg: $from) -> $to $block
         }
     };
 }
