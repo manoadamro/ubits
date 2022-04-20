@@ -2342,8 +2342,6 @@
 <span id="2337">2337</span>
 <span id="2338">2338</span>
 <span id="2339">2339</span>
-<span id="2340">2340</span>
-<span id="2341">2341</span>
 </pre><pre class="rust"><code><span class="doccomment">//! Provides a macro for generating [`bit field`](https://en.wikipedia.org/wiki/Bit_field) types</span>
 <span class="doccomment">//! complete with flags and some helpful trait implementations.</span>
 <span class="doccomment">//!</span>
@@ -2433,8 +2431,7 @@
 
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">safe_transmute</span>::{
-    <span class="ident">transmute_one</span> <span class="kw">as</span> <span class="ident">__transmute_one</span>,
-    <span class="ident">TriviallyTransmutable</span> <span class="kw">as</span> <span class="ident">__TriviallyTransmutable</span>
+    <span class="ident">transmute_one</span> <span class="kw">as</span> <span class="ident">__transmute_one</span>, <span class="ident">TriviallyTransmutable</span> <span class="kw">as</span> <span class="ident">__TriviallyTransmutable</span>,
 };
 
 <span class="comment">// -------------------------------------------------------------------------------------------------</span>
@@ -2966,7 +2963,6 @@
     };
 }
 
-
 <span class="doccomment">/// Generates getters by index for bit fields in `$name`</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
 <span class="attribute">#[<span class="ident">macro_export</span>]</span>
@@ -3360,8 +3356,8 @@
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_variables</span>)]</span>
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
 <span class="kw">mod</span> <span class="ident">test</span> {
-    <span class="kw">use</span> <span class="ident">std</span>::{<span class="ident">u16</span>, <span class="ident">u32</span>, <span class="ident">u64</span>, <span class="ident">usize</span>};
     <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use</span> <span class="ident">std</span>::{<span class="ident">u16</span>, <span class="ident">u32</span>, <span class="ident">u64</span>, <span class="ident">usize</span>};
 
     <span class="macro">macro_rules!</span> <span class="ident">tests</span> {
         ( $( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span> =&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">block</span>:<span class="ident">block</span> )<span class="op">+</span> ) =&gt; {
@@ -4579,7 +4575,7 @@
         <span class="comment">//     let field = MyFieldUsize(USIZE);</span>
         <span class="comment">// }</span>
     }
-    
+
     <span class="comment">// field from flag</span>
     <span class="macro">tests!</span> {
         <span class="ident">field_from_flag_u8</span> =&gt; {
