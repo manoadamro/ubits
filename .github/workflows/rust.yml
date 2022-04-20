@@ -23,6 +23,7 @@ jobs:
       - name: Install latest
         uses: actions-rs/toolchain@v1
         with:
+          toolchain: stable
           components: rustfmt, clippy
       - name: Lint
         run: cargo fmt --check --verbose
@@ -34,6 +35,7 @@ jobs:
       - name: Install latest
         uses: actions-rs/toolchain@v1
         with:
+          toolchain: stable
           components: rustfmt, clippy
       - name: Build
         run: cargo build --verbose
@@ -47,10 +49,12 @@ jobs:
       - name: Install latest
         uses: actions-rs/toolchain@v1
         with:
+          toolchain: stable
           components: rustfmt, clippy
       - run: rustup component add clippy
       - uses: actions-rs/clippy-check@v1
         with:
+          toolchain: stable
           token: ${{ secrets.GITHUB_TOKEN }}
           args: --all-features -- -D warnings
 
@@ -66,6 +70,7 @@ jobs:
       - name: Install latest
         uses: actions-rs/toolchain@v1
         with:
+          toolchain: stable
           components: rustfmt, clippy
       - name: Build Docs
         run: sh scripts/build-docs.sh
