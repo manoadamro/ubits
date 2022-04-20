@@ -121,7 +121,7 @@
 //! assert_eq!(0, from_zeros.as_integer());
 //! ```
 //!
-//! # Field Access
+//! ### Field Access
 //!
 //! Get bit value by field:
 //! ```rust
@@ -322,7 +322,7 @@
 //! assert_eq!("01010101", field.as_binary());
 //! ```
 //!
-//! # Combinations
+//! ### Combinations
 //!
 //! Combine bit fields: <br>
 //! (use `into_combined` to consume self)
@@ -398,7 +398,7 @@
 //! assert_eq!("10100101", a.diff(b).as_binary());
 //! ```
 //!
-//! # Bitwise
+//! ### Bitwise
 //!
 //! Both bit field instances and flags use bitwise operators to change bit values.
 //!
@@ -486,7 +486,7 @@
 //!
 //! ```
 //!
-//! # Fields named with flags
+//! ## Fields named with flags
 //!
 //! The generated flags enum allows you to access bits by name.
 //! The flag has an associated [`u8`] value,
