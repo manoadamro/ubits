@@ -2922,10 +2922,72 @@ mod test {
     }
 
     // flag from u8
-    // TODO
+    tests! {
+        flag_from_u8_u8 => {
+            for index in 0..u8::BITS {
+                let _ = MyFlagsU8::from(index as u8);
+            }
+        }
+        flag_from_u8_u16 => {
+            for index in 0..u16::BITS {
+                let _ = MyFlagsU16::from(index as u8);
+            }
+        }
+        flag_from_u8_u32 => {
+            for index in 0..u32::BITS {
+                let _ = MyFlagsU32::from(index as u8);
+            }
+        }
+        flag_from_u8_u64 => {
+            for index in 0..u64::BITS {
+                let _ = MyFlagsU64::from(index as u8);
+            }
+        }
+        flag_from_u8_u128 => {
+            for index in 0..u128::BITS {
+                let _ = MyFlagsU128::from(index as u8);
+            }
+        }
+        flag_from_u8_usize => {
+            for index in 0..usize::BITS {
+                let _ = MyFlagsUsize::from(index as u8);
+            }
+        }
+    }
 
     // u8 from flag
-    // TODO
+    tests! {
+        u8_from_flag_u8 => {
+            for index in 0..u8::BITS {
+                assert_eq!(MyFlagsU8::from(index as u8) as u8, index as u8)
+            }
+        }
+        u8_from_flag_u16 => {
+            for index in 0..u16::BITS {
+                assert_eq!(MyFlagsU16::from(index as u8) as u8, index as u8)
+            }
+        }
+        u8_from_flag_u32 => {
+            for index in 0..u32::BITS {
+                assert_eq!(MyFlagsU32::from(index as u8) as u8, index as u8)
+            }
+        }
+        u8_from_flag_u64 => {
+            for index in 0..u64::BITS {
+                assert_eq!(MyFlagsU64::from(index as u8) as u8, index as u8)
+            }
+        }
+        u8_from_flag_u128 => {
+            for index in 0..u128::BITS {
+                assert_eq!(MyFlagsU128::from(index as u8) as u8, index as u8)
+            }
+        }
+        u8_from_flag_usize => {
+            for index in 0..usize::BITS {
+                assert_eq!(MyFlagsUsize::from(index as u8) as u8, index as u8)
+            }
+        }
+    }
 
     // binary format
     // TODO
