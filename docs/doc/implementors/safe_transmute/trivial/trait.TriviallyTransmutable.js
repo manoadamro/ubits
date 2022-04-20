@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["bitfield"] = [{"text":"impl TriviallyTransmutable for <a class=\"enum\" href=\"bitfield/example/enum.ExampleFlags.html\" title=\"enum bitfield::example::ExampleFlags\">ExampleFlags</a>","synthetic":false,"types":["bitfield::example::ExampleFlags"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

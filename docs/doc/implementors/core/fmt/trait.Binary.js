@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["bitfield"] = [{"text":"impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.60.0/core/fmt/trait.Binary.html\" title=\"trait core::fmt::Binary\">Binary</a> for <a class=\"struct\" href=\"bitfield/example/struct.ExampleField.html\" title=\"struct bitfield::example::ExampleField\">ExampleField</a>","synthetic":false,"types":["bitfield::example::ExampleField"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
