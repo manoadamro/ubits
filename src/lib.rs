@@ -1,13 +1,19 @@
 //! TODO
 
+// -------------------------------------------------------------------------------------------------
+// Imports
+
 extern crate doc_comment;
 extern crate safe_transmute;
 
 #[doc(hidden)]
-pub use doc_comment::doc_comment;
+pub use doc_comment::doc_comment as __doc_comment;
 
 #[doc(hidden)]
-pub use safe_transmute::{transmute_one, TriviallyTransmutable};
+pub use safe_transmute::{
+    transmute_one as __transmute_one,
+    TriviallyTransmutable as __TriviallyTransmutable
+};
 
 // -------------------------------------------------------------------------------------------------
 // Generator Macros
@@ -186,7 +192,7 @@ macro_rules! __def_flag_enum {
 
         // Bitwise: u8 -> $flag
         __impl_from! { u8 as $flag (value) => {
-            $crate::transmute_one::<$flag>(&[value]).expect("") // TODO
+            $crate::__transmute_one::<$flag>(&[value]).expect("") // TODO
         }}
 
         // Bitwise: $flag -> u8
@@ -194,7 +200,7 @@ macro_rules! __def_flag_enum {
             value as u8
         }}
 
-        unsafe impl TriviallyTransmutable for $flag {}
+        unsafe impl __TriviallyTransmutable for $flag {}
     };
 }
 
@@ -320,18 +326,18 @@ macro_rules! __def_mask_struct {
 #[macro_export]
 macro_rules! __impl_mask_constants {
     ($name:ident { bits: [$($bits:tt)*] }) => {
-        $crate::doc_comment! {
+        $crate::__doc_comment! {
             core::concat!(
                 "Constant values describing [`", core::stringify!($name), "`]."
             ),
             impl $name {
-                $crate::doc_comment! {
+                $crate::__doc_comment! {
                     core::concat!(
                       "Number of bits in an instance of [`", core::stringify!($name), "`]."
                     ),
                     pub const BITS: usize = $($bits)*;
                 }
-                $crate::doc_comment! {
+                $crate::__doc_comment! {
                     core::concat!(
                       "Number of bytes used by an instance of [`", core::stringify!($name), "`]."
                     ),
@@ -346,12 +352,12 @@ macro_rules! __impl_mask_constants {
 #[macro_export]
 macro_rules! __impl_mask_ctors {
     ( $name:ident : $type:ty ) => {
-        $crate::doc_comment! {
+        $crate::__doc_comment! {
             core::concat!(
                 "Constructors for creating instances of [`", core::stringify!($name), "`]."
             ),
             impl $name {
-                $crate::doc_comment! {
+                $crate::__doc_comment! {
                     core::concat!(
                       "Create a new instance of [`", core::stringify!($name), "`] ",
                       "from a [`", core::stringify!($type), "`] value."
@@ -369,12 +375,12 @@ macro_rules! __impl_mask_ctors {
 #[macro_export]
 macro_rules! __impl_mask_state {
     ($name:ident : $type:ty) => {
-        $crate::doc_comment! {
+        $crate::__doc_comment! {
             core::concat!(
                 "Current state of this bitmask."
             ),
             impl $name {
-                $crate::doc_comment! {
+                $crate::__doc_comment! {
                     core::concat!(
                       "Returns the current mask value as a [`", core::stringify!($type), "`]"
                     ),
@@ -391,12 +397,12 @@ macro_rules! __impl_mask_state {
 #[macro_export]
 macro_rules! __impl_mask_index_accessors {
     ($name:ident) => {
-        $crate::doc_comment! {
+        $crate::__doc_comment! {
             core::concat!(
                 "Field accessors by index for [`", core::stringify!($name), "`]."
             ),
             impl $name {
-                $crate::doc_comment! {
+                $crate::__doc_comment! {
                     core::concat!(
                         "Returns the value of the bit at the supplied index as a boolean."
                     ),
@@ -405,7 +411,7 @@ macro_rules! __impl_mask_index_accessors {
                     }
                 }
 
-                $crate::doc_comment! {
+                $crate::__doc_comment! {
                     core::concat!(
                         "Sets the value of the bit at the supplied index to `1`."
                     ),
@@ -414,7 +420,7 @@ macro_rules! __impl_mask_index_accessors {
                     }
                 }
 
-                $crate::doc_comment! {
+                $crate::__doc_comment! {
                     core::concat!(
                         "Sets the value of the bit at the supplied index to `0`."
                     ),
@@ -423,7 +429,7 @@ macro_rules! __impl_mask_index_accessors {
                     }
                 }
 
-                $crate::doc_comment! {
+                $crate::__doc_comment! {
                     core::concat!(
                         "Flips the value of the bit at the supplied index."
                     ),
@@ -440,12 +446,12 @@ macro_rules! __impl_mask_index_accessors {
 #[macro_export]
 macro_rules! __impl_mask_flag_accessors {
     ($name:ident $flag:ident $type:ty) => {
-        $crate::doc_comment! {
+        $crate::__doc_comment! {
             core::concat!(
                 "Named field accessors by [`", core::stringify!($flag), "`] for [`", core::stringify!($name), "`]."
             ),
             impl $name {
-                $crate::doc_comment! {
+                $crate::__doc_comment! {
                     core::concat!(
                         "Returns the value of the bit at the supplied flag as a boolean."
                     ),
@@ -454,7 +460,7 @@ macro_rules! __impl_mask_flag_accessors {
                     }
                 }
 
-                $crate::doc_comment! {
+                $crate::__doc_comment! {
                     core::concat!(
                         "Sets the value of the bit at the supplied flag to `1`."
                     ),
@@ -464,7 +470,7 @@ macro_rules! __impl_mask_flag_accessors {
                     }
                 }
 
-                $crate::doc_comment! {
+                $crate::__doc_comment! {
                     core::concat!(
                         "Sets the value of the bit at the supplied flag to `0`."
                     ),
@@ -474,7 +480,7 @@ macro_rules! __impl_mask_flag_accessors {
                     }
                 }
 
-                $crate::doc_comment! {
+                $crate::__doc_comment! {
                     core::concat!(
                         "Flips the value of the bit at the supplied flag."
                     ),
@@ -492,12 +498,12 @@ macro_rules! __impl_mask_flag_accessors {
 #[macro_export]
 macro_rules! __impl_mask_flag_combinators {
     ($name:ident) => {
-        $crate::doc_comment! {
+        $crate::__doc_comment! {
             core::concat!(
                 "Combinators for [`", core::stringify!($name), "`]."
             ),
             impl $name {
-                $crate::doc_comment! {
+                $crate::__doc_comment! {
                     core::concat!(
                         "Returns a new [`", core::stringify!($name), "`]",
                         "with ones for flags that do not match. ",
@@ -508,7 +514,7 @@ macro_rules! __impl_mask_flag_combinators {
                     }
                 }
 
-                $crate::doc_comment! {
+                $crate::__doc_comment! {
                     core::concat!(
                         "Returns a new [`", core::stringify!($name), "`]",
                         "with ones for flags that were set on either input. ",
@@ -519,7 +525,7 @@ macro_rules! __impl_mask_flag_combinators {
                     }
                 }
 
-                $crate::doc_comment! {
+                $crate::__doc_comment! {
                     core::concat!(
                         "Returns a new [`", core::stringify!($name), "`]",
                         "with ones for flags that were set on both inputs. ",
@@ -538,12 +544,12 @@ macro_rules! __impl_mask_flag_combinators {
 #[macro_export]
 macro_rules! __impl_mask_flag_converters {
     ($name:ident) => {
-        $crate::doc_comment! {
+        $crate::__doc_comment! {
             core::concat!(
                 "Conversion methods."
             ),
             impl $name {
-                $crate::doc_comment! {
+                $crate::__doc_comment! {
                     core::concat!(
                         "Returns a new [`", core::stringify!($name), "`]",
                         "with ones for flags that do not match. ",
@@ -554,7 +560,7 @@ macro_rules! __impl_mask_flag_converters {
                     }
                 }
 
-                $crate::doc_comment! {
+                $crate::__doc_comment! {
                     core::concat!(
                         "Returns a new [`", core::stringify!($name), "`]",
                         "with ones for flags that were set on either input. ",
@@ -565,7 +571,7 @@ macro_rules! __impl_mask_flag_converters {
                     }
                 }
 
-                $crate::doc_comment! {
+                $crate::__doc_comment! {
                     core::concat!(
                         "Returns a new [`", core::stringify!($name), "`]",
                         "with ones for flags that were set on both inputs. ",
@@ -912,3 +918,5 @@ mod test {
         }
     }
 }
+
+// -------------------------------------------------------------------------------------------------
