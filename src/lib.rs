@@ -2279,40 +2279,388 @@ mod test {
     }
 
     // $name & $name
-    // TODO
+    tests! {
+        bitwise_name_and_name_u8 => {
+            let field = MyFieldU8(U8);
+            let reversed = MyFieldU8(u8::from_str_radix(B8.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field & reversed;
+            assert_eq!("01011010", out.as_binary());
+            assert_eq!(90, out.as_integer());
+        }
+        bitwise_name_and_name_u16 => {
+            let field = MyFieldU16(U16);
+            let reversed = MyFieldU16(u16::from_str_radix(B16.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field & reversed;
+            assert_eq!("0100000000000010", out.as_binary());
+            assert_eq!(16386, out.as_integer());
+        }
+        bitwise_name_and_name_u32 => {
+            let field = MyFieldU32(U32);
+            let reversed = MyFieldU32(u32::from_str_radix(B32.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field & reversed;
+            assert_eq!("00001000100000000000000100010000", out.as_binary());
+            assert_eq!(142606608, out.as_integer());
+        }
+        bitwise_name_and_name_u64 => {
+            let field = MyFieldU64(U64);
+            let reversed = MyFieldU64(u64::from_str_radix(B64.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field & reversed;
+            assert_eq!("1110101000010000000110110000010000100000110110000000100001010111", out.as_binary());
+            assert_eq!(16866010309047355479, out.as_integer());
+        }
+        bitwise_name_and_name_u128 => {
+            let field = MyFieldU128(U128);
+            let reversed = MyFieldU128(u128::from_str_radix(B128.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field & reversed;
+            assert_eq!("01101000001100010110000000000000001000000110000000100001010111011011101010000100000001100000010000000000000001101000110000010110", out.as_binary());
+            assert_eq!(138496081229041142656201681480886684694, out.as_integer());
+        }
+        // bitwise_name_and_name_usize => {
+        //     todo!()
+        // }
+    }
 
     // $name | $name
-    // TODO
+    tests! {
+        bitwise_name_or_name_u8 => {
+            let field = MyFieldU8(U8);
+            let reversed = MyFieldU8(u8::from_str_radix(B8.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field | reversed;
+            assert_eq!("11111111", out.as_binary());
+            assert_eq!(255, out.as_integer());
+        }
+        bitwise_name_or_name_u16 => {
+            let field = MyFieldU16(U16);
+            let reversed = MyFieldU16(u16::from_str_radix(B16.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field | reversed;
+            assert_eq!("1110101111010111", out.as_binary());
+            assert_eq!(60375, out.as_integer());
+        }
+        bitwise_name_or_name_u32 => {
+            let field = MyFieldU32(U32);
+            let reversed = MyFieldU32(u32::from_str_radix(B32.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field | reversed;
+            assert_eq!("11111101100100111100100110111111", out.as_binary());
+            assert_eq!(4254321087, out.as_integer());
+        }
+        bitwise_name_or_name_u64 => {
+            let field = MyFieldU64(U64);
+            let reversed = MyFieldU64(u64::from_str_radix(B64.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field | reversed;
+            assert_eq!("1111111011010010001111111001110110111001111111000100101101111111", out.as_binary());
+            assert_eq!(18361808577405668223, out.as_integer());
+        }
+        bitwise_name_or_name_u128 => {
+            let field = MyFieldU128(U128);
+            let reversed = MyFieldU128(u128::from_str_radix(B128.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field | reversed;
+            assert_eq!("11111001111111011110001110100101111101111110111101101011111111111111111111010110111101111110111110100101110001111011111110011111", out.as_binary());
+            assert_eq!(332296039312012448238196841470979719071, out.as_integer());
+        }
+        // bitwise_name_or_name_usize => {
+        //     todo!()
+        // }
+    }
 
     // $name ^ $name
-    // TODO
+    tests! {
+        bitwise_name_xor_name_u8 => {
+            let field = MyFieldU8(U8);
+            let reversed = MyFieldU8(u8::from_str_radix(B8.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field ^ reversed;
+            assert_eq!("10100101", out.as_binary());
+            assert_eq!(165, out.as_integer());
+        }
+        bitwise_name_xor_name_u16 => {
+            let field = MyFieldU16(U16);
+            let reversed = MyFieldU16(u16::from_str_radix(B16.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field ^ reversed;
+            assert_eq!("1010101111010101", out.as_binary());
+            assert_eq!(43989, out.as_integer());
+        }
+        bitwise_name_xor_name_u32 => {
+            let field = MyFieldU32(U32);
+            let reversed = MyFieldU32(u32::from_str_radix(B32.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field ^ reversed;
+            assert_eq!("11110101000100111100100010101111", out.as_binary());
+            assert_eq!(4111714479, out.as_integer());
+        }
+        bitwise_name_xor_name_u64 => {
+            let field = MyFieldU64(U64);
+            let reversed = MyFieldU64(u64::from_str_radix(B64.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field ^ reversed;
+            assert_eq!("0001010011000010001001001001100110011001001001000100001100101000", out.as_binary());
+            assert_eq!(1495798268358312744, out.as_integer());
+        }
+        bitwise_name_xor_name_u128 => {
+            let field = MyFieldU128(U128);
+            let reversed = MyFieldU128(u128::from_str_radix(B128.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field ^ reversed;
+            assert_eq!("10010001110011001000001110100101110101111000111101001010101000100100010101010010111100011110101110100101110000010011001110001001", out.as_binary());
+            assert_eq!(193799958082971305581995159990093034377, out.as_integer());
+        }
+        // bitwise_name_xor_name_usize => {
+        //     todo!()
+        // }
+    }
 
     // $name &= $name
-    // TODO
+    tests! {
+        bitwise_name_and_assign_name_u8 => {
+            let mut field = MyFieldU8(U8);
+            let reversed = MyFieldU8(u8::from_str_radix(B8.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            field &= reversed;
+            assert_eq!("01011010", field.as_binary());
+            assert_eq!(90, field.as_integer());
+        }
+        bitwise_name_and_assign_name_u16 => {
+            let mut field = MyFieldU16(U16);
+            let reversed = MyFieldU16(u16::from_str_radix(B16.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            field &= reversed;
+            assert_eq!("0100000000000010", field.as_binary());
+            assert_eq!(16386, field.as_integer());
+        }
+        bitwise_name_and_assign_name_u32 => {
+            let mut field = MyFieldU32(U32);
+            let reversed = MyFieldU32(u32::from_str_radix(B32.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            field &= reversed;
+            assert_eq!("00001000100000000000000100010000", field.as_binary());
+            assert_eq!(142606608, field.as_integer());
+        }
+        bitwise_name_and_assign_name_u64 => {
+            let mut field = MyFieldU64(U64);
+            let reversed = MyFieldU64(u64::from_str_radix(B64.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            field &= reversed;
+            assert_eq!("1110101000010000000110110000010000100000110110000000100001010111", field.as_binary());
+            assert_eq!(16866010309047355479, field.as_integer());
+        }
+        bitwise_name_and_assign_name_u128 => {
+            let mut field = MyFieldU128(U128);
+            let reversed = MyFieldU128(u128::from_str_radix(B128.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            field &= reversed;
+            assert_eq!("01101000001100010110000000000000001000000110000000100001010111011011101010000100000001100000010000000000000001101000110000010110", field.as_binary());
+            assert_eq!(138496081229041142656201681480886684694, field.as_integer());
+        }
+    //     bitwise_name_and_assign_name_usize => {
+    //         todo!()
+    //     }
+    }
 
     // $name |= $name
-    // TODO
+    tests! {
+        bitwise_name_or_assign_name_u8 => {
+            let mut field = MyFieldU8(U8);
+            let reversed = MyFieldU8(u8::from_str_radix(B8.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            field |= reversed;
+            assert_eq!("11111111", field.as_binary());
+            assert_eq!(255, field.as_integer());
+        }
+        bitwise_name_or_assign_name_u16 => {
+            let mut field = MyFieldU16(U16);
+            let reversed = MyFieldU16(u16::from_str_radix(B16.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            field |= reversed;
+            assert_eq!("1110101111010111", field.as_binary());
+            assert_eq!(60375, field.as_integer());
+        }
+        bitwise_name_or_assign_name_u32 => {
+            let mut field = MyFieldU32(U32);
+            let reversed = MyFieldU32(u32::from_str_radix(B32.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            field |= reversed;
+            assert_eq!("11111101100100111100100110111111", field.as_binary());
+            assert_eq!(4254321087, field.as_integer());
+        }
+        bitwise_name_or_assign_name_u64 => {
+            let mut field = MyFieldU64(U64);
+            let reversed = MyFieldU64(u64::from_str_radix(B64.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            field |= reversed;
+            assert_eq!("1111111011010010001111111001110110111001111111000100101101111111", field.as_binary());
+            assert_eq!(18361808577405668223, field.as_integer());
+        }
+        bitwise_name_or_assign_name_u128 => {
+            let mut field = MyFieldU128(U128);
+            let reversed = MyFieldU128(u128::from_str_radix(B128.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            field |= reversed;
+            assert_eq!("11111001111111011110001110100101111101111110111101101011111111111111111111010110111101111110111110100101110001111011111110011111", field.as_binary());
+            assert_eq!(332296039312012448238196841470979719071, field.as_integer());
+        }
+        // bitwise_name_or_assign_name_usize => {
+        //     todo!()
+        // }
+    }
 
     // $name ^= $name
-    // TODO
+    tests! {
+        bitwise_name_xor_assign_name_u8 => {
+            let mut field = MyFieldU8(U8);
+            let reversed = MyFieldU8(u8::from_str_radix(B8.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            field ^= reversed;
+            assert_eq!("10100101", field.as_binary());
+            assert_eq!(165, field.as_integer());
+        }
+        bitwise_name_xor_assign_name_u16 => {
+            let mut field = MyFieldU16(U16);
+            let reversed = MyFieldU16(u16::from_str_radix(B16.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            field ^= reversed;
+            assert_eq!("1010101111010101", field.as_binary());
+            assert_eq!(43989, field.as_integer());
+        }
+        bitwise_name_xor_assign_name_u32 => {
+            let mut field = MyFieldU32(U32);
+            let reversed = MyFieldU32(u32::from_str_radix(B32.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            field ^= reversed;
+            assert_eq!("11110101000100111100100010101111", field.as_binary());
+            assert_eq!(4111714479, field.as_integer());
+        }
+        bitwise_name_xor_assign_name_u64 => {
+            let mut field = MyFieldU64(U64);
+            let reversed = MyFieldU64(u64::from_str_radix(B64.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            field ^= reversed;
+            assert_eq!("0001010011000010001001001001100110011001001001000100001100101000", field.as_binary());
+            assert_eq!(1495798268358312744, field.as_integer());
+        }
+        bitwise_name_xor_assign_name_u128 => {
+            let mut field = MyFieldU128(U128);
+            let reversed = MyFieldU128(u128::from_str_radix(B128.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            field ^= reversed;
+            assert_eq!("10010001110011001000001110100101110101111000111101001010101000100100010101010010111100011110101110100101110000010011001110001001", field.as_binary());
+            assert_eq!(193799958082971305581995159990093034377, field.as_integer());
+        }
+        // bitwise_name_xor_assign_name_usize => {
+        //     todo!()
+        // }
+    }
 
     // $name & $flag
-    // TODO
+    // tests! {
+    //     bitwise_name_and_flag_u8 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_and_flag_u16 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_and_flag_u32 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_and_flag_u64 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_and_flag_u128 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_and_flag_usize => {
+    //         todo!()
+    //     }
+    // }
 
     // $name | $flag
-    // TODO
+    // tests! {
+    //     bitwise_name_or_flag_u8 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_or_flag_u16 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_or_flag_u32 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_or_flag_u64 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_or_flag_u128 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_or_flag_usize => {
+    //         todo!()
+    //     }
+    // }
 
     // $name ^ $flag
-    // TODO
+    // tests! {
+    //     bitwise_name_xor_flag_u8 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_xor_flag_u16 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_xor_flag_u32 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_xor_flag_u64 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_xor_flag_u128 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_xor_flag_usize => {
+    //         todo!()
+    //     }
+    // }
 
     // $name &= $flag
-    // TODO
+    // tests! {
+    //     bitwise_name_and_assign_flag_u8 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_and_assign_flag_u16 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_and_assign_flag_u32 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_and_assign_flag_u64 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_and_assign_flag_u128 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_and_assign_flag_usize => {
+    //         todo!()
+    //     }
+    // }
 
     // $name |= $flag
-    // TODO
+    // tests! {
+    //     bitwise_name_or_assign_flag_u8 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_or_assign_flag_u16 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_or_assign_flag_u32 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_or_assign_flag_u64 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_or_assign_flag_u128 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_or_assign_flag_usize => {
+    //         todo!()
+    //     }
+    // }
 
     // $name ^= $flag
-    // TODO
+    // tests! {
+    //     bitwise_name_xor_assign_flag_u8 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_xor_assign_flag_u16 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_xor_assign_flag_u32 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_xor_assign_flag_u64 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_xor_assign_flag_u128 => {
+    //         todo!()
+    //     }
+    //     bitwise_name_xor_assign_flag_usize => {
+    //         todo!()
+    //     }
+    // }
 
     // flag from u8
     // TODO
@@ -2321,13 +2669,70 @@ mod test {
     // TODO
 
     // $flag & $flag
-    // TODO
+    // tests! {
+    //     bitwise_flag_and_flag_u8 => {
+    //         todo!()
+    //     }
+    //     bitwise_flag_and_flag_u16 => {
+    //         todo!()
+    //     }
+    //     bitwise_flag_and_flag_u32 => {
+    //         todo!()
+    //     }
+    //     bitwise_flag_and_flag_u64 => {
+    //         todo!()
+    //     }
+    //     bitwise_flag_and_flag_u128 => {
+    //         todo!()
+    //     }
+    //     bitwise_flag_and_flag_usize => {
+    //         todo!()
+    //     }
+    // }
 
     // $flag | $flag
-    // TODO
+    // tests! {
+    //     bitwise_flag_or_flag_u8 => {
+    //         todo!()
+    //     }
+    //     bitwise_flag_or_flag_u16 => {
+    //         todo!()
+    //     }
+    //     bitwise_flag_or_flag_u32 => {
+    //         todo!()
+    //     }
+    //     bitwise_flag_or_flag_u64 => {
+    //         todo!()
+    //     }
+    //     bitwise_flag_or_flag_u128 => {
+    //         todo!()
+    //     }
+    //     bitwise_flag_or_flag_usize => {
+    //         todo!()
+    //     }
+    // }
 
     // $flag ^ $flag
-    // TODO
+    // tests! {
+    //     bitwise_flag_xor_flag_u8 => {
+    //         todo!()
+    //     }
+    //     bitwise_flag_xor_flag_u16 => {
+    //         todo!()
+    //     }
+    //     bitwise_flag_xor_flag_u32 => {
+    //         todo!()
+    //     }
+    //     bitwise_flag_xor_flag_u64 => {
+    //         todo!()
+    //     }
+    //     bitwise_flag_xor_flag_u128 => {
+    //         todo!()
+    //     }
+    //     bitwise_flag_xor_flag_usize => {
+    //         todo!()
+    //     }
+    // }
 
     // binary format
     // TODO
