@@ -9,6 +9,9 @@ pub use doc_comment::doc_comment;
 #[doc(hidden)]
 pub use safe_transmute::{transmute_one, TriviallyTransmutable};
 
+// -------------------------------------------------------------------------------------------------
+// Generator Macros
+
 /// TODO
 #[macro_export(local_inner_macros)]
 macro_rules! bitmask {
@@ -418,6 +421,9 @@ macro_rules! __bitmask_unchecked {
     };
 }
 
+// -------------------------------------------------------------------------------------------------
+// Type Definitions
+
 #[doc(hidden)]
 #[macro_export(local_inner_macros)]
 macro_rules! __def_flag_enum {
@@ -461,6 +467,28 @@ macro_rules! __def_flag_enum {
         unsafe impl TriviallyTransmutable for $flag {}
     };
 }
+
+// TODO macro_rules! __def_mask_struct { ... }
+
+// -------------------------------------------------------------------------------------------------
+// Mask Implementations
+
+// TODO macro_rules! __impl_mask_constants { ... }
+
+// TODO macro_rules! __impl_mask_ctors { ... }
+
+// TODO macro_rules! __impl_mask_state { ... }
+
+// TODO macro_rules! __impl_mask_index_accessors { ... }
+
+// TODO macro_rules! __impl_mask_flag_accessors { ... }
+
+// TODO macro_rules! __impl_mask_flag_combinators { ... }
+
+// TODO macro_rules! __impl_mask_flag_converters { ... }
+
+// -------------------------------------------------------------------------------------------------
+// Trait Implementations
 
 #[doc(hidden)]
 #[macro_export]
