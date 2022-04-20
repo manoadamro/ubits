@@ -344,70 +344,6 @@ macro_rules! __bitfield_unchecked {
 // -------------------------------------------------------------------------------------------------
 // Type Definitions
 
-/// Defines a flag enum with its members and implementations
-#[doc(hidden)]
-#[macro_export(local_inner_macros)]
-macro_rules! __def_flag_enum {
-    (
-        $(#[$flag_doc:meta])*
-        $( ($access:vis) )? $name:ident
-        $flag:ident {
-            $(
-                $(#[$member_doc:meta])*
-                $idx:literal : $field:ident
-            )*
-        }
-    ) => {
-
-        // Enum: $flag
-        $(#[$flag_doc])*
-        #[derive(Debug, Copy, Clone, PartialEq)]
-        #[repr(u8)]
-        $( $access )? enum $flag {
-            $( $(#[$member_doc])* $field = $idx ),*
-        }
-
-        // Bitwise: $flag + $flag
-        __impl_bitwise_operators! {
-            [Self] for $flag : (self rhs -> $name)
-            BitAnd => { $name(0).set(self) & rhs }
-            BitOr => { $name(0).set(self) | rhs }
-            BitXor => { $name(0).set(self) ^ rhs }
-        }
-
-        // Bitwise: u8 -> $flag
-        __impl_from! {
-            /// Converts a [`u8`] to a flag
-            ///
-            /// # Errors
-            ///
-            /// Panics if the supplied [`u8`] is out of range for fields base type.
-            /// eg: for a 16-bit field (using [`u16`]),
-            /// providing an index of `20` will cause a panic.
-            u8 as $flag (value) => {
-                $crate::__transmute_one::<$flag>(&[value])
-                .expect(std::format!(
-                    "failed to transmute {} to {}. {} is not a valid index in {}.",
-                    value,
-                    core::stringify!($flag),
-                    value,
-                    core::stringify!($flag)
-                ).as_str())
-            }
-        }
-
-        // Bitwise: $flag -> u8
-        __impl_from! {
-            /// Returns a flag as its corresponding [`u8`] value.
-            $flag as u8 (value) => {
-                value as u8
-            }
-        }
-
-        unsafe impl $crate::__TriviallyTransmutable for $flag {}
-    };
-}
-
 /// Defines a field struct with its members and implementations
 #[doc(hidden)]
 #[macro_export(local_inner_macros)]
@@ -499,9 +435,9 @@ macro_rules! __def_field_struct {
         // Bitwise: $name + $flag
         __impl_bitwise_operators! {
             [$flag] for $name : (self rhs -> $name)
-            BitAnd => { $name(self.0  & (rhs as $type)) }
-            BitOr => { $name(self.0 | (rhs as $type)) }
-            BitXor => { $name(self.0 ^ (rhs as $type)) }
+            BitAnd => { $name(self.0 & (1 << (rhs as $type))) }
+            BitOr => { $name(self.0 | (1 << (rhs as $type))) }
+            BitXor => { $name(self.0 ^ (1 << (rhs as $type))) }
             BitAndAssign => { self.clear(rhs); }
             BitOrAssign => { self.set(rhs); }
             BitXorAssign => { self.toggle(rhs); }
@@ -530,6 +466,70 @@ macro_rules! __def_field_struct {
                 Binary => { core::write!(f, "{}", self.as_binary()) }
             }
         }
+    };
+}
+
+/// Defines a flag enum with its members and implementations
+#[doc(hidden)]
+#[macro_export(local_inner_macros)]
+macro_rules! __def_flag_enum {
+    (
+        $(#[$flag_doc:meta])*
+        $( ($access:vis) )? $name:ident
+        $flag:ident {
+            $(
+                $(#[$member_doc:meta])*
+                $idx:literal : $field:ident
+            )*
+        }
+    ) => {
+
+        // Enum: $flag
+        $(#[$flag_doc])*
+        #[derive(Debug, Copy, Clone, PartialEq)]
+        #[repr(u8)]
+        $( $access )? enum $flag {
+            $( $(#[$member_doc])* $field = $idx ),*
+        }
+
+        // Bitwise: $flag + $flag
+        __impl_bitwise_operators! {
+            [Self] for $flag : (self rhs -> $name)
+            BitAnd => { $name(0).set(self) & rhs }
+            BitOr => { $name(0).set(self) | rhs }
+            BitXor => { $name(0).set(self) ^ rhs }
+        }
+
+        // Bitwise: u8 -> $flag
+        __impl_from! {
+            /// Converts a [`u8`] to a flag
+            ///
+            /// # Errors
+            ///
+            /// Panics if the supplied [`u8`] is out of range for fields base type.
+            /// eg: for a 16-bit field (using [`u16`]),
+            /// providing an index of `20` will cause a panic.
+            u8 as $flag (value) => {
+                $crate::__transmute_one::<$flag>(&[value])
+                .expect(std::format!(
+                    "failed to transmute {} to {}. {} is not a valid index in {}.",
+                    value,
+                    core::stringify!($flag),
+                    value,
+                    core::stringify!($flag)
+                ).as_str())
+            }
+        }
+
+        // Bitwise: $flag -> u8
+        __impl_from! {
+            /// Returns a flag as its corresponding [`u8`] value.
+            $flag as u8 (value) => {
+                value as u8
+            }
+        }
+
+        unsafe impl $crate::__TriviallyTransmutable for $flag {}
     };
 }
 
@@ -2533,19 +2533,34 @@ mod test {
     // $name & $flag
     tests! {
         bitwise_name_and_flag_u8 => {
-            todo!()
+            for index in 0..u8::BITS {
+                let mask = MyFieldU8(u8::MAX) & MyFlagsU8::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
         }
         bitwise_name_and_flag_u16 => {
-            todo!()
+            for index in 0..u16::BITS {
+                let mask = MyFieldU16(u16::MAX) & MyFlagsU16::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
         }
         bitwise_name_and_flag_u32 => {
-            todo!()
+            for index in 0..u32::BITS {
+                let mask = MyFieldU32(u32::MAX) & MyFlagsU32::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
         }
         bitwise_name_and_flag_u64 => {
-            todo!()
+            for index in 0..u64::BITS {
+                let mask = MyFieldU64(u64::MAX) & MyFlagsU64::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
         }
         bitwise_name_and_flag_u128 => {
-            todo!()
+            for index in 0..u128::BITS {
+                let mask = MyFieldU128(u128::MAX) & MyFlagsU128::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
         }
         // bitwise_name_and_flag_usize => {
         //     todo!()
@@ -2553,48 +2568,78 @@ mod test {
     }
 
     // $name | $flag
-    // tests! {
-    //     bitwise_name_or_flag_u8 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_or_flag_u16 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_or_flag_u32 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_or_flag_u64 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_or_flag_u128 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_or_flag_usize => {
-    //         todo!()
-    //     }
-    // }
+    tests! {
+        bitwise_name_or_flag_u8 => {
+            for index in 0..u8::BITS {
+                let mask = MyFieldU8(0) | MyFlagsU8::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        bitwise_name_or_flag_u16 => {
+            for index in 0..u16::BITS {
+                let mask = MyFieldU16(0) | MyFlagsU16::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        bitwise_name_or_flag_u32 => {
+            for index in 0..u32::BITS {
+                let mask = MyFieldU32(0) | MyFlagsU32::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        bitwise_name_or_flag_u64 => {
+            for index in 0..u64::BITS {
+                let mask = MyFieldU64(0) | MyFlagsU64::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        bitwise_name_or_flag_u128 => {
+            for index in 0..u128::BITS {
+                let mask = MyFieldU128(0) | MyFlagsU128::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        // bitwise_name_or_flag_usize => {
+        //     todo!()
+        // }
+    }
 
     // $name ^ $flag
-    // tests! {
-    //     bitwise_name_xor_flag_u8 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_xor_flag_u16 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_xor_flag_u32 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_xor_flag_u64 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_xor_flag_u128 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_xor_flag_usize => {
-    //         todo!()
-    //     }
-    // }
+    tests! {
+        bitwise_name_xor_flag_u8 => {
+            for index in 0..u8::BITS {
+                let mask = MyFieldU8(0) ^ MyFlagsU8::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        bitwise_name_xor_flag_u16 => {
+            for index in 0..u16::BITS {
+                let mask = MyFieldU16(0) ^ MyFlagsU16::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        bitwise_name_xor_flag_u32 => {
+            for index in 0..u32::BITS {
+                let mask = MyFieldU32(0) ^ MyFlagsU32::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        bitwise_name_xor_flag_u64 => {
+            for index in 0..u64::BITS {
+                let mask = MyFieldU64(0) ^ MyFlagsU64::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        bitwise_name_xor_flag_u128 => {
+            for index in 0..u128::BITS {
+                let mask = MyFieldU128(0) ^ MyFlagsU128::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        // bitwise_name_xor_flag_usize => {
+        //     todo!()
+        // }
+    }
 
     // $name &= $flag
     // tests! {
