@@ -87,8 +87,7 @@ pub use doc_comment::doc_comment as __doc_comment;
 
 #[doc(hidden)]
 pub use safe_transmute::{
-    transmute_one as __transmute_one,
-    TriviallyTransmutable as __TriviallyTransmutable
+    transmute_one as __transmute_one, TriviallyTransmutable as __TriviallyTransmutable,
 };
 
 // -------------------------------------------------------------------------------------------------
@@ -620,7 +619,6 @@ macro_rules! __impl_field_state {
     };
 }
 
-
 /// Generates getters by index for bit fields in `$name`
 #[doc(hidden)]
 #[macro_export]
@@ -1014,8 +1012,8 @@ pub mod example {
 #[allow(unused_variables)]
 #[cfg(test)]
 mod test {
-    use std::{u16, u32, u64, usize};
     use super::*;
+    use std::{u16, u32, u64, usize};
 
     macro_rules! tests {
         ( $( $name:ident => $block:block )+ ) => {
@@ -2233,7 +2231,7 @@ mod test {
         //     let field = MyFieldUsize(USIZE);
         // }
     }
-    
+
     // field from flag
     tests! {
         field_from_flag_u8 => {
