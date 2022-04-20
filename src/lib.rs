@@ -1,4 +1,4 @@
-//! TODO
+//! TODO docs
 
 // -------------------------------------------------------------------------------------------------
 // Imports
@@ -18,7 +18,7 @@ pub use safe_transmute::{
 // -------------------------------------------------------------------------------------------------
 // Generator Macros
 
-/// TODO
+/// TODO docs
 #[macro_export(local_inner_macros)]
 macro_rules! bitmask {
 
@@ -192,7 +192,7 @@ macro_rules! __def_flag_enum {
 
         // Bitwise: u8 -> $flag
         __impl_from! { u8 as $flag (value) => {
-            $crate::__transmute_one::<$flag>(&[value]).expect("") // TODO
+            $crate::__transmute_one::<$flag>(&[value]).expect("") // TODO expectation
         }}
 
         // Bitwise: $flag -> u8
@@ -384,8 +384,17 @@ macro_rules! __impl_mask_state {
                     core::concat!(
                       "Returns the current mask value as a [`", core::stringify!($type), "`]"
                     ),
-                    pub fn value(&self) -> $type {
+                    pub fn integer(&self) -> $type {
                         self.0
+                    }
+                }
+
+                $crate::__doc_comment! {
+                    core::concat!(
+                      "Returns the current mask value as a binary formatted string."
+                    ),
+                    pub fn as_binary(&self) -> String {
+                        format!("{:b}", self.0)
                     }
                 }
             }
@@ -839,42 +848,42 @@ mod test {
     tests! {
         new_u8 => {
             let mask = MyMaskU8(123);
-            assert_eq!(123, mask.value())
+            assert_eq!(123, mask.integer())
         }
         new_u16 => {
             let mask = MyMaskU16(123);
-            assert_eq!(123, mask.value())
+            assert_eq!(123, mask.integer())
         }
         new_u32 => {
             let mask = MyMaskU32(123);
-            assert_eq!(123, mask.value())
+            assert_eq!(123, mask.integer())
         }
         new_u64 => {
             let mask = MyMaskU64(123);
-            assert_eq!(123, mask.value())
+            assert_eq!(123, mask.integer())
         }
         new_u128 => {
             let mask = MyMaskU128(123);
-            assert_eq!(123, mask.value())
+            assert_eq!(123, mask.integer())
         }
     }
 
     // defaults
     tests! {
         default_u8 => {
-            assert_eq!(0, MyMaskU8::default().value())
+            assert_eq!(0, MyMaskU8::default().integer())
         }
         default_u16 => {
-            assert_eq!(0, MyMaskU16::default().value())
+            assert_eq!(0, MyMaskU16::default().integer())
         }
         default_u32 => {
-            assert_eq!(0, MyMaskU32::default().value())
+            assert_eq!(0, MyMaskU32::default().integer())
         }
         default_u64 => {
-            assert_eq!(0, MyMaskU64::default().value())
+            assert_eq!(0, MyMaskU64::default().integer())
         }
         default_u128 => {
-            assert_eq!(0, MyMaskU128::default().value())
+            assert_eq!(0, MyMaskU128::default().integer())
         }
     }
 
