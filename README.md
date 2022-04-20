@@ -1,2 +1,3 @@
-# bitmask-rs
-Bitmasks for rust!
+# bitfield-rs
+
+Bitfields for rust!
