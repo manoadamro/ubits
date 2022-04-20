@@ -589,25 +589,7 @@ macro_rules! __impl_mask_flag_converters {
 // -------------------------------------------------------------------------------------------------
 // Trait Implementations
 
-#[doc(hidden)]
-#[macro_export]
-macro_rules! __impl_default {
-    ($name:ident => $block:block) => {
-        impl Default for $name {
-            fn default() -> Self $block
-        }
-    };
-}
-
-#[doc(hidden)]
-#[macro_export]
-macro_rules! __impl_from {
-    ($from:ty as $to:ident ($arg:ident) => $block:block) => {
-        impl From<$from> for $to {
-            fn from($arg: $from) -> $to $block
-        }
-    };
-}
+// Operators
 
 #[doc(hidden)]
 #[macro_export(local_inner_macros)]
@@ -695,6 +677,32 @@ macro_rules! __impl_assign_operator {
         }
     };
 }
+
+// Defaults
+
+#[doc(hidden)]
+#[macro_export]
+macro_rules! __impl_default {
+    ($name:ident => $block:block) => {
+        impl Default for $name {
+            fn default() -> Self $block
+        }
+    };
+}
+
+// Converters
+
+#[doc(hidden)]
+#[macro_export]
+macro_rules! __impl_from {
+    ($from:ty as $to:ident ($arg:ident) => $block:block) => {
+        impl From<$from> for $to {
+            fn from($arg: $from) -> $to $block
+        }
+    };
+}
+
+// Formatters
 
 #[doc(hidden)]
 #[macro_export(local_inner_macros)]
