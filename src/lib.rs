@@ -12,23 +12,71 @@ pub use safe_transmute::{transmute_one, TriviallyTransmutable};
 /// TODO
 #[macro_export(local_inner_macros)]
 macro_rules! bitmask {
-    ( $(#[$doc:meta])* $( ($access:vis) )? $name:ident $flag:ident u8 $( [$( $derive:ident ),*] )? { $( $(#[$member_doc:meta])* $idx:literal : $field:ident )* } ) => {
-        __bitmask_unchecked!( $(#[$doc])* $( ($access) )? $name $flag [u8] [8] $( [$( $derive ),*] )? { $( $(#[$member_doc])* $idx : $field )* });
+    (
+        $(#[$doc:meta])*
+        $( [$( $derive:ident ),*] )?
+        $( ($access:vis) )? $name:ident
+        $(#[$flag_doc:meta])*
+        $flag:ident u8 {
+            $( $(#[$member_doc:meta])* $idx:literal : $field:ident )*
+        }
+    ) => {
+        __bitmask_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u8] [8] { $( $(#[$member_doc])* $idx : $field )* });
     };
-    ( $(#[$doc:meta])* $( ($access:vis) )? $name:ident $flag:ident u16 $( [$( $derive:ident ),*] )? { $( $(#[$member_doc:meta])* $idx:literal : $field:ident )* } ) => {
-        __bitmask_unchecked!( $(#[$doc])* $( ($access) )? $name $flag [u16] [16] $( [$( $derive ),*] )? { $( $(#[$member_doc])* $idx : $field )* });
+    (
+        $(#[$doc:meta])*
+         $( [$( $derive:ident ),*] )?
+        $( ($access:vis) )? $name:ident
+        $(#[$flag_doc:meta])*
+        $flag:ident u16 {
+            $( $(#[$member_doc:meta])* $idx:literal : $field:ident )*
+        }
+    ) => {
+        __bitmask_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u16] [16] { $( $(#[$member_doc])* $idx : $field )* });
     };
-    ( $(#[$doc:meta])* $( ($access:vis) )? $name:ident $flag:ident u32 $( [$( $derive:ident ),*] )? { $( $(#[$member_doc:meta])* $idx:literal : $field:ident )* } ) => {
-        __bitmask_unchecked!( $(#[$doc])* $( ($access) )? $name $flag [u32] [32] $( [$( $derive ),*] )? { $( $(#[$member_doc])* $idx : $field )* });
+    (
+        $(#[$doc:meta])*
+         $( [$( $derive:ident ),*] )?
+        $( ($access:vis) )? $name:ident
+        $(#[$flag_doc:meta])*
+        $flag:ident u32 {
+            $( $(#[$member_doc:meta])* $idx:literal : $field:ident )*
+        }
+    ) => {
+        __bitmask_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u32] [32] { $( $(#[$member_doc])* $idx : $field )* });
     };
-    ( $(#[$doc:meta])* $( ($access:vis) )? $name:ident $flag:ident u64 $( [$( $derive:ident ),*] )? { $( $(#[$member_doc:meta])* $idx:literal : $field:ident )* } ) => {
-        __bitmask_unchecked!( $(#[$doc])* $( ($access) )? $name $flag [u64] [64] $( [$( $derive ),*] )? { $( $(#[$member_doc])* $idx : $field )* });
+    (
+        $(#[$doc:meta])*
+         $( [$( $derive:ident ),*] )?
+        $( ($access:vis) )? $name:ident
+        $(#[$flag_doc:meta])*
+        $flag:ident u64 {
+            $( $(#[$member_doc:meta])* $idx:literal : $field:ident )*
+        }
+    ) => {
+        __bitmask_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u64] [64] { $( $(#[$member_doc])* $idx : $field )* });
     };
-    ( $(#[$doc:meta])* $( ($access:vis) )? $name:ident $flag:ident u128 $( [$( $derive:ident ),*] )? { $( $(#[$member_doc:meta])* $idx:literal : $field:ident )* } ) => {
-        __bitmask_unchecked!( $(#[$doc])* $( ($access) )? $name $flag [u128] [128] $( [$( $derive ),*] )? { $( $(#[$member_doc])* $idx : $field )* });
+    (
+        $(#[$doc:meta])*
+         $( [$( $derive:ident ),*] )?
+        $( ($access:vis) )? $name:ident
+        $(#[$flag_doc:meta])*
+        $flag:ident u128 {
+            $( $(#[$member_doc:meta])* $idx:literal : $field:ident )*
+        }
+    ) => {
+        __bitmask_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u128] [128] { $( $(#[$member_doc])* $idx : $field )* });
     };
-    ( $(#[$doc:meta])* $( ($access:vis) )? $name:ident $flag:ident usize $( [$( $derive:ident ),*] )? { $( $(#[$member_doc:meta])* $idx:literal : $field:ident )* } ) => {
-        __bitmask_unchecked!( $(#[$doc])* $( ($access) )? $name $flag [usize] [usize::MAX] $( [$( $derive ),*] )? { $( $(#[$member_doc])* $idx : $field )* });
+    (
+        $(#[$doc:meta])*
+         $( [$( $derive:ident ),*] )?
+        $( ($access:vis) )? $name:ident
+        $(#[$flag_doc:meta])*
+        $flag:ident usize {
+            $( $(#[$member_doc:meta])* $idx:literal : $field:ident )*
+        }
+    ) => {
+        __bitmask_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [usize] [usize::MAX] { $( $(#[$member_doc])* $idx : $field )* });
     };
 }
 
@@ -36,12 +84,16 @@ macro_rules! bitmask {
 #[macro_export(local_inner_macros)]
 macro_rules! __bitmask_unchecked {
     (
-        $(#[$doc:meta])*
-        $( ($access:vis) )? $name:ident $flag:ident [$type:ty] [$($bits:tt)*] $( [$( $derive:ident ),*] )? {
+        $(#[$mask_doc:meta])*
+        $( [$( $derive:ident ),*] )?
+        $( ($access:vis) )? $name:ident
+        $(#[$flag_doc:meta])*
+        $flag:ident [$type:ty] [$($bits:tt)*] {
             $( $(#[$member_doc:meta])* $idx:literal : $field:ident )*
         }
     ) => {
 
+        $(#[$flag_doc])*
         #[derive(Debug, Copy, Clone, PartialEq)]
         #[repr(u8)]
         $( $access )? enum $flag {
@@ -83,7 +135,7 @@ macro_rules! __bitmask_unchecked {
 
         unsafe impl TriviallyTransmutable for $flag {}
 
-        $(#[$doc])*
+        $(#[$mask_doc])*
         $( #[derive($($derive:ident ),*)] )?
         $( $access )? struct $name($type);
 
@@ -481,7 +533,9 @@ pub mod example {
 
     bitmask! {
         /// TODO some description
-        (pub) ExampleMask ExampleFlags u8 {
+        (pub) ExampleMask
+        /// TODO some description
+        ExampleFlags u8 {
             /// TODO some description
             0 : Flag0
             /// TODO some description
@@ -507,6 +561,15 @@ pub mod example {
 #[cfg(test)]
 mod test {
     use super::*;
+
+    macro_rules! tests {
+        ( $( $name:ident => $block:block )+ ) => {
+            $(
+                #[test]
+                fn $name() $block
+            )+
+        };
+    }
 
     bitmask! {
         /// My Test Thing
@@ -567,15 +630,6 @@ mod test {
             112 : Flag112 113 : Flag113 114 : Flag114 115 : Flag115 116 : Flag116 117 : Flag117 118 : Flag118 119 : Flag119
             120 : Flag120 121 : Flag121 122 : Flag122 123 : Flag123 124 : Flag124 125 : Flag125 126 : Flag126 127 : Flag127
         }
-    }
-
-    macro_rules! tests {
-        ( $( $name:ident => $block:block )+ ) => {
-            $(
-                #[test]
-                fn $name() $block
-            )+
-        };
     }
 
     // constructors
