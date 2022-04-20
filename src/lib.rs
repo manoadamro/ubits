@@ -1,5 +1,3 @@
-//! Bitfield
-//!
 //! Provides a macro for generating [`bit field`](https://en.wikipedia.org/wiki/Bit_field) types
 //! complete with flags and some helpful trait implementations.
 //!
@@ -8,6 +6,75 @@
 //!
 //! __Note: the example module is only complied with documentation builds
 //! and is not available for importing in the wild.__
+//!
+//!
+//! # Features
+//!
+//! TODO
+//!
+//! # Fields named with flags
+//!
+//! The generated flags enum allows you to access bits by name.
+//! The flag has an associated [`u8`] value,
+//! which determines the index its target bit.
+//! (See [`crate::bitfield`] for more info)
+//!
+//! With the following input...
+//! ```no_compile
+//! 1 0 1 0 0 1 1 0
+//! ```
+//!
+//! and the following flags...
+//! ```no_compile
+//! 0 : f1
+//! 1 : f1
+//! 2 : f2
+//! 3 : f3
+//! 4 : f4
+//! 5 : f5
+//! 6 : f6
+//! 7 : f7
+//! ```
+//!
+//! we end up with this layout.
+//!
+//! | name      | f0 | f1 | f2 | f3 | f4 | f5 | f6 | f7 |
+//! |-----------|----|----|----|----|----|----|----|----|
+//! | bit value | 1  | 0  | 1  | 0  | 0  | 1  | 1  | 0  |
+//! | index     | 0  | 1  | 2  | 3  | 4  | 5  | 6  | 7  |
+//!
+//!
+//! With the same input and only the first few flags:
+//!
+//! ```no_compile
+//! 0 : f0
+//! 1 : f1
+//! 2 : f2
+//! ```
+//!
+//! we end up with this layout.
+//!
+//! | name      | f0 | f1 | f2 |    |    |    |    |    |
+//! |-----------|----|----|----|----|----|----|----|----|
+//! | bit value | 1  | 0  | 1  | 0  | 0  | 1  | 1  | 0  |
+//! | index     | 0  | 1  | 2  | 3  | 4  | 5  | 6  | 7  |
+//!
+//!
+//! Using the same input, but with dispersed flags:
+//!
+//! ```no_compile
+//! 1 : f0
+//! 3 : f1
+//! 6 : f2
+//! ```
+//!
+//! we end up with this layout.
+//!
+//! | name      |    | f0 |    | f1 |    |    | f2 |    |
+//! |-----------|----|----|----|----|----|----|----|----|
+//! | bit value | 1  | 0  | 1  | 0  | 0  | 1  | 1  | 0  |
+//! | index     | 0  | 1  | 2  | 3  | 4  | 5  | 6  | 7  |
+//!
 
 // -------------------------------------------------------------------------------------------------
 // Imports
@@ -46,10 +113,12 @@ pub use safe_transmute::{
 /// valid options are: [`u8`],[`u16`], [`u32`], [`u64`], [`u128`], [`usize`]
 ///
 /// - `0 : Flag0` - defines each member of the flag enum. <br>
-/// The left hand side must be a valid [`u8`] (0 - 255).
-/// This value determines the index of the target bit <br>
+/// The left hand side must be a [`u8`] `(0..=254)`
+/// and must be less than the number of bits in the underlying unsigned type.
+/// This value determines the index of the target bit within the field. <br>
 /// The right hand side can be any valid identifier (unique to this enum).
 /// These identifiers will be used to access the corresponding field.
+///
 ///
 /// # Examples:
 ///
