@@ -9,8 +9,8 @@
 //!
 //! # Usage
 //!
-//! The following examples all use this as a definition.
-//!
+//! Generate a bitfield struct with a flag enum...
+//! (The following examples all use this as a definition.)
 //! ```rust
 //! use bitfield::bitfield;
 //!
@@ -29,9 +29,279 @@
 //!     }
 //! ```
 //!
+//! ## Instances
 //!
-//! ... TODO usage examples ...
+//! Instances can be created from an integer:
+//! ```rust
+//! # use bitfield::bitfield;
+//! #
+//! #    bitfield! {
+//! #        (pub) ExampleField
+//! #        ExampleFlags u8 {
+//! #            0 : Flag0
+//! #            1 : Flag1
+//! #            2 : Flag2
+//! #            3 : Flag3
+//! #            4 : Flag4
+//! #            5 : Flag5
+//! #            6 : Flag6
+//! #            7 : Flag7
+//! #        }
+//! #    }
 //!
+//! let from_integer = ExampleField(123);
+//! assert_eq!(ExampleField(123), from_integer);
+//! ```
+//!
+//! From a binary string:
+//! ```rust
+//! # use bitfield::bitfield;
+//! #
+//! #    bitfield! {
+//! #        (pub) ExampleField
+//! #        ExampleFlags u8 {
+//! #            0 : Flag0
+//! #            1 : Flag1
+//! #            2 : Flag2
+//! #            3 : Flag3
+//! #            4 : Flag4
+//! #            5 : Flag5
+//! #            6 : Flag6
+//! #            7 : Flag7
+//! #        }
+//! #    }
+//!
+//! let from_binary = ExampleField::from_binary_str("01111011");
+//! assert_eq!(ExampleField(123), from_binary)
+//! ```
+//!
+//! From ones:
+//! ```rust
+//! # use bitfield::bitfield;
+//! #
+//! #    bitfield! {
+//! #        (pub) ExampleField
+//! #        ExampleFlags u8 {
+//! #            0 : Flag0
+//! #            1 : Flag1
+//! #            2 : Flag2
+//! #            3 : Flag3
+//! #            4 : Flag4
+//! #            5 : Flag5
+//! #            6 : Flag6
+//! #            7 : Flag7
+//! #        }
+//! #    }
+//!
+//! let from_ones = ExampleField::ones();
+//! assert_eq!("11111111", from_ones.as_binary());
+//! assert_eq!(255, from_ones.as_integer());
+//! ```
+//!
+//! From zeros:
+//! ```rust
+//! # use bitfield::bitfield;
+//! #
+//! #    bitfield! {
+//! #        (pub) ExampleField
+//! #        ExampleFlags u8 {
+//! #            0 : Flag0
+//! #            1 : Flag1
+//! #            2 : Flag2
+//! #            3 : Flag3
+//! #            4 : Flag4
+//! #            5 : Flag5
+//! #            6 : Flag6
+//! #            7 : Flag7
+//! #        }
+//! #    }
+//!
+//! let from_zeros = ExampleField::zeros();
+//! assert_eq!("00000000", from_zeros.as_binary());
+//! assert_eq!(0, from_zeros.as_integer());
+//! ```
+//!
+//! # Field Access
+//!
+//! TODO get
+//! TODO get index
+//! TODO set
+//! TODO set index
+//! TODO clear
+//! TODO clear index
+//! TODO toggle
+//! TODO toggle index
+//!
+//! # Methods
+//!
+//! TODO
+//!
+//! # Combinations
+//!
+//! Combine bit fields: <br>
+//! (use `into_combined` to consume self)
+//!
+//! ```rust
+//! # use bitfield::bitfield;
+//! #
+//! #    bitfield! {
+//! #        (pub) ExampleField
+//! #        ExampleFlags u8 {
+//! #            0 : Flag0
+//! #            1 : Flag1
+//! #            2 : Flag2
+//! #            3 : Flag3
+//! #            4 : Flag4
+//! #            5 : Flag5
+//! #            6 : Flag6
+//! #            7 : Flag7
+//! #        }
+//! #    }
+//!
+//! let mut a = ExampleField::from_binary_str("01010101");
+//! let b = ExampleField::from_binary_str("10101010");
+//! assert_eq!("11111111", a.combine(b).as_binary());
+//! ```
+//!
+//! Get the intersection of two bitfields: <br>
+//! (use `into_intersection` to consume self)
+//! ```rust
+//! # use bitfield::bitfield;
+//! #
+//! #    bitfield! {
+//! #        (pub) ExampleField
+//! #        ExampleFlags u8 {
+//! #            0 : Flag0
+//! #            1 : Flag1
+//! #            2 : Flag2
+//! #            3 : Flag3
+//! #            4 : Flag4
+//! #            5 : Flag5
+//! #            6 : Flag6
+//! #            7 : Flag7
+//! #        }
+//! #    }
+//!
+//! let mut a = ExampleField::from_binary_str("11000011");
+//! let b = ExampleField::from_binary_str("01111110");
+//! assert_eq!("01000010", a.intersect(b).as_binary());
+//! ```
+//!
+//! Get the diff of two bitfields: <br>
+//! (use `into_diff` to consume self)
+//!
+//! ```rust
+//! # use bitfield::bitfield;
+//! #
+//! #    bitfield! {
+//! #        (pub) ExampleField
+//! #        ExampleFlags u8 {
+//! #            0 : Flag0
+//! #            1 : Flag1
+//! #            2 : Flag2
+//! #            3 : Flag3
+//! #            4 : Flag4
+//! #            5 : Flag5
+//! #            6 : Flag6
+//! #            7 : Flag7
+//! #        }
+//! #    }
+//!
+//! let mut a = ExampleField::from_binary_str("11000011");
+//! let b = ExampleField::from_binary_str("01100110");
+//! assert_eq!("10100101", a.diff(b).as_binary());
+//! ```
+//!
+//! # Bitwise
+//!
+//! Both bit field instances and flags use bitwise operators to change bit values.
+//!
+//! From zeros:
+//! ```rust
+//! # use bitfield::bitfield;
+//! #
+//! #    bitfield! {
+//! #        (pub) ExampleField
+//! #        ExampleFlags u8 {
+//! #            0 : Flag0
+//! #            1 : Flag1
+//! #            2 : Flag2
+//! #            3 : Flag3
+//! #            4 : Flag4
+//! #            5 : Flag5
+//! #            6 : Flag6
+//! #            7 : Flag7
+//! #        }
+//! #    }
+//!
+//! let mut from_zeros = ExampleField::zeros();
+//! assert_eq!("00000000", from_zeros.as_binary());
+//!
+//! // set bit to 1
+//! from_zeros |= ExampleFlags::Flag1;
+//! assert_eq!("00000010", from_zeros.as_binary());
+//!
+//! // set bit back to 0
+//! from_zeros &= ExampleFlags::Flag1;
+//! assert_eq!("00000000", from_zeros.as_binary());
+//!
+//! // toggle a bit
+//! from_zeros ^= ExampleFlags::Flag1;
+//! assert_eq!("00000010", from_zeros.as_binary());
+//!
+//! from_zeros ^= ExampleFlags::Flag1;
+//! assert_eq!("00000000", from_zeros.as_binary());
+//! ```
+//!
+//! Operations can also be chained together:
+//!
+//! From zeros:
+//! ```rust
+//! # use bitfield::bitfield;
+//! #
+//! #    bitfield! {
+//! #        (pub) ExampleField
+//! #        ExampleFlags u8 {
+//! #            0 : Flag0
+//! #            1 : Flag1
+//! #            2 : Flag2
+//! #            3 : Flag3
+//! #            4 : Flag4
+//! #            5 : Flag5
+//! #            6 : Flag6
+//! #            7 : Flag7
+//! #        }
+//! #    }
+//!
+//! let mut from_zeros = ExampleField::zeros() | ExampleFlags::Flag1 | ExampleFlags::Flag3;
+//! assert_eq!("00001010", from_zeros.as_binary());
+//!
+//! ```
+//!
+//! Bitfield instances can also be created from combining flags:
+//!
+//! From zeros:
+//! ```rust
+//! # use bitfield::bitfield;
+//! #
+//! #    bitfield! {
+//! #        (pub) ExampleField
+//! #        ExampleFlags u8 {
+//! #            0 : Flag0
+//! #            1 : Flag1
+//! #            2 : Flag2
+//! #            3 : Flag3
+//! #            4 : Flag4
+//! #            5 : Flag5
+//! #            6 : Flag6
+//! #            7 : Flag7
+//! #        }
+//! #    }
+//!
+//! let mut from_zeros = ExampleFlags::Flag1 | ExampleFlags::Flag3;
+//! assert_eq!("00001010", from_zeros.as_binary());
+//!
+//! ```
 //!
 //! # Fields named with flags
 //!
