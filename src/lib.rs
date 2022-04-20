@@ -689,8 +689,6 @@ macro_rules! __impl_field_flag_combinators {
                         Self(self.0 & other.0)
                     }
                 }
-
-                // TODO field()
             }
         }
     };
@@ -1946,8 +1944,6 @@ mod test {
         }
         // diff_usize => {
         //     let field = MyFieldUsize(USIZE);
-        //     let reversed = MyFieldUsize(usize::from_str_radix(BSIZE.chars().rev().collect::<String>().as_str(), 2).unwrap());
-        //     assert_eq!(0, field.diff(reversed).as_integer());
         // }
     }
 
@@ -1990,8 +1986,6 @@ mod test {
         }
         // combine_usize => {
         //     let field = MyFieldUsize(USIZE);
-        //     let reversed = MyFieldUsize(usize::from_str_radix(BSIZE.chars().rev().collect::<String>().as_str(), 2).unwrap());
-        //     assert_eq!(0, field.combine(reversed).as_integer());
         // }
     }
 
@@ -2034,13 +2028,8 @@ mod test {
         }
         // intersect_usize => {
         //     let field = MyFieldUsize(USIZE);
-        //     let reversed = MyFieldUsize(usize::from_str_radix(BSIZE.chars().rev().collect::<String>().as_str(), 2).unwrap());
-        //     assert_eq!(0, field.combine(reversed).as_integer());
         // }
     }
-
-    // mask
-    // TODO
 
     // into diff
     // TODO
