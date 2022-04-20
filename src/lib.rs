@@ -14,23 +14,22 @@
 //! ```rust
 //! use bitfield::bitfield;
 //!
-//!    bitfield! {
-//!        /// Optional docstring
-//!        /// for [`ExampleField`] struct
-//!        (pub) MyBitField
-//!        /// Optional docstring
-//!        /// for [`ExampleFlags`] enum
-//!        MyFlags u8 {
-//!            /// Optional docstring for [`ExampleFlags::Flag0`]
-//!            0 : Flag0
-//!            /// Optional docstring for [`ExampleFlags::Flag1`]
-//!            1 : Flag1
-//!            /// Optional docstring for [`ExampleFlags::Flag2`]
-//!            2 : Flag2
-//!        }
-//!    }
+//!     bitfield! {
+//!         (pub) ExampleField
+//!         ExampleFlags u8 {
+//!             0 : Flag0
+//!             1 : Flag1
+//!             2 : Flag2
+//!             3 : Flag3
+//!             4 : Flag4
+//!             5 : Flag5
+//!             6 : Flag6
+//!             7 : Flag7
+//!         }
+//!     }
 //! ```
 //!
+//! 
 //! ... TODO usage examples ...
 //!
 //!
