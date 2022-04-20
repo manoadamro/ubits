@@ -2,6 +2,8 @@
 
 Bitfields for rust!
 
+Supports widths of `8`, `16`, `32`, `64` and `128` bits.
+
 ## Documentation:
 
 [Documentation is automatically built from main and deployed here.](https://manoadamro.github.io/bitfield-rs/)
