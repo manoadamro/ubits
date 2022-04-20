@@ -612,37 +612,41 @@ macro_rules! __impl_field_ctors {
 
                 $crate::__doc_comment! {
                     core::concat!(
-                      "TODO", ""
+                      "Create a new instance of [`", core::stringify!($name), "`] ",
+                      "from `0`."
                     ),
-                    pub fn zero() -> Self {
-                        todo!()
+                    pub fn zeros() -> Self {
+                        Self(0)
                     }
                 }
 
                 $crate::__doc_comment! {
                     core::concat!(
-                      "TODO", ""
+                      "Create a new instance of [`", core::stringify!($name), "`] ",
+                      "from the maximum possible integer value."
                     ),
-                    pub fn one() -> Self {
-                        todo!()
+                    pub fn ones() -> Self {
+                        Self(Self::MAX)
                     }
                 }
 
                 $crate::__doc_comment! {
                     core::concat!(
-                      "TODO", ""
+                      "Create a new instance of [`", core::stringify!($name), "`] ",
+                      "from a binary string."
                     ),
                     pub fn from_binary_str(value: &str) -> Self {
-                        todo!()
+                        Self(<$type>::from_str_radix(value, 2).unwrap())
                     }
                 }
 
                 $crate::__doc_comment! {
                     core::concat!(
-                      "TODO", ""
+                      "Create a new instance of [`", core::stringify!($name), "`] ",
+                      "from a binary string."
                     ),
                     pub fn from_binary_string(value: String) -> Self {
-                        todo!()
+                        Self(<$type>::from_str_radix(value.as_str(), 2).unwrap())
                     }
                 }
             }
@@ -1074,7 +1078,7 @@ pub mod example {
 #[cfg(test)]
 mod test {
     use super::*;
-    use std::{u16, u32, u64, usize};
+    use std::{u128, u16, u32, u64, usize};
 
     macro_rules! tests {
         ( $( $name:ident => $block:block )+ ) => {
@@ -1212,6 +1216,94 @@ mod test {
         }
         new_usize => {
             MyFieldUsize(USIZE);
+        }
+    }
+
+    // from binary str
+    tests! {
+        from_binary_str_u8 => {
+            assert_eq!(MyFieldU8::from_binary_str(B8), MyFieldU8(U8));
+        }
+        from_binary_str_u16 => {
+            assert_eq!(MyFieldU16::from_binary_str(B16), MyFieldU16(U16));
+        }
+        from_binary_str_u32 => {
+            assert_eq!(MyFieldU32::from_binary_str(B32), MyFieldU32(U32));
+        }
+        from_binary_str_u64 => {
+            assert_eq!(MyFieldU64::from_binary_str(B64), MyFieldU64(U64));
+        }
+        from_binary_str_u128 => {
+            assert_eq!(MyFieldU128::from_binary_str(B128), MyFieldU128(U128));
+        }
+        from_binary_str_usize => {
+            assert_eq!(MyFieldUsize::from_binary_str(BSIZE), MyFieldUsize(USIZE));
+        }
+    }
+
+    // from binary string
+    tests! {
+        from_binary_string_u8 => {
+            assert_eq!(MyFieldU8::from_binary_string(String::from(B8)), MyFieldU8(U8));
+        }
+        from_binary_string_u16 => {
+            assert_eq!(MyFieldU16::from_binary_string(String::from(B16)), MyFieldU16(U16));
+        }
+        from_binary_string_u32 => {
+            assert_eq!(MyFieldU32::from_binary_string(String::from(B32)), MyFieldU32(U32));
+        }
+        from_binary_string_u64 => {
+            assert_eq!(MyFieldU64::from_binary_string(String::from(B64)), MyFieldU64(U64));
+        }
+        from_binary_string_u128 => {
+            assert_eq!(MyFieldU128::from_binary_string(String::from(B128)), MyFieldU128(U128));
+        }
+        from_binary_string_usize => {
+            assert_eq!(MyFieldUsize::from_binary_string(String::from(BSIZE)), MyFieldUsize(USIZE));
+        }
+    }
+
+    // ones
+    tests! {
+        ones_u8 => {
+            assert_eq!(MyFieldU8::ones(), MyFieldU8(u8::MAX));
+        }
+        ones_u16 => {
+            assert_eq!(MyFieldU16::ones(), MyFieldU16(u16::MAX));
+        }
+        ones_u32 => {
+            assert_eq!(MyFieldU32::ones(), MyFieldU32(u32::MAX));
+        }
+        ones_u64 => {
+            assert_eq!(MyFieldU64::ones(), MyFieldU64(u64::MAX));
+        }
+        ones_u128 => {
+            assert_eq!(MyFieldU128::ones(), MyFieldU128(u128::MAX));
+        }
+        ones_usize => {
+            assert_eq!(MyFieldUsize::ones(), MyFieldUsize(usize::MAX));
+        }
+    }
+
+    // zeros
+    tests! {
+        zeros_u8 => {
+            assert_eq!(MyFieldU8::zeros(), MyFieldU8(0));
+        }
+        zeros_u16 => {
+            assert_eq!(MyFieldU16::zeros(), MyFieldU16(0));
+        }
+        zeros_u32 => {
+            assert_eq!(MyFieldU32::zeros(), MyFieldU32(0));
+        }
+        zeros_u64 => {
+            assert_eq!(MyFieldU64::zeros(), MyFieldU64(0));
+        }
+        zeros_u128 => {
+            assert_eq!(MyFieldU128::zeros(), MyFieldU128(0));
+        }
+        zeros_usize => {
+            assert_eq!(MyFieldUsize::zeros(), MyFieldUsize(0));
         }
     }
 
