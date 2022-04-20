@@ -137,285 +137,15 @@ macro_rules! __bitmask_unchecked {
             }
         }
 
-        $(#[$mask_doc])*
-        $( #[derive($($derive:ident ),*)] )?
-        $( $access )? struct $name($type);
-
-        $crate::doc_comment! {
-            core::concat!(
-                "Constant values describing [`", core::stringify!($name), "`]."
-            ),
-            impl $name {
-                $crate::doc_comment! {
-                    core::concat!(
-                      "Number of bits in an instance of [`", core::stringify!($name), "`]."
-                    ),
-                    pub const BITS: usize = $($bits)*;
-                }
-                $crate::doc_comment! {
-                    core::concat!(
-                      "Number of bytes used by an instance of [`", core::stringify!($name), "`]."
-                    ),
-                    pub const BYTES: usize = $($bits)* / 8;
-                }
-            }
-        }
-
-        $crate::doc_comment! {
-            core::concat!(
-                "Constructors for creating instances of [`", core::stringify!($name), "`]."
-            ),
-            impl $name {
-                $crate::doc_comment! {
-                    core::concat!(
-                      "Create a new instance of [`", core::stringify!($name), "`] ",
-                      "from a [`", core::stringify!($type), "`] value."
-                    ),
-                    pub fn new(value: $type) -> Self {
-                        Self(value)
-                    }
-                }
-            }
-        }
-
-        $crate::doc_comment! {
-            core::concat!(
-                "Current state of this bitmask."
-            ),
-            impl $name {
-                $crate::doc_comment! {
-                    core::concat!(
-                      "Returns the current mask value as a [`", core::stringify!($type), "`]"
-                    ),
-                    pub fn value(&self) -> $type {
-                        self.0
-                    }
-                }
-            }
-        }
-
-        $crate::doc_comment! {
-            core::concat!(
-                "Field accessors by index for [`", core::stringify!($name), "`]."
-            ),
-            impl $name {
-                    $crate::doc_comment! {
-                    core::concat!(
-                        "Returns the value of the bit at the supplied index as a boolean."
-                    ),
-                    pub fn get_index(&self, index: u8) -> bool {
-                        ((self.0 >> index) & 1) == 1
-                    }
-                }
-
-                $crate::doc_comment! {
-                    core::concat!(
-                        "Sets the value of the bit at the supplied index to `1`."
-                    ),
-                    pub fn set_index(&mut self, index: u8) {
-                        self.0 |= (1 << index);
-                    }
-                }
-
-                $crate::doc_comment! {
-                    core::concat!(
-                        "Sets the value of the bit at the supplied index to `0`."
-                    ),
-                    pub fn clear_index(&mut self, index: u8) {
-                        self.0 &= (1 << index);
-                    }
-                }
-
-                $crate::doc_comment! {
-                    core::concat!(
-                        "Flips the value of the bit at the supplied index."
-                    ),
-                    pub fn toggle_index(&mut self, index: u8) {
-                        self.0 ^= (1 << index);
-                    }
-                }
-            }
-        }
-
-        $crate::doc_comment! {
-            core::concat!(
-                "Named field accessors by [`", core::stringify!($flag), "`] for [`", core::stringify!($name), "`]."
-            ),
-            impl $name {
-                $crate::doc_comment! {
-                    core::concat!(
-                        "Returns the value of the bit at the supplied flag as a boolean."
-                    ),
-                    pub fn get(&self, flag: $flag) -> bool {
-                        ((self.0 >> (flag as $type)) & 1) == 1
-                    }
-                }
-
-                $crate::doc_comment! {
-                    core::concat!(
-                        "Sets the value of the bit at the supplied flag to `1`."
-                    ),
-                    pub fn set(&mut self, flag: $flag) -> &mut Self {
-                        self.0 |= (1 << (flag as $type));
-                        self
-                    }
-                }
-
-                $crate::doc_comment! {
-                    core::concat!(
-                        "Sets the value of the bit at the supplied flag to `0`."
-                    ),
-                    pub fn clear(&mut self, flag: $flag) -> &mut Self {
-                        self.0 &= (1 << (flag as $type));
-                        self
-                    }
-                }
-
-                $crate::doc_comment! {
-                    core::concat!(
-                        "Flips the value of the bit at the supplied flag."
-                    ),
-                    pub fn toggle(&mut self, flag: $flag) -> &mut Self {
-                        self.0 ^= (1 << (flag as $type));
-                        self
-                    }
-                }
-            }
-        }
-
-        $crate::doc_comment! {
-            core::concat!(
-                "Combinators for [`", core::stringify!($name), "`]."
-            ),
-            impl $name {
-                $crate::doc_comment! {
-                    core::concat!(
-                        "Returns a new [`", core::stringify!($name), "`]",
-                        "with ones for flags that do not match. ",
-                        "Does not consume `self`."
-                    ),
-                    pub fn diff(&self, other: Self) -> Self {
-                        Self(self.0 ^ other.0)
-                    }
-                }
-
-                $crate::doc_comment! {
-                    core::concat!(
-                        "Returns a new [`", core::stringify!($name), "`]",
-                        "with ones for flags that were set on either input. ",
-                        "Does not consume `self`."
-                    ),
-                    pub fn combine(&self, other: Self) -> Self {
-                        Self(self.0 | other.0)
-                    }
-                }
-
-                $crate::doc_comment! {
-                    core::concat!(
-                        "Returns a new [`", core::stringify!($name), "`]",
-                        "with ones for flags that were set on both inputs. ",
-                        "Does not consume `self`."
-                    ),
-                    pub fn intersect(&self, other: Self) -> Self {
-                        Self(self.0 & other.0)
-                    }
-                }
-            }
-        }
-
-        $crate::doc_comment! {
-            core::concat!(
-                "Conversion methods."
-            ),
-            impl $name {
-                $crate::doc_comment! {
-                    core::concat!(
-                        "Returns a new [`", core::stringify!($name), "`]",
-                        "with ones for flags that do not match. ",
-                        "Consumes `self`."
-                    ),
-                    pub fn into_diff(self, other: Self) -> Self {
-                        Self(self.0 ^ other.0)
-                    }
-                }
-
-                $crate::doc_comment! {
-                    core::concat!(
-                        "Returns a new [`", core::stringify!($name), "`]",
-                        "with ones for flags that were set on either input. ",
-                        "Consumes `self`."
-                    ),
-                    pub fn into_combined(self, other: Self) -> Self {
-                        Self(self.0 | other.0)
-                    }
-                }
-
-                $crate::doc_comment! {
-                    core::concat!(
-                        "Returns a new [`", core::stringify!($name), "`]",
-                        "with ones for flags that were set on both inputs. ",
-                        "Consumes `self`."
-                    ),
-                    pub fn into_intersection(self, other: Self) -> Self {
-                        Self(self.0 & other.0)
-                    }
-                }
-            }
-        }
-
-        // Name: $name
-        __impl_default! {
-            $name => { $name(0) }
-        }
-
-        // From: $type -> $name
-        __impl_from! { $type as $name (value) => {
-            $name(value)
-        }}
-
-        // Bitwise: $name + $name
-        __impl_bitwise_operators! {
-            [Self] for $name : (self rhs -> Self)
-            BitAnd => { Self(self.0 & rhs.0) }
-            BitOr => { Self(self.0 | rhs.0) }
-            BitXor => {  Self(self.0 ^ rhs.0) }
-            BitAndAssign => { self.0 &= rhs.0; }
-            BitOrAssign => { self.0 |= rhs.0; }
-            BitXorAssign => { self.0 ^= rhs.0; }
-        }
-
-        // Bitwise: $name + $flag
-        __impl_bitwise_operators! {
-            [$flag] for $name : (self rhs -> $name)
-            BitAnd => { $name(self.0  & (rhs as $type)) }
-            BitOr => { $name(self.0 | (rhs as $type)) }
-            BitXor => { $name(self.0 ^ (rhs as $type)) }
-            BitAndAssign => { self.clear(rhs); }
-            BitOrAssign => { self.set(rhs); }
-            BitXorAssign => { self.toggle(rhs); }
-        }
-
-        // Bitwise: &$name + $flag
-        __impl_bitwise_operators! {
-            [$flag] for & $name : (self rhs -> $name)
-            BitAnd => { $name(self.0  & (rhs as $type)) }
-            BitOr => { $name(self.0 | (rhs as $type)) }
-            BitXor => { $name(self.0 ^ (rhs as $type)) }
-        }
-
-        // Bitwise: $mut $name + $flag
-        __impl_bitwise_operators! {
-            [$flag] for &mut $name : (self rhs -> $name)
-            BitAnd => { $name(self.0  & (rhs as $type)) }
-            BitOr => { $name(self.0 | (rhs as $type)) }
-            BitXor => { $name(self.0 ^ (rhs as $type)) }
-        }
-
-        // Bitwise: Debug & Binary
-        __impl_formatters! {
-            $name (self f) {
-                Debug => { core::write!(f, "{}({:b})", core::stringify!($name), self) }
-                Binary => { core::write!(f, "{:b}", self.0) }
+        __def_mask_struct! {
+            $(#[$mask_doc])*
+            $( [$( $derive ),*] )?
+            $( ($access) )? $name
+            $flag [$type] [$($bits)*] {
+                $(
+                    $(#[$member_doc])*
+                    $idx : $field
+                )*
             }
         }
     };
@@ -468,24 +198,387 @@ macro_rules! __def_flag_enum {
     };
 }
 
-// TODO macro_rules! __def_mask_struct { ... }
+#[doc(hidden)]
+#[macro_export(local_inner_macros)]
+macro_rules! __def_mask_struct {
+    (
+        $(#[$mask_doc:meta])*
+        $( [$( $derive:ident ),*] )?
+        $( ($access:vis) )? $name:ident
+        $flag:ident [$type:ty] [$($bits:tt)*] {
+            $(
+                $(#[$member_doc:meta])*
+                $idx:literal : $field:ident
+            )*
+        }
+    ) => {
+
+        // Struct: $name
+        $(#[$mask_doc])*
+        $( #[derive($($derive:ident ),*)] )?
+        $( $access )? struct $name($type);
+
+        // Constants
+        __impl_mask_constants! {
+            $name { bits: [$($bits)*] }
+        }
+
+        // Constructors
+        __impl_mask_ctors! {
+            $name : $type
+        }
+
+        // State
+        __impl_mask_state! {
+            $name : $type
+        }
+
+        // Indexers
+        __impl_mask_index_accessors! {
+            $name
+        }
+
+        // Flags
+        __impl_mask_flag_accessors! {
+            $name $flag $type
+        }
+
+        // Combinators
+        __impl_mask_flag_combinators! {
+            $name
+        }
+
+        // Converters
+        __impl_mask_flag_converters! {
+            $name
+        }
+
+        // Name: $name
+        __impl_default! {
+            $name => { $name(0) }
+        }
+
+        // From: $type -> $name
+        __impl_from! {
+            $type as $name (value) => {
+                $name(value)
+            }
+        }
+
+        // Bitwise: $name + $name
+        __impl_bitwise_operators! {
+            [Self] for $name : (self rhs -> Self)
+            BitAnd => { Self(self.0 & rhs.0) }
+            BitOr => { Self(self.0 | rhs.0) }
+            BitXor => {  Self(self.0 ^ rhs.0) }
+            BitAndAssign => { self.0 &= rhs.0; }
+            BitOrAssign => { self.0 |= rhs.0; }
+            BitXorAssign => { self.0 ^= rhs.0; }
+        }
+
+        // Bitwise: $name + $flag
+        __impl_bitwise_operators! {
+            [$flag] for $name : (self rhs -> $name)
+            BitAnd => { $name(self.0  & (rhs as $type)) }
+            BitOr => { $name(self.0 | (rhs as $type)) }
+            BitXor => { $name(self.0 ^ (rhs as $type)) }
+            BitAndAssign => { self.clear(rhs); }
+            BitOrAssign => { self.set(rhs); }
+            BitXorAssign => { self.toggle(rhs); }
+        }
+
+        // Bitwise: &$name + $flag
+        __impl_bitwise_operators! {
+            [$flag] for & $name : (self rhs -> $name)
+            BitAnd => { $name(self.0  & (rhs as $type)) }
+            BitOr => { $name(self.0 | (rhs as $type)) }
+            BitXor => { $name(self.0 ^ (rhs as $type)) }
+        }
+
+        // Bitwise: $mut $name + $flag
+        __impl_bitwise_operators! {
+            [$flag] for &mut $name : (self rhs -> $name)
+            BitAnd => { $name(self.0  & (rhs as $type)) }
+            BitOr => { $name(self.0 | (rhs as $type)) }
+            BitXor => { $name(self.0 ^ (rhs as $type)) }
+        }
+
+        // Bitwise: Debug & Binary
+        __impl_formatters! {
+            $name (self f) {
+                Debug => { core::write!(f, "{}({:b})", core::stringify!($name), self) }
+                Binary => { core::write!(f, "{:b}", self.0) }
+            }
+        }
+    };
+}
 
 // -------------------------------------------------------------------------------------------------
 // Mask Implementations
 
-// TODO macro_rules! __impl_mask_constants { ... }
+#[doc(hidden)]
+#[macro_export]
+macro_rules! __impl_mask_constants {
+    ($name:ident { bits: [$($bits:tt)*] }) => {
+        $crate::doc_comment! {
+            core::concat!(
+                "Constant values describing [`", core::stringify!($name), "`]."
+            ),
+            impl $name {
+                $crate::doc_comment! {
+                    core::concat!(
+                      "Number of bits in an instance of [`", core::stringify!($name), "`]."
+                    ),
+                    pub const BITS: usize = $($bits)*;
+                }
+                $crate::doc_comment! {
+                    core::concat!(
+                      "Number of bytes used by an instance of [`", core::stringify!($name), "`]."
+                    ),
+                    pub const BYTES: usize = $($bits)* / 8;
+                }
+            }
+        }
+    };
+}
 
-// TODO macro_rules! __impl_mask_ctors { ... }
+#[doc(hidden)]
+#[macro_export]
+macro_rules! __impl_mask_ctors {
+    ( $name:ident : $type:ty ) => {
+        $crate::doc_comment! {
+            core::concat!(
+                "Constructors for creating instances of [`", core::stringify!($name), "`]."
+            ),
+            impl $name {
+                $crate::doc_comment! {
+                    core::concat!(
+                      "Create a new instance of [`", core::stringify!($name), "`] ",
+                      "from a [`", core::stringify!($type), "`] value."
+                    ),
+                    pub fn new(value: $type) -> Self {
+                        Self(value)
+                    }
+                }
+            }
+        }
+    };
+}
 
-// TODO macro_rules! __impl_mask_state { ... }
+#[doc(hidden)]
+#[macro_export]
+macro_rules! __impl_mask_state {
+    ($name:ident : $type:ty) => {
+        $crate::doc_comment! {
+            core::concat!(
+                "Current state of this bitmask."
+            ),
+            impl $name {
+                $crate::doc_comment! {
+                    core::concat!(
+                      "Returns the current mask value as a [`", core::stringify!($type), "`]"
+                    ),
+                    pub fn value(&self) -> $type {
+                        self.0
+                    }
+                }
+            }
+        }
+    };
+}
 
-// TODO macro_rules! __impl_mask_index_accessors { ... }
+#[doc(hidden)]
+#[macro_export]
+macro_rules! __impl_mask_index_accessors {
+    ($name:ident) => {
+        $crate::doc_comment! {
+            core::concat!(
+                "Field accessors by index for [`", core::stringify!($name), "`]."
+            ),
+            impl $name {
+                $crate::doc_comment! {
+                    core::concat!(
+                        "Returns the value of the bit at the supplied index as a boolean."
+                    ),
+                    pub fn get_index(&self, index: u8) -> bool {
+                        ((self.0 >> index) & 1) == 1
+                    }
+                }
 
-// TODO macro_rules! __impl_mask_flag_accessors { ... }
+                $crate::doc_comment! {
+                    core::concat!(
+                        "Sets the value of the bit at the supplied index to `1`."
+                    ),
+                    pub fn set_index(&mut self, index: u8) {
+                        self.0 |= (1 << index);
+                    }
+                }
 
-// TODO macro_rules! __impl_mask_flag_combinators { ... }
+                $crate::doc_comment! {
+                    core::concat!(
+                        "Sets the value of the bit at the supplied index to `0`."
+                    ),
+                    pub fn clear_index(&mut self, index: u8) {
+                        self.0 &= (1 << index);
+                    }
+                }
 
-// TODO macro_rules! __impl_mask_flag_converters { ... }
+                $crate::doc_comment! {
+                    core::concat!(
+                        "Flips the value of the bit at the supplied index."
+                    ),
+                    pub fn toggle_index(&mut self, index: u8) {
+                        self.0 ^= (1 << index);
+                    }
+                }
+            }
+        }
+    };
+}
+
+#[doc(hidden)]
+#[macro_export]
+macro_rules! __impl_mask_flag_accessors {
+    ($name:ident $flag:ident $type:ty) => {
+        $crate::doc_comment! {
+            core::concat!(
+                "Named field accessors by [`", core::stringify!($flag), "`] for [`", core::stringify!($name), "`]."
+            ),
+            impl $name {
+                $crate::doc_comment! {
+                    core::concat!(
+                        "Returns the value of the bit at the supplied flag as a boolean."
+                    ),
+                    pub fn get(&self, flag: $flag) -> bool {
+                        ((self.0 >> (flag as $type)) & 1) == 1
+                    }
+                }
+
+                $crate::doc_comment! {
+                    core::concat!(
+                        "Sets the value of the bit at the supplied flag to `1`."
+                    ),
+                    pub fn set(&mut self, flag: $flag) -> &mut Self {
+                        self.0 |= (1 << (flag as $type));
+                        self
+                    }
+                }
+
+                $crate::doc_comment! {
+                    core::concat!(
+                        "Sets the value of the bit at the supplied flag to `0`."
+                    ),
+                    pub fn clear(&mut self, flag: $flag) -> &mut Self {
+                        self.0 &= (1 << (flag as $type));
+                        self
+                    }
+                }
+
+                $crate::doc_comment! {
+                    core::concat!(
+                        "Flips the value of the bit at the supplied flag."
+                    ),
+                    pub fn toggle(&mut self, flag: $flag) -> &mut Self {
+                        self.0 ^= (1 << (flag as $type));
+                        self
+                    }
+                }
+            }
+        }
+    };
+}
+
+#[doc(hidden)]
+#[macro_export]
+macro_rules! __impl_mask_flag_combinators {
+    ($name:ident) => {
+        $crate::doc_comment! {
+            core::concat!(
+                "Combinators for [`", core::stringify!($name), "`]."
+            ),
+            impl $name {
+                $crate::doc_comment! {
+                    core::concat!(
+                        "Returns a new [`", core::stringify!($name), "`]",
+                        "with ones for flags that do not match. ",
+                        "Does not consume `self`."
+                    ),
+                    pub fn diff(&self, other: Self) -> Self {
+                        Self(self.0 ^ other.0)
+                    }
+                }
+
+                $crate::doc_comment! {
+                    core::concat!(
+                        "Returns a new [`", core::stringify!($name), "`]",
+                        "with ones for flags that were set on either input. ",
+                        "Does not consume `self`."
+                    ),
+                    pub fn combine(&self, other: Self) -> Self {
+                        Self(self.0 | other.0)
+                    }
+                }
+
+                $crate::doc_comment! {
+                    core::concat!(
+                        "Returns a new [`", core::stringify!($name), "`]",
+                        "with ones for flags that were set on both inputs. ",
+                        "Does not consume `self`."
+                    ),
+                    pub fn intersect(&self, other: Self) -> Self {
+                        Self(self.0 & other.0)
+                    }
+                }
+            }
+        }
+    };
+}
+
+#[doc(hidden)]
+#[macro_export]
+macro_rules! __impl_mask_flag_converters {
+    ($name:ident) => {
+        $crate::doc_comment! {
+            core::concat!(
+                "Conversion methods."
+            ),
+            impl $name {
+                $crate::doc_comment! {
+                    core::concat!(
+                        "Returns a new [`", core::stringify!($name), "`]",
+                        "with ones for flags that do not match. ",
+                        "Consumes `self`."
+                    ),
+                    pub fn into_diff(self, other: Self) -> Self {
+                        Self(self.0 ^ other.0)
+                    }
+                }
+
+                $crate::doc_comment! {
+                    core::concat!(
+                        "Returns a new [`", core::stringify!($name), "`]",
+                        "with ones for flags that were set on either input. ",
+                        "Consumes `self`."
+                    ),
+                    pub fn into_combined(self, other: Self) -> Self {
+                        Self(self.0 | other.0)
+                    }
+                }
+
+                $crate::doc_comment! {
+                    core::concat!(
+                        "Returns a new [`", core::stringify!($name), "`]",
+                        "with ones for flags that were set on both inputs. ",
+                        "Consumes `self`."
+                    ),
+                    pub fn into_intersection(self, other: Self) -> Self {
+                        Self(self.0 & other.0)
+                    }
+                }
+            }
+        }
+    };
+}
 
 // -------------------------------------------------------------------------------------------------
 // Trait Implementations
@@ -615,6 +708,9 @@ macro_rules! __impl_formatter {
     };
 }
 
+// -------------------------------------------------------------------------------------------------
+// Example
+
 #[allow(dead_code)]
 #[allow(unused_variables)]
 #[cfg(doc)]
@@ -645,6 +741,9 @@ pub mod example {
         }
     }
 }
+
+// -------------------------------------------------------------------------------------------------
+// Tests
 
 #[allow(dead_code)]
 #[allow(unused_variables)]
