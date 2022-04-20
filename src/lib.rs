@@ -2239,7 +2239,6 @@ mod test {
         field_from_flag_u8 => {
             for index in 0..u8::BITS {
                 let flag = MyFlagsU8::from(index as u8);
-                println!("{:#?}", flag);
                 let field = MyFieldU8::from(flag);
                 assert_eq!(MyFieldU8(0u8 | (1 << index)), field)
             }
@@ -2247,7 +2246,6 @@ mod test {
         field_from_flag_u16 => {
             for index in 0..u16::BITS {
                 let flag = MyFlagsU16::from(index as u8);
-                println!("{:#?}", flag);
                 let field = MyFieldU16::from(flag);
                 assert_eq!(MyFieldU16(0u16 | (1 << index)), field)
             }
@@ -2255,7 +2253,6 @@ mod test {
         field_from_flag_u32 => {
             for index in 0..u32::BITS {
                 let flag = MyFlagsU32::from(index as u8);
-                println!("{:#?}", flag);
                 let field = MyFieldU32::from(flag);
                 assert_eq!(MyFieldU32(0u32 | (1 << index)), field)
             }
@@ -2263,7 +2260,6 @@ mod test {
         field_from_flag_u64 => {
             for index in 0..u64::BITS {
                 let flag = MyFlagsU64::from(index as u8);
-                println!("{:#?}", flag);
                 let field = MyFieldU64::from(flag);
                 assert_eq!(MyFieldU64(0u64 | (1 << index)), field)
             }
@@ -2271,7 +2267,6 @@ mod test {
         field_from_flag_u128 => {
             for index in 0..u128::BITS {
                 let flag = MyFlagsU128::from(index as u8);
-                println!("{:#?}", flag);
                 let field = MyFieldU128::from(flag);
                 assert_eq!(MyFieldU128(0u128 | (1 << index)), field)
             }
@@ -2279,7 +2274,6 @@ mod test {
         field_from_flag_usize => {
             for index in 0..usize::BITS {
                 let flag = MyFlagsUsize::from(index as u8);
-                println!("{:#?}", flag);
                 let field = MyFieldUsize::from(flag);
                 assert_eq!(MyFieldUsize(0usize | (1 << index)), field)
             }
