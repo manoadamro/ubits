@@ -23,8 +23,6 @@ jobs:
       - name: Install latest
         uses: actions-rs/toolchain@v1
         with:
-#          toolchain: nightly
-#          override: true
           components: rustfmt, clippy
       - name: Lint
         run: cargo fmt --check --verbose
@@ -36,8 +34,6 @@ jobs:
       - name: Install latest
         uses: actions-rs/toolchain@v1
         with:
-#          toolchain: nightly
-#          override: true
           components: rustfmt, clippy
       - name: Build
         run: cargo build --verbose
@@ -51,13 +47,10 @@ jobs:
       - name: Install latest
         uses: actions-rs/toolchain@v1
         with:
-#          toolchain: nightly
-#          override: true
           components: rustfmt, clippy
       - run: rustup component add clippy
       - uses: actions-rs/clippy-check@v1
         with:
-#          toolchain: nightly
           token: ${{ secrets.GITHUB_TOKEN }}
           args: --all-features -- -D warnings
 
@@ -73,8 +66,6 @@ jobs:
       - name: Install latest
         uses: actions-rs/toolchain@v1
         with:
-#          toolchain: nightly
-#          override: true
           components: rustfmt, clippy
       - name: Build Docs
         run: sh scripts/build-docs.sh
