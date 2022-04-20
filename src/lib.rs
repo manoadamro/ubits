@@ -12,6 +12,8 @@ pub use safe_transmute::{transmute_one, TriviallyTransmutable};
 /// TODO
 #[macro_export(local_inner_macros)]
 macro_rules! bitmask {
+
+    // U8
     (
         $(#[$doc:meta])*
         $( [$( $derive:ident ),*] )?
@@ -26,6 +28,8 @@ macro_rules! bitmask {
     ) => {
         __bitmask_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u8] [8] { $( $(#[$member_doc])* $idx : $field )* });
     };
+
+    // U16
     (
         $(#[$doc:meta])*
          $( [$( $derive:ident ),*] )?
@@ -40,6 +44,8 @@ macro_rules! bitmask {
     ) => {
         __bitmask_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u16] [16] { $( $(#[$member_doc])* $idx : $field )* });
     };
+
+    // U32
     (
         $(#[$doc:meta])*
          $( [$( $derive:ident ),*] )?
@@ -54,6 +60,8 @@ macro_rules! bitmask {
     ) => {
         __bitmask_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u32] [32] { $( $(#[$member_doc])* $idx : $field )* });
     };
+
+    // U64
     (
         $(#[$doc:meta])*
          $( [$( $derive:ident ),*] )?
@@ -65,6 +73,8 @@ macro_rules! bitmask {
     ) => {
         __bitmask_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u64] [64] { $( $(#[$member_doc])* $idx : $field )* });
     };
+
+    // U128
     (
         $(#[$doc:meta])*
          $( [$( $derive:ident ),*] )?
@@ -79,6 +89,8 @@ macro_rules! bitmask {
     ) => {
         __bitmask_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u128] [128] { $( $(#[$member_doc])* $idx : $field )* });
     };
+
+    // USIZE
     (
         $(#[$doc:meta])*
          $( [$( $derive:ident ),*] )?
