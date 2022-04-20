@@ -31,7 +31,7 @@
 //!
 //! ## Instances
 //!
-//! Instances can be created from an integer:
+//! From integer:
 //! ```rust
 //! # use bitfield::bitfield;
 //! #
@@ -123,18 +123,204 @@
 //!
 //! # Field Access
 //!
-//! TODO get
-//! TODO get index
-//! TODO set
-//! TODO set index
-//! TODO clear
-//! TODO clear index
-//! TODO toggle
-//! TODO toggle index
+//! Get bit value by field:
+//! ```rust
+//! # use bitfield::bitfield;
+//! #
+//! #    bitfield! {
+//! #        (pub) ExampleField
+//! #        ExampleFlags u8 {
+//! #            0 : Flag0
+//! #            1 : Flag1
+//! #            2 : Flag2
+//! #            3 : Flag3
+//! #            4 : Flag4
+//! #            5 : Flag5
+//! #            6 : Flag6
+//! #            7 : Flag7
+//! #        }
+//! #    }
 //!
-//! # Methods
+//! let field = ExampleField::from_binary_str("01010101");
+//! assert!(field.get(ExampleFlags::Flag0));
+//! assert!(!field.get(ExampleFlags::Flag1));
+//! ```
 //!
-//! TODO
+//! Get bit value by index:
+//!
+//! ```rust
+//! # use bitfield::bitfield;
+//! #
+//! #    bitfield! {
+//! #        (pub) ExampleField
+//! #        ExampleFlags u8 {
+//! #            0 : Flag0
+//! #            1 : Flag1
+//! #            2 : Flag2
+//! #            3 : Flag3
+//! #            4 : Flag4
+//! #            5 : Flag5
+//! #            6 : Flag6
+//! #            7 : Flag7
+//! #        }
+//! #    }
+//!
+//! let field = ExampleField::from_binary_str("01010101");
+//! assert!(field.get_index(0));
+//! assert!(!field.get_index(1));
+//! ```
+//!
+//! Set bit value by field:
+//!
+//! ```rust
+//! # use bitfield::bitfield;
+//! #
+//! #    bitfield! {
+//! #        (pub) ExampleField
+//! #        ExampleFlags u8 {
+//! #            0 : Flag0
+//! #            1 : Flag1
+//! #            2 : Flag2
+//! #            3 : Flag3
+//! #            4 : Flag4
+//! #            5 : Flag5
+//! #            6 : Flag6
+//! #            7 : Flag7
+//! #        }
+//! #    }
+//!
+//! let mut field = ExampleField::from_binary_str("01010101");
+//! field.set(ExampleFlags::Flag1);
+//! field.set(ExampleFlags::Flag3);
+//! assert_eq!("01011111", field.as_binary());
+//! ```
+//!
+//! Set bit value by index:
+//!
+//! ```rust
+//! # use bitfield::bitfield;
+//! #
+//! #    bitfield! {
+//! #        (pub) ExampleField
+//! #        ExampleFlags u8 {
+//! #            0 : Flag0
+//! #            1 : Flag1
+//! #            2 : Flag2
+//! #            3 : Flag3
+//! #            4 : Flag4
+//! #            5 : Flag5
+//! #            6 : Flag6
+//! #            7 : Flag7
+//! #        }
+//! #    }
+//!
+//! let mut field = ExampleField::from_binary_str("01010101");
+//! field.set_index(1);
+//! field.set_index(3);
+//! assert_eq!("01011111", field.as_binary());
+//! ```
+//!
+//! Clear bit value by field:
+//!
+//! ```rust
+//! # use bitfield::bitfield;
+//! #
+//! #    bitfield! {
+//! #        (pub) ExampleField
+//! #        ExampleFlags u8 {
+//! #            0 : Flag0
+//! #            1 : Flag1
+//! #            2 : Flag2
+//! #            3 : Flag3
+//! #            4 : Flag4
+//! #            5 : Flag5
+//! #            6 : Flag6
+//! #            7 : Flag7
+//! #        }
+//! #    }
+//!
+//! let mut field = ExampleField::from_binary_str("01010101");
+//! field.clear(ExampleFlags::Flag0);
+//! field.clear(ExampleFlags::Flag2);
+//! assert_eq!("01010000", field.as_binary());
+//! ```
+//!
+//! Clear bit value by index:
+//!
+//! ```rust
+//! # use bitfield::bitfield;
+//! #
+//! #    bitfield! {
+//! #        (pub) ExampleField
+//! #        ExampleFlags u8 {
+//! #            0 : Flag0
+//! #            1 : Flag1
+//! #            2 : Flag2
+//! #            3 : Flag3
+//! #            4 : Flag4
+//! #            5 : Flag5
+//! #            6 : Flag6
+//! #            7 : Flag7
+//! #        }
+//! #    }
+//!
+//! let mut field = ExampleField::from_binary_str("01010101");
+//! field.clear_index(0);
+//! field.clear_index(2);
+//! assert_eq!("01010000", field.as_binary());
+//! ```
+//!
+//! Toggle bit value by field:
+//!
+//! ```rust
+//! # use bitfield::bitfield;
+//! #
+//! #    bitfield! {
+//! #        (pub) ExampleField
+//! #        ExampleFlags u8 {
+//! #            0 : Flag0
+//! #            1 : Flag1
+//! #            2 : Flag2
+//! #            3 : Flag3
+//! #            4 : Flag4
+//! #            5 : Flag5
+//! #            6 : Flag6
+//! #            7 : Flag7
+//! #        }
+//! #    }
+//!
+//! let mut field = ExampleField::from_binary_str("01010101");
+//! field.toggle(ExampleFlags::Flag0);
+//! assert_eq!("01010100", field.as_binary());
+//! field.toggle(ExampleFlags::Flag0);
+//! assert_eq!("01010101", field.as_binary());
+//! ```
+//!
+//! Toggle bit value by index:
+//!
+//! ```rust
+//! # use bitfield::bitfield;
+//! #
+//! #    bitfield! {
+//! #        (pub) ExampleField
+//! #        ExampleFlags u8 {
+//! #            0 : Flag0
+//! #            1 : Flag1
+//! #            2 : Flag2
+//! #            3 : Flag3
+//! #            4 : Flag4
+//! #            5 : Flag5
+//! #            6 : Flag6
+//! #            7 : Flag7
+//! #        }
+//! #    }
+//!
+//! let mut field = ExampleField::from_binary_str("01010101");
+//! field.toggle_index(0);
+//! assert_eq!("01010100", field.as_binary());
+//! field.toggle_index(0);
+//! assert_eq!("01010101", field.as_binary());
+//! ```
 //!
 //! # Combinations
 //!
@@ -216,7 +402,6 @@
 //!
 //! Both bit field instances and flags use bitwise operators to change bit values.
 //!
-//! From zeros:
 //! ```rust
 //! # use bitfield::bitfield;
 //! #
@@ -255,7 +440,6 @@
 //!
 //! Operations can also be chained together:
 //!
-//! From zeros:
 //! ```rust
 //! # use bitfield::bitfield;
 //! #
@@ -280,7 +464,6 @@
 //!
 //! Bitfield instances can also be created from combining flags:
 //!
-//! From zeros:
 //! ```rust
 //! # use bitfield::bitfield;
 //! #
