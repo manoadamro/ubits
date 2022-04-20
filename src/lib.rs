@@ -2531,26 +2531,26 @@ mod test {
     }
 
     // $name & $flag
-    // tests! {
-    //     bitwise_name_and_flag_u8 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_and_flag_u16 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_and_flag_u32 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_and_flag_u64 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_and_flag_u128 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_and_flag_usize => {
-    //         todo!()
-    //     }
-    // }
+    tests! {
+        bitwise_name_and_flag_u8 => {
+            todo!()
+        }
+        bitwise_name_and_flag_u16 => {
+            todo!()
+        }
+        bitwise_name_and_flag_u32 => {
+            todo!()
+        }
+        bitwise_name_and_flag_u64 => {
+            todo!()
+        }
+        bitwise_name_and_flag_u128 => {
+            todo!()
+        }
+        // bitwise_name_and_flag_usize => {
+        //     todo!()
+        // }
+    }
 
     // $name | $flag
     // tests! {
