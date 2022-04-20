@@ -54,7 +54,7 @@ and is not available for importing in the wild.</strong></p>
 <span class="kw">let</span> <span class="ident">from_zeros</span> <span class="op">=</span> <span class="ident">ExampleField::zeros</span>();
 <span class="macro">assert_eq!</span>(<span class="string">&quot;00000000&quot;</span>, <span class="ident">from_zeros</span>.<span class="ident">as_binary</span>());
 <span class="macro">assert_eq!</span>(<span class="number">0</span>, <span class="ident">from_zeros</span>.<span class="ident">as_integer</span>());</code></pre></div>
-<h2 id="field-access"><a href="#field-access">Field Access</a></h2>
+<h4 id="field-access"><a href="#field-access">Field Access</a></h4>
 <p>Get bit value by field:</p>
 
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code>
@@ -111,7 +111,7 @@ and is not available for importing in the wild.</strong></p>
 <span class="macro">assert_eq!</span>(<span class="string">&quot;01010100&quot;</span>, <span class="ident">field</span>.<span class="ident">as_binary</span>());
 <span class="ident">field</span>.<span class="ident">toggle_index</span>(<span class="number">0</span>);
 <span class="macro">assert_eq!</span>(<span class="string">&quot;01010101&quot;</span>, <span class="ident">field</span>.<span class="ident">as_binary</span>());</code></pre></div>
-<h2 id="combinations"><a href="#combinations">Combinations</a></h2>
+<h4 id="combinations"><a href="#combinations">Combinations</a></h4>
 <p>Combine bit fields: <br>
 (use <code>into_combined</code> to consume self)</p>
 
@@ -133,7 +133,7 @@ and is not available for importing in the wild.</strong></p>
 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">a</span> <span class="op">=</span> <span class="ident">ExampleField::from_binary_str</span>(<span class="string">&quot;11000011&quot;</span>);
 <span class="kw">let</span> <span class="ident">b</span> <span class="op">=</span> <span class="ident">ExampleField::from_binary_str</span>(<span class="string">&quot;01100110&quot;</span>);
 <span class="macro">assert_eq!</span>(<span class="string">&quot;10100101&quot;</span>, <span class="ident">a</span>.<span class="ident">diff</span>(<span class="ident">b</span>).<span class="ident">as_binary</span>());</code></pre></div>
-<h2 id="bitwise"><a href="#bitwise">Bitwise</a></h2>
+<h4 id="bitwise"><a href="#bitwise">Bitwise</a></h4>
 <p>Both bit field instances and flags use bitwise operators to change bit values.</p>
 
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code>
@@ -166,7 +166,7 @@ and is not available for importing in the wild.</strong></p>
 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">from_zeros</span> <span class="op">=</span> <span class="ident">ExampleFlags::Flag1</span> <span class="op">|</span> <span class="ident">ExampleFlags::Flag3</span>;
 <span class="macro">assert_eq!</span>(<span class="string">&quot;00001010&quot;</span>, <span class="ident">from_zeros</span>.<span class="ident">as_binary</span>());
 </code></pre></div>
-<h2 id="fields-named-with-flags"><a href="#fields-named-with-flags">Fields named with flags</a></h2>
+<h3 id="fields-named-with-flags"><a href="#fields-named-with-flags">Fields named with flags</a></h3>
 <p>The generated flags enum allows you to access bits by name.
 The flag has an associated <a href="https://doc.rust-lang.org/1.60.0/std/primitive.u8.html" title="u8"><code>u8</code></a> value,
 which determines the index its target bit.
