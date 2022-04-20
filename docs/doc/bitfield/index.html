@@ -4,7 +4,7 @@
     </nav>
     <nav class="sidebar"><a class="sidebar-logo" href="../bitfield/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div>
         </a><h2 class="location"><a href="#">Crate bitfield</a></h2><div class="sidebar-elems"><div class="block"><ul><li class="version">Version 0.1.0</li><li><a id="all-types" href="all.html">All Items</a></li></div></ul><section><div class="block"><ul><li><a href="#modules">Modules</a></li><li><a href="#macros">Macros</a></li></ul></div></section><div id="sidebar-vars" data-name="bitfield" data-ty="mod" data-relpath=""></div><script defer src="sidebar-items.js"></script></div></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../bitfield/index.html"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker hidden"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="22" height="22" alt="Pick another theme!" src="../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="main-heading">
-    <h1 class="fqn"><span class="in-band">Crate <a class="mod" href="#">bitfield</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></span></h1><span class="out-of-band"><a class="srclink" href="../src/bitfield/lib.rs.html#1-2337">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>Provides a macro for generating <a href="https://en.wikipedia.org/wiki/Bit_field"><code>bit field</code></a> types
+    <h1 class="fqn"><span class="in-band">Crate <a class="mod" href="#">bitfield</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></span></h1><span class="out-of-band"><a class="srclink" href="../src/bitfield/lib.rs.html#1-3146">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>Provides a macro for generating <a href="https://en.wikipedia.org/wiki/Bit_field"><code>bit field</code></a> types
 complete with flags and some helpful trait implementations.</p>
 <ul>
 <li><a href="macro.bitfield.html" title="bitfield"><code>bitfield</code></a> - macro documentation.</li>
@@ -12,8 +12,25 @@ complete with flags and some helpful trait implementations.</p>
 </ul>
 <p><strong>Note: the example module is only complied with documentation builds
 and is not available for importing in the wild.</strong></p>
-<h2 id="features"><a href="#features">Features</a></h2>
-<p>TODO</p>
+<h2 id="usage"><a href="#usage">Usage</a></h2>
+<p>The following examples all use this as a definition.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use</span> <span class="ident">bitfield::bitfield</span>;
+
+    <span class="macro">bitfield!</span> {
+        (<span class="kw">pub</span>) <span class="ident">ExampleField</span>
+        <span class="ident">ExampleFlags</span> <span class="ident">u8</span> {
+            <span class="number">0</span> : <span class="ident">Flag0</span>
+            <span class="number">1</span> : <span class="ident">Flag1</span>
+            <span class="number">2</span> : <span class="ident">Flag2</span>
+            <span class="number">3</span> : <span class="ident">Flag3</span>
+            <span class="number">4</span> : <span class="ident">Flag4</span>
+            <span class="number">5</span> : <span class="ident">Flag5</span>
+            <span class="number">6</span> : <span class="ident">Flag6</span>
+            <span class="number">7</span> : <span class="ident">Flag7</span>
+        }
+    }</code></pre></div>
+<p>… TODO usage examples …</p>
 <h2 id="fields-named-with-flags"><a href="#fields-named-with-flags">Fields named with flags</a></h2>
 <p>The generated flags enum allows you to access bits by name.
 The flag has an associated <a href="https://doc.rust-lang.org/1.60.0/std/primitive.u8.html" title="u8"><code>u8</code></a> value,
