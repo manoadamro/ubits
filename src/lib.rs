@@ -7,10 +7,32 @@
 //! __Note: the example module is only complied with documentation builds
 //! and is not available for importing in the wild.__
 //!
+//! # Usage
 //!
-//! # Features
+//! The following examples all use this as a definition.
 //!
-//! TODO
+//! ```rust
+//! use bitfield::bitfield;
+//!
+//!    bitfield! {
+//!        /// Optional docstring
+//!        /// for [`ExampleField`] struct
+//!        (pub) MyBitField
+//!        /// Optional docstring
+//!        /// for [`ExampleFlags`] enum
+//!        MyFlags u8 {
+//!            /// Optional docstring for [`ExampleFlags::Flag0`]
+//!            0 : Flag0
+//!            /// Optional docstring for [`ExampleFlags::Flag1`]
+//!            1 : Flag1
+//!            /// Optional docstring for [`ExampleFlags::Flag2`]
+//!            2 : Flag2
+//!        }
+//!    }
+//! ```
+//!
+//! ... TODO usage examples ...
+//!
 //!
 //! # Fields named with flags
 //!
