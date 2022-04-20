@@ -925,6 +925,78 @@ mod test {
             assert_eq!(16, MyMaskU128::BYTES)
         }
     }
+
+    // integer value
+
+    // binary value
+
+    // get index
+
+    // set index
+
+    // clear index
+
+    // toggle index
+
+    // get
+
+    // set
+
+    // clear
+
+    // toggle
+
+    // diff
+
+    // combine
+
+    // intersect
+
+    // into diff
+
+    // into combine
+
+    // into intersect
+
+    // mask from flag
+
+    // $name & $name
+
+    // $name | $name
+
+    // $name ^ $name
+
+    // $name &= $name
+
+    // $name |= $name
+
+    // $name ^= $name
+
+    // $name & $flag
+
+    // $name | $flag
+
+    // $name ^ $flag
+
+    // $name &= $flag
+
+    // $name |= $flag
+
+    // $name ^= $flag
+
+    // flag from u8
+
+    // u8 from flag
+
+    // $flag & $flag
+
+    // $flag | $flag
+
+    // $flag ^ $flag
+
+    // binary format
+
+    // debug format
 }
 
 // -------------------------------------------------------------------------------------------------
