@@ -435,7 +435,7 @@ macro_rules! __def_field_struct {
         // Bitwise: $name + $flag
         __impl_bitwise_operators! {
             [$flag] for $name : (self rhs -> $name)
-            BitAnd => { $name(self.0 & (1 << (rhs as $type))) }
+            BitAnd => { $name(self.0 & !(1 << (rhs as $type))) }
             BitOr => { $name(self.0 | (1 << (rhs as $type))) }
             BitXor => { $name(self.0 ^ (1 << (rhs as $type))) }
             BitAndAssign => { self.clear(rhs); }
@@ -446,17 +446,17 @@ macro_rules! __def_field_struct {
         // Bitwise: &$name + $flag
         __impl_bitwise_operators! {
             [$flag] for & $name : (self rhs -> $name)
-            BitAnd => { $name(self.0  & (rhs as $type)) }
-            BitOr => { $name(self.0 | (rhs as $type)) }
-            BitXor => { $name(self.0 ^ (rhs as $type)) }
+            BitAnd => { $name(self.0 & !(1 << (rhs as $type))) }
+            BitOr => { $name(self.0 | (1 << (rhs as $type))) }
+            BitXor => { $name(self.0 ^ (1 << (rhs as $type))) }
         }
 
         // Bitwise: $mut $name + $flag
         __impl_bitwise_operators! {
             [$flag] for &mut $name : (self rhs -> $name)
-            BitAnd => { $name(self.0  & (rhs as $type)) }
-            BitOr => { $name(self.0 | (rhs as $type)) }
-            BitXor => { $name(self.0 ^ (rhs as $type)) }
+            BitAnd => { $name(self.0 & !(1 << (rhs as $type))) }
+            BitOr => { $name(self.0 | (1 << (rhs as $type))) }
+            BitXor => { $name(self.0 ^ (1 << (rhs as $type))) }
         }
 
         // Bitwise: Debug & Binary
@@ -2533,31 +2533,31 @@ mod test {
         bitwise_name_and_flag_u8 => {
             for index in 0..u8::BITS {
                 let mask = MyFieldU8(u8::MAX) & MyFlagsU8::from(index as u8);
-                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+                assert_eq!(0 | !(1 << (index as u8) ), mask.as_integer());
             }
         }
         bitwise_name_and_flag_u16 => {
             for index in 0..u16::BITS {
                 let mask = MyFieldU16(u16::MAX) & MyFlagsU16::from(index as u8);
-                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+                assert_eq!(0 | !(1 << (index as u8) ), mask.as_integer());
             }
         }
         bitwise_name_and_flag_u32 => {
             for index in 0..u32::BITS {
                 let mask = MyFieldU32(u32::MAX) & MyFlagsU32::from(index as u8);
-                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+                assert_eq!(0 | !(1 << (index as u8) ), mask.as_integer());
             }
         }
         bitwise_name_and_flag_u64 => {
             for index in 0..u64::BITS {
                 let mask = MyFieldU64(u64::MAX) & MyFlagsU64::from(index as u8);
-                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+                assert_eq!(0 | !(1 << (index as u8) ), mask.as_integer());
             }
         }
         bitwise_name_and_flag_u128 => {
             for index in 0..u128::BITS {
                 let mask = MyFieldU128(u128::MAX) & MyFlagsU128::from(index as u8);
-                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+                assert_eq!(0 | !(1 << (index as u8) ), mask.as_integer());
             }
         }
         // bitwise_name_and_flag_usize => {
@@ -2640,76 +2640,130 @@ mod test {
     }
 
     // $name &= $flag
-    // tests! {
-    //     bitwise_name_and_assign_flag_u8 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_and_assign_flag_u16 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_and_assign_flag_u32 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_and_assign_flag_u64 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_and_assign_flag_u128 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_and_assign_flag_usize => {
-    //
-    //     }
-    // }
+    tests! {
+        bitwise_name_and_assign_flag_u8 => {
+            for index in 0..u8::BITS {
+                let mut mask = MyFieldU8(u8::MAX);
+                mask &= MyFlagsU8::from(index as u8);
+                assert_eq!(0 | !(1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        bitwise_name_and_assign_flag_u16 => {
+            for index in 0..u16::BITS {
+                let mut mask = MyFieldU16(u16::MAX);
+                mask &= MyFlagsU16::from(index as u8);
+                assert_eq!(0 | !(1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        bitwise_name_and_assign_flag_u32 => {
+            for index in 0..u32::BITS {
+                let mut mask = MyFieldU32(u32::MAX);
+                mask &= MyFlagsU32::from(index as u8);
+                assert_eq!(0 | !(1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        bitwise_name_and_assign_flag_u64 => {
+            for index in 0..u64::BITS {
+                let mut mask = MyFieldU64(u64::MAX);
+                mask &= MyFlagsU64::from(index as u8);
+                assert_eq!(0 | !(1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        bitwise_name_and_assign_flag_u128 => {
+            for index in 0..u128::BITS {
+                let mut mask = MyFieldU128(u128::MAX);
+                mask &= MyFlagsU128::from(index as u8);
+                assert_eq!(0 | !(1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        // bitwise_name_and_assign_flag_usize => {
+        //
+        // }
+    }
 
     // $name |= $flag
-    // tests! {
-    //     bitwise_name_or_assign_flag_u8 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_or_assign_flag_u16 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_or_assign_flag_u32 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_or_assign_flag_u64 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_or_assign_flag_u128 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_or_assign_flag_usize => {
-    //
-    //     }
-    // }
+    tests! {
+        bitwise_name_or_assign_flag_u8 => {
+            for index in 0..u8::BITS {
+                let mut mask = MyFieldU8(0);
+                mask |= MyFlagsU8::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        bitwise_name_or_assign_flag_u16 => {
+            for index in 0..u16::BITS {
+                let mut mask = MyFieldU16(0);
+                mask |= MyFlagsU16::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        bitwise_name_or_assign_flag_u32 => {
+            for index in 0..u32::BITS {
+                let mut mask = MyFieldU32(0);
+                mask |= MyFlagsU32::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        bitwise_name_or_assign_flag_u64 => {
+            for index in 0..u64::BITS {
+                let mut mask = MyFieldU64(0);
+                mask |= MyFlagsU64::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        bitwise_name_or_assign_flag_u128 => {
+            for index in 0..u128::BITS {
+                let mut mask = MyFieldU128(0);
+                mask |= MyFlagsU128::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        // bitwise_name_or_assign_flag_usize => {
+        //
+        // }
+    }
 
     // $name ^= $flag
-    // tests! {
-    //     bitwise_name_xor_assign_flag_u8 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_xor_assign_flag_u16 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_xor_assign_flag_u32 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_xor_assign_flag_u64 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_xor_assign_flag_u128 => {
-    //         todo!()
-    //     }
-    //     bitwise_name_xor_assign_flag_usize => {
-    //
-    //     }
-    // }
-
-    // flag from u8
-    // TODO
-
-    // u8 from flag
-    // TODO
+    tests! {
+        bitwise_name_xor_assign_flag_u8 => {
+            for index in 0..u8::BITS {
+                let mut mask = MyFieldU8(0);
+                mask ^= MyFlagsU8::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        bitwise_name_xor_assign_flag_u16 => {
+            for index in 0..u16::BITS {
+                let mut mask = MyFieldU16(0);
+                mask ^= MyFlagsU16::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        bitwise_name_xor_assign_flag_u32 => {
+            for index in 0..u32::BITS {
+                let mut mask = MyFieldU32(0);
+                mask ^= MyFlagsU32::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        bitwise_name_xor_assign_flag_u64 => {
+            for index in 0..u64::BITS {
+                let mut mask = MyFieldU64(0);
+                mask ^= MyFlagsU64::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        bitwise_name_xor_assign_flag_u128 => {
+            for index in 0..u128::BITS {
+                let mut mask = MyFieldU128(0);
+                mask ^= MyFlagsU128::from(index as u8);
+                assert_eq!(0 | (1 << (index as u8) ), mask.as_integer());
+            }
+        }
+        // bitwise_name_xor_assign_flag_usize => {
+        //
+        // }
+    }
 
     // $flag & $flag
     // tests! {
@@ -2776,6 +2830,12 @@ mod test {
     //
     //     }
     // }
+
+    // flag from u8
+    // TODO
+
+    // u8 from flag
+    // TODO
 
     // binary format
     // TODO
