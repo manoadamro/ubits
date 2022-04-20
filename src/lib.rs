@@ -908,25 +908,25 @@ pub mod example {
     use super::*;
 
     bitfield! {
-        /// TODO some description
+        /// Optional docstring for my example bit field.
         (pub) ExampleField
-        /// TODO some description
+        /// Optional docstring for my flag enum.
         ExampleFlags u8 {
-            /// TODO some description
+            /// Optional docstring for Flag0
             0 : Flag0
-            /// TODO some description
+            /// Optional docstring for Flag1
             1 : Flag1
-            /// TODO some description
+            /// Optional docstring for Flag2
             2 : Flag2
-            /// TODO some description
+            /// Optional docstring for Flag3
             3 : Flag3
-            /// TODO some description
+            /// Optional docstring for Flag4
             4 : Flag4
-            /// TODO some description
+            /// Optional docstring for Flag5
             5 : Flag5
-            /// TODO some description
+            /// Optional docstring for Flag6
             6 : Flag6
-            /// TODO some description
+            /// Optional docstring for Flag7
             7 : Flag7
         }
     }
