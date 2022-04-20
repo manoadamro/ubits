@@ -116,6 +116,13 @@ macro_rules! bitmask {
     };
 }
 
+/// Not to be used directly.
+///
+/// Generates a bitmask struct and flag enum
+/// but does no type checking.
+/// Passing types that aren't unsigned integer types is undefined behaviour.
+///
+/// Use the [`bitmask`] macro instead as it enforces a closed set of types.
 #[doc(hidden)]
 #[macro_export(local_inner_macros)]
 macro_rules! __bitmask_unchecked {
@@ -160,6 +167,7 @@ macro_rules! __bitmask_unchecked {
 // -------------------------------------------------------------------------------------------------
 // Type Definitions
 
+/// Defines a flag enum with its members and implementations
 #[doc(hidden)]
 #[macro_export(local_inner_macros)]
 macro_rules! __def_flag_enum {
@@ -204,6 +212,7 @@ macro_rules! __def_flag_enum {
     };
 }
 
+/// Defines a mask struct with its members and implementations
 #[doc(hidden)]
 #[macro_export(local_inner_macros)]
 macro_rules! __def_mask_struct {
@@ -322,6 +331,7 @@ macro_rules! __def_mask_struct {
 // -------------------------------------------------------------------------------------------------
 // Mask Implementations
 
+/// Generates constants for `$name`
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __impl_mask_constants {
@@ -348,6 +358,7 @@ macro_rules! __impl_mask_constants {
     };
 }
 
+/// Generates constructors for `$name`
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __impl_mask_ctors {
@@ -371,6 +382,7 @@ macro_rules! __impl_mask_ctors {
     };
 }
 
+/// Generates getters for state fields in `$name`
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __impl_mask_state {
@@ -402,6 +414,8 @@ macro_rules! __impl_mask_state {
     };
 }
 
+
+/// Generates getters by index for bit fields in `$name`
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __impl_mask_index_accessors {
@@ -451,6 +465,7 @@ macro_rules! __impl_mask_index_accessors {
     };
 }
 
+/// Generates getters by flag for bit fields in `$name`
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __impl_mask_flag_accessors {
@@ -503,6 +518,7 @@ macro_rules! __impl_mask_flag_accessors {
     };
 }
 
+/// Generates combinator methods for `$name`
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __impl_mask_flag_combinators {
@@ -549,6 +565,7 @@ macro_rules! __impl_mask_flag_combinators {
     };
 }
 
+/// Generates conversion methods for `$name`
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __impl_mask_flag_converters {
@@ -600,6 +617,8 @@ macro_rules! __impl_mask_flag_converters {
 
 // Operators
 
+/// Generates a set of bitwise operators
+/// for a set of parameters
 #[doc(hidden)]
 #[macro_export(local_inner_macros)]
 macro_rules! __impl_bitwise_operators {
@@ -648,6 +667,7 @@ macro_rules! __impl_bitwise_operators {
     };
 }
 
+/// Generates a generic operator
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __impl_operator {
@@ -677,6 +697,7 @@ macro_rules! __impl_operator {
     };
 }
 
+/// Generates a generic assign operator
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __impl_assign_operator {
@@ -689,6 +710,7 @@ macro_rules! __impl_assign_operator {
 
 // Defaults
 
+/// Generates a [`Default`] implementation.
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __impl_default {
@@ -701,6 +723,7 @@ macro_rules! __impl_default {
 
 // Converters
 
+/// Generates a [`From`] implementation.
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __impl_from {
@@ -713,6 +736,8 @@ macro_rules! __impl_from {
 
 // Formatters
 
+/// Generates formatter implementations
+/// from a set of parameters.
 #[doc(hidden)]
 #[macro_export(local_inner_macros)]
 macro_rules! __impl_formatters {
@@ -721,6 +746,7 @@ macro_rules! __impl_formatters {
     };
 }
 
+/// Generates a generic formatter implementation.
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __impl_formatter {
