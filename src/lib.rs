@@ -18,7 +18,107 @@ pub use safe_transmute::{
 // -------------------------------------------------------------------------------------------------
 // Generator Macros
 
-/// TODO docs
+/// Generates a mask struct and a corresponding flag enum.
+///
+/// See the [`crate::example`] module for an example of what is generated.
+///
+/// # Args
+///
+/// - `(pub)` - optional accessor: if provided, both generated items will public. If omitted, both will be private.
+///
+/// - `ExampleMask` - name for the generated mask struct. (results in `struct ExampleMask(...)`)
+///
+/// - `ExampleFlags` - name for the generated flag enum. (results in `enum ExampleFlags { ... }`)
+///
+/// - `u8` - unsigned integer type to use as a bit array. *Must be an unsigned integer* <br>
+/// valid options are: [`u8`],[`u16`], [`u32`], [`u64`], [`u128`], [`usize`]
+///
+/// - `0 : Flag0` - defines each member of the flag enum. <br>
+/// The left hand side must be a valid [`u8`] (0 - 255).
+/// This value determines the index of the target bit <br>
+/// The right hand side can be any valid identifier (unique to this enum).
+/// These identifiers will be used to access the corresponding field.
+///
+/// # Examples:
+///
+/// Full Example - (see below for explanation for each parameter):
+/// ```rust
+/// use bitmask::bitmask;
+/// use crate::bitmask;
+///
+///     bitmask! {
+///         /// Optional docstring
+///         /// for [`ExampleMask`] struct
+///         (pub) ExampleMask
+///         /// Optional docstring
+///         /// for [`ExampleFlags`] enum
+///         ExampleFlags u8 {
+///             /// Optional docstring for [`ExampleFlags::Flag0`]
+///             0 : Flag0
+///             /// Optional docstring for [`ExampleFlags::Flag1`]
+///             1 : Flag1
+///             /// Optional docstring for [`ExampleFlags::Flag2`]
+///             2 : Flag2
+///             /// Optional docstring for [`ExampleFlags::Flag3`]
+///             3 : Flag3
+///             /// Optional docstring for [`ExampleFlags::Flag4`]
+///             4 : Flag4
+///             /// Optional docstring for [`ExampleFlags::Flag5`]
+///             5 : Flag5
+///             /// Optional docstring for [`ExampleFlags::Flag6`]
+///             6 : Flag6
+///             /// Optional docstring for [`ExampleFlags::Flag7`]
+///             7 : Flag7
+///         }
+///     }
+/// ```
+///
+/// You don't have to name *all* the fields if you don't need them...
+///
+/// You can use just a few from the front:
+/// ```rust
+/// use bitmask::bitmask;
+/// use crate::bitmask;
+///
+///     bitmask! {
+///         /// Optional docstring
+///         /// for [`ExampleMask`] struct
+///         (pub) ExampleMask
+///         /// Optional docstring
+///         /// for [`ExampleFlags`] enum
+///         ExampleFlags u8 {
+///             /// Optional docstring for [`ExampleFlags::Flag0`]
+///             0 : Flag0
+///             /// Optional docstring for [`ExampleFlags::Flag1`]
+///             1 : Flag1
+///             /// Optional docstring for [`ExampleFlags::Flag2`]
+///             2 : Flag2
+///         }
+///     }
+/// ```
+///
+/// ... or any valid indices:
+/// ```rust
+/// use bitmask::bitmask;
+/// use crate::bitmask;
+///
+///     bitmask! {
+///         /// Optional docstring
+///         /// for [`ExampleMask`] struct
+///         (pub) ExampleMask
+///         /// Optional docstring
+///         /// for [`ExampleFlags`] enum
+///         ExampleFlags u8 {
+///             /// Optional docstring for [`ExampleFlags::Flag0`]
+///             0 : Flag0
+///             /// Optional docstring for [`ExampleFlags::Flag1`]
+///             3 : Flag1
+///             /// Optional docstring for [`ExampleFlags::Flag2`]
+///             6 : Flag2
+///         }
+///     }
+/// ```
+///
 #[macro_export(local_inner_macros)]
 macro_rules! bitmask {
 
