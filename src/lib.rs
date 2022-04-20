@@ -18,7 +18,10 @@ macro_rules! bitmask {
         $( ($access:vis) )? $name:ident
         $(#[$flag_doc:meta])*
         $flag:ident u8 {
-            $( $(#[$member_doc:meta])* $idx:literal : $field:ident )*
+            $(
+                $(#[$member_doc:meta])*
+                $idx:literal : $field:ident
+            )*
         }
     ) => {
         __bitmask_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u8] [8] { $( $(#[$member_doc])* $idx : $field )* });
@@ -29,7 +32,10 @@ macro_rules! bitmask {
         $( ($access:vis) )? $name:ident
         $(#[$flag_doc:meta])*
         $flag:ident u16 {
-            $( $(#[$member_doc:meta])* $idx:literal : $field:ident )*
+            $(
+                $(#[$member_doc:meta])*
+                $idx:literal : $field:ident
+            )*
         }
     ) => {
         __bitmask_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u16] [16] { $( $(#[$member_doc])* $idx : $field )* });
@@ -40,7 +46,10 @@ macro_rules! bitmask {
         $( ($access:vis) )? $name:ident
         $(#[$flag_doc:meta])*
         $flag:ident u32 {
-            $( $(#[$member_doc:meta])* $idx:literal : $field:ident )*
+            $(
+                $(#[$member_doc:meta])*
+                $idx:literal : $field:ident
+            )*
         }
     ) => {
         __bitmask_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u32] [32] { $( $(#[$member_doc])* $idx : $field )* });
@@ -62,7 +71,10 @@ macro_rules! bitmask {
         $( ($access:vis) )? $name:ident
         $(#[$flag_doc:meta])*
         $flag:ident u128 {
-            $( $(#[$member_doc:meta])* $idx:literal : $field:ident )*
+            $(
+                $(#[$member_doc:meta])*
+                $idx:literal : $field:ident
+            )*
         }
     ) => {
         __bitmask_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u128] [128] { $( $(#[$member_doc])* $idx : $field )* });
@@ -73,7 +85,10 @@ macro_rules! bitmask {
         $( ($access:vis) )? $name:ident
         $(#[$flag_doc:meta])*
         $flag:ident usize {
-            $( $(#[$member_doc:meta])* $idx:literal : $field:ident )*
+            $(
+                $(#[$member_doc:meta])*
+                $idx:literal : $field:ident
+            )*
         }
     ) => {
         __bitmask_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [usize] [usize::MAX] { $( $(#[$member_doc])* $idx : $field )* });
@@ -89,7 +104,10 @@ macro_rules! __bitmask_unchecked {
         $( ($access:vis) )? $name:ident
         $(#[$flag_doc:meta])*
         $flag:ident [$type:ty] [$($bits:tt)*] {
-            $( $(#[$member_doc:meta])* $idx:literal : $field:ident )*
+            $(
+                $(#[$member_doc:meta])*
+                $idx:literal : $field:ident
+            )*
         }
     ) => {
 
