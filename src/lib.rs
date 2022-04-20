@@ -20,7 +20,10 @@ pub use safe_transmute::{
 
 /// Generates a mask struct and a corresponding flag enum.
 ///
-/// See the [`crate::example`] module for an example of what is generated.
+/// Can be used multiple times in a single codebase
+/// as long as the identifiers are unique or are isolated so as not to clash.
+///
+/// __See the [`crate::example`] module for an example of the generated output.__
 ///
 /// # Args
 ///
@@ -864,6 +867,13 @@ macro_rules! __impl_formatter {
 #[allow(unused_variables)]
 #[cfg(doc)]
 pub mod example {
+    //! Example of generated output.
+    //!
+    //! __This module is only compiled with documentation builds
+    //! and will not be available for import.__
+    //!
+    //! use the [`crate::bitmask`] macro to generate a mask struct and flag enum.
+    //!
     use super::*;
 
     bitmask! {
