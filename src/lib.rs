@@ -130,31 +130,20 @@ macro_rules! __bitmask_unchecked {
             $( $(#[$member_doc])* $field = $idx ),*
         }
 
-        impl std::ops::BitAnd for $flag {
-            type Output = $name;
-            fn bitand(self, rhs: Self) -> Self::Output {
-                $name(0).set(self) & rhs
-            }
+        // $flag + $flag
+        __impl_bitwise_operators! {
+            [Self] for $flag : (self rhs -> $name)
+            BitAnd => { $name(0).set(self) & rhs }
+            BitOr => { $name(0).set(self) | rhs }
+            BitXor => { $name(0).set(self) ^ rhs }
         }
 
-        impl std::ops::BitOr for $flag {
-            type Output = $name;
-            fn bitor(self, rhs: Self) -> Self::Output {
-                $name(0).set(self) | rhs
-            }
-        }
-
-        impl std::ops::BitXor for $flag {
-            type Output = $name;
-            fn bitxor(self, rhs: Self) -> Self::Output {
-                $name(0).set(self) ^ rhs
-            }
-        }
-
+        // u8 -> $flag
         __impl_from! { u8 as $flag (value) => {
             $crate::transmute_one::<$flag>(&[value]).expect("") // TODO
         }}
 
+        // $flag -> u8
         __impl_from! { $flag as u8 (value) => {
             value as u8
         }}
@@ -387,164 +376,76 @@ macro_rules! __bitmask_unchecked {
             }
         }
 
-        impl Default for $name {
-            fn default() -> Self {
-                Self(0)
-            }
+        // $name
+        __impl_default! {
+            $name => { $name(0) }
         }
 
+        // $type -> $name
         __impl_from! { $type as $name (value) => {
             $name(value)
         }}
 
-        impl std::ops::BitAnd for $name {
-            type Output = Self;
-            fn bitand(self, rhs: Self) -> Self::Output {
-                Self(self.0 & rhs.0)
-            }
+        // $name + $name
+        __impl_bitwise_operators! {
+            [Self] for $name : (self rhs -> Self)
+            BitAnd => { Self(self.0 & rhs.0) }
+            BitOr => { Self(self.0 | rhs.0) }
+            BitXor => {  Self(self.0 ^ rhs.0) }
+            BitAndAssign => { self.0 &= rhs.0; }
+            BitOrAssign => { self.0 |= rhs.0; }
+            BitXorAssign => { self.0 ^= rhs.0; }
         }
 
-        impl std::ops::BitOr for $name {
-            type Output = Self;
-            fn bitor(self, rhs: Self) -> Self::Output {
-                Self(self.0 | rhs.0)
-            }
+        // $name + $flag
+        __impl_bitwise_operators! {
+            [$flag] for $name : (self rhs -> $name)
+            BitAnd => { $name(self.0  & (rhs as $type)) }
+            BitOr => { $name(self.0 | (rhs as $type)) }
+            BitXor => { $name(self.0 ^ (rhs as $type)) }
+            BitAndAssign => { self.clear(rhs); }
+            BitOrAssign => { self.set(rhs); }
+            BitXorAssign => { self.toggle(rhs); }
         }
 
-        impl std::ops::BitXor for $name {
-            type Output = Self;
-            fn bitxor(self, rhs: Self) -> Self::Output {
-                Self(self.0 ^ rhs.0)
-            }
+        // &$name + $flag
+        __impl_bitwise_operators! {
+            [$flag] for & $name : (self rhs -> $name)
+            BitAnd => { $name(self.0  & (rhs as $type)) }
+            BitOr => { $name(self.0 | (rhs as $type)) }
+            BitXor => { $name(self.0 ^ (rhs as $type)) }
         }
 
-        impl std::ops::BitAndAssign for $name {
-            fn bitand_assign(&mut self, rhs: Self) {
-                self.0 &= rhs.0;
-            }
+        // $mut $name + $flag
+        __impl_bitwise_operators! {
+            [$flag] for &mut $name : (self rhs -> $name)
+            BitAnd => { $name(self.0  & (rhs as $type)) }
+            BitOr => { $name(self.0 | (rhs as $type)) }
+            BitXor => { $name(self.0 ^ (rhs as $type)) }
         }
 
-        impl std::ops::BitOrAssign for $name {
-            fn bitor_assign(&mut self, rhs: Self) {
-                self.0 |= rhs.0;
+        // Debug & Binary
+        __impl_formatters! {
+            $name (self f) {
+                Debug => { core::write!(f, "{}({:b})", core::stringify!($name), self) }
+                Binary => { core::write!(f, "{:b}", self.0) }
             }
         }
+    };
+}
 
-        impl std::ops::BitXorAssign for $name {
-            fn bitxor_assign(&mut self, rhs: Self) {
-                self.0 ^= rhs.0;
-            }
-        }
+macro_rules! __def_flag_enum {
+    () => {
 
-        impl std::ops::BitAnd<$flag> for $name {
-            type Output = $name;
-            fn bitand(self, rhs: $flag) -> Self::Output {
-                $name(self.0  & (rhs as $type))
-            }
-        }
+    };
+}
 
-        impl std::ops::BitOr<$flag> for $name {
-            type Output = $name;
-            fn bitor(self, rhs: $flag) -> Self::Output {
-                $name(self.0 | (rhs as $type))
-            }
-        }
-
-        impl std::ops::BitXor<$flag> for $name {
-            type Output = $name;
-            fn bitxor(self, rhs: $flag) -> Self::Output {
-                $name(self.0 ^ (rhs as $type))
-            }
-        }
-
-        impl std::ops::BitAnd<$flag> for &$name {
-            type Output = $name;
-            fn bitand(self, rhs: $flag) -> Self::Output {
-                $name(self.0  & (rhs as $type))
-            }
-        }
-
-        impl std::ops::BitOr<$flag> for &$name {
-            type Output = $name;
-            fn bitor(self, rhs: $flag) -> Self::Output {
-                $name(self.0 | (rhs as $type))
-            }
-        }
-
-        impl std::ops::BitXor<$flag> for &$name {
-            type Output = $name;
-            fn bitxor(self, rhs: $flag) -> Self::Output {
-                $name(self.0 ^ (rhs as $type))
-            }
-        }
-
-        impl std::ops::BitAnd<$flag> for &mut $name {
-            type Output = $name;
-            fn bitand(self, rhs: $flag) -> Self::Output {
-                $name(self.0  & (rhs as $type))
-            }
-        }
-
-        impl std::ops::BitOr<$flag> for &mut $name {
-            type Output = $name;
-            fn bitor(self, rhs: $flag) -> Self::Output {
-                $name(self.0 | (rhs as $type))
-            }
-        }
-
-        impl std::ops::BitXor<$flag> for &mut $name {
-            type Output = $name;
-            fn bitxor(self, rhs: $flag) -> Self::Output {
-                $name(self.0 ^ (rhs as $type))
-            }
-        }
-
-        impl std::ops::BitAndAssign<$flag> for $name {
-            fn bitand_assign(&mut self, rhs: $flag) {
-                self.clear(rhs);
-            }
-        }
-
-        impl std::ops::BitOrAssign<$flag> for $name {
-            fn bitor_assign(&mut self, rhs: $flag) {
-                self.set(rhs);
-            }
-        }
-
-        impl std::ops::BitXorAssign<$flag> for $name {
-            fn bitxor_assign(&mut self, rhs: $flag) {
-                self.toggle(rhs);
-            }
-        }
-
-        impl std::ops::BitAndAssign<$flag> for &mut $name {
-            fn bitand_assign(&mut self, rhs: $flag) {
-                self.clear(rhs);
-            }
-        }
-
-        impl std::ops::BitOrAssign<$flag> for &mut $name {
-            fn bitor_assign(&mut self, rhs: $flag) {
-                self.set(rhs);
-            }
-        }
-
-        impl std::ops::BitXorAssign<$flag> for &mut $name {
-            fn bitxor_assign(&mut self, rhs: $flag) {
-                self.toggle(rhs);
-            }
-        }
-
-        impl std::fmt::Debug for $name {
-            fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-                core::write!(f, "{}({:b})", core::stringify!($name), self)
-            }
-        }
-
-        impl std::fmt::Binary for $name {
-            fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-                core::write!(f, "{:b}", self.0)
-            }
+#[doc(hidden)]
+#[macro_export]
+macro_rules! __impl_default {
+    ($name:ident => $block:block) => {
+        impl Default for $name {
+            fn default() -> Self $block
         }
     };
 }
@@ -555,6 +456,111 @@ macro_rules! __impl_from {
     ($from:ty as $to:ident ($arg:ident) => $block:block) => {
         impl From<$from> for $to {
             fn from($arg: $from) -> $to $block
+        }
+    };
+}
+
+#[doc(hidden)]
+#[macro_export(local_inner_macros)]
+macro_rules! __impl_bitwise_operators {
+
+    // Owned
+    (
+        [$flag:ty] for $dest:ident : ($self:ident $other:ident -> $output:ident)
+        $( BitAnd => $bitand:block )?
+        $( BitOr => $bitor:block )?
+        $( BitXor => $bitxor:block )?
+        $( BitAndAssign => $bitand_assign:block )?
+        $( BitOrAssign => $bitor_assign:block )?
+        $( BitXorAssign => $bitxor_assign:block )?
+    ) => {
+        $( __impl_operator! {BitAnd [$flag] bitand for $dest ($self $other -> $output) => $bitand} )?
+        $( __impl_operator! {BitOr [$flag] bitor for $dest ($self $other -> $output) => $bitor} )?
+        $( __impl_operator! {BitXor [$flag] bitxor for $dest ($self $other -> $output) => $bitxor} )?
+
+        $( __impl_assign_operator! {BitAndAssign [$flag] bitand_assign for $dest ($self $other) => $bitand_assign} )?
+        $( __impl_assign_operator! {BitOrAssign [$flag] bitor_assign for $dest ($self $other) => $bitor_assign} )?
+        $( __impl_assign_operator! {BitXorAssign [$flag] bitxor_assign for $dest ($self $other) => $bitxor_assign} )?
+    };
+
+    // Reference
+    (
+        [$flag:ty] for & $dest:ident : ($self:ident $other:ident -> $output:ident)
+        $( BitAnd => $bitand:block )?
+        $( BitOr => $bitor:block )?
+        $( BitXor => $bitxor:block )?
+    ) => {
+        $( __impl_operator! {BitAnd [$flag] bitand for & $dest ($self $other -> $output) => $bitand} )?
+        $( __impl_operator! {BitOr [$flag] bitor for & $dest ($self $other -> $output) => $bitor} )?
+        $( __impl_operator! {BitXor [$flag] bitxor for & $dest ($self $other -> $output) => $bitxor} )?
+    };
+
+    // Mutable Reference
+    (
+        [$flag:ty] for &mut $dest:ident : ($self:ident $other:ident -> $output:ident)
+        $( BitAnd => $bitand:block )?
+        $( BitOr => $bitor:block )?
+        $( BitXor => $bitxor:block )?
+    ) => {
+        $( __impl_operator! {BitAnd [$flag] bitand for &mut $dest ($self $other -> $output) => $bitand} )?
+        $( __impl_operator! {BitOr [$flag] bitor for &mut $dest ($self $other -> $output) => $bitor} )?
+        $( __impl_operator! {BitXor [$flag] bitxor for &mut $dest ($self $other -> $output) => $bitxor} )?
+    };
+}
+
+#[doc(hidden)]
+#[macro_export]
+macro_rules! __impl_operator {
+
+    // Owned
+    ( $op_type:ident [$rhs:ty] $op_lower:ident for $dest:ident ($self:ident $other:ident -> $output:ident) => $block:block ) => {
+        impl std::ops::$op_type<$rhs> for $dest {
+            type Output = $output;
+            fn $op_lower($self, $other: $rhs) -> Self::Output $block
+        }
+    };
+
+    // Reference
+    ( $op_type:ident [$rhs:ty] $op_lower:ident for & $dest:ident ($self:ident $other:ident -> $output:ident) => $block:block ) => {
+        impl std::ops::$op_type<$rhs> for &$dest {
+            type Output = $output;
+            fn $op_lower($self, $other: $rhs) -> Self::Output $block
+        }
+    };
+
+    // Mutable Reference
+    ( $op_type:ident [$rhs:ty] $op_lower:ident for &mut $dest:ident ($self:ident $other:ident -> $output:ident) => $block:block ) => {
+        impl std::ops::$op_type<$rhs> for &mut $dest {
+            type Output = $output;
+            fn $op_lower($self, $other: $rhs) -> Self::Output $block
+        }
+    };
+}
+
+#[doc(hidden)]
+#[macro_export]
+macro_rules! __impl_assign_operator {
+    ( $op_type:ident [$rhs:ty] $op_lower:ident for $dest:ident ($self:ident $other:ident) => $block:block ) => {
+        impl std::ops::$op_type<$rhs> for $dest {
+            fn $op_lower(&mut $self, $other: $rhs) $block
+        }
+    };
+}
+
+#[doc(hidden)]
+#[macro_export(local_inner_macros)]
+macro_rules! __impl_formatters {
+    ($name:ident ($self:ident $f:ident) { $( $formatter:ident => $block:block )+ } ) => {
+        $( __impl_formatter!($formatter for $name ($self $f) => $block); )+
+    };
+}
+
+#[doc(hidden)]
+#[macro_export]
+macro_rules! __impl_formatter {
+    ($formatter:ident for $name:ident ($self:ident $f:ident) => $block:block) => {
+        impl std::fmt::$formatter for $name {
+            fn fmt(&$self, $f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result $block
         }
     };
 }
