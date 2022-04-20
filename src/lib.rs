@@ -1012,10 +1012,15 @@ mod test {
     }
 
     const U8: u8 = 123;
+    const B8: &str = "1111011";
     const U16: u16 = 51526;
+    const B16: &str = "1100100101000110";
     const U32: u32 = 2828091834;
+    const B32: &str = "10101000100100010100000110111010";
     const U64: u64 = 18325744043706550615;
+    const B64: &str = "1111111001010010000111110001110100100001110111000000100101010111";
     const U128: u128 = 160140183460469230739687303714882104727;
+    const B128: &str = "1111000011110011110000010100001011000111110000100101011010111011111111110000110011101100010110100100000110001101010110110010111";
 
     // constructors
     tests! {
@@ -1131,28 +1136,49 @@ mod test {
     tests! {
         binary_u8 => {
             let field = MyFieldU8(U8);
-            assert_eq!("1111011", field.as_binary())
+            assert_eq!(B8, field.as_binary())
         }
         binary_u16 => {
             let field = MyFieldU16(U16);
-            assert_eq!("1100100101000110", field.as_binary())
+            assert_eq!(B16, field.as_binary())
         }
         binary_u32 => {
             let field = MyFieldU32(U32);
-            assert_eq!("10101000100100010100000110111010", field.as_binary())
+            assert_eq!(B32, field.as_binary())
         }
         binary_u64 => {
             let field = MyFieldU64(U64);
-            assert_eq!("1111111001010010000111110001110100100001110111000000100101010111", field.as_binary())
+            assert_eq!(B64, field.as_binary())
         }
         binary_u128 => {
             let field = MyFieldU128(U128);
-            assert_eq!("1111000011110011110000010100001011000111110000100101011010111011111111110000110011101100010110100100000110001101010110110010111", field.as_binary())
+            assert_eq!(B128, field.as_binary())
         }
     }
 
     // get index
-    // TODO
+    tests! {
+        get_index_u8 => {
+            let field = MyFieldU8(U8);
+            todo!()
+        }
+        get_index_u16 => {
+            let field = MyFieldU16(U16);
+            todo!()
+        }
+        get_index_u32 => {
+            let field = MyFieldU32(U32);
+            todo!()
+        }
+        get_index_u64 => {
+            let field = MyFieldU64(U64);
+            todo!()
+        }
+        get_index_u128 => {
+            let field = MyFieldU128(U128);
+            todo!()
+        }
+    }
 
     // set index
     // TODO
