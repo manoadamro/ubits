@@ -495,9 +495,9 @@ macro_rules! __def_flag_enum {
         // Bitwise: $flag + $flag
         __impl_bitwise_operators! {
             [Self] for $flag : (self rhs -> $name)
-            BitAnd => { $name(0).set(self) & rhs }
+            BitAnd => { $name(0).clear(self) & rhs }
             BitOr => { $name(0).set(self) | rhs }
-            BitXor => { $name(0).set(self) ^ rhs }
+            BitXor => { $name(0).toggle(self) ^ rhs }
         }
 
         // Bitwise: u8 -> $flag
@@ -2766,70 +2766,160 @@ mod test {
     }
 
     // $flag & $flag
-    // tests! {
-    //     bitwise_flag_and_flag_u8 => {
-    //         todo!()
-    //     }
-    //     bitwise_flag_and_flag_u16 => {
-    //         todo!()
-    //     }
-    //     bitwise_flag_and_flag_u32 => {
-    //         todo!()
-    //     }
-    //     bitwise_flag_and_flag_u64 => {
-    //         todo!()
-    //     }
-    //     bitwise_flag_and_flag_u128 => {
-    //         todo!()
-    //     }
-    //     bitwise_flag_and_flag_usize => {
-    //
-    //     }
-    // }
+    tests! {
+        bitwise_flag_and_flag_u8 => {
+            for index_a in 0..u8::BITS {
+                let a = MyFlagsU8::from(index_a as u8);
+                for index_b in 0..u8::BITS {
+                    let b = MyFlagsU8::from(index_b as u8);
+                    assert_eq!(MyFieldU8(0 & 1 << index_a as u8 & 1 << index_b as u8), a & b);
+                }
+            }
+        }
+        bitwise_flag_and_flag_u16 => {
+            for index_a in 0..u16::BITS {
+                let a = MyFlagsU16::from(index_a as u8);
+                for index_b in 0..u16::BITS {
+                    let b = MyFlagsU16::from(index_b as u8);
+                    assert_eq!(MyFieldU16(0 & 1 << index_a as u8 & 1 << index_b as u8), a & b);
+                }
+            }
+        }
+        bitwise_flag_and_flag_u32 => {
+            for index_a in 0..u32::BITS {
+                let a = MyFlagsU32::from(index_a as u8);
+                for index_b in 0..u32::BITS {
+                    let b = MyFlagsU32::from(index_b as u8);
+                    assert_eq!(MyFieldU32(0 & 1 << index_a as u8 & 1 << index_b as u8), a & b);
+                }
+            }
+        }
+        bitwise_flag_and_flag_u64 => {
+            for index_a in 0..u64::BITS {
+                let a = MyFlagsU64::from(index_a as u8);
+                for index_b in 0..u64::BITS {
+                    let b = MyFlagsU64::from(index_b as u8);
+                    assert_eq!(MyFieldU64(0 & 1 << index_a as u8 & 1 << index_b as u8), a & b);
+                }
+            }
+        }
+        bitwise_flag_and_flag_u128 => {
+            for index_a in 0..u128::BITS {
+                let a = MyFlagsU128::from(index_a as u8);
+                for index_b in 0..u128::BITS {
+                    let b = MyFlagsU128::from(index_b as u8);
+                    assert_eq!(MyFieldU128(0 & 1 << index_a as u8 & 1 << index_b as u8), a & b);
+                }
+            }
+        }
+        // bitwise_flag_and_flag_usize => {
+        //
+        // }
+    }
 
     // $flag | $flag
-    // tests! {
-    //     bitwise_flag_or_flag_u8 => {
-    //         todo!()
-    //     }
-    //     bitwise_flag_or_flag_u16 => {
-    //         todo!()
-    //     }
-    //     bitwise_flag_or_flag_u32 => {
-    //         todo!()
-    //     }
-    //     bitwise_flag_or_flag_u64 => {
-    //         todo!()
-    //     }
-    //     bitwise_flag_or_flag_u128 => {
-    //         todo!()
-    //     }
-    //     bitwise_flag_or_flag_usize => {
-    //
-    //     }
-    // }
+    tests! {
+        bitwise_flag_or_flag_u8 => {
+            for index_a in 0..u8::BITS {
+                let a = MyFlagsU8::from(index_a as u8);
+                for index_b in 0..u8::BITS {
+                    let b = MyFlagsU8::from(index_b as u8);
+                    assert_eq!(MyFieldU8(0 | 1 << index_a as u8 | 1 << index_b as u8), a | b);
+                }
+            }
+        }
+        bitwise_flag_or_flag_u16 => {
+            for index_a in 0..u16::BITS {
+                let a = MyFlagsU16::from(index_a as u8);
+                for index_b in 0..u16::BITS {
+                    let b = MyFlagsU16::from(index_b as u8);
+                    assert_eq!(MyFieldU16(0 | 1 << index_a as u8 | 1 << index_b as u8), a | b);
+                }
+            }
+        }
+        bitwise_flag_or_flag_u32 => {
+            for index_a in 0..u32::BITS {
+                let a = MyFlagsU32::from(index_a as u8);
+                for index_b in 0..u32::BITS {
+                    let b = MyFlagsU32::from(index_b as u8);
+                    assert_eq!(MyFieldU32(0 | 1 << index_a as u8 | 1 << index_b as u8), a | b);
+                }
+            }
+        }
+        bitwise_flag_or_flag_u64 => {
+            for index_a in 0..u64::BITS {
+                let a = MyFlagsU64::from(index_a as u8);
+                for index_b in 0..u64::BITS {
+                    let b = MyFlagsU64::from(index_b as u8);
+                    assert_eq!(MyFieldU64(0 | 1 << index_a as u8 | 1 << index_b as u8), a | b);
+                }
+            }
+        }
+        bitwise_flag_or_flag_u128 => {
+            for index_a in 0..u128::BITS {
+                let a = MyFlagsU128::from(index_a as u8);
+                for index_b in 0..u128::BITS {
+                    let b = MyFlagsU128::from(index_b as u8);
+                    assert_eq!(MyFieldU128(0 | 1 << index_a as u8 | 1 << index_b as u8), a | b);
+                }
+            }
+        }
+        // bitwise_flag_or_flag_usize => {
+        //
+        // }
+    }
 
     // $flag ^ $flag
-    // tests! {
-    //     bitwise_flag_xor_flag_u8 => {
-    //         todo!()
-    //     }
-    //     bitwise_flag_xor_flag_u16 => {
-    //         todo!()
-    //     }
-    //     bitwise_flag_xor_flag_u32 => {
-    //         todo!()
-    //     }
-    //     bitwise_flag_xor_flag_u64 => {
-    //         todo!()
-    //     }
-    //     bitwise_flag_xor_flag_u128 => {
-    //         todo!()
-    //     }
-    //     bitwise_flag_xor_flag_usize => {
-    //
-    //     }
-    // }
+    tests! {
+        bitwise_flag_xor_flag_u8 => {
+            for index_a in 0..u8::BITS {
+                let a = MyFlagsU8::from(index_a as u8);
+                for index_b in 0..u8::BITS {
+                    let b = MyFlagsU8::from(index_b as u8);
+                    assert_eq!(MyFieldU8(0 ^ 1 << index_a as u8 ^ 1 << index_b as u8), a ^ b);
+                }
+            }
+        }
+        bitwise_flag_xor_flag_u16 => {
+            for index_a in 0..u16::BITS {
+                let a = MyFlagsU16::from(index_a as u8);
+                for index_b in 0..u16::BITS {
+                    let b = MyFlagsU16::from(index_b as u8);
+                    assert_eq!(MyFieldU16(0 ^ 1 << index_a as u8 ^ 1 << index_b as u8), a ^ b);
+                }
+            }
+        }
+        bitwise_flag_xor_flag_u32 => {
+            for index_a in 0..u32::BITS {
+                let a = MyFlagsU32::from(index_a as u8);
+                for index_b in 0..u32::BITS {
+                    let b = MyFlagsU32::from(index_b as u8);
+                    assert_eq!(MyFieldU32(0 ^ 1 << index_a as u8 ^ 1 << index_b as u8), a ^ b);
+                }
+            }
+        }
+        bitwise_flag_xor_flag_u64 => {
+            for index_a in 0..u64::BITS {
+                let a = MyFlagsU64::from(index_a as u8);
+                for index_b in 0..u64::BITS {
+                    let b = MyFlagsU64::from(index_b as u8);
+                    assert_eq!(MyFieldU64(0 ^ 1 << index_a as u8 ^ 1 << index_b as u8), a ^ b);
+                }
+            }
+        }
+        bitwise_flag_xor_flag_u128 => {
+            for index_a in 0..u128::BITS {
+                let a = MyFlagsU128::from(index_a as u8);
+                for index_b in 0..u128::BITS {
+                    let b = MyFlagsU128::from(index_b as u8);
+                    assert_eq!(MyFieldU128(0 ^ 1 << index_a as u8 ^ 1 << index_b as u8), a ^ b);
+                }
+            }
+        }
+        // bitwise_flag_xor_flag_usize => {
+        //
+        // }
+    }
 
     // flag from u8
     // TODO
