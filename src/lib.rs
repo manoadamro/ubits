@@ -927,76 +927,112 @@ mod test {
     }
 
     // integer value
+    // TODO
 
     // binary value
+    // TODO
 
     // get index
+    // TODO
 
     // set index
+    // TODO
 
     // clear index
+    // TODO
 
     // toggle index
+    // TODO
 
     // get
+    // TODO
 
     // set
+    // TODO
 
     // clear
+    // TODO
 
     // toggle
+    // TODO
 
     // diff
+    // TODO
 
     // combine
+    // TODO
 
     // intersect
+    // TODO
 
     // into diff
+    // TODO
 
     // into combine
+    // TODO
 
     // into intersect
+    // TODO
 
     // mask from flag
+    // TODO
 
     // $name & $name
+    // TODO
 
     // $name | $name
+    // TODO
 
     // $name ^ $name
+    // TODO
 
     // $name &= $name
+    // TODO
 
     // $name |= $name
+    // TODO
 
     // $name ^= $name
+    // TODO
 
     // $name & $flag
+    // TODO
 
     // $name | $flag
+    // TODO
 
     // $name ^ $flag
+    // TODO
 
     // $name &= $flag
+    // TODO
 
     // $name |= $flag
+    // TODO
 
     // $name ^= $flag
+    // TODO
 
     // flag from u8
+    // TODO
 
     // u8 from flag
+    // TODO
 
     // $flag & $flag
+    // TODO
 
     // $flag | $flag
+    // TODO
 
     // $flag ^ $flag
+    // TODO
 
     // binary format
+    // TODO
 
     // debug format
+    // TODO
 }
 
 // -------------------------------------------------------------------------------------------------
