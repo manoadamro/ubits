@@ -450,8 +450,8 @@ macro_rules! __def_field_struct {
         // Bitwise: Debug & Binary
         __impl_formatters! {
             $name (self f) {
-                Debug => { core::write!(f, "{}({:b})", core::stringify!($name), self) }
-                Binary => { core::write!(f, "{:b}", self.0) }
+                Debug => { core::write!(f, "{}({})", core::stringify!($name), self.as_binary()) }
+                Binary => { core::write!(f, "{}", self.as_binary()) }
             }
         }
     };
@@ -535,7 +535,7 @@ macro_rules! __impl_field_state {
                       "Returns the current field value as a binary formatted string."
                     ),
                     pub fn as_binary(&self) -> String {
-                        format!("{:b}", self.0)
+                        std::format!("{:0width$b}", self.0, width = Self::BITS)
                     }
                 }
             }
@@ -1039,7 +1039,7 @@ mod test {
     }
 
     const U8: u8 = 123;
-    const B8: &str = "1111011";
+    const B8: &str = "01111011";
     const U16: u16 = 51526;
     const B16: &str = "1100100101000110";
     const U32: u32 = 2828091834;
@@ -1047,7 +1047,7 @@ mod test {
     const U64: u64 = 18325744043706550615;
     const B64: &str = "1111111001010010000111110001110100100001110111000000100101010111";
     const U128: u128 = 160140183460469230739687303714882104727;
-    const B128: &str = "1111000011110011110000010100001011000111110000100101011010111011111111110000110011101100010110100100000110001101010110110010111";
+    const B128: &str = "01111000011110011110000010100001011000111110000100101011010111011111111110000110011101100010110100100000110001101010110110010111";
 
     #[cfg(target_pointer_width = "64")]
     const USIZE: usize = 18325744043706550615;
@@ -1908,21 +1908,150 @@ mod test {
     }
 
     // diff
-    // TODO
+    tests! {
+        diff_u8 => {
+            let field = MyFieldU8(U8);
+            let reversed = MyFieldU8(u8::from_str_radix(B8.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field.diff(reversed);
+            assert_eq!("10100101", out.as_binary());
+            assert_eq!(165, out.as_integer());
+        }
+        diff_u16 => {
+            let field = MyFieldU16(U16);
+            let reversed = MyFieldU16(u16::from_str_radix(B16.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field.diff(reversed);
+            assert_eq!("1010101111010101", out.as_binary());
+            assert_eq!(43989, out.as_integer());
+        }
+        diff_u32 => {
+            let field = MyFieldU32(U32);
+            let reversed = MyFieldU32(u32::from_str_radix(B32.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field.diff(reversed);
+            assert_eq!("11110101000100111100100010101111", out.as_binary());
+            assert_eq!(4111714479, out.as_integer());
+        }
+        diff_u64 => {
+            let field = MyFieldU64(U64);
+            let reversed = MyFieldU64(u64::from_str_radix(B64.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field.diff(reversed);
+            assert_eq!("0001010011000010001001001001100110011001001001000100001100101000", out.as_binary());
+            assert_eq!(1495798268358312744, out.as_integer());
+        }
+        diff_u128 => {
+            let field = MyFieldU128(U128);
+            let reversed = MyFieldU128(u128::from_str_radix(B128.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field.diff(reversed);
+            assert_eq!("10010001110011001000001110100101110101111000111101001010101000100100010101010010111100011110101110100101110000010011001110001001", out.as_binary());
+            assert_eq!(193799958082971305581995159990093034377, out.as_integer());
+        }
+        // diff_usize => {
+        //     let field = MyFieldUsize(USIZE);
+        //     let reversed = MyFieldUsize(usize::from_str_radix(BSIZE.chars().rev().collect::<String>().as_str(), 2).unwrap());
+        //     assert_eq!(0, field.diff(reversed).as_integer());
+        // }
+    }
 
     // combine
-    // TODO
+    tests! {
+        combine_u8 => {
+            let field = MyFieldU8(U8);
+            let reversed = MyFieldU8(u8::from_str_radix(B8.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field.combine(reversed);
+            assert_eq!("11111111", out.as_binary());
+            assert_eq!(255, out.as_integer());
+        }
+        combine_u16 => {
+            let field = MyFieldU16(U16);
+            let reversed = MyFieldU16(u16::from_str_radix(B16.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field.combine(reversed);
+            assert_eq!("1110101111010111", out.as_binary());
+            assert_eq!(60375, out.as_integer());
+        }
+        combine_u32 => {
+            let field = MyFieldU32(U32);
+            let reversed = MyFieldU32(u32::from_str_radix(B32.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field.combine(reversed);
+            assert_eq!("11111101100100111100100110111111", out.as_binary());
+            assert_eq!(4254321087, out.as_integer());
+        }
+        combine_u64 => {
+            let field = MyFieldU64(U64);
+            let reversed = MyFieldU64(u64::from_str_radix(B64.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field.combine(reversed);
+            assert_eq!("1111111011010010001111111001110110111001111111000100101101111111", out.as_binary());
+            assert_eq!(18361808577405668223, out.as_integer());
+        }
+        combine_u128 => {
+            let field = MyFieldU128(U128);
+            let reversed = MyFieldU128(u128::from_str_radix(B128.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field.combine(reversed);
+            assert_eq!("11111001111111011110001110100101111101111110111101101011111111111111111111010110111101111110111110100101110001111011111110011111", out.as_binary());
+            assert_eq!(332296039312012448238196841470979719071, out.as_integer());
+        }
+        // combine_usize => {
+        //     let field = MyFieldUsize(USIZE);
+        //     let reversed = MyFieldUsize(usize::from_str_radix(BSIZE.chars().rev().collect::<String>().as_str(), 2).unwrap());
+        //     assert_eq!(0, field.combine(reversed).as_integer());
+        // }
+    }
 
     // intersect
+    tests! {
+        intersect_u8 => {
+            let field = MyFieldU8(U8);
+            let reversed = MyFieldU8(u8::from_str_radix(B8.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field.intersect(reversed);
+            assert_eq!("01011010", out.as_binary());
+            assert_eq!(90, out.as_integer());
+        }
+        intersect_u16 => {
+            let field = MyFieldU16(U16);
+            let reversed = MyFieldU16(u16::from_str_radix(B16.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field.intersect(reversed);
+            assert_eq!("0100000000000010", out.as_binary());
+            assert_eq!(16386, out.as_integer());
+        }
+        intersect_u32 => {
+            let field = MyFieldU32(U32);
+            let reversed = MyFieldU32(u32::from_str_radix(B32.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field.intersect(reversed);
+            assert_eq!("00001000100000000000000100010000", out.as_binary());
+            assert_eq!(142606608, out.as_integer());
+        }
+        intersect_u64 => {
+            let field = MyFieldU64(U64);
+            let reversed = MyFieldU64(u64::from_str_radix(B64.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field.intersect(reversed);
+            assert_eq!("1110101000010000000110110000010000100000110110000000100001010111", out.as_binary());
+            assert_eq!(16866010309047355479, out.as_integer());
+        }
+        intersect_u128 => {
+            let field = MyFieldU128(U128);
+            let reversed = MyFieldU128(u128::from_str_radix(B128.chars().rev().collect::<String>().as_str(), 2).unwrap());
+            let out = field.intersect(reversed);
+            assert_eq!("01101000001100010110000000000000001000000110000000100001010111011011101010000100000001100000010000000000000001101000110000010110", out.as_binary());
+            assert_eq!(138496081229041142656201681480886684694, out.as_integer());
+        }
+        // intersect_usize => {
+        //     let field = MyFieldUsize(USIZE);
+        //     let reversed = MyFieldUsize(usize::from_str_radix(BSIZE.chars().rev().collect::<String>().as_str(), 2).unwrap());
+        //     assert_eq!(0, field.combine(reversed).as_integer());
+        // }
+    }
+
+    // mask
     // TODO
 
     // into diff
     // TODO
 
-    // into combine
+    // into combination
     // TODO
 
-    // into intersect
+    // into intersection
+    // TODO
+
+    // into mask
     // TODO
 
     // field from flag
