@@ -29,7 +29,7 @@
 //!     }
 //! ```
 //!
-//! 
+//!
 //! ... TODO usage examples ...
 //!
 //!
@@ -233,7 +233,7 @@ macro_rules! bitfield {
             )*
         }
     ) => {
-        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u8] [8] { $( $(#[$member_doc])* $idx : $field )* });
+        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u8] [8] [u8::MAX] { $( $(#[$member_doc])* $idx : $field )* });
     };
 
     // U16
@@ -249,7 +249,7 @@ macro_rules! bitfield {
             )*
         }
     ) => {
-        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u16] [16] { $( $(#[$member_doc])* $idx : $field )* });
+        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u16] [16] [u16::MAX] { $( $(#[$member_doc])* $idx : $field )* });
     };
 
     // U32
@@ -265,7 +265,7 @@ macro_rules! bitfield {
             )*
         }
     ) => {
-        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u32] [32] { $( $(#[$member_doc])* $idx : $field )* });
+        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u32] [32] [u32::MAX] { $( $(#[$member_doc])* $idx : $field )* });
     };
 
     // U64
@@ -278,7 +278,7 @@ macro_rules! bitfield {
             $( $(#[$member_doc:meta])* $idx:literal : $field:ident )*
         }
     ) => {
-        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u64] [64] { $( $(#[$member_doc])* $idx : $field )* });
+        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u64] [64] [u64::MAX] { $( $(#[$member_doc])* $idx : $field )* });
     };
 
     // U128
@@ -294,7 +294,7 @@ macro_rules! bitfield {
             )*
         }
     ) => {
-        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u128] [128] { $( $(#[$member_doc])* $idx : $field )* });
+        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u128] [128] [u128::MAX] { $( $(#[$member_doc])* $idx : $field )* });
     };
 
     // USIZE
@@ -310,7 +310,7 @@ macro_rules! bitfield {
             )*
         }
     ) => {
-        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [usize] [usize::BITS as usize] { $( $(#[$member_doc])* $idx : $field )* });
+        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [usize] [usize::BITS as usize] [usize::MAX] { $( $(#[$member_doc])* $idx : $field )* });
     };
 }
 
@@ -329,7 +329,7 @@ macro_rules! __bitfield_unchecked {
         $( [$( $derive:ident ),*] )?
         $( ($access:vis) )? $name:ident
         $(#[$flag_doc:meta])*
-        $flag:ident [$type:ty] [$($bits:tt)*] {
+        $flag:ident [$type:ty] [$($bits:tt)*] [$max:path] {
             $(
                 $(#[$member_doc:meta])*
                 $idx:literal : $field:ident
@@ -352,7 +352,7 @@ macro_rules! __bitfield_unchecked {
             $(#[$field_doc])*
             $( [$( $derive ),*] )?
             $( ($access) )? $name
-            $flag [$type] [$($bits)*] {
+            $flag [$type] [$($bits)*] [$max] {
                 $(
                     $(#[$member_doc])*
                     $idx : $field
@@ -373,7 +373,7 @@ macro_rules! __def_field_struct {
         $(#[$field_doc:meta])*
         $( [$( $derive:ident ),+] )?
         $( ($access:vis) )? $name:ident
-        $flag:ident [$type:ty] [$($bits:tt)*] {
+        $flag:ident [$type:ty] [$($bits:tt)*] [$max:path] {
             $(
                 $(#[$member_doc:meta])*
                 $idx:literal : $field:ident
@@ -388,7 +388,7 @@ macro_rules! __def_field_struct {
 
         // Constants
         __impl_field_constants! {
-            $name { bits: [$($bits)*] }
+            $name { type: $type, max: $max, bits: [$($bits)*] }
         }
 
         // Constructors
@@ -561,7 +561,7 @@ macro_rules! __def_flag_enum {
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __impl_field_constants {
-    ($name:ident { bits: [$($bits:tt)*] }) => {
+    ($name:ident { type: $type:ty, max: $max:path, bits: [$($bits:tt)*] }) => {
         $crate::__doc_comment! {
             core::concat!(
                 "Constant values describing [`", core::stringify!($name), "`]."
@@ -578,6 +578,12 @@ macro_rules! __impl_field_constants {
                       "Number of bytes used by an instance of [`", core::stringify!($name), "`]."
                     ),
                     pub const BYTES: usize = $($bits)* / 8;
+                }
+                $crate::__doc_comment! {
+                    core::concat!(
+                      "Maximum valid integer for [`", core::stringify!($name), "`]."
+                    ),
+                    pub const MAX: $type = $max;
                 }
             }
         }
@@ -601,6 +607,42 @@ macro_rules! __impl_field_ctors {
                     ),
                     pub fn new(value: $type) -> Self {
                         Self(value)
+                    }
+                }
+
+                $crate::__doc_comment! {
+                    core::concat!(
+                      "TODO", ""
+                    ),
+                    pub fn zero() -> Self {
+                        todo!()
+                    }
+                }
+
+                $crate::__doc_comment! {
+                    core::concat!(
+                      "TODO", ""
+                    ),
+                    pub fn one() -> Self {
+                        todo!()
+                    }
+                }
+
+                $crate::__doc_comment! {
+                    core::concat!(
+                      "TODO", ""
+                    ),
+                    pub fn from_binary_str(value: &str) -> Self {
+                        todo!()
+                    }
+                }
+
+                $crate::__doc_comment! {
+                    core::concat!(
+                      "TODO", ""
+                    ),
+                    pub fn from_binary_string(value: String) -> Self {
+                        todo!()
                     }
                 }
             }
