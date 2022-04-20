@@ -3604,6 +3604,7 @@
 <span id="3599">3599</span>
 <span id="3600">3600</span>
 <span id="3601">3601</span>
+<span id="3602">3602</span>
 </pre><pre class="rust"><code><span class="doccomment">//! Provides a macro for generating [`bit field`](https://en.wikipedia.org/wiki/Bit_field) types</span>
 <span class="doccomment">//! complete with flags and some helpful trait implementations.</span>
 <span class="doccomment">//!</span>
@@ -3612,6 +3613,7 @@
 <span class="doccomment">//!</span>
 <span class="doccomment">//! __Note: the example module is only complied with documentation builds</span>
 <span class="doccomment">//! and is not available for importing in the wild.__</span>
+<span class="doccomment">//!</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! # Usage</span>
 <span class="doccomment">//!</span>
@@ -4121,7 +4123,7 @@
 <span class="doccomment">//! | name      | f0 | f1 | f2 | f3 | f4 | f5 | f6 | f7 |</span>
 <span class="doccomment">//! |-----------|----|----|----|----|----|----|----|----|</span>
 <span class="doccomment">//! | bit value | 1  | 0  | 1  | 0  | 0  | 1  | 1  | 0  |</span>
-<span class="doccomment">//! | index     | 0  | 1  | 2  | 3  | 4  | 5  | 6  | 7  |</span>
+<span class="doccomment">//! | index     | 7  | 6  | 5  | 4  | 3  | 2  | 1  | 0  |</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! With the same input and only the first few flags:</span>
@@ -4137,7 +4139,7 @@
 <span class="doccomment">//! | name      | f0 | f1 | f2 |    |    |    |    |    |</span>
 <span class="doccomment">//! |-----------|----|----|----|----|----|----|----|----|</span>
 <span class="doccomment">//! | bit value | 1  | 0  | 1  | 0  | 0  | 1  | 1  | 0  |</span>
-<span class="doccomment">//! | index     | 0  | 1  | 2  | 3  | 4  | 5  | 6  | 7  |</span>
+<span class="doccomment">//! | index     | 7  | 6  | 5  | 4  | 3  | 2  | 1  | 0  |</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! Using the same input, but with dispersed flags:</span>
@@ -4153,7 +4155,7 @@
 <span class="doccomment">//! | name      |    | f0 |    | f1 |    |    | f2 |    |</span>
 <span class="doccomment">//! |-----------|----|----|----|----|----|----|----|----|</span>
 <span class="doccomment">//! | bit value | 1  | 0  | 1  | 0  | 0  | 1  | 1  | 0  |</span>
-<span class="doccomment">//! | index     | 0  | 1  | 2  | 3  | 4  | 5  | 6  | 7  |</span>
+<span class="doccomment">//! | index     | 7  | 6  | 5  | 4  | 3  | 2  | 1  | 0  |</span>
 <span class="doccomment">//!</span>
 
 <span class="comment">// -------------------------------------------------------------------------------------------------</span>
