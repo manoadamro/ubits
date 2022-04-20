@@ -7,7 +7,7 @@
 //! __Note: the example module is only complied with documentation builds
 //! and is not available for importing in the wild.__
 //!
-//! 
+//!
 //! # Usage
 //!
 //! Generate a bitfield struct with a flag enum...
