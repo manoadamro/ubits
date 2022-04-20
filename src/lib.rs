@@ -811,8 +811,6 @@ macro_rules! __impl_field_flag_converters {
                         Self(self.0 & other.0)
                     }
                 }
-
-                // TODO into_field()
             }
         }
     };
@@ -2316,7 +2314,7 @@ mod test {
             assert_eq!(138496081229041142656201681480886684694, out.as_integer());
         }
         // bitwise_name_and_name_usize => {
-        //     todo!()
+        //
         // }
     }
 
@@ -2358,7 +2356,7 @@ mod test {
             assert_eq!(332296039312012448238196841470979719071, out.as_integer());
         }
         // bitwise_name_or_name_usize => {
-        //     todo!()
+        //
         // }
     }
 
@@ -2400,7 +2398,7 @@ mod test {
             assert_eq!(193799958082971305581995159990093034377, out.as_integer());
         }
         // bitwise_name_xor_name_usize => {
-        //     todo!()
+        //
         // }
     }
 
@@ -2442,7 +2440,7 @@ mod test {
             assert_eq!(138496081229041142656201681480886684694, field.as_integer());
         }
     //     bitwise_name_and_assign_name_usize => {
-    //         todo!()
+    //
     //     }
     }
 
@@ -2484,7 +2482,7 @@ mod test {
             assert_eq!(332296039312012448238196841470979719071, field.as_integer());
         }
         // bitwise_name_or_assign_name_usize => {
-        //     todo!()
+        //
         // }
     }
 
@@ -2526,7 +2524,7 @@ mod test {
             assert_eq!(193799958082971305581995159990093034377, field.as_integer());
         }
         // bitwise_name_xor_assign_name_usize => {
-        //     todo!()
+        //
         // }
     }
 
@@ -2563,7 +2561,7 @@ mod test {
             }
         }
         // bitwise_name_and_flag_usize => {
-        //     todo!()
+        //
         // }
     }
 
@@ -2600,7 +2598,7 @@ mod test {
             }
         }
         // bitwise_name_or_flag_usize => {
-        //     todo!()
+        //
         // }
     }
 
@@ -2637,7 +2635,7 @@ mod test {
             }
         }
         // bitwise_name_xor_flag_usize => {
-        //     todo!()
+        //
         // }
     }
 
@@ -2659,7 +2657,7 @@ mod test {
     //         todo!()
     //     }
     //     bitwise_name_and_assign_flag_usize => {
-    //         todo!()
+    //
     //     }
     // }
 
@@ -2681,7 +2679,7 @@ mod test {
     //         todo!()
     //     }
     //     bitwise_name_or_assign_flag_usize => {
-    //         todo!()
+    //
     //     }
     // }
 
@@ -2703,7 +2701,7 @@ mod test {
     //         todo!()
     //     }
     //     bitwise_name_xor_assign_flag_usize => {
-    //         todo!()
+    //
     //     }
     // }
 
@@ -2731,7 +2729,7 @@ mod test {
     //         todo!()
     //     }
     //     bitwise_flag_and_flag_usize => {
-    //         todo!()
+    //
     //     }
     // }
 
@@ -2753,7 +2751,7 @@ mod test {
     //         todo!()
     //     }
     //     bitwise_flag_or_flag_usize => {
-    //         todo!()
+    //
     //     }
     // }
 
@@ -2775,7 +2773,7 @@ mod test {
     //         todo!()
     //     }
     //     bitwise_flag_xor_flag_usize => {
-    //         todo!()
+    //
     //     }
     // }
 
