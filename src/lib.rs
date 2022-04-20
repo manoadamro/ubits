@@ -628,7 +628,7 @@ macro_rules! __impl_field_flag_accessors {
                         "Sets the value of the bit at the supplied flag to `0`."
                     ),
                     pub fn clear(&mut self, flag: $flag) -> &mut Self {
-                        self.0 &= (1 << (flag as $type));
+                        self.0 &= !(1 << (flag as $type));
                         self
                     }
                 }
@@ -1448,16 +1448,295 @@ mod test {
     }
 
     // get
-    // TODO
+    tests! {
+        get_u8 => {
+            let field = MyFieldU8(U8);
+            for (index, char) in B8.chars().rev().enumerate() {
+                if char == '1' {
+                    assert!(field.get(MyFlagsU8::from(index as u8)))
+                } else if char == '0' {
+                    assert!(!field.get(MyFlagsU8::from(index as u8)))
+                } else {
+                    panic!("invalid char in binary string")
+                }
+            }
+        }
+        get_u16 => {
+            let field = MyFieldU16(U16);
+            for (index, char) in B16.chars().rev().enumerate() {
+                if char == '1' {
+                    assert!(field.get(MyFlagsU16::from(index as u8)))
+                } else if char == '0' {
+                    assert!(!field.get(MyFlagsU16::from(index as u8)))
+                } else {
+                    panic!("invalid char in binary string")
+                }
+            }
+        }
+        get_u32 => {
+            let field = MyFieldU32(U32);
+            for (index, char) in B32.chars().rev().enumerate() {
+                if char == '1' {
+                    assert!(field.get(MyFlagsU32::from(index as u8)))
+                } else if char == '0' {
+                    assert!(!field.get(MyFlagsU32::from(index as u8)))
+                } else {
+                    panic!("invalid char in binary string")
+                }
+            }
+        }
+        get_u64 => {
+            let field = MyFieldU64(U64);
+            for (index, char) in B64.chars().rev().enumerate() {
+                if char == '1' {
+                    assert!(field.get(MyFlagsU64::from(index as u8)))
+                } else if char == '0' {
+                    assert!(!field.get(MyFlagsU64::from(index as u8)))
+                } else {
+                    panic!("invalid char in binary string")
+                }
+            }
+        }
+        get_u128 => {
+            let field = MyFieldU128(U128);
+            for (index, char) in B128.chars().rev().enumerate() {
+                if char == '1' {
+                    assert!(field.get(MyFlagsU128::from(index as u8)))
+                } else if char == '0' {
+                    assert!(!field.get(MyFlagsU128::from(index as u8)))
+                } else {
+                    panic!("invalid char in binary string")
+                }
+            }
+        }
+    }
 
     // set
-    // TODO
+    tests! {
+        set_u8 => {
+            let mut field = MyFieldU8(0);
+            for (index, char) in B8.chars().rev().enumerate() {
+                field.set(MyFlagsU8::from(index as u8));
+                for (s_index, _char) in B8.chars().rev().enumerate() {
+                    if s_index <= index {
+                        assert!(field.get_index(s_index as u8), "{:#?}", field);
+                    }  else {
+                        assert!(!field.get_index(s_index as u8), "{:#?}", field);
+                    }
+                }
+            }
+        }
+        set_u16 => {
+            let mut field = MyFieldU16(0);
+            for (index, char) in B16.chars().rev().enumerate() {
+                field.set(MyFlagsU16::from(index as u8));
+                for (s_index, _char) in B16.chars().rev().enumerate() {
+                    if s_index <= index {
+                        assert!(field.get_index(s_index as u8), "{:#?}", field);
+                    }  else {
+                        assert!(!field.get_index(s_index as u8), "{:#?}", field);
+                    }
+                }
+            }
+        }
+        set_u32 => {
+            let mut field = MyFieldU32(0);
+            for (index, char) in B32.chars().rev().enumerate() {
+                field.set(MyFlagsU32::from(index as u8));
+                for (s_index, _char) in B32.chars().rev().enumerate() {
+                    if s_index <= index {
+                        assert!(field.get_index(s_index as u8), "{:#?}", field);
+                    }  else {
+                        assert!(!field.get_index(s_index as u8), "{:#?}", field);
+                    }
+                }
+            }
+        }
+        set_u64 => {
+            let mut field = MyFieldU64(0);
+            for (index, char) in B64.chars().rev().enumerate() {
+                field.set(MyFlagsU64::from(index as u8));
+                for (s_index, _char) in B64.chars().rev().enumerate() {
+                    if s_index <= index {
+                        assert!(field.get_index(s_index as u8), "{:#?}", field);
+                    }  else {
+                        assert!(!field.get_index(s_index as u8), "{:#?}", field);
+                    }
+                }
+            }
+        }
+        set_u128 => {
+            let mut field = MyFieldU128(0);
+            for (index, char) in B128.chars().rev().enumerate() {
+                field.set(MyFlagsU128::from(index as u8));
+                for (s_index, _char) in B128.chars().rev().enumerate() {
+                    if s_index <= index {
+                        assert!(field.get_index(s_index as u8), "{:#?}", field);
+                    }  else {
+                        assert!(!field.get_index(s_index as u8), "{:#?}", field);
+                    }
+                }
+            }
+        }
+    }
 
     // clear
-    // TODO
+    tests! {
+        clear_u8 => {
+            let mut field = MyFieldU8(u8::MAX);
+            for (index, char) in B8.chars().rev().enumerate() {
+                assert!(field.get_index(index as u8), "{:#?}", field);
+                field.clear(MyFlagsU8::from(index as u8));
+                for (s_index, _char) in B8.chars().rev().enumerate() {
+                    if s_index <= index {
+                        assert!(!field.get_index(s_index as u8), "{:#?}", field);
+                    }  else {
+                        assert!(field.get_index(s_index as u8), "{:#?}", field);
+                    }
+                }
+            }
+        }
+        clear_u16 => {
+            let mut field = MyFieldU16(u16::MAX);
+            for (index, char) in B16.chars().rev().enumerate() {
+                assert!(field.get_index(index as u8), "{:#?}", field);
+                field.clear(MyFlagsU16::from(index as u8));
+                for (s_index, _char) in B16.chars().rev().enumerate() {
+                    if s_index <= index {
+                        assert!(!field.get_index(s_index as u8), "{:#?}", field);
+                    }  else {
+                        assert!(field.get_index(s_index as u8), "{:#?}", field);
+                    }
+                }
+            }
+        }
+        clear_u32 => {
+            let mut field = MyFieldU32(u32::MAX);
+            for (index, char) in B32.chars().rev().enumerate() {
+                assert!(field.get_index(index as u8), "{:#?}", field);
+                field.clear(MyFlagsU32::from(index as u8));
+                for (s_index, _char) in B32.chars().rev().enumerate() {
+                    if s_index <= index {
+                        assert!(!field.get_index(s_index as u8), "{:#?}", field);
+                    }  else {
+                        assert!(field.get_index(s_index as u8), "{:#?}", field);
+                    }
+                }
+            }
+        }
+        clear_u64 => {
+            let mut field = MyFieldU64(u64::MAX);
+            for (index, char) in B64.chars().rev().enumerate() {
+                assert!(field.get_index(index as u8), "{:#?}", field);
+                field.clear(MyFlagsU64::from(index as u8));
+                for (s_index, _char) in B64.chars().rev().enumerate() {
+                    if s_index <= index {
+                        assert!(!field.get_index(s_index as u8), "{:#?}", field);
+                    }  else {
+                        assert!(field.get_index(s_index as u8), "{:#?}", field);
+                    }
+                }
+            }
+        }
+        clear_u128 => {
+            let mut field = MyFieldU128(u128::MAX);
+            for (index, char) in B128.chars().rev().enumerate() {
+                assert!(field.get_index(index as u8), "{:#?}", field);
+                field.clear(MyFlagsU128::from(index as u8));
+                for (s_index, _char) in B128.chars().rev().enumerate() {
+                    if s_index <= index {
+                        assert!(!field.get_index(s_index as u8), "{:#?}", field);
+                    }  else {
+                        assert!(field.get_index(s_index as u8), "{:#?}", field);
+                    }
+                }
+            }
+        }
+    }
 
     // toggle
-    // TODO
+    tests! {
+        toggle_u8 => {
+            let mut field = MyFieldU8(U8);
+            for (index, char) in B8.chars().rev().enumerate() {
+                if char == '1' {
+                    assert!(field.get_index(index as u8));
+                    field.toggle(MyFlagsU8::from(index as u8));
+                    assert!(!field.get_index(index as u8));
+                } else if char == '0' {
+                    assert!(!field.get_index(index as u8));
+                    field.toggle(MyFlagsU8::from(index as u8));
+                    assert!(field.get_index(index as u8));
+                } else {
+                    panic!("invalid char in binary string");
+                }
+            }
+        }
+        toggle_u16 => {
+            let mut field = MyFieldU16(U16);
+            for (index, char) in B16.chars().rev().enumerate() {
+                if char == '1' {
+                    assert!(field.get_index(index as u8));
+                    field.toggle(MyFlagsU16::from(index as u8));
+                    assert!(!field.get_index(index as u8));
+                } else if char == '0' {
+                    assert!(!field.get_index(index as u8));
+                    field.toggle(MyFlagsU16::from(index as u8));
+                    assert!(field.get_index(index as u8));
+                } else {
+                    panic!("invalid char in binary string")
+                }
+            }
+        }
+        toggle_u32 => {
+            let mut field = MyFieldU32(U32);
+            for (index, char) in B32.chars().rev().enumerate() {
+                if char == '1' {
+                    assert!(field.get_index(index as u8));
+                    field.toggle(MyFlagsU32::from(index as u8));
+                    assert!(!field.get_index(index as u8));
+                } else if char == '0' {
+                    assert!(!field.get_index(index as u8));
+                    field.toggle(MyFlagsU32::from(index as u8));
+                    assert!(field.get_index(index as u8));
+                } else {
+                    panic!("invalid char in binary string")
+                }
+            }
+        }
+        toggle_u64 => {
+            let mut field = MyFieldU64(U64);
+            for (index, char) in B64.chars().rev().enumerate() {
+                if char == '1' {
+                    assert!(field.get_index(index as u8));
+                    field.toggle(MyFlagsU64::from(index as u8));
+                    assert!(!field.get_index(index as u8));
+                } else if char == '0' {
+                    assert!(!field.get_index(index as u8));
+                    field.toggle(MyFlagsU64::from(index as u8));
+                    assert!(field.get_index(index as u8));
+                } else {
+                    panic!("invalid char in binary string")
+                }
+            }
+        }
+        toggle_u128 => {
+            let mut field = MyFieldU128(U128);
+            for (index, char) in B128.chars().rev().enumerate() {
+                if char == '1' {
+                    assert!(field.get_index(index as u8));
+                    field.toggle(MyFlagsU128::from(index as u8));
+                    assert!(!field.get_index(index as u8));
+                } else if char == '0' {
+                    assert!(!field.get_index(index as u8));
+                    field.toggle(MyFlagsU128::from(index as u8));
+                    assert!(field.get_index(index as u8));
+                } else {
+                    panic!("invalid char in binary string")
+                }
+            }
+        }
+    }
 
     // diff
     // TODO
