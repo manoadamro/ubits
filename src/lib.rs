@@ -508,85 +508,65 @@ pub mod example {
 mod test {
     use super::*;
 
-    macro_rules! u8_mask {
-        ($name:ident $flag:ident) => {
-            bitmask! {
-                /// My Test Thing
-                (pub) $name $flag u8 {
-                    0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
-                }
-            }
-        };
+    bitmask! {
+        /// My Test Thing
+        (pub) MyMaskU8 MyFlagsU8 u8 {
+            0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
+        }
     }
 
-    macro_rules! u16_mask {
-        ($name:ident $flag:ident) => {
-            bitmask! {
-                /// My Test Thing
-                (pub) $name $flag u16 {
-                    0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
-                    8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
-                }
-            }
-        };
+    bitmask! {
+        /// My Test Thing
+        (pub) MyMaskU16 MyFlagsU16 u16 {
+            0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
+            8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
+        }
     }
 
-    macro_rules! u32_mask {
-        ($name:ident $flag:ident) => {
-            bitmask! {
-                /// My Test Thing
-                (pub) $name $flag u32 {
-                    0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
-                    8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
-                    16 : Flag16 17 : Flag17 18 : Flag18 19 : Flag19 20 : Flag20 21 : Flag21 22 : Flag22 23 : Flag23
-                    24 : Flag24 25 : Flag25 26 : Flag26 27 : Flag27 28 : Flag28 29 : Flag29 30 : Flag30 31 : Flag31
-                }
-            }
-        };
+    bitmask! {
+        /// My Test Thing
+        (pub) MyMaskU32 MyFlagsU32 u32 {
+            0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
+            8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
+            16 : Flag16 17 : Flag17 18 : Flag18 19 : Flag19 20 : Flag20 21 : Flag21 22 : Flag22 23 : Flag23
+            24 : Flag24 25 : Flag25 26 : Flag26 27 : Flag27 28 : Flag28 29 : Flag29 30 : Flag30 31 : Flag31
+        }
     }
 
-    macro_rules! u64_mask {
-        ($name:ident $flag:ident) => {
-            bitmask! {
-                /// My Test Thing
-                (pub) $name $flag u64 {
-                    0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
-                    8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
-                    16 : Flag16 17 : Flag17 18 : Flag18 19 : Flag19 20 : Flag20 21 : Flag21 22 : Flag22 23 : Flag23
-                    24 : Flag24 25 : Flag25 26 : Flag26 27 : Flag27 28 : Flag28 29 : Flag29 30 : Flag30 31 : Flag31
-                    32 : Flag32 33 : Flag33 34 : Flag34 35 : Flag35 36 : Flag36 37 : Flag37 38 : Flag38 39 : Flag39
-                    40 : Flag40 41 : Flag41 42 : Flag42 43 : Flag43 44 : Flag44 45 : Flag45 46 : Flag46 47 : Flag47
-                    48 : Flag48 49 : Flag49 50 : Flag50 51 : Flag51 52 : Flag52 53 : Flag53 54 : Flag54 55 : Flag55
-                    56 : Flag56 57 : Flag57 58 : Flag58 59 : Flag59 60 : Flag60 61 : Flag61 62 : Flag62 63 : Flag63
-                }
-            }
-        };
+    bitmask! {
+        /// My Test Thing
+        (pub) MyMaskU64 MyFlagsU64 u64 {
+            0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
+            8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
+            16 : Flag16 17 : Flag17 18 : Flag18 19 : Flag19 20 : Flag20 21 : Flag21 22 : Flag22 23 : Flag23
+            24 : Flag24 25 : Flag25 26 : Flag26 27 : Flag27 28 : Flag28 29 : Flag29 30 : Flag30 31 : Flag31
+            32 : Flag32 33 : Flag33 34 : Flag34 35 : Flag35 36 : Flag36 37 : Flag37 38 : Flag38 39 : Flag39
+            40 : Flag40 41 : Flag41 42 : Flag42 43 : Flag43 44 : Flag44 45 : Flag45 46 : Flag46 47 : Flag47
+            48 : Flag48 49 : Flag49 50 : Flag50 51 : Flag51 52 : Flag52 53 : Flag53 54 : Flag54 55 : Flag55
+            56 : Flag56 57 : Flag57 58 : Flag58 59 : Flag59 60 : Flag60 61 : Flag61 62 : Flag62 63 : Flag63
+        }
     }
 
-    macro_rules! u128_mask {
-        ($name:ident $flag:ident) => {
-            bitmask! {
-                /// My Test Thing
-                (pub) $name $flag u128 {
-                    0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
-                    8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
-                    16 : Flag16 17 : Flag17 18 : Flag18 19 : Flag19 20 : Flag20 21 : Flag21 22 : Flag22 23 : Flag23
-                    24 : Flag24 25 : Flag25 26 : Flag26 27 : Flag27 28 : Flag28 29 : Flag29 30 : Flag30 31 : Flag31
-                    32 : Flag32 33 : Flag33 34 : Flag34 35 : Flag35 36 : Flag36 37 : Flag37 38 : Flag38 39 : Flag39
-                    40 : Flag40 41 : Flag41 42 : Flag42 43 : Flag43 44 : Flag44 45 : Flag45 46 : Flag46 47 : Flag47
-                    48 : Flag48 49 : Flag49 50 : Flag50 51 : Flag51 52 : Flag52 53 : Flag53 54 : Flag54 55 : Flag55
-                    56 : Flag56 57 : Flag57 58 : Flag58 59 : Flag59 60 : Flag60 61 : Flag61 62 : Flag62 63 : Flag63
-                    64 : Flag64 65 : Flag65 66 : Flag66 67 : Flag67 68 : Flag68 69 : Flag69 70 : Flag70 71 : Flag71
-                    72 : Flag72 73 : Flag73 74 : Flag74 75 : Flag75 76 : Flag76 77 : Flag77 78 : Flag78 79 : Flag79
-                    80 : Flag80 81 : Flag81 82 : Flag82 83 : Flag83 84 : Flag84 85 : Flag85 86 : Flag86 87 : Flag87
-                    88 : Flag88 89 : Flag89 90 : Flag90 91 : Flag91 92 : Flag92 93 : Flag93 94 : Flag94 95 : Flag95
-                    96 : Flag96 97 : Flag97 98 : Flag98 99 : Flag99 100 : Flag100 101 : Flag101 102 : Flag102 103 : Flag103
-                    104 : Flag104 105 : Flag105 106 : Flag106 107 : Flag107 108 : Flag108 109 : Flag109 110 : Flag110 111 : Flag111
-                    112 : Flag112 113 : Flag113 114 : Flag114 115 : Flag115 116 : Flag116 117 : Flag117 118 : Flag118 119 : Flag119
-                    120 : Flag120 121 : Flag121 122 : Flag122 123 : Flag123 124 : Flag124 125 : Flag125 126 : Flag126 127 : Flag127
-                }
-            }
-        };
+    bitmask! {
+        /// My Test Thing
+        (pub) MyMaskU128 MyFlagsU128 u128 {
+            0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
+            8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
+            16 : Flag16 17 : Flag17 18 : Flag18 19 : Flag19 20 : Flag20 21 : Flag21 22 : Flag22 23 : Flag23
+            24 : Flag24 25 : Flag25 26 : Flag26 27 : Flag27 28 : Flag28 29 : Flag29 30 : Flag30 31 : Flag31
+            32 : Flag32 33 : Flag33 34 : Flag34 35 : Flag35 36 : Flag36 37 : Flag37 38 : Flag38 39 : Flag39
+            40 : Flag40 41 : Flag41 42 : Flag42 43 : Flag43 44 : Flag44 45 : Flag45 46 : Flag46 47 : Flag47
+            48 : Flag48 49 : Flag49 50 : Flag50 51 : Flag51 52 : Flag52 53 : Flag53 54 : Flag54 55 : Flag55
+            56 : Flag56 57 : Flag57 58 : Flag58 59 : Flag59 60 : Flag60 61 : Flag61 62 : Flag62 63 : Flag63
+            64 : Flag64 65 : Flag65 66 : Flag66 67 : Flag67 68 : Flag68 69 : Flag69 70 : Flag70 71 : Flag71
+            72 : Flag72 73 : Flag73 74 : Flag74 75 : Flag75 76 : Flag76 77 : Flag77 78 : Flag78 79 : Flag79
+            80 : Flag80 81 : Flag81 82 : Flag82 83 : Flag83 84 : Flag84 85 : Flag85 86 : Flag86 87 : Flag87
+            88 : Flag88 89 : Flag89 90 : Flag90 91 : Flag91 92 : Flag92 93 : Flag93 94 : Flag94 95 : Flag95
+            96 : Flag96 97 : Flag97 98 : Flag98 99 : Flag99 100 : Flag100 101 : Flag101 102 : Flag102 103 : Flag103
+            104 : Flag104 105 : Flag105 106 : Flag106 107 : Flag107 108 : Flag108 109 : Flag109 110 : Flag110 111 : Flag111
+            112 : Flag112 113 : Flag113 114 : Flag114 115 : Flag115 116 : Flag116 117 : Flag117 118 : Flag118 119 : Flag119
+            120 : Flag120 121 : Flag121 122 : Flag122 123 : Flag123 124 : Flag124 125 : Flag125 126 : Flag126 127 : Flag127
+        }
     }
 
     macro_rules! tests {
@@ -597,12 +577,6 @@ mod test {
             )+
         };
     }
-
-    u8_mask!(MyMaskU8 MyFlagsU8);
-    u16_mask!(MyMaskU16 MyFlagsU16);
-    u32_mask!(MyMaskU32 MyFlagsU32);
-    u64_mask!(MyMaskU64 MyFlagsU64);
-    u128_mask!(MyMaskU128 MyFlagsU128);
 
     // constructors
     tests! {
