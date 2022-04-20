@@ -8,7 +8,7 @@ Bitfields for rust!
 
 ## Usage
 
-Generate a bitfield struct with a flag enum...
+Generate a bitfield struct with a flag enum...<br>
 (The following examples all use this as a definition.)
 ```rust
 use bitfield::bitfield;
