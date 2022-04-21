@@ -30,7 +30,7 @@ use ubits::bitfield;
 
     bitfield! {
         
-        u8 ExampleField
+        pub u8 ExampleField
         ExampleFlags {
             0 : Flag0
             1 : Flag1
