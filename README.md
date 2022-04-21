@@ -225,10 +225,10 @@ and the following flags...
 
 we end up with this layout.
 
-| name      | f0 | f1 | f2 | f3 | f4 | f5 | f6 | f7 |
-|-----------|----|----|----|----|----|----|----|----|
-| bit value | 1  | 0  | 1  | 0  | 0  | 1  | 1  | 0  |
-| index     | 7  | 6  | 5  | 4  | 3  | 2  | 1  | 0  |
+| name      | f7  | f6  | f5  | f4  | f3  | f2  | f1  | f0  |
+|-----------|-----|-----|-----|-----|-----|-----|-----|-----|
+| bit value | 1   | 0   | 1   | 0   | 0   | 1   | 1   | 0   |
+| index     | 7   | 6   | 5   | 4   | 3   | 2   | 1   | 0   |
 
 
 With the same input and only the first few flags:
@@ -241,7 +241,7 @@ With the same input and only the first few flags:
 
 we end up with this layout.
 
-| name      | f0 | f1 | f2 |    |    |    |    |    |
+| name      |    |    |    |    |    | f2 | f1 | f0 |
 |-----------|----|----|----|----|----|----|----|----|
 | bit value | 1  | 0  | 1  | 0  | 0  | 1  | 1  | 0  |
 | index     | 7  | 6  | 5  | 4  | 3  | 2  | 1  | 0  |
@@ -257,7 +257,7 @@ Using the same input, but with dispersed flags:
 
 we end up with this layout.
 
-| name      |    | f0 |    | f1 |    |    | f2 |    |
-|-----------|----|----|----|----|----|----|----|----|
-| bit value | 1  | 0  | 1  | 0  | 0  | 1  | 1  | 0  |
-| index     | 7  | 6  | 5  | 4  | 3  | 2  | 1  | 0  |
+| name      |    | f2 |    | f1 |    |    | f0  |    |
+|-----------|----|----|----|----|----|----|-----|----|
+| bit value | 1  | 0  | 1  | 0  | 0  | 1  | 1   | 0  |
+| index     | 7  | 6  | 5  | 4  | 3  | 2  | 1   | 0  |
