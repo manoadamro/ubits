@@ -16,8 +16,8 @@
 //! use ubits::bitfield;
 //!
 //!     bitfield! {
-//!         (pub) ExampleField
-//!         ExampleFlags u8 {
+//!         (pub) u8 ExampleField
+//!         ExampleFlags {
 //!             0 : Flag0
 //!             1 : Flag1
 //!             2 : Flag2
@@ -37,8 +37,8 @@
 //! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
-//! #        (pub) ExampleField
-//! #        ExampleFlags u8 {
+//! #        (pub) u8 ExampleField
+//! #        ExampleFlags {
 //! #            0 : Flag0
 //! #            1 : Flag1
 //! #            2 : Flag2
@@ -59,8 +59,8 @@
 //! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
-//! #        (pub) ExampleField
-//! #        ExampleFlags u8 {
+//! #        (pub) u8 ExampleField
+//! #        ExampleFlags {
 //! #            0 : Flag0
 //! #            1 : Flag1
 //! #            2 : Flag2
@@ -81,8 +81,8 @@
 //! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
-//! #        (pub) ExampleField
-//! #        ExampleFlags u8 {
+//! #        (pub) u8 ExampleField
+//! #        ExampleFlags {
 //! #            0 : Flag0
 //! #            1 : Flag1
 //! #            2 : Flag2
@@ -104,8 +104,8 @@
 //! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
-//! #        (pub) ExampleField
-//! #        ExampleFlags u8 {
+//! #        (pub) u8 ExampleField
+//! #        ExampleFlags {
 //! #            0 : Flag0
 //! #            1 : Flag1
 //! #            2 : Flag2
@@ -129,8 +129,8 @@
 //! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
-//! #        (pub) ExampleField
-//! #        ExampleFlags u8 {
+//! #        (pub) u8 ExampleField
+//! #        ExampleFlags {
 //! #            0 : Flag0
 //! #            1 : Flag1
 //! #            2 : Flag2
@@ -153,8 +153,8 @@
 //! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
-//! #        (pub) ExampleField
-//! #        ExampleFlags u8 {
+//! #        (pub) u8 ExampleField
+//! #        ExampleFlags {
 //! #            0 : Flag0
 //! #            1 : Flag1
 //! #            2 : Flag2
@@ -177,8 +177,8 @@
 //! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
-//! #        (pub) ExampleField
-//! #        ExampleFlags u8 {
+//! #        (pub) u8 ExampleField
+//! #        ExampleFlags {
 //! #            0 : Flag0
 //! #            1 : Flag1
 //! #            2 : Flag2
@@ -202,8 +202,8 @@
 //! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
-//! #        (pub) ExampleField
-//! #        ExampleFlags u8 {
+//! #        (pub) u8 ExampleField
+//! #        ExampleFlags {
 //! #            0 : Flag0
 //! #            1 : Flag1
 //! #            2 : Flag2
@@ -227,8 +227,8 @@
 //! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
-//! #        (pub) ExampleField
-//! #        ExampleFlags u8 {
+//! #        (pub) u8 ExampleField
+//! #        ExampleFlags {
 //! #            0 : Flag0
 //! #            1 : Flag1
 //! #            2 : Flag2
@@ -252,8 +252,8 @@
 //! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
-//! #        (pub) ExampleField
-//! #        ExampleFlags u8 {
+//! #        (pub) u8 ExampleField
+//! #        ExampleFlags {
 //! #            0 : Flag0
 //! #            1 : Flag1
 //! #            2 : Flag2
@@ -277,8 +277,8 @@
 //! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
-//! #        (pub) ExampleField
-//! #        ExampleFlags u8 {
+//! #        (pub) u8 ExampleField
+//! #        ExampleFlags {
 //! #            0 : Flag0
 //! #            1 : Flag1
 //! #            2 : Flag2
@@ -303,8 +303,8 @@
 //! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
-//! #        (pub) ExampleField
-//! #        ExampleFlags u8 {
+//! #        (pub) u8 ExampleField
+//! #        ExampleFlags {
 //! #            0 : Flag0
 //! #            1 : Flag1
 //! #            2 : Flag2
@@ -332,8 +332,8 @@
 //! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
-//! #        (pub) ExampleField
-//! #        ExampleFlags u8 {
+//! #        (pub) u8 ExampleField
+//! #        ExampleFlags {
 //! #            0 : Flag0
 //! #            1 : Flag1
 //! #            2 : Flag2
@@ -356,8 +356,8 @@
 //! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
-//! #        (pub) ExampleField
-//! #        ExampleFlags u8 {
+//! #        (pub) u8 ExampleField
+//! #        ExampleFlags {
 //! #            0 : Flag0
 //! #            1 : Flag1
 //! #            2 : Flag2
@@ -381,8 +381,8 @@
 //! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
-//! #        (pub) ExampleField
-//! #        ExampleFlags u8 {
+//! #        (pub) u8 ExampleField
+//! #        ExampleFlags {
 //! #            0 : Flag0
 //! #            1 : Flag1
 //! #            2 : Flag2
@@ -407,8 +407,8 @@
 //! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
-//! #        (pub) ExampleField
-//! #        ExampleFlags u8 {
+//! #        (pub) u8 ExampleField
+//! #        ExampleFlags {
 //! #            0 : Flag0
 //! #            1 : Flag1
 //! #            2 : Flag2
@@ -445,8 +445,8 @@
 //! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
-//! #        (pub) ExampleField
-//! #        ExampleFlags u8 {
+//! #        (pub) u8 ExampleField
+//! #        ExampleFlags {
 //! #            0 : Flag0
 //! #            1 : Flag1
 //! #            2 : Flag2
@@ -469,8 +469,8 @@
 //! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
-//! #        (pub) ExampleField
-//! #        ExampleFlags u8 {
+//! #        (pub) u8 ExampleField
+//! #        ExampleFlags {
 //! #            0 : Flag0
 //! #            1 : Flag1
 //! #            2 : Flag2
@@ -603,10 +603,10 @@ pub use safe_transmute::{
 ///     bitfield! {
 ///         /// Optional docstring
 ///         /// for [`ExampleField`] struct
-///         (pub) ExampleField
+///         (pub) u8 ExampleField
 ///         /// Optional docstring
 ///         /// for [`ExampleFlags`] enum
-///         ExampleFlags u8 {
+///         ExampleFlags {
 ///             /// Optional docstring for [`ExampleFlags::Flag0`]
 ///             0 : Flag0
 ///             /// Optional docstring for [`ExampleFlags::Flag1`]
@@ -636,10 +636,10 @@ pub use safe_transmute::{
 ///     bitfield! {
 ///         /// Optional docstring
 ///         /// for [`ExampleField`] struct
-///         (pub) ExampleField
+///         (pub) u8 ExampleField
 ///         /// Optional docstring
 ///         /// for [`ExampleFlags`] enum
-///         ExampleFlags u8 {
+///         ExampleFlags {
 ///             /// Optional docstring for [`ExampleFlags::Flag0`]
 ///             0 : Flag0
 ///             /// Optional docstring for [`ExampleFlags::Flag1`]
@@ -657,10 +657,10 @@ pub use safe_transmute::{
 ///     bitfield! {
 ///         /// Optional docstring
 ///         /// for [`ExampleField`] struct
-///         (pub) ExampleField
+///         (pub) u8 ExampleField
 ///         /// Optional docstring
 ///         /// for [`ExampleFlags`] enum
-///         ExampleFlags u8 {
+///         ExampleFlags {
 ///             /// Optional docstring for [`ExampleFlags::Flag0`]
 ///             0 : Flag0
 ///             /// Optional docstring for [`ExampleFlags::Flag1`]
@@ -677,94 +677,94 @@ macro_rules! bitfield {
     // U8
     (
         $(#[$doc:meta])*
-        $( [$( $derive:ident ),*] )?
-        $( ($access:vis) )? $name:ident
+        $([$( $derive:ident),*])?
+        $(($access:vis))? u8 $name:ident
         $(#[$flag_doc:meta])*
-        $flag:ident u8 {
+        $flag:ident {
             $(
                 $(#[$member_doc:meta])*
                 $idx:literal : $field:ident
             )*
         }
     ) => {
-        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u8] [8] [u8::MAX] { $( $(#[$member_doc])* $idx : $field )* });
+        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? [u8] [8] [u8::MAX] $name $(#[$flag_doc])* $flag { $( $(#[$member_doc])* $idx : $field )* });
     };
 
     // U16
     (
         $(#[$doc:meta])*
-         $( [$( $derive:ident ),*] )?
-        $( ($access:vis) )? $name:ident
+        $([$( $derive:ident),*])?
+        $(($access:vis))? u16 $name:ident
         $(#[$flag_doc:meta])*
-        $flag:ident u16 {
+        $flag:ident {
             $(
                 $(#[$member_doc:meta])*
                 $idx:literal : $field:ident
             )*
         }
     ) => {
-        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u16] [16] [u16::MAX] { $( $(#[$member_doc])* $idx : $field )* });
+        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? [u16] [16] [u16::MAX] $name $(#[$flag_doc])* $flag { $( $(#[$member_doc])* $idx : $field )* });
     };
 
     // U32
     (
         $(#[$doc:meta])*
-         $( [$( $derive:ident ),*] )?
-        $( ($access:vis) )? $name:ident
+        $([$($derive:ident),*])?
+        $(($access:vis))? u32 $name:ident
         $(#[$flag_doc:meta])*
-        $flag:ident u32 {
+        $flag:ident {
             $(
                 $(#[$member_doc:meta])*
                 $idx:literal : $field:ident
             )*
         }
     ) => {
-        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u32] [32] [u32::MAX] { $( $(#[$member_doc])* $idx : $field )* });
+        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? [u32] [32] [u32::MAX] $name $(#[$flag_doc])* $flag { $( $(#[$member_doc])* $idx : $field )* });
     };
 
     // U64
     (
         $(#[$doc:meta])*
-         $( [$( $derive:ident ),*] )?
-        $( ($access:vis) )? $name:ident
+        $([$( $derive:ident ),*])?
+        $(($access:vis))? u64 $name:ident
         $(#[$flag_doc:meta])*
-        $flag:ident u64 {
+        $flag:ident {
             $( $(#[$member_doc:meta])* $idx:literal : $field:ident )*
         }
     ) => {
-        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u64] [64] [u64::MAX] { $( $(#[$member_doc])* $idx : $field )* });
+        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? [u64] [64] [u64::MAX] $name $(#[$flag_doc])* $flag { $( $(#[$member_doc])* $idx : $field )* });
     };
 
     // U128
     (
         $(#[$doc:meta])*
-         $( [$( $derive:ident ),*] )?
-        $( ($access:vis) )? $name:ident
+        $([$($derive:ident),*])?
+        $(($access:vis))? u128 $name:ident
         $(#[$flag_doc:meta])*
-        $flag:ident u128 {
+        $flag:ident {
             $(
                 $(#[$member_doc:meta])*
                 $idx:literal : $field:ident
             )*
         }
     ) => {
-        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [u128] [128] [u128::MAX] { $( $(#[$member_doc])* $idx : $field )* });
+        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? [u128] [128] [u128::MAX] $name $(#[$flag_doc])* $flag { $( $(#[$member_doc])* $idx : $field )* });
     };
 
     // USIZE
     (
         $(#[$doc:meta])*
-         $( [$( $derive:ident ),*] )?
-        $( ($access:vis) )? $name:ident
+        $([$($derive:ident),*])?
+        $(($access:vis))? usize $name:ident
         $(#[$flag_doc:meta])*
-        $flag:ident usize {
+        $flag:ident {
             $(
                 $(#[$member_doc:meta])*
                 $idx:literal : $field:ident
             )*
         }
     ) => {
-        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? $name $(#[$flag_doc])* $flag [usize] [usize::BITS as usize] [usize::MAX] { $( $(#[$member_doc])* $idx : $field )* });
+        __bitfield_unchecked!( $(#[$doc])* $( [$( $derive ),*] )? $( ($access) )? [usize] [usize::BITS as usize] [usize::MAX] $name $(#[$flag_doc])* $flag { $( $(#[$member_doc])* $idx : $field )* });
     };
 }
 
@@ -780,10 +780,10 @@ macro_rules! bitfield {
 macro_rules! __bitfield_unchecked {
     (
         $(#[$field_doc:meta])*
-        $( [$( $derive:ident ),*] )?
-        $( ($access:vis) )? $name:ident
+        $([$( $derive:ident),*])?
+        $(($access:vis))? [$type:ty] [$($bits:tt)*] [$max:path] $name:ident
         $(#[$flag_doc:meta])*
-        $flag:ident [$type:ty] [$($bits:tt)*] [$max:path] {
+        $flag:ident {
             $(
                 $(#[$member_doc:meta])*
                 $idx:literal : $field:ident
@@ -1501,9 +1501,9 @@ pub mod example {
 
     bitfield! {
         /// Optional docstring for my example bit field.
-        (pub) ExampleField
+        (pub) u8 ExampleField
         /// Optional docstring for my flag enum.
-        ExampleFlags u8 {
+        ExampleFlags {
             /// Optional docstring for Flag0
             0 : Flag0
             /// Optional docstring for Flag1
@@ -1545,14 +1545,16 @@ mod test {
 
     bitfield! {
         /// My Test Thing
-        (pub) MyFieldU8 MyFlagsU8 u8 {
+        (pub) u8 MyFieldU8
+        MyFlagsU8 {
             0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
         }
     }
 
     bitfield! {
         /// My Test Thing
-        (pub) MyFieldU16 MyFlagsU16 u16 {
+        (pub) u16 MyFieldU16
+        MyFlagsU16 {
             0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
             8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
         }
@@ -1560,7 +1562,8 @@ mod test {
 
     bitfield! {
         /// My Test Thing
-        (pub) MyFieldU32 MyFlagsU32 u32 {
+        (pub) u32 MyFieldU32
+        MyFlagsU32 {
             0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
             8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
             16 : Flag16 17 : Flag17 18 : Flag18 19 : Flag19 20 : Flag20 21 : Flag21 22 : Flag22 23 : Flag23
@@ -1570,7 +1573,8 @@ mod test {
 
     bitfield! {
         /// My Test Thing
-        (pub) MyFieldU64 MyFlagsU64 u64 {
+        (pub) u64 MyFieldU64
+        MyFlagsU64 {
             0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
             8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
             16 : Flag16 17 : Flag17 18 : Flag18 19 : Flag19 20 : Flag20 21 : Flag21 22 : Flag22 23 : Flag23
@@ -1584,7 +1588,8 @@ mod test {
 
     bitfield! {
         /// My Test Thing
-        (pub) MyFieldU128 MyFlagsU128 u128 {
+        (pub) u128 MyFieldU128
+        MyFlagsU128 {
             0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
             8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
             16 : Flag16 17 : Flag17 18 : Flag18 19 : Flag19 20 : Flag20 21 : Flag21 22 : Flag22 23 : Flag23
@@ -1607,7 +1612,8 @@ mod test {
     #[cfg(target_pointer_width = "64")]
     bitfield! {
         /// My Test Thing
-        (pub) MyFieldUsize MyFlagsUsize usize {
+        (pub) usize MyFieldUsize
+        MyFlagsUsize {
             0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
             8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
             16 : Flag16 17 : Flag17 18 : Flag18 19 : Flag19 20 : Flag20 21 : Flag21 22 : Flag22 23 : Flag23
@@ -1622,7 +1628,8 @@ mod test {
     #[cfg(target_pointer_width = "32")]
     bitfield! {
         /// My Test Thing
-        (pub) MyFieldUsize MyFlagsUsize usize {
+        (pub) usize MyFieldUsize
+        MyFlagsUsize {
             0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
             8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
             16 : Flag16 17 : Flag17 18 : Flag18 19 : Flag19 20 : Flag20 21 : Flag21 22 : Flag22 23 : Flag23
