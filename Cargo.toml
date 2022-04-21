@@ -1,7 +1,18 @@
 [package]
-name = "bitfield"
+name = "ubits"
 version = "0.1.0"
 edition = "2021"
+description = "Bit fields and masks."
+keywords = ["bitfield", "bitmask"]
+
+authors = ["https://github.com/manoadamro"]
+repository = "https://github.com/manoadamro/ubits"
+homepage = "https://manoadamro.github.io/ubits/doc/ubits/"
+documentation = "https://manoadamro.github.io/ubits/doc/ubits/"
+
+readme = "README.md"
+license = "MIT"
+license-file = "LICENSE"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

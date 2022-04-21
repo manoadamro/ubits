@@ -1,6 +1,6 @@
-# bitfield
+# ubits
 
-Bitfields for rust!
+Bit fields and masks for rust!
 
 Supports widths of `8`, `16`, `32`, `64` and `128` bits.
 
@@ -13,7 +13,7 @@ Supports widths of `8`, `16`, `32`, `64` and `128` bits.
 Generate a bitfield struct with a flag enum...<br>
 (The following examples all use this as a definition.)
 ```rust
-use bitfield::bitfield;
+use ubits::bitfield;
 
     bitfield! {
         (pub) ExampleField
