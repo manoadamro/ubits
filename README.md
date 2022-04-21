@@ -12,9 +12,8 @@ Supports widths of `8`, `16`, `32`, `64` and `128` bits.
 
 Available from [crates.io](https://crates.io/crates/ubits)
 
-Add `ubits` to your `Cargo.toml`:
+Add the following line to your `Cargo.toml` file:
 ```
-[dependencies]
 ubits = "0.1.0"
 ```
 
