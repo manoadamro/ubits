@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["flagless_example","Example of generated output, using only a bit field without a flag enum."],["full_example","Example of generated output, using both a bit field and a flag enum."]]});

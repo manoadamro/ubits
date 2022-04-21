@@ -4,91 +4,104 @@
     </nav>
     <nav class="sidebar"><a class="sidebar-logo" href="../ubits/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div>
         </a><div class="sidebar-elems"><h2 class="location"><a href="index.html">In ubits</a></h2><div id="sidebar-vars" data-name="bitfield" data-ty="macro" data-relpath=""></div><script defer src="sidebar-items.js"></script></div></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../ubits/index.html"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker hidden"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="22" height="22" alt="Pick another theme!" src="../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="main-heading">
-    <h1 class="fqn"><span class="in-band">Macro <a href="index.html">ubits</a>::<wbr><a class="macro" href="#">bitfield</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></span></h1><span class="out-of-band"><a class="srclink" href="../src/ubits/lib.rs.html#675-769">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><div class="docblock item-decl"><div class="example-wrap"><pre class="rust macro"><code><span class="macro">macro_rules!</span> <span class="ident">bitfield</span> {
+    <h1 class="fqn"><span class="in-band">Macro <a href="index.html">ubits</a>::<wbr><a class="macro" href="#">bitfield</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></span></h1><span class="out-of-band"><a class="srclink" href="../src/ubits/lib.rs.html#686-789">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><div class="docblock item-decl"><div class="example-wrap"><pre class="rust macro"><code><span class="macro">macro_rules!</span> <span class="ident">bitfield</span> {
     (
         $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-        $( [$( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">derive</span>:<span class="ident">ident</span> ),<span class="kw-2">*</span>] )<span class="question-mark">?</span>
-        $( (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span>) )<span class="question-mark">?</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
-        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> <span class="ident">u8</span> {
-            $(
-                $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
-            )<span class="op">*</span>
-        }
+        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span> <span class="ident">u8</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
+        $(
+            $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
+                $(
+                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
+                )<span class="op">*</span>
+            }
+        )<span class="question-mark">?</span>
     ) =&gt; { ... };
     (
         $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-         $( [$( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">derive</span>:<span class="ident">ident</span> ),<span class="kw-2">*</span>] )<span class="question-mark">?</span>
-        $( (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span>) )<span class="question-mark">?</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
-        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> <span class="ident">u16</span> {
-            $(
-                $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
-            )<span class="op">*</span>
-        }
+        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span> <span class="ident">u16</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
+        $(
+            $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
+                $(
+                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
+                )<span class="op">*</span>
+            }
+        )<span class="question-mark">?</span>
     ) =&gt; { ... };
     (
         $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-         $( [$( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">derive</span>:<span class="ident">ident</span> ),<span class="kw-2">*</span>] )<span class="question-mark">?</span>
-        $( (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span>) )<span class="question-mark">?</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
-        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> <span class="ident">u32</span> {
-            $(
-                $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
-            )<span class="op">*</span>
-        }
+        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span> <span class="ident">u32</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
+        $(
+            $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
+                $(
+                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
+                )<span class="op">*</span>
+            }
+        )<span class="question-mark">?</span>
     ) =&gt; { ... };
     (
         $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-         $( [$( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">derive</span>:<span class="ident">ident</span> ),<span class="kw-2">*</span>] )<span class="question-mark">?</span>
-        $( (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span>) )<span class="question-mark">?</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
-        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> <span class="ident">u64</span> {
-            $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span> )<span class="op">*</span>
-        }
+        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span> <span class="ident">u64</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
+        $(
+            $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
+                $(
+                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
+                )<span class="op">*</span>
+            }
+        )<span class="question-mark">?</span>
     ) =&gt; { ... };
     (
         $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-         $( [$( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">derive</span>:<span class="ident">ident</span> ),<span class="kw-2">*</span>] )<span class="question-mark">?</span>
-        $( (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span>) )<span class="question-mark">?</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
-        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> <span class="ident">u128</span> {
-            $(
-                $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
-            )<span class="op">*</span>
-        }
+        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span> <span class="ident">u128</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
+        $(
+            $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
+                $(
+                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
+                )<span class="op">*</span>
+            }
+        )<span class="question-mark">?</span>
     ) =&gt; { ... };
     (
         $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-         $( [$( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">derive</span>:<span class="ident">ident</span> ),<span class="kw-2">*</span>] )<span class="question-mark">?</span>
-        $( (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span>) )<span class="question-mark">?</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
-        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> <span class="ident">usize</span> {
-            $(
-                $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
-            )<span class="op">*</span>
-        }
+        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span> <span class="ident">usize</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
+        $(
+            $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
+                $(
+                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
+                )<span class="op">*</span>
+            }
+        )<span class="question-mark">?</span>
     ) =&gt; { ... };
 }</code></pre></div>
 </div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>Generates a bitfield struct and a corresponding flag enum.</p>
 <p>Can be used multiple times in a single codebase
 as long as the identifiers are unique or are isolated so as not to clash.</p>
-<p><strong>See the <a href="example/index.html" title="crate::example"><code>crate::example</code></a> module for an example of the generated output.</strong></p>
+<p><strong>See the <a href="examples/index.html" title="examples"><code>examples</code></a> module for examples of the generated output.</strong></p>
 <h2 id="args"><a href="#args">Args</a></h2>
 <ul>
 <li>
-<p><code>(pub)</code> - optional accessor: if provided, both generated items will public. If omitted, both will be private.</p>
+<p><code>pub</code> - optional accessor: if provided, both generated items will public.
+If omitted, both will be private. <br>
+<a href="https://doc.rust-lang.org/reference/visibility-and-privacy.html#visibility-and-privacy">see here</a> for possible visibility options.</p>
 </li>
 <li>
-<p><code>ExampleField</code> - name for the generated bitfield struct. (results in <code>struct ExampleField(...)</code>)</p>
+<p><code>ExampleField</code> - name for the generated bitfield struct.
+(results in <code>struct ExampleField(...)</code>)</p>
 </li>
 <li>
-<p><code>ExampleFlags</code> - name for the generated flag enum. (results in <code>enum ExampleFlags { ... }</code>)</p>
+<p><code>ExampleFlags</code> - name for the generated flag enum.
+(results in <code>enum ExampleFlags { ... }</code>)</p>
 </li>
 <li>
 <p><code>u8</code> - unsigned integer type to use as a bit array. <em>Must be an unsigned integer</em> <br>
@@ -102,6 +115,11 @@ This value determines the index of the target bit within the field. <br>
 The right hand side can be any valid identifier (unique to this enum).
 These identifiers will be used to access the corresponding field.</p>
 </li>
+<li>
+<p><code>/// docstrings</code> - Each element can take optional docstrings.
+This includes the bit field struct, the flag enum, and each member within the flag enum.
+See <a href="examples/index.html" title="examples"><code>examples</code></a> for more information.</p>
+</li>
 </ul>
 <h2 id="examples"><a href="#examples">Examples:</a></h2>
 <p>Full Example - (see below for explanation for each parameter):</p>
@@ -111,10 +129,10 @@ These identifiers will be used to access the corresponding field.</p>
     <span class="macro">bitfield!</span> {
         <span class="doccomment">/// Optional docstring</span>
         <span class="doccomment">/// for [`ExampleField`] struct</span>
-        (<span class="kw">pub</span>) <span class="ident">ExampleField</span>
+        <span class="kw">pub</span> <span class="ident">u8</span> <span class="ident">ExampleField</span>
         <span class="doccomment">/// Optional docstring</span>
         <span class="doccomment">/// for [`ExampleFlags`] enum</span>
-        <span class="ident">ExampleFlags</span> <span class="ident">u8</span> {
+        <span class="ident">ExampleFlags</span> {
             <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag0`]</span>
             <span class="number">0</span> : <span class="ident">Flag0</span>
             <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag1`]</span>
@@ -141,10 +159,10 @@ These identifiers will be used to access the corresponding field.</p>
     <span class="macro">bitfield!</span> {
         <span class="doccomment">/// Optional docstring</span>
         <span class="doccomment">/// for [`ExampleField`] struct</span>
-        (<span class="kw">pub</span>) <span class="ident">ExampleField</span>
+        <span class="kw">pub</span> <span class="ident">u8</span> <span class="ident">ExampleField</span>
         <span class="doccomment">/// Optional docstring</span>
         <span class="doccomment">/// for [`ExampleFlags`] enum</span>
-        <span class="ident">ExampleFlags</span> <span class="ident">u8</span> {
+        <span class="ident">ExampleFlags</span> {
             <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag0`]</span>
             <span class="number">0</span> : <span class="ident">Flag0</span>
             <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag1`]</span>
@@ -160,10 +178,10 @@ These identifiers will be used to access the corresponding field.</p>
     <span class="macro">bitfield!</span> {
         <span class="doccomment">/// Optional docstring</span>
         <span class="doccomment">/// for [`ExampleField`] struct</span>
-        (<span class="kw">pub</span>) <span class="ident">ExampleField</span>
+        <span class="kw">pub</span> <span class="ident">u8</span> <span class="ident">ExampleField</span>
         <span class="doccomment">/// Optional docstring</span>
         <span class="doccomment">/// for [`ExampleFlags`] enum</span>
-        <span class="ident">ExampleFlags</span> <span class="ident">u8</span> {
+        <span class="ident">ExampleFlags</span> {
             <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag0`]</span>
             <span class="number">0</span> : <span class="ident">Flag0</span>
             <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag1`]</span>
@@ -172,5 +190,15 @@ These identifiers will be used to access the corresponding field.</p>
             <span class="number">6</span> : <span class="ident">Flag2</span>
         }
     }</code></pre></div>
+<p>… or just omit the flags altogether and use indices only.:</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use</span> <span class="ident">ubits::bitfield</span>;
+    <span class="macro">bitfield!</span> {
+        <span class="doccomment">/// Optional docstring</span>
+        <span class="doccomment">/// for [`ExampleField`] struct</span>
+        <span class="kw">pub</span> <span class="ident">u8</span> <span class="ident">ExampleField</span>
+    }</code></pre></div>
+<p><strong>Note: if you omit flags, no flag enum will be generated
+and no methods for the bitfield struct that rely on flags will be generated.</strong></p>
 </div></details></section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../" data-current-crate="ubits" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.60.0 (7737e0b5c 2022-04-04)" ></div>
 </body></html>

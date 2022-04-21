@@ -1,3 +1,3 @@
 (function() {var implementors = {};
-implementors["ubits"] = [{"text":"impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.60.0/core/clone/trait.Clone.html\" title=\"trait core::clone::Clone\">Clone</a> for <a class=\"enum\" href=\"ubits/example/enum.ExampleFlags.html\" title=\"enum ubits::example::ExampleFlags\">ExampleFlags</a>","synthetic":false,"types":["ubits::example::ExampleFlags"]}];
+implementors["ubits"] = [{"text":"impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.60.0/core/clone/trait.Clone.html\" title=\"trait core::clone::Clone\">Clone</a> for <a class=\"enum\" href=\"ubits/examples/full_example/enum.ExampleFlags.html\" title=\"enum ubits::examples::full_example::ExampleFlags\">ExampleFlags</a>","synthetic":false,"types":["ubits::examples::full_example::ExampleFlags"]}];
 if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ExampleField","Optional docstring for my example bit field."]]});

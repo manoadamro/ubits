@@ -3605,11 +3605,186 @@
 <span id="3600">3600</span>
 <span id="3601">3601</span>
 <span id="3602">3602</span>
-</pre><pre class="rust"><code><span class="doccomment">//! Provides a macro for generating [`bit field`](https://en.wikipedia.org/wiki/Bit_field) types</span>
+<span id="3603">3603</span>
+<span id="3604">3604</span>
+<span id="3605">3605</span>
+<span id="3606">3606</span>
+<span id="3607">3607</span>
+<span id="3608">3608</span>
+<span id="3609">3609</span>
+<span id="3610">3610</span>
+<span id="3611">3611</span>
+<span id="3612">3612</span>
+<span id="3613">3613</span>
+<span id="3614">3614</span>
+<span id="3615">3615</span>
+<span id="3616">3616</span>
+<span id="3617">3617</span>
+<span id="3618">3618</span>
+<span id="3619">3619</span>
+<span id="3620">3620</span>
+<span id="3621">3621</span>
+<span id="3622">3622</span>
+<span id="3623">3623</span>
+<span id="3624">3624</span>
+<span id="3625">3625</span>
+<span id="3626">3626</span>
+<span id="3627">3627</span>
+<span id="3628">3628</span>
+<span id="3629">3629</span>
+<span id="3630">3630</span>
+<span id="3631">3631</span>
+<span id="3632">3632</span>
+<span id="3633">3633</span>
+<span id="3634">3634</span>
+<span id="3635">3635</span>
+<span id="3636">3636</span>
+<span id="3637">3637</span>
+<span id="3638">3638</span>
+<span id="3639">3639</span>
+<span id="3640">3640</span>
+<span id="3641">3641</span>
+<span id="3642">3642</span>
+<span id="3643">3643</span>
+<span id="3644">3644</span>
+<span id="3645">3645</span>
+<span id="3646">3646</span>
+<span id="3647">3647</span>
+<span id="3648">3648</span>
+<span id="3649">3649</span>
+<span id="3650">3650</span>
+<span id="3651">3651</span>
+<span id="3652">3652</span>
+<span id="3653">3653</span>
+<span id="3654">3654</span>
+<span id="3655">3655</span>
+<span id="3656">3656</span>
+<span id="3657">3657</span>
+<span id="3658">3658</span>
+<span id="3659">3659</span>
+<span id="3660">3660</span>
+<span id="3661">3661</span>
+<span id="3662">3662</span>
+<span id="3663">3663</span>
+<span id="3664">3664</span>
+<span id="3665">3665</span>
+<span id="3666">3666</span>
+<span id="3667">3667</span>
+<span id="3668">3668</span>
+<span id="3669">3669</span>
+<span id="3670">3670</span>
+<span id="3671">3671</span>
+<span id="3672">3672</span>
+<span id="3673">3673</span>
+<span id="3674">3674</span>
+<span id="3675">3675</span>
+<span id="3676">3676</span>
+<span id="3677">3677</span>
+<span id="3678">3678</span>
+<span id="3679">3679</span>
+<span id="3680">3680</span>
+<span id="3681">3681</span>
+<span id="3682">3682</span>
+<span id="3683">3683</span>
+<span id="3684">3684</span>
+<span id="3685">3685</span>
+<span id="3686">3686</span>
+<span id="3687">3687</span>
+<span id="3688">3688</span>
+<span id="3689">3689</span>
+<span id="3690">3690</span>
+<span id="3691">3691</span>
+<span id="3692">3692</span>
+<span id="3693">3693</span>
+<span id="3694">3694</span>
+<span id="3695">3695</span>
+<span id="3696">3696</span>
+<span id="3697">3697</span>
+<span id="3698">3698</span>
+<span id="3699">3699</span>
+<span id="3700">3700</span>
+<span id="3701">3701</span>
+<span id="3702">3702</span>
+<span id="3703">3703</span>
+<span id="3704">3704</span>
+<span id="3705">3705</span>
+<span id="3706">3706</span>
+<span id="3707">3707</span>
+<span id="3708">3708</span>
+<span id="3709">3709</span>
+<span id="3710">3710</span>
+<span id="3711">3711</span>
+<span id="3712">3712</span>
+<span id="3713">3713</span>
+<span id="3714">3714</span>
+<span id="3715">3715</span>
+<span id="3716">3716</span>
+<span id="3717">3717</span>
+<span id="3718">3718</span>
+<span id="3719">3719</span>
+<span id="3720">3720</span>
+<span id="3721">3721</span>
+<span id="3722">3722</span>
+<span id="3723">3723</span>
+<span id="3724">3724</span>
+<span id="3725">3725</span>
+<span id="3726">3726</span>
+<span id="3727">3727</span>
+<span id="3728">3728</span>
+<span id="3729">3729</span>
+<span id="3730">3730</span>
+<span id="3731">3731</span>
+<span id="3732">3732</span>
+<span id="3733">3733</span>
+<span id="3734">3734</span>
+<span id="3735">3735</span>
+<span id="3736">3736</span>
+<span id="3737">3737</span>
+<span id="3738">3738</span>
+<span id="3739">3739</span>
+<span id="3740">3740</span>
+<span id="3741">3741</span>
+<span id="3742">3742</span>
+<span id="3743">3743</span>
+<span id="3744">3744</span>
+<span id="3745">3745</span>
+<span id="3746">3746</span>
+<span id="3747">3747</span>
+<span id="3748">3748</span>
+<span id="3749">3749</span>
+<span id="3750">3750</span>
+<span id="3751">3751</span>
+<span id="3752">3752</span>
+<span id="3753">3753</span>
+<span id="3754">3754</span>
+<span id="3755">3755</span>
+<span id="3756">3756</span>
+<span id="3757">3757</span>
+<span id="3758">3758</span>
+<span id="3759">3759</span>
+<span id="3760">3760</span>
+<span id="3761">3761</span>
+<span id="3762">3762</span>
+<span id="3763">3763</span>
+<span id="3764">3764</span>
+<span id="3765">3765</span>
+<span id="3766">3766</span>
+</pre><pre class="rust"><code><span class="doccomment">//!</span>
+<span class="doccomment">//! [![crates.io](https://img.shields.io/crates/v/ubits.svg)](https://crates.io/crates/ubits)</span>
+<span class="doccomment">//! [![Downloads](https://img.shields.io/crates/d/ubits.svg)](https://crates.io/crates/ubits)</span>
+<span class="doccomment">//! [![Build](https://github.com/manoadamro/ubits/actions/workflows/rust.yml/badge.svg)](https://github.com/manoadamro/ubits/actions/workflows/rust.yml)</span>
+<span class="doccomment">//! [![Docs](https://img.shields.io/docsrs/ubits)](https://manoadamro.github.io/ubits/doc/ubits/)</span>
+<span class="doccomment">//! [![Licence](https://img.shields.io/github/license/manoadamro/ubits)](https://github.com/manoadamro/ubits/blob/main/LICENSE)</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! Bit fields and masks for rust!</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! Provides a macro for generating [`bit field`](https://en.wikipedia.org/wiki/Bit_field) types</span>
 <span class="doccomment">//! complete with flags and some helpful trait implementations.</span>
 <span class="doccomment">//!</span>
+<span class="doccomment">//! Supports field widths of `8`, `16`, `32`, `64` and `128` bits.</span>
+<span class="doccomment">//!</span>
 <span class="doccomment">//! - [`bitfield`] - macro documentation.</span>
-<span class="doccomment">//! - [`crate::example`] - an example of the output generated by the [`bitfield`] macro.</span>
+<span class="doccomment">//! - [`examples`] - examples of the output generated by the [`bitfield`] macro.</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! __Note: the example module is only complied with documentation builds</span>
 <span class="doccomment">//! and is not available for importing in the wild.__</span>
@@ -3623,8 +3798,8 @@
 <span class="doccomment">//! use ubits::bitfield;</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//!     bitfield! {</span>
-<span class="doccomment">//!         (pub) ExampleField</span>
-<span class="doccomment">//!         ExampleFlags u8 {</span>
+<span class="doccomment">//!         pub u8 ExampleField</span>
+<span class="doccomment">//!         ExampleFlags {</span>
 <span class="doccomment">//!             0 : Flag0</span>
 <span class="doccomment">//!             1 : Flag1</span>
 <span class="doccomment">//!             2 : Flag2</span>
@@ -3642,10 +3817,9 @@
 <span class="doccomment">//! From integer:</span>
 <span class="doccomment">//! ```rust</span>
 <span class="doccomment">//! # use ubits::bitfield;</span>
-<span class="doccomment">//! #</span>
 <span class="doccomment">//! #    bitfield! {</span>
-<span class="doccomment">//! #        (pub) ExampleField</span>
-<span class="doccomment">//! #        ExampleFlags u8 {</span>
+<span class="doccomment">//! #        pub u8 ExampleField</span>
+<span class="doccomment">//! #        ExampleFlags {</span>
 <span class="doccomment">//! #            0 : Flag0</span>
 <span class="doccomment">//! #            1 : Flag1</span>
 <span class="doccomment">//! #            2 : Flag2</span>
@@ -3664,10 +3838,9 @@
 <span class="doccomment">//! From a binary string:</span>
 <span class="doccomment">//! ```rust</span>
 <span class="doccomment">//! # use ubits::bitfield;</span>
-<span class="doccomment">//! #</span>
 <span class="doccomment">//! #    bitfield! {</span>
-<span class="doccomment">//! #        (pub) ExampleField</span>
-<span class="doccomment">//! #        ExampleFlags u8 {</span>
+<span class="doccomment">//! #        pub u8 ExampleField</span>
+<span class="doccomment">//! #        ExampleFlags {</span>
 <span class="doccomment">//! #            0 : Flag0</span>
 <span class="doccomment">//! #            1 : Flag1</span>
 <span class="doccomment">//! #            2 : Flag2</span>
@@ -3686,10 +3859,9 @@
 <span class="doccomment">//! From ones:</span>
 <span class="doccomment">//! ```rust</span>
 <span class="doccomment">//! # use ubits::bitfield;</span>
-<span class="doccomment">//! #</span>
 <span class="doccomment">//! #    bitfield! {</span>
-<span class="doccomment">//! #        (pub) ExampleField</span>
-<span class="doccomment">//! #        ExampleFlags u8 {</span>
+<span class="doccomment">//! #        pub u8 ExampleField</span>
+<span class="doccomment">//! #        ExampleFlags {</span>
 <span class="doccomment">//! #            0 : Flag0</span>
 <span class="doccomment">//! #            1 : Flag1</span>
 <span class="doccomment">//! #            2 : Flag2</span>
@@ -3709,10 +3881,9 @@
 <span class="doccomment">//! From zeros:</span>
 <span class="doccomment">//! ```rust</span>
 <span class="doccomment">//! # use ubits::bitfield;</span>
-<span class="doccomment">//! #</span>
 <span class="doccomment">//! #    bitfield! {</span>
-<span class="doccomment">//! #        (pub) ExampleField</span>
-<span class="doccomment">//! #        ExampleFlags u8 {</span>
+<span class="doccomment">//! #        pub u8 ExampleField</span>
+<span class="doccomment">//! #        ExampleFlags {</span>
 <span class="doccomment">//! #            0 : Flag0</span>
 <span class="doccomment">//! #            1 : Flag1</span>
 <span class="doccomment">//! #            2 : Flag2</span>
@@ -3734,10 +3905,9 @@
 <span class="doccomment">//! Get bit value by field:</span>
 <span class="doccomment">//! ```rust</span>
 <span class="doccomment">//! # use ubits::bitfield;</span>
-<span class="doccomment">//! #</span>
 <span class="doccomment">//! #    bitfield! {</span>
-<span class="doccomment">//! #        (pub) ExampleField</span>
-<span class="doccomment">//! #        ExampleFlags u8 {</span>
+<span class="doccomment">//! #        pub u8 ExampleField</span>
+<span class="doccomment">//! #        ExampleFlags {</span>
 <span class="doccomment">//! #            0 : Flag0</span>
 <span class="doccomment">//! #            1 : Flag1</span>
 <span class="doccomment">//! #            2 : Flag2</span>
@@ -3758,10 +3928,9 @@
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```rust</span>
 <span class="doccomment">//! # use ubits::bitfield;</span>
-<span class="doccomment">//! #</span>
 <span class="doccomment">//! #    bitfield! {</span>
-<span class="doccomment">//! #        (pub) ExampleField</span>
-<span class="doccomment">//! #        ExampleFlags u8 {</span>
+<span class="doccomment">//! #        pub u8 ExampleField</span>
+<span class="doccomment">//! #        ExampleFlags {</span>
 <span class="doccomment">//! #            0 : Flag0</span>
 <span class="doccomment">//! #            1 : Flag1</span>
 <span class="doccomment">//! #            2 : Flag2</span>
@@ -3782,10 +3951,9 @@
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```rust</span>
 <span class="doccomment">//! # use ubits::bitfield;</span>
-<span class="doccomment">//! #</span>
 <span class="doccomment">//! #    bitfield! {</span>
-<span class="doccomment">//! #        (pub) ExampleField</span>
-<span class="doccomment">//! #        ExampleFlags u8 {</span>
+<span class="doccomment">//! #        pub u8 ExampleField</span>
+<span class="doccomment">//! #        ExampleFlags {</span>
 <span class="doccomment">//! #            0 : Flag0</span>
 <span class="doccomment">//! #            1 : Flag1</span>
 <span class="doccomment">//! #            2 : Flag2</span>
@@ -3807,10 +3975,9 @@
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```rust</span>
 <span class="doccomment">//! # use ubits::bitfield;</span>
-<span class="doccomment">//! #</span>
 <span class="doccomment">//! #    bitfield! {</span>
-<span class="doccomment">//! #        (pub) ExampleField</span>
-<span class="doccomment">//! #        ExampleFlags u8 {</span>
+<span class="doccomment">//! #        pub u8 ExampleField</span>
+<span class="doccomment">//! #        ExampleFlags {</span>
 <span class="doccomment">//! #            0 : Flag0</span>
 <span class="doccomment">//! #            1 : Flag1</span>
 <span class="doccomment">//! #            2 : Flag2</span>
@@ -3832,10 +3999,9 @@
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```rust</span>
 <span class="doccomment">//! # use ubits::bitfield;</span>
-<span class="doccomment">//! #</span>
 <span class="doccomment">//! #    bitfield! {</span>
-<span class="doccomment">//! #        (pub) ExampleField</span>
-<span class="doccomment">//! #        ExampleFlags u8 {</span>
+<span class="doccomment">//! #        pub u8 ExampleField</span>
+<span class="doccomment">//! #        ExampleFlags {</span>
 <span class="doccomment">//! #            0 : Flag0</span>
 <span class="doccomment">//! #            1 : Flag1</span>
 <span class="doccomment">//! #            2 : Flag2</span>
@@ -3857,10 +4023,9 @@
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```rust</span>
 <span class="doccomment">//! # use ubits::bitfield;</span>
-<span class="doccomment">//! #</span>
 <span class="doccomment">//! #    bitfield! {</span>
-<span class="doccomment">//! #        (pub) ExampleField</span>
-<span class="doccomment">//! #        ExampleFlags u8 {</span>
+<span class="doccomment">//! #        pub u8 ExampleField</span>
+<span class="doccomment">//! #        ExampleFlags {</span>
 <span class="doccomment">//! #            0 : Flag0</span>
 <span class="doccomment">//! #            1 : Flag1</span>
 <span class="doccomment">//! #            2 : Flag2</span>
@@ -3882,10 +4047,9 @@
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```rust</span>
 <span class="doccomment">//! # use ubits::bitfield;</span>
-<span class="doccomment">//! #</span>
 <span class="doccomment">//! #    bitfield! {</span>
-<span class="doccomment">//! #        (pub) ExampleField</span>
-<span class="doccomment">//! #        ExampleFlags u8 {</span>
+<span class="doccomment">//! #        pub u8 ExampleField</span>
+<span class="doccomment">//! #        ExampleFlags {</span>
 <span class="doccomment">//! #            0 : Flag0</span>
 <span class="doccomment">//! #            1 : Flag1</span>
 <span class="doccomment">//! #            2 : Flag2</span>
@@ -3908,10 +4072,9 @@
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```rust</span>
 <span class="doccomment">//! # use ubits::bitfield;</span>
-<span class="doccomment">//! #</span>
 <span class="doccomment">//! #    bitfield! {</span>
-<span class="doccomment">//! #        (pub) ExampleField</span>
-<span class="doccomment">//! #        ExampleFlags u8 {</span>
+<span class="doccomment">//! #        pub u8 ExampleField</span>
+<span class="doccomment">//! #        ExampleFlags {</span>
 <span class="doccomment">//! #            0 : Flag0</span>
 <span class="doccomment">//! #            1 : Flag1</span>
 <span class="doccomment">//! #            2 : Flag2</span>
@@ -3937,10 +4100,9 @@
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```rust</span>
 <span class="doccomment">//! # use ubits::bitfield;</span>
-<span class="doccomment">//! #</span>
 <span class="doccomment">//! #    bitfield! {</span>
-<span class="doccomment">//! #        (pub) ExampleField</span>
-<span class="doccomment">//! #        ExampleFlags u8 {</span>
+<span class="doccomment">//! #        pub u8 ExampleField</span>
+<span class="doccomment">//! #        ExampleFlags {</span>
 <span class="doccomment">//! #            0 : Flag0</span>
 <span class="doccomment">//! #            1 : Flag1</span>
 <span class="doccomment">//! #            2 : Flag2</span>
@@ -3961,10 +4123,9 @@
 <span class="doccomment">//! (use `into_intersection` to consume self)</span>
 <span class="doccomment">//! ```rust</span>
 <span class="doccomment">//! # use ubits::bitfield;</span>
-<span class="doccomment">//! #</span>
 <span class="doccomment">//! #    bitfield! {</span>
-<span class="doccomment">//! #        (pub) ExampleField</span>
-<span class="doccomment">//! #        ExampleFlags u8 {</span>
+<span class="doccomment">//! #        pub u8 ExampleField</span>
+<span class="doccomment">//! #        ExampleFlags {</span>
 <span class="doccomment">//! #            0 : Flag0</span>
 <span class="doccomment">//! #            1 : Flag1</span>
 <span class="doccomment">//! #            2 : Flag2</span>
@@ -3986,10 +4147,9 @@
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```rust</span>
 <span class="doccomment">//! # use ubits::bitfield;</span>
-<span class="doccomment">//! #</span>
 <span class="doccomment">//! #    bitfield! {</span>
-<span class="doccomment">//! #        (pub) ExampleField</span>
-<span class="doccomment">//! #        ExampleFlags u8 {</span>
+<span class="doccomment">//! #        pub u8 ExampleField</span>
+<span class="doccomment">//! #        ExampleFlags {</span>
 <span class="doccomment">//! #            0 : Flag0</span>
 <span class="doccomment">//! #            1 : Flag1</span>
 <span class="doccomment">//! #            2 : Flag2</span>
@@ -4012,10 +4172,9 @@
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```rust</span>
 <span class="doccomment">//! # use ubits::bitfield;</span>
-<span class="doccomment">//! #</span>
 <span class="doccomment">//! #    bitfield! {</span>
-<span class="doccomment">//! #        (pub) ExampleField</span>
-<span class="doccomment">//! #        ExampleFlags u8 {</span>
+<span class="doccomment">//! #        pub u8 ExampleField</span>
+<span class="doccomment">//! #        ExampleFlags {</span>
 <span class="doccomment">//! #            0 : Flag0</span>
 <span class="doccomment">//! #            1 : Flag1</span>
 <span class="doccomment">//! #            2 : Flag2</span>
@@ -4050,10 +4209,9 @@
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```rust</span>
 <span class="doccomment">//! # use ubits::bitfield;</span>
-<span class="doccomment">//! #</span>
 <span class="doccomment">//! #    bitfield! {</span>
-<span class="doccomment">//! #        (pub) ExampleField</span>
-<span class="doccomment">//! #        ExampleFlags u8 {</span>
+<span class="doccomment">//! #        pub u8 ExampleField</span>
+<span class="doccomment">//! #        ExampleFlags {</span>
 <span class="doccomment">//! #            0 : Flag0</span>
 <span class="doccomment">//! #            1 : Flag1</span>
 <span class="doccomment">//! #            2 : Flag2</span>
@@ -4074,10 +4232,9 @@
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```rust</span>
 <span class="doccomment">//! # use ubits::bitfield;</span>
-<span class="doccomment">//! #</span>
 <span class="doccomment">//! #    bitfield! {</span>
-<span class="doccomment">//! #        (pub) ExampleField</span>
-<span class="doccomment">//! #        ExampleFlags u8 {</span>
+<span class="doccomment">//! #        pub u8 ExampleField</span>
+<span class="doccomment">//! #        ExampleFlags {</span>
 <span class="doccomment">//! #            0 : Flag0</span>
 <span class="doccomment">//! #            1 : Flag1</span>
 <span class="doccomment">//! #            2 : Flag2</span>
@@ -4099,7 +4256,7 @@
 <span class="doccomment">//! The generated flags enum allows you to access bits by name.</span>
 <span class="doccomment">//! The flag has an associated [`u8`] value,</span>
 <span class="doccomment">//! which determines the index its target bit.</span>
-<span class="doccomment">//! (See [`crate::bitfield`] for more info)</span>
+<span class="doccomment">//! (See [`bitfield`] for more info)</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! With the following input...</span>
 <span class="doccomment">//! ```no_compile</span>
@@ -4180,15 +4337,19 @@
 <span class="doccomment">/// Can be used multiple times in a single codebase</span>
 <span class="doccomment">/// as long as the identifiers are unique or are isolated so as not to clash.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// __See the [`crate::example`] module for an example of the generated output.__</span>
+<span class="doccomment">/// __See the [`examples`] module for examples of the generated output.__</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// # Args</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// - `(pub)` - optional accessor: if provided, both generated items will public. If omitted, both will be private.</span>
+<span class="doccomment">/// - `pub` - optional accessor: if provided, both generated items will public.</span>
+<span class="doccomment">/// If omitted, both will be private. &lt;br&gt;</span>
+<span class="doccomment">/// [see here](https://doc.rust-lang.org/reference/visibility-and-privacy.html#visibility-and-privacy) for possible visibility options.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// - `ExampleField` - name for the generated bitfield struct. (results in `struct ExampleField(...)`)</span>
+<span class="doccomment">/// - `ExampleField` - name for the generated bitfield struct.</span>
+<span class="doccomment">/// (results in `struct ExampleField(...)`)</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// - `ExampleFlags` - name for the generated flag enum. (results in `enum ExampleFlags { ... }`)</span>
+<span class="doccomment">/// - `ExampleFlags` - name for the generated flag enum.</span>
+<span class="doccomment">/// (results in `enum ExampleFlags { ... }`)</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - `u8` - unsigned integer type to use as a bit array. *Must be an unsigned integer* &lt;br&gt;</span>
 <span class="doccomment">/// valid options are: [`u8`],[`u16`], [`u32`], [`u64`], [`u128`], [`usize`]</span>
@@ -4200,6 +4361,9 @@
 <span class="doccomment">/// The right hand side can be any valid identifier (unique to this enum).</span>
 <span class="doccomment">/// These identifiers will be used to access the corresponding field.</span>
 <span class="doccomment">///</span>
+<span class="doccomment">/// - `/// docstrings` - Each element can take optional docstrings.</span>
+<span class="doccomment">/// This includes the bit field struct, the flag enum, and each member within the flag enum.</span>
+<span class="doccomment">/// See [`examples`] for more information.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// # Examples:</span>
 <span class="doccomment">///</span>
@@ -4210,10 +4374,10 @@
 <span class="doccomment">///     bitfield! {</span>
 <span class="doccomment">///         /// Optional docstring</span>
 <span class="doccomment">///         /// for [`ExampleField`] struct</span>
-<span class="doccomment">///         (pub) ExampleField</span>
+<span class="doccomment">///         pub u8 ExampleField</span>
 <span class="doccomment">///         /// Optional docstring</span>
 <span class="doccomment">///         /// for [`ExampleFlags`] enum</span>
-<span class="doccomment">///         ExampleFlags u8 {</span>
+<span class="doccomment">///         ExampleFlags {</span>
 <span class="doccomment">///             /// Optional docstring for [`ExampleFlags::Flag0`]</span>
 <span class="doccomment">///             0 : Flag0</span>
 <span class="doccomment">///             /// Optional docstring for [`ExampleFlags::Flag1`]</span>
@@ -4243,10 +4407,10 @@
 <span class="doccomment">///     bitfield! {</span>
 <span class="doccomment">///         /// Optional docstring</span>
 <span class="doccomment">///         /// for [`ExampleField`] struct</span>
-<span class="doccomment">///         (pub) ExampleField</span>
+<span class="doccomment">///         pub u8 ExampleField</span>
 <span class="doccomment">///         /// Optional docstring</span>
 <span class="doccomment">///         /// for [`ExampleFlags`] enum</span>
-<span class="doccomment">///         ExampleFlags u8 {</span>
+<span class="doccomment">///         ExampleFlags {</span>
 <span class="doccomment">///             /// Optional docstring for [`ExampleFlags::Flag0`]</span>
 <span class="doccomment">///             0 : Flag0</span>
 <span class="doccomment">///             /// Optional docstring for [`ExampleFlags::Flag1`]</span>
@@ -4264,10 +4428,10 @@
 <span class="doccomment">///     bitfield! {</span>
 <span class="doccomment">///         /// Optional docstring</span>
 <span class="doccomment">///         /// for [`ExampleField`] struct</span>
-<span class="doccomment">///         (pub) ExampleField</span>
+<span class="doccomment">///         pub u8 ExampleField</span>
 <span class="doccomment">///         /// Optional docstring</span>
 <span class="doccomment">///         /// for [`ExampleFlags`] enum</span>
-<span class="doccomment">///         ExampleFlags u8 {</span>
+<span class="doccomment">///         ExampleFlags {</span>
 <span class="doccomment">///             /// Optional docstring for [`ExampleFlags::Flag0`]</span>
 <span class="doccomment">///             0 : Flag0</span>
 <span class="doccomment">///             /// Optional docstring for [`ExampleFlags::Flag1`]</span>
@@ -4277,6 +4441,17 @@
 <span class="doccomment">///         }</span>
 <span class="doccomment">///     }</span>
 <span class="doccomment">/// ```</span>
+<span class="doccomment">/// ... or just omit the flags altogether and use indices only.:</span>
+<span class="doccomment">/// ```rust</span>
+<span class="doccomment">/// use ubits::bitfield;</span>
+<span class="doccomment">///     bitfield! {</span>
+<span class="doccomment">///         /// Optional docstring</span>
+<span class="doccomment">///         /// for [`ExampleField`] struct</span>
+<span class="doccomment">///         pub u8 ExampleField</span>
+<span class="doccomment">///     }</span>
+<span class="doccomment">/// ```</span>
+<span class="doccomment">/// __Note: if you omit flags, no flag enum will be generated</span>
+<span class="doccomment">/// and no methods for the bitfield struct that rely on flags will be generated.__</span>
 <span class="doccomment">///</span>
 <span class="attribute">#[<span class="ident">macro_export</span>(<span class="ident">local_inner_macros</span>)]</span>
 <span class="macro">macro_rules!</span> <span class="ident">bitfield</span> {
@@ -4284,94 +4459,103 @@
     <span class="comment">// U8</span>
     (
         $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-        $( [$( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">derive</span>:<span class="ident">ident</span> ),<span class="kw-2">*</span>] )<span class="question-mark">?</span>
-        $( (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span>) )<span class="question-mark">?</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
-        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> <span class="ident">u8</span> {
-            $(
-                $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
-            )<span class="op">*</span>
-        }
+        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span> <span class="ident">u8</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
+        $(
+            $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
+                $(
+                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
+                )<span class="op">*</span>
+            }
+        )<span class="question-mark">?</span>
     ) =&gt; {
-        <span class="macro">__bitfield_unchecked!</span>( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>)<span class="op">*</span> $( [$( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">derive</span> ),<span class="kw-2">*</span>] )<span class="question-mark">?</span> $( (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>) )<span class="question-mark">?</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> [<span class="ident">u8</span>] [<span class="number">8</span>] [<span class="ident">u8::MAX</span>] { $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> )<span class="op">*</span> });
+        <span class="macro">__bitfield_unchecked!</span>( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> [<span class="ident">u8</span>] [<span class="number">8</span>] [<span class="ident">u8::MAX</span>] <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> $($(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> { $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> )<span class="op">*</span> } )<span class="question-mark">?</span>);
     };
 
     <span class="comment">// U16</span>
     (
         $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-         $( [$( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">derive</span>:<span class="ident">ident</span> ),<span class="kw-2">*</span>] )<span class="question-mark">?</span>
-        $( (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span>) )<span class="question-mark">?</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
-        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> <span class="ident">u16</span> {
-            $(
-                $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
-            )<span class="op">*</span>
-        }
+        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span> <span class="ident">u16</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
+        $(
+            $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
+                $(
+                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
+                )<span class="op">*</span>
+            }
+        )<span class="question-mark">?</span>
     ) =&gt; {
-        <span class="macro">__bitfield_unchecked!</span>( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>)<span class="op">*</span> $( [$( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">derive</span> ),<span class="kw-2">*</span>] )<span class="question-mark">?</span> $( (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>) )<span class="question-mark">?</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> [<span class="ident">u16</span>] [<span class="number">16</span>] [<span class="ident">u16::MAX</span>] { $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> )<span class="op">*</span> });
+        <span class="macro">__bitfield_unchecked!</span>( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> [<span class="ident">u16</span>] [<span class="number">16</span>] [<span class="ident">u16::MAX</span>] <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> $($(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> { $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> )<span class="op">*</span> } )<span class="question-mark">?</span>);
     };
 
     <span class="comment">// U32</span>
     (
         $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-         $( [$( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">derive</span>:<span class="ident">ident</span> ),<span class="kw-2">*</span>] )<span class="question-mark">?</span>
-        $( (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span>) )<span class="question-mark">?</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
-        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> <span class="ident">u32</span> {
-            $(
-                $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
-            )<span class="op">*</span>
-        }
+        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span> <span class="ident">u32</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
+        $(
+            $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
+                $(
+                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
+                )<span class="op">*</span>
+            }
+        )<span class="question-mark">?</span>
     ) =&gt; {
-        <span class="macro">__bitfield_unchecked!</span>( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>)<span class="op">*</span> $( [$( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">derive</span> ),<span class="kw-2">*</span>] )<span class="question-mark">?</span> $( (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>) )<span class="question-mark">?</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> [<span class="ident">u32</span>] [<span class="number">32</span>] [<span class="ident">u32::MAX</span>] { $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> )<span class="op">*</span> });
+        <span class="macro">__bitfield_unchecked!</span>( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> [<span class="ident">u32</span>] [<span class="number">32</span>] [<span class="ident">u32::MAX</span>] <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> $($(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> { $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> )<span class="op">*</span> } )<span class="question-mark">?</span>);
     };
 
     <span class="comment">// U64</span>
     (
         $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-         $( [$( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">derive</span>:<span class="ident">ident</span> ),<span class="kw-2">*</span>] )<span class="question-mark">?</span>
-        $( (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span>) )<span class="question-mark">?</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
-        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> <span class="ident">u64</span> {
-            $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span> )<span class="op">*</span>
-        }
+        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span> <span class="ident">u64</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
+        $(
+            $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
+                $(
+                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
+                )<span class="op">*</span>
+            }
+        )<span class="question-mark">?</span>
     ) =&gt; {
-        <span class="macro">__bitfield_unchecked!</span>( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>)<span class="op">*</span> $( [$( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">derive</span> ),<span class="kw-2">*</span>] )<span class="question-mark">?</span> $( (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>) )<span class="question-mark">?</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> [<span class="ident">u64</span>] [<span class="number">64</span>] [<span class="ident">u64::MAX</span>] { $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> )<span class="op">*</span> });
+        <span class="macro">__bitfield_unchecked!</span>( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> [<span class="ident">u64</span>] [<span class="number">64</span>] [<span class="ident">u64::MAX</span>] <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> $($(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> { $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> )<span class="op">*</span> } )<span class="question-mark">?</span>);
     };
 
     <span class="comment">// U128</span>
     (
         $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-         $( [$( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">derive</span>:<span class="ident">ident</span> ),<span class="kw-2">*</span>] )<span class="question-mark">?</span>
-        $( (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span>) )<span class="question-mark">?</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
-        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> <span class="ident">u128</span> {
-            $(
-                $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
-            )<span class="op">*</span>
-        }
+        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span> <span class="ident">u128</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
+        $(
+            $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
+                $(
+                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
+                )<span class="op">*</span>
+            }
+        )<span class="question-mark">?</span>
     ) =&gt; {
-        <span class="macro">__bitfield_unchecked!</span>( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>)<span class="op">*</span> $( [$( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">derive</span> ),<span class="kw-2">*</span>] )<span class="question-mark">?</span> $( (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>) )<span class="question-mark">?</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> [<span class="ident">u128</span>] [<span class="number">128</span>] [<span class="ident">u128::MAX</span>] { $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> )<span class="op">*</span> });
+        <span class="macro">__bitfield_unchecked!</span>( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> [<span class="ident">u128</span>] [<span class="number">128</span>] [<span class="ident">u128::MAX</span>] <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> $($(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> { $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> )<span class="op">*</span> } )<span class="question-mark">?</span>);
     };
 
     <span class="comment">// USIZE</span>
     (
         $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-         $( [$( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">derive</span>:<span class="ident">ident</span> ),<span class="kw-2">*</span>] )<span class="question-mark">?</span>
-        $( (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span>) )<span class="question-mark">?</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
-        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> <span class="ident">usize</span> {
-            $(
-                $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
-            )<span class="op">*</span>
-        }
+        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span> <span class="ident">usize</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
+        $(
+            $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
+                $(
+                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
+                )<span class="op">*</span>
+            }
+        )<span class="question-mark">?</span>
     ) =&gt; {
-        <span class="macro">__bitfield_unchecked!</span>( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>)<span class="op">*</span> $( [$( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">derive</span> ),<span class="kw-2">*</span>] )<span class="question-mark">?</span> $( (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>) )<span class="question-mark">?</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> [<span class="ident">usize</span>] [<span class="ident">usize::BITS</span> <span class="kw">as</span> <span class="ident">usize</span>] [<span class="ident">usize::MAX</span>] { $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> )<span class="op">*</span> });
+        <span class="macro">__bitfield_unchecked!</span>( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> [<span class="ident">usize</span>] [<span class="ident">usize::BITS</span> <span class="kw">as</span> <span class="ident">usize</span>] [<span class="ident">usize::MAX</span>] <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> $($(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> { $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> )<span class="op">*</span> } )<span class="question-mark">?</span>);
     };
 }
 
@@ -4387,38 +4571,42 @@
 <span class="macro">macro_rules!</span> <span class="ident">__bitfield_unchecked</span> {
     (
         $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">field_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-        $( [$( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">derive</span>:<span class="ident">ident</span> ),<span class="kw-2">*</span>] )<span class="question-mark">?</span>
-        $( (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span>) )<span class="question-mark">?</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
-        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> [<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ty</span>] [$(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">bits</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>] [<span class="macro-nonterminal">$</span><span class="macro-nonterminal">max</span>:<span class="ident">path</span>] {
-            $(
-                $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
-            )<span class="op">*</span>
-        }
-    ) =&gt; {
-
-        <span class="macro">__def_flag_enum!</span> {
-            $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span>
-            $( (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>) )<span class="question-mark">?</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>
-            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> {
+        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span> [<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ty</span>] [$(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">bits</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>] [<span class="macro-nonterminal">$</span><span class="macro-nonterminal">max</span>:<span class="ident">path</span>] <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
+        $(
+            $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
                 $(
-                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span>
-                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>
+                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
                 )<span class="op">*</span>
             }
-        }
+        )<span class="question-mark">?</span>
+    ) =&gt; {
+
+        $(
+            <span class="macro">__def_flag_enum!</span> {
+                $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span>
+                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>
+                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> {
+                    $(
+                        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span>
+                        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>
+                    )<span class="op">*</span>
+                }
+            }
+        )<span class="question-mark">?</span>
 
         <span class="macro">__def_field_struct!</span> {
             $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">field_doc</span>]</span>)<span class="op">*</span>
-            $( [$( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">derive</span> ),<span class="kw-2">*</span>] )<span class="question-mark">?</span>
-            $( (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>) )<span class="question-mark">?</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>
-            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> [<span class="macro-nonterminal">$</span><span class="kw">type</span>] [$(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">bits</span>)<span class="kw-2">*</span>] [<span class="macro-nonterminal">$</span><span class="macro-nonterminal">max</span>] {
-                $(
-                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span>
-                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>
-                )<span class="op">*</span>
-            }
+            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> [<span class="macro-nonterminal">$</span><span class="kw">type</span>] [$(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">bits</span>)<span class="kw-2">*</span>] [<span class="macro-nonterminal">$</span><span class="macro-nonterminal">max</span>] <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>
+            $(
+                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> {
+                    $(
+                        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span>
+                        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>
+                    )<span class="op">*</span>
+                }
+            )<span class="question-mark">?</span>
         }
     };
 }
@@ -4432,20 +4620,21 @@
 <span class="macro">macro_rules!</span> <span class="ident">__def_field_struct</span> {
     (
         $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">field_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-        $( [$( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">derive</span>:<span class="ident">ident</span> ),<span class="op">+</span>] )<span class="question-mark">?</span>
-        $( (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span>) )<span class="question-mark">?</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> [<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ty</span>] [$(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">bits</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>] [<span class="macro-nonterminal">$</span><span class="macro-nonterminal">max</span>:<span class="ident">path</span>] {
-            $(
-                $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
-            )<span class="op">*</span>
-        }
+        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span> [<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ty</span>] [$(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">bits</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>] [<span class="macro-nonterminal">$</span><span class="macro-nonterminal">max</span>:<span class="ident">path</span>] <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
+        $(
+            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
+                $(
+                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
+                )<span class="op">*</span>
+            }
+        )<span class="question-mark">?</span>
     ) =&gt; {
 
         <span class="comment">// Struct: $name</span>
         $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">field_doc</span>]</span>)<span class="op">*</span>
-        <span class="attribute">#[<span class="ident">derive</span>($($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">derive</span>:<span class="ident">ident</span>,)<span class="kw-2">*</span>)<span class="question-mark">?</span> <span class="ident">PartialEq</span>)]</span>
-        $( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> )<span class="question-mark">?</span> <span class="kw">struct</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>(<span class="macro-nonterminal">$</span><span class="kw">type</span>);
+        <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">PartialEq</span>)]</span>
+        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> <span class="kw">struct</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>(<span class="macro-nonterminal">$</span><span class="kw">type</span>);
 
         <span class="comment">// Constants</span>
         <span class="macro">__impl_field_constants!</span> {
@@ -4467,10 +4656,12 @@
             <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>
         }
 
-        <span class="comment">// Flags</span>
-        <span class="macro">__impl_field_flag_accessors!</span> {
-            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>
-        }
+        $(
+            <span class="comment">// Flags</span>
+            <span class="macro">__impl_field_flag_accessors!</span> {
+                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>
+            }
+        )<span class="question-mark">?</span>
 
         <span class="comment">// Combinators</span>
         <span class="macro">__impl_field_flag_combinators!</span> {
@@ -4495,13 +4686,15 @@
             }
         }
 
-        <span class="comment">// From: $flag -&gt; $name</span>
-        <span class="macro">__impl_from!</span> {
-            <span class="doccomment">/// Returns a field instance from a flag.</span>
-            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> (<span class="ident">value</span>) =&gt; {
-                <span class="self">Self</span>(<span class="number">0</span> <span class="op">|</span> (<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> (<span class="ident">value</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>)) )
+        $(
+            <span class="comment">// From: $flag -&gt; $name</span>
+            <span class="macro">__impl_from!</span> {
+                <span class="doccomment">/// Returns a field instance from a flag.</span>
+                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> (<span class="ident">value</span>) =&gt; {
+                    <span class="self">Self</span>(<span class="number">0</span> <span class="op">|</span> (<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> (<span class="ident">value</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>)) )
+                }
             }
-        }
+        )<span class="question-mark">?</span>
 
         <span class="comment">// Bitwise: $name + $name</span>
         <span class="macro">__impl_bitwise_operators!</span> {
@@ -4514,32 +4707,34 @@
             <span class="ident">BitXorAssign</span> =&gt; { <span class="self">self</span>.<span class="number">0</span> <span class="op">^</span><span class="op">=</span> <span class="ident">rhs</span>.<span class="number">0</span>; }
         }
 
-        <span class="comment">// Bitwise: $name + $flag</span>
-        <span class="macro">__impl_bitwise_operators!</span> {
-            [<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>] <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> : (<span class="self">self</span> <span class="ident">rhs</span> -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>)
-            <span class="ident">BitAnd</span> =&gt; { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>(<span class="self">self</span>.<span class="number">0</span> <span class="op">&amp;</span> <span class="op">!</span>(<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> (<span class="ident">rhs</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>))) }
-            <span class="macro-nonterminal">BitOr</span> =&gt; { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>(<span class="self">self</span>.<span class="number">0</span> <span class="op">|</span> (<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> (<span class="ident">rhs</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>))) }
-            <span class="macro-nonterminal">BitXor</span> =&gt; { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>(<span class="self">self</span>.<span class="number">0</span> <span class="op">^</span> (<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> (<span class="ident">rhs</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>))) }
-            <span class="macro-nonterminal">BitAndAssign</span> =&gt; { <span class="self">self</span>.<span class="ident">clear</span>(<span class="ident">rhs</span>); }
-            <span class="ident">BitOrAssign</span> =&gt; { <span class="self">self</span>.<span class="ident">set</span>(<span class="ident">rhs</span>); }
-            <span class="ident">BitXorAssign</span> =&gt; { <span class="self">self</span>.<span class="ident">toggle</span>(<span class="ident">rhs</span>); }
-        }
+        $(
+            <span class="comment">// Bitwise: $name + $flag</span>
+            <span class="macro">__impl_bitwise_operators!</span> {
+                [<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>] <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> : (<span class="self">self</span> <span class="ident">rhs</span> -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>)
+                <span class="ident">BitAnd</span> =&gt; { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>(<span class="self">self</span>.<span class="number">0</span> <span class="op">&amp;</span> <span class="op">!</span>(<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> (<span class="ident">rhs</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>))) }
+                <span class="macro-nonterminal">BitOr</span> =&gt; { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>(<span class="self">self</span>.<span class="number">0</span> <span class="op">|</span> (<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> (<span class="ident">rhs</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>))) }
+                <span class="macro-nonterminal">BitXor</span> =&gt; { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>(<span class="self">self</span>.<span class="number">0</span> <span class="op">^</span> (<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> (<span class="ident">rhs</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>))) }
+                <span class="macro-nonterminal">BitAndAssign</span> =&gt; { <span class="self">self</span>.<span class="ident">clear</span>(<span class="ident">rhs</span>); }
+                <span class="ident">BitOrAssign</span> =&gt; { <span class="self">self</span>.<span class="ident">set</span>(<span class="ident">rhs</span>); }
+                <span class="ident">BitXorAssign</span> =&gt; { <span class="self">self</span>.<span class="ident">toggle</span>(<span class="ident">rhs</span>); }
+            }
 
-        <span class="comment">// Bitwise: &amp;$name + $flag</span>
-        <span class="macro">__impl_bitwise_operators!</span> {
-            [<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>] <span class="kw">for</span> <span class="op">&amp;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> : (<span class="self">self</span> <span class="ident">rhs</span> -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>)
-            <span class="ident">BitAnd</span> =&gt; { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>(<span class="self">self</span>.<span class="number">0</span> <span class="op">&amp;</span> <span class="op">!</span>(<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> (<span class="ident">rhs</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>))) }
-            <span class="macro-nonterminal">BitOr</span> =&gt; { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>(<span class="self">self</span>.<span class="number">0</span> <span class="op">|</span> (<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> (<span class="ident">rhs</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>))) }
-            <span class="macro-nonterminal">BitXor</span> =&gt; { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>(<span class="self">self</span>.<span class="number">0</span> <span class="op">^</span> (<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> (<span class="ident">rhs</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>))) }
-        }
+            <span class="comment">// Bitwise: &amp;$name + $flag</span>
+            <span class="macro">__impl_bitwise_operators!</span> {
+                [<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>] <span class="kw">for</span> <span class="op">&amp;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> : (<span class="self">self</span> <span class="ident">rhs</span> -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>)
+                <span class="ident">BitAnd</span> =&gt; { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>(<span class="self">self</span>.<span class="number">0</span> <span class="op">&amp;</span> <span class="op">!</span>(<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> (<span class="ident">rhs</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>))) }
+                <span class="macro-nonterminal">BitOr</span> =&gt; { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>(<span class="self">self</span>.<span class="number">0</span> <span class="op">|</span> (<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> (<span class="ident">rhs</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>))) }
+                <span class="macro-nonterminal">BitXor</span> =&gt; { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>(<span class="self">self</span>.<span class="number">0</span> <span class="op">^</span> (<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> (<span class="ident">rhs</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>))) }
+            }
 
-        <span class="comment">// Bitwise: $mut $name + $flag</span>
-        <span class="macro">__impl_bitwise_operators!</span> {
-            [<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>] <span class="kw">for</span> <span class="kw-2">&amp;mut</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> : (<span class="self">self</span> <span class="ident">rhs</span> -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>)
-            <span class="ident">BitAnd</span> =&gt; { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>(<span class="self">self</span>.<span class="number">0</span> <span class="op">&amp;</span> <span class="op">!</span>(<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> (<span class="ident">rhs</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>))) }
-            <span class="macro-nonterminal">BitOr</span> =&gt; { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>(<span class="self">self</span>.<span class="number">0</span> <span class="op">|</span> (<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> (<span class="ident">rhs</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>))) }
-            <span class="macro-nonterminal">BitXor</span> =&gt; { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>(<span class="self">self</span>.<span class="number">0</span> <span class="op">^</span> (<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> (<span class="ident">rhs</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>))) }
-        }
+            <span class="comment">// Bitwise: $mut $name + $flag</span>
+            <span class="macro">__impl_bitwise_operators!</span> {
+                [<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>] <span class="kw">for</span> <span class="kw-2">&amp;mut</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> : (<span class="self">self</span> <span class="ident">rhs</span> -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>)
+                <span class="ident">BitAnd</span> =&gt; { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>(<span class="self">self</span>.<span class="number">0</span> <span class="op">&amp;</span> <span class="op">!</span>(<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> (<span class="ident">rhs</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>))) }
+                <span class="macro-nonterminal">BitOr</span> =&gt; { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>(<span class="self">self</span>.<span class="number">0</span> <span class="op">|</span> (<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> (<span class="ident">rhs</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>))) }
+                <span class="macro-nonterminal">BitXor</span> =&gt; { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>(<span class="self">self</span>.<span class="number">0</span> <span class="op">^</span> (<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> (<span class="ident">rhs</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>))) }
+            }
+        )<span class="question-mark">?</span>
 
         <span class="comment">// Bitwise: Debug &amp; Binary</span>
         <span class="macro">__impl_formatters!</span> {
@@ -4557,7 +4752,7 @@
 <span class="macro">macro_rules!</span> <span class="ident">__def_flag_enum</span> {
     (
         $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-        $( (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span>) )<span class="question-mark">?</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
+        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
         <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
             $(
                 $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
@@ -4570,7 +4765,7 @@
         $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span>
         <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">PartialEq</span>)]</span>
         <span class="attribute">#[<span class="ident">repr</span>(<span class="ident">u8</span>)]</span>
-        $( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> )<span class="question-mark">?</span> <span class="kw">enum</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> {
+        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> <span class="kw">enum</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> {
             $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> ),<span class="op">*</span>
         }
 
@@ -5096,37 +5291,69 @@
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">dead_code</span>)]</span>
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_variables</span>)]</span>
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">doc</span>)]</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">example</span> {
-    <span class="doccomment">//! Example of generated output.</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">examples</span> {
+    <span class="doccomment">//! Examples of generated output using different configurations.</span>
     <span class="doccomment">//!</span>
     <span class="doccomment">//! __This module is only compiled with documentation builds</span>
     <span class="doccomment">//! and will not be available for import.__</span>
     <span class="doccomment">//!</span>
-    <span class="doccomment">//! use the [`crate::bitfield`] macro to generate a field struct and flag enum.</span>
+    <span class="doccomment">//! use the [`bitfield`] macro to generate a field struct and flag enum.</span>
     <span class="doccomment">//!</span>
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
 
-    <span class="macro">bitfield!</span> {
-        <span class="doccomment">/// Optional docstring for my example bit field.</span>
-        (<span class="kw">pub</span>) <span class="ident">ExampleField</span>
-        <span class="doccomment">/// Optional docstring for my flag enum.</span>
-        <span class="ident">ExampleFlags</span> <span class="ident">u8</span> {
-            <span class="doccomment">/// Optional docstring for Flag0</span>
-            <span class="number">0</span> : <span class="ident">Flag0</span>
-            <span class="doccomment">/// Optional docstring for Flag1</span>
-            <span class="number">1</span> : <span class="ident">Flag1</span>
-            <span class="doccomment">/// Optional docstring for Flag2</span>
-            <span class="number">2</span> : <span class="ident">Flag2</span>
-            <span class="doccomment">/// Optional docstring for Flag3</span>
-            <span class="number">3</span> : <span class="ident">Flag3</span>
-            <span class="doccomment">/// Optional docstring for Flag4</span>
-            <span class="number">4</span> : <span class="ident">Flag4</span>
-            <span class="doccomment">/// Optional docstring for Flag5</span>
-            <span class="number">5</span> : <span class="ident">Flag5</span>
-            <span class="doccomment">/// Optional docstring for Flag6</span>
-            <span class="number">6</span> : <span class="ident">Flag6</span>
-            <span class="doccomment">/// Optional docstring for Flag7</span>
-            <span class="number">7</span> : <span class="ident">Flag7</span>
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">dead_code</span>)]</span>
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_variables</span>)]</span>
+    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">doc</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">full_example</span> {
+        <span class="doccomment">//! Example of generated output, using both a bit field and a flag enum.</span>
+        <span class="doccomment">//!</span>
+        <span class="doccomment">//! __This module is only compiled with documentation builds</span>
+        <span class="doccomment">//! and will not be available for import.__</span>
+        <span class="doccomment">//!</span>
+        <span class="doccomment">//! use the [`bitfield`] macro to generate a field struct and flag enum.</span>
+        <span class="doccomment">//!</span>
+        <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
+
+        <span class="macro">bitfield!</span> {
+            <span class="doccomment">/// Optional docstring for my example bit field.</span>
+            <span class="kw">pub</span> <span class="ident">u8</span> <span class="ident">ExampleField</span>
+            <span class="doccomment">/// Optional docstring for my flag enum.</span>
+            <span class="ident">ExampleFlags</span> {
+                <span class="doccomment">/// Optional docstring for Flag0</span>
+                <span class="number">0</span> : <span class="ident">Flag0</span>
+                <span class="doccomment">/// Optional docstring for Flag1</span>
+                <span class="number">1</span> : <span class="ident">Flag1</span>
+                <span class="doccomment">/// Optional docstring for Flag2</span>
+                <span class="number">2</span> : <span class="ident">Flag2</span>
+                <span class="doccomment">/// Optional docstring for Flag3</span>
+                <span class="number">3</span> : <span class="ident">Flag3</span>
+                <span class="doccomment">/// Optional docstring for Flag4</span>
+                <span class="number">4</span> : <span class="ident">Flag4</span>
+                <span class="doccomment">/// Optional docstring for Flag5</span>
+                <span class="number">5</span> : <span class="ident">Flag5</span>
+                <span class="doccomment">/// Optional docstring for Flag6</span>
+                <span class="number">6</span> : <span class="ident">Flag6</span>
+                <span class="doccomment">/// Optional docstring for Flag7</span>
+                <span class="number">7</span> : <span class="ident">Flag7</span>
+            }
+        }
+    }
+
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">dead_code</span>)]</span>
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_variables</span>)]</span>
+    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">doc</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">flagless_example</span> {
+        <span class="doccomment">//! Example of generated output, using only a bit field without a flag enum.</span>
+        <span class="doccomment">//!</span>
+        <span class="doccomment">//! __This module is only compiled with documentation builds</span>
+        <span class="doccomment">//! and will not be available for import.__</span>
+        <span class="doccomment">//!</span>
+        <span class="doccomment">//! use the [`bitfield`] macro to generate a field struct and flag enum.</span>
+        <span class="doccomment">//!</span>
+        <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
+
+        <span class="macro">bitfield!</span> {
+            <span class="doccomment">/// Optional docstring for my example bit field.</span>
+            <span class="kw">pub</span> <span class="ident">u8</span> <span class="ident">ExampleField</span>
         }
     }
 }
@@ -5152,14 +5379,16 @@
 
     <span class="macro">bitfield!</span> {
         <span class="doccomment">/// My Test Thing</span>
-        (<span class="kw">pub</span>) <span class="ident">MyFieldU8</span> <span class="ident">MyFlagsU8</span> <span class="ident">u8</span> {
+        <span class="ident">u8</span> <span class="ident">MyFieldU8</span>
+        <span class="ident">MyFlagsU8</span> {
             <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
         }
     }
 
     <span class="macro">bitfield!</span> {
         <span class="doccomment">/// My Test Thing</span>
-        (<span class="kw">pub</span>) <span class="ident">MyFieldU16</span> <span class="ident">MyFlagsU16</span> <span class="ident">u16</span> {
+        <span class="ident">u16</span> <span class="ident">MyFieldU16</span>
+        <span class="ident">MyFlagsU16</span> {
             <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
             <span class="number">8</span> : <span class="ident">Flag8</span> <span class="number">9</span> : <span class="ident">Flag9</span> <span class="number">10</span> : <span class="ident">Flag10</span> <span class="number">11</span> : <span class="ident">Flag11</span> <span class="number">12</span> : <span class="ident">Flag12</span> <span class="number">13</span> : <span class="ident">Flag13</span> <span class="number">14</span> : <span class="ident">Flag14</span> <span class="number">15</span> : <span class="ident">Flag15</span>
         }
@@ -5167,7 +5396,8 @@
 
     <span class="macro">bitfield!</span> {
         <span class="doccomment">/// My Test Thing</span>
-        (<span class="kw">pub</span>) <span class="ident">MyFieldU32</span> <span class="ident">MyFlagsU32</span> <span class="ident">u32</span> {
+        <span class="ident">u32</span> <span class="ident">MyFieldU32</span>
+        <span class="ident">MyFlagsU32</span> {
             <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
             <span class="number">8</span> : <span class="ident">Flag8</span> <span class="number">9</span> : <span class="ident">Flag9</span> <span class="number">10</span> : <span class="ident">Flag10</span> <span class="number">11</span> : <span class="ident">Flag11</span> <span class="number">12</span> : <span class="ident">Flag12</span> <span class="number">13</span> : <span class="ident">Flag13</span> <span class="number">14</span> : <span class="ident">Flag14</span> <span class="number">15</span> : <span class="ident">Flag15</span>
             <span class="number">16</span> : <span class="ident">Flag16</span> <span class="number">17</span> : <span class="ident">Flag17</span> <span class="number">18</span> : <span class="ident">Flag18</span> <span class="number">19</span> : <span class="ident">Flag19</span> <span class="number">20</span> : <span class="ident">Flag20</span> <span class="number">21</span> : <span class="ident">Flag21</span> <span class="number">22</span> : <span class="ident">Flag22</span> <span class="number">23</span> : <span class="ident">Flag23</span>
@@ -5177,7 +5407,8 @@
 
     <span class="macro">bitfield!</span> {
         <span class="doccomment">/// My Test Thing</span>
-        (<span class="kw">pub</span>) <span class="ident">MyFieldU64</span> <span class="ident">MyFlagsU64</span> <span class="ident">u64</span> {
+        <span class="ident">u64</span> <span class="ident">MyFieldU64</span>
+        <span class="ident">MyFlagsU64</span> {
             <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
             <span class="number">8</span> : <span class="ident">Flag8</span> <span class="number">9</span> : <span class="ident">Flag9</span> <span class="number">10</span> : <span class="ident">Flag10</span> <span class="number">11</span> : <span class="ident">Flag11</span> <span class="number">12</span> : <span class="ident">Flag12</span> <span class="number">13</span> : <span class="ident">Flag13</span> <span class="number">14</span> : <span class="ident">Flag14</span> <span class="number">15</span> : <span class="ident">Flag15</span>
             <span class="number">16</span> : <span class="ident">Flag16</span> <span class="number">17</span> : <span class="ident">Flag17</span> <span class="number">18</span> : <span class="ident">Flag18</span> <span class="number">19</span> : <span class="ident">Flag19</span> <span class="number">20</span> : <span class="ident">Flag20</span> <span class="number">21</span> : <span class="ident">Flag21</span> <span class="number">22</span> : <span class="ident">Flag22</span> <span class="number">23</span> : <span class="ident">Flag23</span>
@@ -5191,7 +5422,8 @@
 
     <span class="macro">bitfield!</span> {
         <span class="doccomment">/// My Test Thing</span>
-        (<span class="kw">pub</span>) <span class="ident">MyFieldU128</span> <span class="ident">MyFlagsU128</span> <span class="ident">u128</span> {
+        <span class="ident">u128</span> <span class="ident">MyFieldU128</span>
+        <span class="ident">MyFlagsU128</span> {
             <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
             <span class="number">8</span> : <span class="ident">Flag8</span> <span class="number">9</span> : <span class="ident">Flag9</span> <span class="number">10</span> : <span class="ident">Flag10</span> <span class="number">11</span> : <span class="ident">Flag11</span> <span class="number">12</span> : <span class="ident">Flag12</span> <span class="number">13</span> : <span class="ident">Flag13</span> <span class="number">14</span> : <span class="ident">Flag14</span> <span class="number">15</span> : <span class="ident">Flag15</span>
             <span class="number">16</span> : <span class="ident">Flag16</span> <span class="number">17</span> : <span class="ident">Flag17</span> <span class="number">18</span> : <span class="ident">Flag18</span> <span class="number">19</span> : <span class="ident">Flag19</span> <span class="number">20</span> : <span class="ident">Flag20</span> <span class="number">21</span> : <span class="ident">Flag21</span> <span class="number">22</span> : <span class="ident">Flag22</span> <span class="number">23</span> : <span class="ident">Flag23</span>
@@ -5214,7 +5446,8 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_pointer_width</span> <span class="op">=</span> <span class="string">&quot;64&quot;</span>)]</span>
     <span class="macro">bitfield!</span> {
         <span class="doccomment">/// My Test Thing</span>
-        (<span class="kw">pub</span>) <span class="ident">MyFieldUsize</span> <span class="ident">MyFlagsUsize</span> <span class="ident">usize</span> {
+        <span class="ident">usize</span> <span class="ident">MyFieldUsize</span>
+        <span class="ident">MyFlagsUsize</span> {
             <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
             <span class="number">8</span> : <span class="ident">Flag8</span> <span class="number">9</span> : <span class="ident">Flag9</span> <span class="number">10</span> : <span class="ident">Flag10</span> <span class="number">11</span> : <span class="ident">Flag11</span> <span class="number">12</span> : <span class="ident">Flag12</span> <span class="number">13</span> : <span class="ident">Flag13</span> <span class="number">14</span> : <span class="ident">Flag14</span> <span class="number">15</span> : <span class="ident">Flag15</span>
             <span class="number">16</span> : <span class="ident">Flag16</span> <span class="number">17</span> : <span class="ident">Flag17</span> <span class="number">18</span> : <span class="ident">Flag18</span> <span class="number">19</span> : <span class="ident">Flag19</span> <span class="number">20</span> : <span class="ident">Flag20</span> <span class="number">21</span> : <span class="ident">Flag21</span> <span class="number">22</span> : <span class="ident">Flag22</span> <span class="number">23</span> : <span class="ident">Flag23</span>
@@ -5229,7 +5462,102 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_pointer_width</span> <span class="op">=</span> <span class="string">&quot;32&quot;</span>)]</span>
     <span class="macro">bitfield!</span> {
         <span class="doccomment">/// My Test Thing</span>
-        (<span class="kw">pub</span>) <span class="ident">MyFieldUsize</span> <span class="ident">MyFlagsUsize</span> <span class="ident">usize</span> {
+        <span class="ident">usize</span> <span class="ident">MyFieldUsize</span>
+        <span class="ident">MyFlagsUsize</span> {
+            <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
+            <span class="number">8</span> : <span class="ident">Flag8</span> <span class="number">9</span> : <span class="ident">Flag9</span> <span class="number">10</span> : <span class="ident">Flag10</span> <span class="number">11</span> : <span class="ident">Flag11</span> <span class="number">12</span> : <span class="ident">Flag12</span> <span class="number">13</span> : <span class="ident">Flag13</span> <span class="number">14</span> : <span class="ident">Flag14</span> <span class="number">15</span> : <span class="ident">Flag15</span>
+            <span class="number">16</span> : <span class="ident">Flag16</span> <span class="number">17</span> : <span class="ident">Flag17</span> <span class="number">18</span> : <span class="ident">Flag18</span> <span class="number">19</span> : <span class="ident">Flag19</span> <span class="number">20</span> : <span class="ident">Flag20</span> <span class="number">21</span> : <span class="ident">Flag21</span> <span class="number">22</span> : <span class="ident">Flag22</span> <span class="number">23</span> : <span class="ident">Flag23</span>
+            <span class="number">24</span> : <span class="ident">Flag24</span> <span class="number">25</span> : <span class="ident">Flag25</span> <span class="number">26</span> : <span class="ident">Flag26</span> <span class="number">27</span> : <span class="ident">Flag27</span> <span class="number">28</span> : <span class="ident">Flag28</span> <span class="number">29</span> : <span class="ident">Flag29</span> <span class="number">30</span> : <span class="ident">Flag30</span> <span class="number">31</span> : <span class="ident">Flag31</span>
+        }
+    }
+
+    <span class="macro">bitfield!</span> {
+        <span class="doccomment">/// My Test Thing</span>
+        <span class="ident">u8</span> <span class="ident">MyFieldU8Nf</span>
+        <span class="ident">MyFlagsU8Nf</span> {
+            <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
+        }
+    }
+
+    <span class="macro">bitfield!</span> {
+        <span class="doccomment">/// My Test Thing</span>
+        <span class="ident">u16</span> <span class="ident">MyFieldU16Nf</span>
+        <span class="ident">MyFlagsU16Nf</span> {
+            <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
+            <span class="number">8</span> : <span class="ident">Flag8</span> <span class="number">9</span> : <span class="ident">Flag9</span> <span class="number">10</span> : <span class="ident">Flag10</span> <span class="number">11</span> : <span class="ident">Flag11</span> <span class="number">12</span> : <span class="ident">Flag12</span> <span class="number">13</span> : <span class="ident">Flag13</span> <span class="number">14</span> : <span class="ident">Flag14</span> <span class="number">15</span> : <span class="ident">Flag15</span>
+        }
+    }
+
+    <span class="macro">bitfield!</span> {
+        <span class="doccomment">/// My Test Thing</span>
+        <span class="ident">u32</span> <span class="ident">MyFieldU32Nf</span>
+        <span class="ident">MyFlagsU32Nf</span> {
+            <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
+            <span class="number">8</span> : <span class="ident">Flag8</span> <span class="number">9</span> : <span class="ident">Flag9</span> <span class="number">10</span> : <span class="ident">Flag10</span> <span class="number">11</span> : <span class="ident">Flag11</span> <span class="number">12</span> : <span class="ident">Flag12</span> <span class="number">13</span> : <span class="ident">Flag13</span> <span class="number">14</span> : <span class="ident">Flag14</span> <span class="number">15</span> : <span class="ident">Flag15</span>
+            <span class="number">16</span> : <span class="ident">Flag16</span> <span class="number">17</span> : <span class="ident">Flag17</span> <span class="number">18</span> : <span class="ident">Flag18</span> <span class="number">19</span> : <span class="ident">Flag19</span> <span class="number">20</span> : <span class="ident">Flag20</span> <span class="number">21</span> : <span class="ident">Flag21</span> <span class="number">22</span> : <span class="ident">Flag22</span> <span class="number">23</span> : <span class="ident">Flag23</span>
+            <span class="number">24</span> : <span class="ident">Flag24</span> <span class="number">25</span> : <span class="ident">Flag25</span> <span class="number">26</span> : <span class="ident">Flag26</span> <span class="number">27</span> : <span class="ident">Flag27</span> <span class="number">28</span> : <span class="ident">Flag28</span> <span class="number">29</span> : <span class="ident">Flag29</span> <span class="number">30</span> : <span class="ident">Flag30</span> <span class="number">31</span> : <span class="ident">Flag31</span>
+        }
+    }
+
+    <span class="macro">bitfield!</span> {
+        <span class="doccomment">/// My Test Thing</span>
+        <span class="ident">u64</span> <span class="ident">MyFieldU64Nf</span>
+        <span class="ident">MyFlagsU64Nf</span> {
+            <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
+            <span class="number">8</span> : <span class="ident">Flag8</span> <span class="number">9</span> : <span class="ident">Flag9</span> <span class="number">10</span> : <span class="ident">Flag10</span> <span class="number">11</span> : <span class="ident">Flag11</span> <span class="number">12</span> : <span class="ident">Flag12</span> <span class="number">13</span> : <span class="ident">Flag13</span> <span class="number">14</span> : <span class="ident">Flag14</span> <span class="number">15</span> : <span class="ident">Flag15</span>
+            <span class="number">16</span> : <span class="ident">Flag16</span> <span class="number">17</span> : <span class="ident">Flag17</span> <span class="number">18</span> : <span class="ident">Flag18</span> <span class="number">19</span> : <span class="ident">Flag19</span> <span class="number">20</span> : <span class="ident">Flag20</span> <span class="number">21</span> : <span class="ident">Flag21</span> <span class="number">22</span> : <span class="ident">Flag22</span> <span class="number">23</span> : <span class="ident">Flag23</span>
+            <span class="number">24</span> : <span class="ident">Flag24</span> <span class="number">25</span> : <span class="ident">Flag25</span> <span class="number">26</span> : <span class="ident">Flag26</span> <span class="number">27</span> : <span class="ident">Flag27</span> <span class="number">28</span> : <span class="ident">Flag28</span> <span class="number">29</span> : <span class="ident">Flag29</span> <span class="number">30</span> : <span class="ident">Flag30</span> <span class="number">31</span> : <span class="ident">Flag31</span>
+            <span class="number">32</span> : <span class="ident">Flag32</span> <span class="number">33</span> : <span class="ident">Flag33</span> <span class="number">34</span> : <span class="ident">Flag34</span> <span class="number">35</span> : <span class="ident">Flag35</span> <span class="number">36</span> : <span class="ident">Flag36</span> <span class="number">37</span> : <span class="ident">Flag37</span> <span class="number">38</span> : <span class="ident">Flag38</span> <span class="number">39</span> : <span class="ident">Flag39</span>
+            <span class="number">40</span> : <span class="ident">Flag40</span> <span class="number">41</span> : <span class="ident">Flag41</span> <span class="number">42</span> : <span class="ident">Flag42</span> <span class="number">43</span> : <span class="ident">Flag43</span> <span class="number">44</span> : <span class="ident">Flag44</span> <span class="number">45</span> : <span class="ident">Flag45</span> <span class="number">46</span> : <span class="ident">Flag46</span> <span class="number">47</span> : <span class="ident">Flag47</span>
+            <span class="number">48</span> : <span class="ident">Flag48</span> <span class="number">49</span> : <span class="ident">Flag49</span> <span class="number">50</span> : <span class="ident">Flag50</span> <span class="number">51</span> : <span class="ident">Flag51</span> <span class="number">52</span> : <span class="ident">Flag52</span> <span class="number">53</span> : <span class="ident">Flag53</span> <span class="number">54</span> : <span class="ident">Flag54</span> <span class="number">55</span> : <span class="ident">Flag55</span>
+            <span class="number">56</span> : <span class="ident">Flag56</span> <span class="number">57</span> : <span class="ident">Flag57</span> <span class="number">58</span> : <span class="ident">Flag58</span> <span class="number">59</span> : <span class="ident">Flag59</span> <span class="number">60</span> : <span class="ident">Flag60</span> <span class="number">61</span> : <span class="ident">Flag61</span> <span class="number">62</span> : <span class="ident">Flag62</span> <span class="number">63</span> : <span class="ident">Flag63</span>
+        }
+    }
+
+    <span class="macro">bitfield!</span> {
+        <span class="doccomment">/// My Test Thing</span>
+        <span class="ident">u128</span> <span class="ident">MyFieldU128Nf</span>
+        <span class="ident">MyFlagsU128Nf</span> {
+            <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
+            <span class="number">8</span> : <span class="ident">Flag8</span> <span class="number">9</span> : <span class="ident">Flag9</span> <span class="number">10</span> : <span class="ident">Flag10</span> <span class="number">11</span> : <span class="ident">Flag11</span> <span class="number">12</span> : <span class="ident">Flag12</span> <span class="number">13</span> : <span class="ident">Flag13</span> <span class="number">14</span> : <span class="ident">Flag14</span> <span class="number">15</span> : <span class="ident">Flag15</span>
+            <span class="number">16</span> : <span class="ident">Flag16</span> <span class="number">17</span> : <span class="ident">Flag17</span> <span class="number">18</span> : <span class="ident">Flag18</span> <span class="number">19</span> : <span class="ident">Flag19</span> <span class="number">20</span> : <span class="ident">Flag20</span> <span class="number">21</span> : <span class="ident">Flag21</span> <span class="number">22</span> : <span class="ident">Flag22</span> <span class="number">23</span> : <span class="ident">Flag23</span>
+            <span class="number">24</span> : <span class="ident">Flag24</span> <span class="number">25</span> : <span class="ident">Flag25</span> <span class="number">26</span> : <span class="ident">Flag26</span> <span class="number">27</span> : <span class="ident">Flag27</span> <span class="number">28</span> : <span class="ident">Flag28</span> <span class="number">29</span> : <span class="ident">Flag29</span> <span class="number">30</span> : <span class="ident">Flag30</span> <span class="number">31</span> : <span class="ident">Flag31</span>
+            <span class="number">32</span> : <span class="ident">Flag32</span> <span class="number">33</span> : <span class="ident">Flag33</span> <span class="number">34</span> : <span class="ident">Flag34</span> <span class="number">35</span> : <span class="ident">Flag35</span> <span class="number">36</span> : <span class="ident">Flag36</span> <span class="number">37</span> : <span class="ident">Flag37</span> <span class="number">38</span> : <span class="ident">Flag38</span> <span class="number">39</span> : <span class="ident">Flag39</span>
+            <span class="number">40</span> : <span class="ident">Flag40</span> <span class="number">41</span> : <span class="ident">Flag41</span> <span class="number">42</span> : <span class="ident">Flag42</span> <span class="number">43</span> : <span class="ident">Flag43</span> <span class="number">44</span> : <span class="ident">Flag44</span> <span class="number">45</span> : <span class="ident">Flag45</span> <span class="number">46</span> : <span class="ident">Flag46</span> <span class="number">47</span> : <span class="ident">Flag47</span>
+            <span class="number">48</span> : <span class="ident">Flag48</span> <span class="number">49</span> : <span class="ident">Flag49</span> <span class="number">50</span> : <span class="ident">Flag50</span> <span class="number">51</span> : <span class="ident">Flag51</span> <span class="number">52</span> : <span class="ident">Flag52</span> <span class="number">53</span> : <span class="ident">Flag53</span> <span class="number">54</span> : <span class="ident">Flag54</span> <span class="number">55</span> : <span class="ident">Flag55</span>
+            <span class="number">56</span> : <span class="ident">Flag56</span> <span class="number">57</span> : <span class="ident">Flag57</span> <span class="number">58</span> : <span class="ident">Flag58</span> <span class="number">59</span> : <span class="ident">Flag59</span> <span class="number">60</span> : <span class="ident">Flag60</span> <span class="number">61</span> : <span class="ident">Flag61</span> <span class="number">62</span> : <span class="ident">Flag62</span> <span class="number">63</span> : <span class="ident">Flag63</span>
+            <span class="number">64</span> : <span class="ident">Flag64</span> <span class="number">65</span> : <span class="ident">Flag65</span> <span class="number">66</span> : <span class="ident">Flag66</span> <span class="number">67</span> : <span class="ident">Flag67</span> <span class="number">68</span> : <span class="ident">Flag68</span> <span class="number">69</span> : <span class="ident">Flag69</span> <span class="number">70</span> : <span class="ident">Flag70</span> <span class="number">71</span> : <span class="ident">Flag71</span>
+            <span class="number">72</span> : <span class="ident">Flag72</span> <span class="number">73</span> : <span class="ident">Flag73</span> <span class="number">74</span> : <span class="ident">Flag74</span> <span class="number">75</span> : <span class="ident">Flag75</span> <span class="number">76</span> : <span class="ident">Flag76</span> <span class="number">77</span> : <span class="ident">Flag77</span> <span class="number">78</span> : <span class="ident">Flag78</span> <span class="number">79</span> : <span class="ident">Flag79</span>
+            <span class="number">80</span> : <span class="ident">Flag80</span> <span class="number">81</span> : <span class="ident">Flag81</span> <span class="number">82</span> : <span class="ident">Flag82</span> <span class="number">83</span> : <span class="ident">Flag83</span> <span class="number">84</span> : <span class="ident">Flag84</span> <span class="number">85</span> : <span class="ident">Flag85</span> <span class="number">86</span> : <span class="ident">Flag86</span> <span class="number">87</span> : <span class="ident">Flag87</span>
+            <span class="number">88</span> : <span class="ident">Flag88</span> <span class="number">89</span> : <span class="ident">Flag89</span> <span class="number">90</span> : <span class="ident">Flag90</span> <span class="number">91</span> : <span class="ident">Flag91</span> <span class="number">92</span> : <span class="ident">Flag92</span> <span class="number">93</span> : <span class="ident">Flag93</span> <span class="number">94</span> : <span class="ident">Flag94</span> <span class="number">95</span> : <span class="ident">Flag95</span>
+            <span class="number">96</span> : <span class="ident">Flag96</span> <span class="number">97</span> : <span class="ident">Flag97</span> <span class="number">98</span> : <span class="ident">Flag98</span> <span class="number">99</span> : <span class="ident">Flag99</span> <span class="number">100</span> : <span class="ident">Flag100</span> <span class="number">101</span> : <span class="ident">Flag101</span> <span class="number">102</span> : <span class="ident">Flag102</span> <span class="number">103</span> : <span class="ident">Flag103</span>
+            <span class="number">104</span> : <span class="ident">Flag104</span> <span class="number">105</span> : <span class="ident">Flag105</span> <span class="number">106</span> : <span class="ident">Flag106</span> <span class="number">107</span> : <span class="ident">Flag107</span> <span class="number">108</span> : <span class="ident">Flag108</span> <span class="number">109</span> : <span class="ident">Flag109</span> <span class="number">110</span> : <span class="ident">Flag110</span> <span class="number">111</span> : <span class="ident">Flag111</span>
+            <span class="number">112</span> : <span class="ident">Flag112</span> <span class="number">113</span> : <span class="ident">Flag113</span> <span class="number">114</span> : <span class="ident">Flag114</span> <span class="number">115</span> : <span class="ident">Flag115</span> <span class="number">116</span> : <span class="ident">Flag116</span> <span class="number">117</span> : <span class="ident">Flag117</span> <span class="number">118</span> : <span class="ident">Flag118</span> <span class="number">119</span> : <span class="ident">Flag119</span>
+            <span class="number">120</span> : <span class="ident">Flag120</span> <span class="number">121</span> : <span class="ident">Flag121</span> <span class="number">122</span> : <span class="ident">Flag122</span> <span class="number">123</span> : <span class="ident">Flag123</span> <span class="number">124</span> : <span class="ident">Flag124</span> <span class="number">125</span> : <span class="ident">Flag125</span> <span class="number">126</span> : <span class="ident">Flag126</span> <span class="number">127</span> : <span class="ident">Flag127</span>
+        }
+    }
+
+    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_pointer_width</span> <span class="op">=</span> <span class="string">&quot;64&quot;</span>)]</span>
+    <span class="macro">bitfield!</span> {
+        <span class="doccomment">/// My Test Thing</span>
+        <span class="ident">usize</span> <span class="ident">MyFieldUsizeNf</span>
+        <span class="ident">MyFlagsUsizeNf</span> {
+            <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
+            <span class="number">8</span> : <span class="ident">Flag8</span> <span class="number">9</span> : <span class="ident">Flag9</span> <span class="number">10</span> : <span class="ident">Flag10</span> <span class="number">11</span> : <span class="ident">Flag11</span> <span class="number">12</span> : <span class="ident">Flag12</span> <span class="number">13</span> : <span class="ident">Flag13</span> <span class="number">14</span> : <span class="ident">Flag14</span> <span class="number">15</span> : <span class="ident">Flag15</span>
+            <span class="number">16</span> : <span class="ident">Flag16</span> <span class="number">17</span> : <span class="ident">Flag17</span> <span class="number">18</span> : <span class="ident">Flag18</span> <span class="number">19</span> : <span class="ident">Flag19</span> <span class="number">20</span> : <span class="ident">Flag20</span> <span class="number">21</span> : <span class="ident">Flag21</span> <span class="number">22</span> : <span class="ident">Flag22</span> <span class="number">23</span> : <span class="ident">Flag23</span>
+            <span class="number">24</span> : <span class="ident">Flag24</span> <span class="number">25</span> : <span class="ident">Flag25</span> <span class="number">26</span> : <span class="ident">Flag26</span> <span class="number">27</span> : <span class="ident">Flag27</span> <span class="number">28</span> : <span class="ident">Flag28</span> <span class="number">29</span> : <span class="ident">Flag29</span> <span class="number">30</span> : <span class="ident">Flag30</span> <span class="number">31</span> : <span class="ident">Flag31</span>
+            <span class="number">32</span> : <span class="ident">Flag32</span> <span class="number">33</span> : <span class="ident">Flag33</span> <span class="number">34</span> : <span class="ident">Flag34</span> <span class="number">35</span> : <span class="ident">Flag35</span> <span class="number">36</span> : <span class="ident">Flag36</span> <span class="number">37</span> : <span class="ident">Flag37</span> <span class="number">38</span> : <span class="ident">Flag38</span> <span class="number">39</span> : <span class="ident">Flag39</span>
+            <span class="number">40</span> : <span class="ident">Flag40</span> <span class="number">41</span> : <span class="ident">Flag41</span> <span class="number">42</span> : <span class="ident">Flag42</span> <span class="number">43</span> : <span class="ident">Flag43</span> <span class="number">44</span> : <span class="ident">Flag44</span> <span class="number">45</span> : <span class="ident">Flag45</span> <span class="number">46</span> : <span class="ident">Flag46</span> <span class="number">47</span> : <span class="ident">Flag47</span>
+            <span class="number">48</span> : <span class="ident">Flag48</span> <span class="number">49</span> : <span class="ident">Flag49</span> <span class="number">50</span> : <span class="ident">Flag50</span> <span class="number">51</span> : <span class="ident">Flag51</span> <span class="number">52</span> : <span class="ident">Flag52</span> <span class="number">53</span> : <span class="ident">Flag53</span> <span class="number">54</span> : <span class="ident">Flag54</span> <span class="number">55</span> : <span class="ident">Flag55</span>
+            <span class="number">56</span> : <span class="ident">Flag56</span> <span class="number">57</span> : <span class="ident">Flag57</span> <span class="number">58</span> : <span class="ident">Flag58</span> <span class="number">59</span> : <span class="ident">Flag59</span> <span class="number">60</span> : <span class="ident">Flag60</span> <span class="number">61</span> : <span class="ident">Flag61</span> <span class="number">62</span> : <span class="ident">Flag62</span> <span class="number">63</span> : <span class="ident">Flag63</span>
+        }
+    }
+
+    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_pointer_width</span> <span class="op">=</span> <span class="string">&quot;32&quot;</span>)]</span>
+    <span class="macro">bitfield!</span> {
+        <span class="doccomment">/// My Test Thing</span>
+        <span class="ident">usize</span> <span class="ident">MyFieldUsizeNf</span>
+        <span class="ident">MyFlagsUsizeNf</span> {
             <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
             <span class="number">8</span> : <span class="ident">Flag8</span> <span class="number">9</span> : <span class="ident">Flag9</span> <span class="number">10</span> : <span class="ident">Flag10</span> <span class="number">11</span> : <span class="ident">Flag11</span> <span class="number">12</span> : <span class="ident">Flag12</span> <span class="number">13</span> : <span class="ident">Flag13</span> <span class="number">14</span> : <span class="ident">Flag14</span> <span class="number">15</span> : <span class="ident">Flag15</span>
             <span class="number">16</span> : <span class="ident">Flag16</span> <span class="number">17</span> : <span class="ident">Flag17</span> <span class="number">18</span> : <span class="ident">Flag18</span> <span class="number">19</span> : <span class="ident">Flag19</span> <span class="number">20</span> : <span class="ident">Flag20</span> <span class="number">21</span> : <span class="ident">Flag21</span> <span class="number">22</span> : <span class="ident">Flag22</span> <span class="number">23</span> : <span class="ident">Flag23</span>

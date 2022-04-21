@@ -72,8 +72,12 @@ jobs:
         with:
           toolchain: stable
           components: rustfmt, clippy
+      - name: Install cargo-readme
+        run: cargo install cargo-readme
       - name: Build Docs
         run: sh scripts/build-docs.sh
+      - name: Generate Readme
+        run: cargo readme > README.md
       - name: Commit Docs
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -85,3 +89,17 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.head_ref }}
+
+  release:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    needs:
+      - format
+      - test
+      - clippy
+    steps:
+      - uses: manoadamro/cargo-release@v1
+        with:
+          owner: ${{ github.repository_owner }}
+          repo: ${{ github.repository }}
+          token: ${{ secrets.GITHUB_TOKEN }}
