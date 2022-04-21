@@ -20,7 +20,7 @@ ubits = "0.1.0"
 
 ## Documentation:
 
-[Documentation is automatically built from main and deployed here.](https://manoadamro.github.io/ubits)
+[Documentation is automatically built from main and deployed here.](https://manoadamro.github.io/ubits/doc/ubits/)
 
 ## Usage
 
