@@ -29,8 +29,8 @@ Generate a bitfield struct with a flag enum...<br>
 use ubits::bitfield;
 
     bitfield! {
-        (pub) ExampleField
-        ExampleFlags u8 {
+        (pub) u8 ExampleField
+        ExampleFlags {
             0 : Flag0
             1 : Flag1
             2 : Flag2
