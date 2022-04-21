@@ -46,7 +46,6 @@
 //! From integer:
 //! ```rust
 //! # use ubits::bitfield;
-//! #
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
@@ -68,7 +67,6 @@
 //! From a binary string:
 //! ```rust
 //! # use ubits::bitfield;
-//! #
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
@@ -90,7 +88,6 @@
 //! From ones:
 //! ```rust
 //! # use ubits::bitfield;
-//! #
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
@@ -113,7 +110,6 @@
 //! From zeros:
 //! ```rust
 //! # use ubits::bitfield;
-//! #
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
@@ -138,7 +134,6 @@
 //! Get bit value by field:
 //! ```rust
 //! # use ubits::bitfield;
-//! #
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
@@ -162,7 +157,6 @@
 //!
 //! ```rust
 //! # use ubits::bitfield;
-//! #
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
@@ -186,7 +180,6 @@
 //!
 //! ```rust
 //! # use ubits::bitfield;
-//! #
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
@@ -211,7 +204,6 @@
 //!
 //! ```rust
 //! # use ubits::bitfield;
-//! #
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
@@ -236,7 +228,6 @@
 //!
 //! ```rust
 //! # use ubits::bitfield;
-//! #
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
@@ -261,7 +252,6 @@
 //!
 //! ```rust
 //! # use ubits::bitfield;
-//! #
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
@@ -286,7 +276,6 @@
 //!
 //! ```rust
 //! # use ubits::bitfield;
-//! #
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
@@ -312,7 +301,6 @@
 //!
 //! ```rust
 //! # use ubits::bitfield;
-//! #
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
@@ -341,7 +329,6 @@
 //!
 //! ```rust
 //! # use ubits::bitfield;
-//! #
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
@@ -365,7 +352,6 @@
 //! (use `into_intersection` to consume self)
 //! ```rust
 //! # use ubits::bitfield;
-//! #
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
@@ -390,7 +376,6 @@
 //!
 //! ```rust
 //! # use ubits::bitfield;
-//! #
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
@@ -416,7 +401,6 @@
 //!
 //! ```rust
 //! # use ubits::bitfield;
-//! #
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
@@ -454,7 +438,6 @@
 //!
 //! ```rust
 //! # use ubits::bitfield;
-//! #
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
@@ -478,7 +461,6 @@
 //!
 //! ```rust
 //! # use ubits::bitfield;
-//! #
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
