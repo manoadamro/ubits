@@ -90,6 +90,22 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.head_ref }}
 
+  dry_release:
+    runs-on: ubuntu-latest
+    if: github.ref != 'refs/heads/main'
+    needs:
+      - format
+      - test
+      - clippy
+    steps:
+      - uses: actions/checkout@v3
+      - uses: manoadamro/cargo-release@v1
+        with:
+          owner: ${{ github.repository_owner }}
+          repo: ${{ github.repository }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          dry_run: true
+
   release:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
@@ -98,6 +114,7 @@ jobs:
       - test
       - clippy
     steps:
+      - uses: actions/checkout@v3
       - uses: manoadamro/cargo-release@v1
         with:
           owner: ${{ github.repository_owner }}
