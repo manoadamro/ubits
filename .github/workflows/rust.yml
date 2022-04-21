@@ -72,8 +72,12 @@ jobs:
         with:
           toolchain: stable
           components: rustfmt, clippy
+      - name: Install cargo-readme
+        run: cargo install cargo-readme
       - name: Build Docs
         run: sh scripts/build-docs.sh
+      - name: Generate Readme
+        run: cargo readme > README.md
       - name: Commit Docs
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
