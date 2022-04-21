@@ -570,12 +570,15 @@ pub use safe_transmute::{
 ///
 /// # Args
 ///
-/// - `pub` - optional accessor: if provided, both generated items will public. If omitted, both will be private. <br>
+/// - `pub` - optional accessor: if provided, both generated items will public.
+/// If omitted, both will be private. <br>
 /// [see here](https://doc.rust-lang.org/reference/visibility-and-privacy.html#visibility-and-privacy) for possible visibility options.
 ///
-/// - `ExampleField` - name for the generated bitfield struct. (results in `struct ExampleField(...)`)
+/// - `ExampleField` - name for the generated bitfield struct.
+/// (results in `struct ExampleField(...)`)
 ///
-/// - `ExampleFlags` - name for the generated flag enum. (results in `enum ExampleFlags { ... }`)
+/// - `ExampleFlags` - name for the generated flag enum.
+/// (results in `enum ExampleFlags { ... }`)
 ///
 /// - `u8` - unsigned integer type to use as a bit array. *Must be an unsigned integer* <br>
 /// valid options are: [`u8`],[`u16`], [`u32`], [`u64`], [`u128`], [`usize`]
@@ -587,6 +590,9 @@ pub use safe_transmute::{
 /// The right hand side can be any valid identifier (unique to this enum).
 /// These identifiers will be used to access the corresponding field.
 ///
+/// - `/// docstrings` - Each element can take optional docstrings.
+/// This includes the bit field struct, the flag enum, and each member within the flag enum.
+/// See [`examples`] for more information.
 ///
 /// # Examples:
 ///
@@ -664,6 +670,17 @@ pub use safe_transmute::{
 ///         }
 ///     }
 /// ```
+/// ... or just omit the flags altogether and use indices only.:
+/// ```rust
+/// use ubits::bitfield;
+///     bitfield! {
+///         /// Optional docstring
+///         /// for [`ExampleField`] struct
+///         pub u8 ExampleField
+///     }
+/// ```
+/// __Note: if you omit flags, no flag enum will be generated
+/// and no methods for the bitfield struct that rely on flags will be generated.__
 ///
 #[macro_export(local_inner_macros)]
 macro_rules! bitfield {
