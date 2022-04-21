@@ -1,1 +1,1 @@
-window.ALL_CRATES = ["bitfield"];
+window.ALL_CRATES = ["ubits"];

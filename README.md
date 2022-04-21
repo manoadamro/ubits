@@ -1,19 +1,33 @@
-# bitfield
+# ubits
 
-Bitfields for rust!
+![crates.io](https://img.shields.io/crates/v/ubits.svg)
+![crates.io](https://img.shields.io/crates/d/ubits.svg)
+![build](https://github.com/manoadamro/ubits/actions/workflows/rust.yml/badge.svg)
+
+Bit fields and masks for rust!
 
 Supports widths of `8`, `16`, `32`, `64` and `128` bits.
 
+## Install
+
+Available from [crates.io](https://crates.io/crates/ubits)
+
+Add `ubits` to your `Cargo.toml`:
+```
+[dependencies]
+ubits = "0.1.0"
+```
+
 ## Documentation:
 
-[Documentation is automatically built from main and deployed here.](https://manoadamro.github.io/bitfield-rs/)
+[Documentation is automatically built from main and deployed here.](https://manoadamro.github.io/ubits)
 
 ## Usage
 
 Generate a bitfield struct with a flag enum...<br>
 (The following examples all use this as a definition.)
 ```rust
-use bitfield::bitfield;
+use ubits::bitfield;
 
     bitfield! {
         (pub) ExampleField

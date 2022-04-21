@@ -13,7 +13,7 @@
 //! Generate a bitfield struct with a flag enum...
 //! (The following examples all use this as a definition.)
 //! ```rust
-//! use bitfield::bitfield;
+//! use ubits::bitfield;
 //!
 //!     bitfield! {
 //!         (pub) ExampleField
@@ -34,7 +34,7 @@
 //!
 //! From integer:
 //! ```rust
-//! # use bitfield::bitfield;
+//! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
 //! #        (pub) ExampleField
@@ -56,7 +56,7 @@
 //!
 //! From a binary string:
 //! ```rust
-//! # use bitfield::bitfield;
+//! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
 //! #        (pub) ExampleField
@@ -78,7 +78,7 @@
 //!
 //! From ones:
 //! ```rust
-//! # use bitfield::bitfield;
+//! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
 //! #        (pub) ExampleField
@@ -101,7 +101,7 @@
 //!
 //! From zeros:
 //! ```rust
-//! # use bitfield::bitfield;
+//! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
 //! #        (pub) ExampleField
@@ -126,7 +126,7 @@
 //!
 //! Get bit value by field:
 //! ```rust
-//! # use bitfield::bitfield;
+//! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
 //! #        (pub) ExampleField
@@ -150,7 +150,7 @@
 //! Get bit value by index:
 //!
 //! ```rust
-//! # use bitfield::bitfield;
+//! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
 //! #        (pub) ExampleField
@@ -174,7 +174,7 @@
 //! Set bit value by field:
 //!
 //! ```rust
-//! # use bitfield::bitfield;
+//! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
 //! #        (pub) ExampleField
@@ -199,7 +199,7 @@
 //! Set bit value by index:
 //!
 //! ```rust
-//! # use bitfield::bitfield;
+//! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
 //! #        (pub) ExampleField
@@ -224,7 +224,7 @@
 //! Clear bit value by field:
 //!
 //! ```rust
-//! # use bitfield::bitfield;
+//! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
 //! #        (pub) ExampleField
@@ -249,7 +249,7 @@
 //! Clear bit value by index:
 //!
 //! ```rust
-//! # use bitfield::bitfield;
+//! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
 //! #        (pub) ExampleField
@@ -274,7 +274,7 @@
 //! Toggle bit value by field:
 //!
 //! ```rust
-//! # use bitfield::bitfield;
+//! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
 //! #        (pub) ExampleField
@@ -300,7 +300,7 @@
 //! Toggle bit value by index:
 //!
 //! ```rust
-//! # use bitfield::bitfield;
+//! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
 //! #        (pub) ExampleField
@@ -329,7 +329,7 @@
 //! (use `into_combined` to consume self)
 //!
 //! ```rust
-//! # use bitfield::bitfield;
+//! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
 //! #        (pub) ExampleField
@@ -353,7 +353,7 @@
 //! Get the intersection of two bitfields: <br>
 //! (use `into_intersection` to consume self)
 //! ```rust
-//! # use bitfield::bitfield;
+//! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
 //! #        (pub) ExampleField
@@ -378,7 +378,7 @@
 //! (use `into_diff` to consume self)
 //!
 //! ```rust
-//! # use bitfield::bitfield;
+//! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
 //! #        (pub) ExampleField
@@ -404,7 +404,7 @@
 //! Both bit field instances and flags use bitwise operators to change bit values.
 //!
 //! ```rust
-//! # use bitfield::bitfield;
+//! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
 //! #        (pub) ExampleField
@@ -442,7 +442,7 @@
 //! Operations can also be chained together:
 //!
 //! ```rust
-//! # use bitfield::bitfield;
+//! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
 //! #        (pub) ExampleField
@@ -466,7 +466,7 @@
 //! Bitfield instances can also be created from combining flags:
 //!
 //! ```rust
-//! # use bitfield::bitfield;
+//! # use ubits::bitfield;
 //! #
 //! #    bitfield! {
 //! #        (pub) ExampleField
@@ -598,7 +598,7 @@ pub use safe_transmute::{
 ///
 /// Full Example - (see below for explanation for each parameter):
 /// ```rust
-/// use bitfield::bitfield;
+/// use ubits::bitfield;
 ///
 ///     bitfield! {
 ///         /// Optional docstring
@@ -631,7 +631,7 @@ pub use safe_transmute::{
 ///
 /// You can use just a few from the front:
 /// ```rust
-/// use bitfield::bitfield;
+/// use ubits::bitfield;
 ///
 ///     bitfield! {
 ///         /// Optional docstring
@@ -652,7 +652,7 @@ pub use safe_transmute::{
 ///
 /// ... or any valid indices:
 /// ```rust
-/// use bitfield::bitfield;
+/// use ubits::bitfield;
 ///
 ///     bitfield! {
 ///         /// Optional docstring
