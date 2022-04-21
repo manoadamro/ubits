@@ -1543,30 +1543,29 @@ pub mod examples {
         use super::*;
 
         bitfield! {
-        /// Optional docstring for my example bit field.
-        pub u8 ExampleField
-        /// Optional docstring for my flag enum.
-        ExampleFlags {
-            /// Optional docstring for Flag0
-            0 : Flag0
-            /// Optional docstring for Flag1
-            1 : Flag1
-            /// Optional docstring for Flag2
-            2 : Flag2
-            /// Optional docstring for Flag3
-            3 : Flag3
-            /// Optional docstring for Flag4
-            4 : Flag4
-            /// Optional docstring for Flag5
-            5 : Flag5
-            /// Optional docstring for Flag6
-            6 : Flag6
-            /// Optional docstring for Flag7
-            7 : Flag7
+            /// Optional docstring for my example bit field.
+            pub u8 ExampleField
+            /// Optional docstring for my flag enum.
+            ExampleFlags {
+                /// Optional docstring for Flag0
+                0 : Flag0
+                /// Optional docstring for Flag1
+                1 : Flag1
+                /// Optional docstring for Flag2
+                2 : Flag2
+                /// Optional docstring for Flag3
+                3 : Flag3
+                /// Optional docstring for Flag4
+                4 : Flag4
+                /// Optional docstring for Flag5
+                5 : Flag5
+                /// Optional docstring for Flag6
+                6 : Flag6
+                /// Optional docstring for Flag7
+                7 : Flag7
+            }
         }
     }
-    }
-
 
     #[allow(dead_code)]
     #[allow(unused_variables)]
@@ -1582,9 +1581,9 @@ pub mod examples {
         use super::*;
 
         bitfield! {
-        /// Optional docstring for my example bit field.
-        pub u8 ExampleField
-    }
+            /// Optional docstring for my example bit field.
+            pub u8 ExampleField
+        }
     }
 }
 
