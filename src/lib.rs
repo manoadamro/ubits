@@ -862,7 +862,7 @@ macro_rules! __def_field_struct {
 
         // Struct: $name
         $(#[$field_doc])*
-        #[derive(PartialEq)]
+        #[derive(Copy, Clone, PartialEq, PartialOrd)]
         $access struct $name($type);
 
         // Constants
@@ -992,7 +992,7 @@ macro_rules! __def_flag_enum {
 
         // Enum: $flag
         $(#[$flag_doc])*
-        #[derive(Debug, Copy, Clone, PartialEq)]
+        #[derive(Debug, Copy, Clone, PartialEq, PartialOrd)]
         #[repr(u8)]
         $access enum $flag {
             $( $(#[$member_doc])* $field = $idx ),*
