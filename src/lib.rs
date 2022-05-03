@@ -582,8 +582,8 @@
 // Imports
 
 extern crate doc_comment;
-extern crate safe_transmute;
 extern crate paste;
+extern crate safe_transmute;
 
 #[doc(hidden)]
 pub use doc_comment::doc_comment as __doc_comment;
@@ -595,7 +595,6 @@ pub use safe_transmute::{
 
 #[doc(hidden)]
 pub use paste::paste as __paste;
-
 
 // -------------------------------------------------------------------------------------------------
 // Generator Macros
