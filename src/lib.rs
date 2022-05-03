@@ -29,14 +29,14 @@
 //!     bitfield! {
 //!         pub u8 ExampleField
 //!         ExampleFlags {
-//!             0 : Flag0
-//!             1 : Flag1
-//!             2 : Flag2
-//!             3 : Flag3
-//!             4 : Flag4
-//!             5 : Flag5
-//!             6 : Flag6
-//!             7 : Flag7
+//!             0 : Flag0,
+//!             1 : Flag1,
+//!             2 : Flag2,
+//!             3 : Flag3,
+//!             4 : Flag4,
+//!             5 : Flag5,
+//!             6 : Flag6,
+//!             7 : Flag7,
 //!         }
 //!     }
 //! ```
@@ -49,14 +49,14 @@
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
-//! #            0 : Flag0
-//! #            1 : Flag1
-//! #            2 : Flag2
-//! #            3 : Flag3
-//! #            4 : Flag4
-//! #            5 : Flag5
-//! #            6 : Flag6
-//! #            7 : Flag7
+//! #            0 : Flag0,
+//! #            1 : Flag1,
+//! #            2 : Flag2,
+//! #            3 : Flag3,
+//! #            4 : Flag4,
+//! #            5 : Flag5,
+//! #            6 : Flag6,
+//! #            7 : Flag7,
 //! #        }
 //! #    }
 //!
@@ -70,14 +70,14 @@
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
-//! #            0 : Flag0
-//! #            1 : Flag1
-//! #            2 : Flag2
-//! #            3 : Flag3
-//! #            4 : Flag4
-//! #            5 : Flag5
-//! #            6 : Flag6
-//! #            7 : Flag7
+//! #            0 : Flag0,
+//! #            1 : Flag1,
+//! #            2 : Flag2,
+//! #            3 : Flag3,
+//! #            4 : Flag4,
+//! #            5 : Flag5,
+//! #            6 : Flag6,
+//! #            7 : Flag7,
 //! #        }
 //! #    }
 //!
@@ -91,14 +91,14 @@
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
-//! #            0 : Flag0
-//! #            1 : Flag1
-//! #            2 : Flag2
-//! #            3 : Flag3
-//! #            4 : Flag4
-//! #            5 : Flag5
-//! #            6 : Flag6
-//! #            7 : Flag7
+//! #            0 : Flag0,
+//! #            1 : Flag1,
+//! #            2 : Flag2,
+//! #            3 : Flag3,
+//! #            4 : Flag4,
+//! #            5 : Flag5,
+//! #            6 : Flag6,
+//! #            7 : Flag7,
 //! #        }
 //! #    }
 //!
@@ -113,14 +113,14 @@
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
-//! #            0 : Flag0
-//! #            1 : Flag1
-//! #            2 : Flag2
-//! #            3 : Flag3
-//! #            4 : Flag4
-//! #            5 : Flag5
-//! #            6 : Flag6
-//! #            7 : Flag7
+//! #            0 : Flag0,
+//! #            1 : Flag1,
+//! #            2 : Flag2,
+//! #            3 : Flag3,
+//! #            4 : Flag4,
+//! #            5 : Flag5,
+//! #            6 : Flag6,
+//! #            7 : Flag7,
 //! #        }
 //! #    }
 //!
@@ -137,14 +137,14 @@
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
-//! #            0 : Flag0
-//! #            1 : Flag1
-//! #            2 : Flag2
-//! #            3 : Flag3
-//! #            4 : Flag4
-//! #            5 : Flag5
-//! #            6 : Flag6
-//! #            7 : Flag7
+//! #            0 : Flag0,
+//! #            1 : Flag1,
+//! #            2 : Flag2,
+//! #            3 : Flag3,
+//! #            4 : Flag4,
+//! #            5 : Flag5,
+//! #            6 : Flag6,
+//! #            7 : Flag7,
 //! #        }
 //! #    }
 //!
@@ -160,14 +160,14 @@
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
-//! #            0 : Flag0
-//! #            1 : Flag1
-//! #            2 : Flag2
-//! #            3 : Flag3
-//! #            4 : Flag4
-//! #            5 : Flag5
-//! #            6 : Flag6
-//! #            7 : Flag7
+//! #            0 : Flag0,
+//! #            1 : Flag1,
+//! #            2 : Flag2,
+//! #            3 : Flag3,
+//! #            4 : Flag4,
+//! #            5 : Flag5,
+//! #            6 : Flag6,
+//! #            7 : Flag7,
 //! #        }
 //! #    }
 //!
@@ -183,14 +183,14 @@
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
-//! #            0 : Flag0
-//! #            1 : Flag1
-//! #            2 : Flag2
-//! #            3 : Flag3
-//! #            4 : Flag4
-//! #            5 : Flag5
-//! #            6 : Flag6
-//! #            7 : Flag7
+//! #            0 : Flag0,
+//! #            1 : Flag1,
+//! #            2 : Flag2,
+//! #            3 : Flag3,
+//! #            4 : Flag4,
+//! #            5 : Flag5,
+//! #            6 : Flag6,
+//! #            7 : Flag7,
 //! #        }
 //! #    }
 //!
@@ -207,14 +207,14 @@
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
-//! #            0 : Flag0
-//! #            1 : Flag1
-//! #            2 : Flag2
-//! #            3 : Flag3
-//! #            4 : Flag4
-//! #            5 : Flag5
-//! #            6 : Flag6
-//! #            7 : Flag7
+//! #            0 : Flag0,
+//! #            1 : Flag1,
+//! #            2 : Flag2,
+//! #            3 : Flag3,
+//! #            4 : Flag4,
+//! #            5 : Flag5,
+//! #            6 : Flag6,
+//! #            7 : Flag7,
 //! #        }
 //! #    }
 //!
@@ -231,14 +231,14 @@
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
-//! #            0 : Flag0
-//! #            1 : Flag1
-//! #            2 : Flag2
-//! #            3 : Flag3
-//! #            4 : Flag4
-//! #            5 : Flag5
-//! #            6 : Flag6
-//! #            7 : Flag7
+//! #            0 : Flag0,
+//! #            1 : Flag1,
+//! #            2 : Flag2,
+//! #            3 : Flag3,
+//! #            4 : Flag4,
+//! #            5 : Flag5,
+//! #            6 : Flag6,
+//! #            7 : Flag7,
 //! #        }
 //! #    }
 //!
@@ -255,14 +255,14 @@
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
-//! #            0 : Flag0
-//! #            1 : Flag1
-//! #            2 : Flag2
-//! #            3 : Flag3
-//! #            4 : Flag4
-//! #            5 : Flag5
-//! #            6 : Flag6
-//! #            7 : Flag7
+//! #            0 : Flag0,
+//! #            1 : Flag1,
+//! #            2 : Flag2,
+//! #            3 : Flag3,
+//! #            4 : Flag4,
+//! #            5 : Flag5,
+//! #            6 : Flag6,
+//! #            7 : Flag7,
 //! #        }
 //! #    }
 //!
@@ -279,14 +279,14 @@
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
-//! #            0 : Flag0
-//! #            1 : Flag1
-//! #            2 : Flag2
-//! #            3 : Flag3
-//! #            4 : Flag4
-//! #            5 : Flag5
-//! #            6 : Flag6
-//! #            7 : Flag7
+//! #            0 : Flag0,
+//! #            1 : Flag1,
+//! #            2 : Flag2,
+//! #            3 : Flag3,
+//! #            4 : Flag4,
+//! #            5 : Flag5,
+//! #            6 : Flag6,
+//! #            7 : Flag7,
 //! #        }
 //! #    }
 //!
@@ -304,14 +304,14 @@
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
-//! #            0 : Flag0
-//! #            1 : Flag1
-//! #            2 : Flag2
-//! #            3 : Flag3
-//! #            4 : Flag4
-//! #            5 : Flag5
-//! #            6 : Flag6
-//! #            7 : Flag7
+//! #            0 : Flag0,
+//! #            1 : Flag1,
+//! #            2 : Flag2,
+//! #            3 : Flag3,
+//! #            4 : Flag4,
+//! #            5 : Flag5,
+//! #            6 : Flag6,
+//! #            7 : Flag7,
 //! #        }
 //! #    }
 //!
@@ -320,6 +320,40 @@
 //! assert_eq!("01010100", field.as_binary());
 //! field.toggle_index(0);
 //! assert_eq!("01010101", field.as_binary());
+//! ```
+//!
+//! ### Named Getters and Setters
+//!
+//! Ubits can generate getter and setter methods for zero or more fields, if a name is provided.
+//!
+//! ```rust
+//! use ubits::bitfield;
+//!    bitfield! {
+//!        pub u8 ExampleField
+//!        ExampleFlags {
+//!            0 : Flag0 : (field_0),  // is_field_0 & set_field_0 & clear_field_0 & toggle_field_0
+//!            1 : Flag1 : (field_1),  // is_field_1 & set_field_1 & clear_field_1 & toggle_field_1
+//!            2 : Flag2,
+//!            3 : Flag3,
+//!            4 : Flag4,
+//!            5 : Flag5,
+//!            6 : Flag6,
+//!            7 : Flag7,
+//!        }
+//!    }
+//!
+//! let mut field = ExampleField::from_binary_str("01010101");
+//! assert_eq!(true, field.is_field_0());
+//! assert_eq!(false, field.is_field_1());
+//!
+//! field.set_field_1();
+//! assert_eq!(true, field.is_field_1());
+//!
+//! field.clear_field_1();
+//! assert_eq!(false, field.is_field_1());
+//!
+//! field.toggle_field_1();
+//! assert_eq!(true, field.is_field_1());
 //! ```
 //!
 //! ### Combinations
@@ -332,14 +366,14 @@
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
-//! #            0 : Flag0
-//! #            1 : Flag1
-//! #            2 : Flag2
-//! #            3 : Flag3
-//! #            4 : Flag4
-//! #            5 : Flag5
-//! #            6 : Flag6
-//! #            7 : Flag7
+//! #            0 : Flag0,
+//! #            1 : Flag1,
+//! #            2 : Flag2,
+//! #            3 : Flag3,
+//! #            4 : Flag4,
+//! #            5 : Flag5,
+//! #            6 : Flag6,
+//! #            7 : Flag7,
 //! #        }
 //! #    }
 //!
@@ -355,14 +389,14 @@
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
-//! #            0 : Flag0
-//! #            1 : Flag1
-//! #            2 : Flag2
-//! #            3 : Flag3
-//! #            4 : Flag4
-//! #            5 : Flag5
-//! #            6 : Flag6
-//! #            7 : Flag7
+//! #            0 : Flag0,
+//! #            1 : Flag1,
+//! #            2 : Flag2,
+//! #            3 : Flag3,
+//! #            4 : Flag4,
+//! #            5 : Flag5,
+//! #            6 : Flag6,
+//! #            7 : Flag7,
 //! #        }
 //! #    }
 //!
@@ -379,14 +413,14 @@
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
-//! #            0 : Flag0
-//! #            1 : Flag1
-//! #            2 : Flag2
-//! #            3 : Flag3
-//! #            4 : Flag4
-//! #            5 : Flag5
-//! #            6 : Flag6
-//! #            7 : Flag7
+//! #            0 : Flag0,
+//! #            1 : Flag1,
+//! #            2 : Flag2,
+//! #            3 : Flag3,
+//! #            4 : Flag4,
+//! #            5 : Flag5,
+//! #            6 : Flag6,
+//! #            7 : Flag7,
 //! #        }
 //! #    }
 //!
@@ -404,14 +438,14 @@
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
-//! #            0 : Flag0
-//! #            1 : Flag1
-//! #            2 : Flag2
-//! #            3 : Flag3
-//! #            4 : Flag4
-//! #            5 : Flag5
-//! #            6 : Flag6
-//! #            7 : Flag7
+//! #            0 : Flag0,
+//! #            1 : Flag1,
+//! #            2 : Flag2,
+//! #            3 : Flag3,
+//! #            4 : Flag4,
+//! #            5 : Flag5,
+//! #            6 : Flag6,
+//! #            7 : Flag7,
 //! #        }
 //! #    }
 //!
@@ -441,14 +475,14 @@
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
-//! #            0 : Flag0
-//! #            1 : Flag1
-//! #            2 : Flag2
-//! #            3 : Flag3
-//! #            4 : Flag4
-//! #            5 : Flag5
-//! #            6 : Flag6
-//! #            7 : Flag7
+//! #            0 : Flag0,
+//! #            1 : Flag1,
+//! #            2 : Flag2,
+//! #            3 : Flag3,
+//! #            4 : Flag4,
+//! #            5 : Flag5,
+//! #            6 : Flag6,
+//! #            7 : Flag7,
 //! #        }
 //! #    }
 //!
@@ -464,14 +498,14 @@
 //! #    bitfield! {
 //! #        pub u8 ExampleField
 //! #        ExampleFlags {
-//! #            0 : Flag0
-//! #            1 : Flag1
-//! #            2 : Flag2
-//! #            3 : Flag3
-//! #            4 : Flag4
-//! #            5 : Flag5
-//! #            6 : Flag6
-//! #            7 : Flag7
+//! #            0 : Flag0,
+//! #            1 : Flag1,
+//! #            2 : Flag2,
+//! #            3 : Flag3,
+//! #            4 : Flag4,
+//! #            5 : Flag5,
+//! #            6 : Flag6,
+//! #            7 : Flag7,
 //! #        }
 //! #    }
 //!
@@ -548,6 +582,7 @@
 // Imports
 
 extern crate doc_comment;
+extern crate paste;
 extern crate safe_transmute;
 
 #[doc(hidden)]
@@ -557,6 +592,9 @@ pub use doc_comment::doc_comment as __doc_comment;
 pub use safe_transmute::{
     transmute_one as __transmute_one, TriviallyTransmutable as __TriviallyTransmutable,
 };
+
+#[doc(hidden)]
+pub use paste::paste as __paste;
 
 // -------------------------------------------------------------------------------------------------
 // Generator Macros
@@ -608,21 +646,21 @@ pub use safe_transmute::{
 ///         /// for [`ExampleFlags`] enum
 ///         ExampleFlags {
 ///             /// Optional docstring for [`ExampleFlags::Flag0`]
-///             0 : Flag0
+///             0 : Flag0,
 ///             /// Optional docstring for [`ExampleFlags::Flag1`]
-///             1 : Flag1
+///             1 : Flag1,
 ///             /// Optional docstring for [`ExampleFlags::Flag2`]
-///             2 : Flag2
+///             2 : Flag2,
 ///             /// Optional docstring for [`ExampleFlags::Flag3`]
-///             3 : Flag3
+///             3 : Flag3,
 ///             /// Optional docstring for [`ExampleFlags::Flag4`]
-///             4 : Flag4
+///             4 : Flag4,
 ///             /// Optional docstring for [`ExampleFlags::Flag5`]
-///             5 : Flag5
+///             5 : Flag5,
 ///             /// Optional docstring for [`ExampleFlags::Flag6`]
-///             6 : Flag6
+///             6 : Flag6,
 ///             /// Optional docstring for [`ExampleFlags::Flag7`]
-///             7 : Flag7
+///             7 : Flag7,
 ///         }
 ///     }
 /// ```
@@ -641,11 +679,11 @@ pub use safe_transmute::{
 ///         /// for [`ExampleFlags`] enum
 ///         ExampleFlags {
 ///             /// Optional docstring for [`ExampleFlags::Flag0`]
-///             0 : Flag0
+///             0 : Flag0,
 ///             /// Optional docstring for [`ExampleFlags::Flag1`]
-///             1 : Flag1
+///             1 : Flag1,
 ///             /// Optional docstring for [`ExampleFlags::Flag2`]
-///             2 : Flag2
+///             2 : Flag2,
 ///         }
 ///     }
 /// ```
@@ -662,11 +700,11 @@ pub use safe_transmute::{
 ///         /// for [`ExampleFlags`] enum
 ///         ExampleFlags {
 ///             /// Optional docstring for [`ExampleFlags::Flag0`]
-///             0 : Flag0
+///             0 : Flag0,
 ///             /// Optional docstring for [`ExampleFlags::Flag1`]
-///             3 : Flag1
+///             3 : Flag1,
 ///             /// Optional docstring for [`ExampleFlags::Flag2`]
-///             6 : Flag2
+///             6 : Flag2,
 ///         }
 ///     }
 /// ```
@@ -694,12 +732,12 @@ macro_rules! bitfield {
             $flag:ident {
                 $(
                     $(#[$member_doc:meta])*
-                    $idx:literal : $field:ident
+                    $idx:literal : $field:ident $( : ( $named_getter:ident ) )?,
                 )*
             }
         )?
     ) => {
-        __bitfield_unchecked!( $(#[$doc])* $access [u8] [8] [u8::MAX] $name $($(#[$flag_doc])* $flag { $( $(#[$member_doc])* $idx : $field )* } )?);
+        __bitfield_unchecked!( $(#[$doc])* $access [u8] [8] [u8::MAX] $name $($(#[$flag_doc])* $flag { $( $(#[$member_doc])* $idx : $field $(($named_getter))?, )* } )?);
     };
 
     // U16
@@ -711,12 +749,12 @@ macro_rules! bitfield {
             $flag:ident {
                 $(
                     $(#[$member_doc:meta])*
-                    $idx:literal : $field:ident
+                    $idx:literal : $field:ident $( ( $named_getter:ident ) )?,
                 )*
             }
         )?
     ) => {
-        __bitfield_unchecked!( $(#[$doc])* $access [u16] [16] [u16::MAX] $name $($(#[$flag_doc])* $flag { $( $(#[$member_doc])* $idx : $field )* } )?);
+        __bitfield_unchecked!( $(#[$doc])* $access [u16] [16] [u16::MAX] $name $($(#[$flag_doc])* $flag { $( $(#[$member_doc])* $idx : $field $(($named_getter))?, )* } )?);
     };
 
     // U32
@@ -728,12 +766,12 @@ macro_rules! bitfield {
             $flag:ident {
                 $(
                     $(#[$member_doc:meta])*
-                    $idx:literal : $field:ident
+                    $idx:literal : $field:ident $( ( $named_getter:ident ) )?,
                 )*
             }
         )?
     ) => {
-        __bitfield_unchecked!( $(#[$doc])* $access [u32] [32] [u32::MAX] $name $($(#[$flag_doc])* $flag { $( $(#[$member_doc])* $idx : $field )* } )?);
+        __bitfield_unchecked!( $(#[$doc])* $access [u32] [32] [u32::MAX] $name $($(#[$flag_doc])* $flag { $( $(#[$member_doc])* $idx : $field $(($named_getter))?, )* } )?);
     };
 
     // U64
@@ -745,12 +783,12 @@ macro_rules! bitfield {
             $flag:ident {
                 $(
                     $(#[$member_doc:meta])*
-                    $idx:literal : $field:ident
+                    $idx:literal : $field:ident $( ( $named_getter:ident ) )?,
                 )*
             }
         )?
     ) => {
-        __bitfield_unchecked!( $(#[$doc])* $access [u64] [64] [u64::MAX] $name $($(#[$flag_doc])* $flag { $( $(#[$member_doc])* $idx : $field )* } )?);
+        __bitfield_unchecked!( $(#[$doc])* $access [u64] [64] [u64::MAX] $name $($(#[$flag_doc])* $flag { $( $(#[$member_doc])* $idx : $field $(($named_getter))?, )* } )?);
     };
 
     // U128
@@ -762,12 +800,12 @@ macro_rules! bitfield {
             $flag:ident {
                 $(
                     $(#[$member_doc:meta])*
-                    $idx:literal : $field:ident
+                    $idx:literal : $field:ident $( ( $named_getter:ident ) )?,
                 )*
             }
         )?
     ) => {
-        __bitfield_unchecked!( $(#[$doc])* $access [u128] [128] [u128::MAX] $name $($(#[$flag_doc])* $flag { $( $(#[$member_doc])* $idx : $field )* } )?);
+        __bitfield_unchecked!( $(#[$doc])* $access [u128] [128] [u128::MAX] $name $($(#[$flag_doc])* $flag { $( $(#[$member_doc])* $idx : $field $(($named_getter))?, )* } )?);
     };
 
     // USIZE
@@ -779,12 +817,12 @@ macro_rules! bitfield {
             $flag:ident {
                 $(
                     $(#[$member_doc:meta])*
-                    $idx:literal : $field:ident
+                    $idx:literal : $field:ident $( ( $named_getter:ident ) )?,
                 )*
             }
         )?
     ) => {
-        __bitfield_unchecked!( $(#[$doc])* $access [usize] [usize::BITS as usize] [usize::MAX] $name $($(#[$flag_doc])* $flag { $( $(#[$member_doc])* $idx : $field )* } )?);
+        __bitfield_unchecked!( $(#[$doc])* $access [usize] [usize::BITS as usize] [usize::MAX] $name $($(#[$flag_doc])* $flag { $( $(#[$member_doc])* $idx : $field $(($named_getter))?, )* } )?);
     };
 }
 
@@ -806,7 +844,7 @@ macro_rules! __bitfield_unchecked {
             $flag:ident {
                 $(
                     $(#[$member_doc:meta])*
-                    $idx:literal : $field:ident
+                    $idx:literal : $field:ident $( ( $named_getter:ident ) )?,
                 )*
             }
         )?
@@ -819,7 +857,7 @@ macro_rules! __bitfield_unchecked {
                 $flag {
                     $(
                         $(#[$member_doc])*
-                        $idx : $field
+                        $idx : $field $(($named_getter))?,
                     )*
                 }
             }
@@ -832,7 +870,7 @@ macro_rules! __bitfield_unchecked {
                 $flag {
                     $(
                         $(#[$member_doc])*
-                        $idx : $field
+                        $idx : $field $(($named_getter))?,
                     )*
                 }
             )?
@@ -854,7 +892,7 @@ macro_rules! __def_field_struct {
             $flag:ident {
                 $(
                     $(#[$member_doc:meta])*
-                    $idx:literal : $field:ident
+                    $idx:literal : $field:ident $( ( $named_getter:ident ) )?,
                 )*
             }
         )?
@@ -864,6 +902,38 @@ macro_rules! __def_field_struct {
         $(#[$field_doc])*
         #[derive(Copy, Clone, PartialEq, PartialOrd)]
         $access struct $name($type);
+
+        $(
+            impl $name {
+                $(
+                    $(
+                        __paste! {
+                            fn [< is_ $named_getter >](&self) -> bool {
+                                self.get($flag::$field)
+                            }
+                        }
+
+                        __paste! {
+                            fn [< set_ $named_getter >](&mut self) {
+                                self.set($flag::$field);
+                            }
+                        }
+
+                        __paste! {
+                            fn [< clear_ $named_getter >](&mut self) {
+                                self.clear($flag::$field);
+                            }
+                        }
+
+                        __paste! {
+                            fn [< toggle_ $named_getter >](&mut self) {
+                                self.toggle($flag::$field);
+                            }
+                        }
+                    )?
+                )*
+            }
+        )?
 
         // Constants
         __impl_field_constants! {
@@ -985,7 +1055,7 @@ macro_rules! __def_flag_enum {
         $flag:ident {
             $(
                 $(#[$member_doc:meta])*
-                $idx:literal : $field:ident
+                $idx:literal : $field:ident $( ( $named_getter:ident ) )?,
             )*
         }
     ) => {
@@ -1548,21 +1618,21 @@ pub mod examples {
             /// Optional docstring for my flag enum.
             ExampleFlags {
                 /// Optional docstring for Flag0
-                0 : Flag0
+                0 : Flag0,
                 /// Optional docstring for Flag1
-                1 : Flag1
+                1 : Flag1,
                 /// Optional docstring for Flag2
-                2 : Flag2
+                2 : Flag2,
                 /// Optional docstring for Flag3
-                3 : Flag3
+                3 : Flag3,
                 /// Optional docstring for Flag4
-                4 : Flag4
+                4 : Flag4,
                 /// Optional docstring for Flag5
-                5 : Flag5
+                5 : Flag5,
                 /// Optional docstring for Flag6
-                6 : Flag6
+                6 : Flag6,
                 /// Optional docstring for Flag7
-                7 : Flag7
+                7 : Flag7,
             }
         }
     }
@@ -1610,7 +1680,7 @@ mod test {
         /// My Test Thing
         u8 MyFieldU8
         MyFlagsU8 {
-            0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
+            0 : Flag0, 1 : Flag1, 2 : Flag2, 3 : Flag3, 4 : Flag4, 5 : Flag5, 6 : Flag6, 7 : Flag7,
         }
     }
 
@@ -1618,8 +1688,8 @@ mod test {
         /// My Test Thing
         u16 MyFieldU16
         MyFlagsU16 {
-            0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
-            8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
+            0 : Flag0, 1 : Flag1, 2 : Flag2, 3 : Flag3, 4 : Flag4, 5 : Flag5, 6 : Flag6, 7 : Flag7,
+            8 : Flag8, 9 : Flag9, 10 : Flag10, 11 : Flag11, 12 : Flag12, 13 : Flag13, 14 : Flag14, 15 : Flag15,
         }
     }
 
@@ -1627,10 +1697,10 @@ mod test {
         /// My Test Thing
         u32 MyFieldU32
         MyFlagsU32 {
-            0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
-            8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
-            16 : Flag16 17 : Flag17 18 : Flag18 19 : Flag19 20 : Flag20 21 : Flag21 22 : Flag22 23 : Flag23
-            24 : Flag24 25 : Flag25 26 : Flag26 27 : Flag27 28 : Flag28 29 : Flag29 30 : Flag30 31 : Flag31
+            0 : Flag0, 1 : Flag1, 2 : Flag2, 3 : Flag3, 4 : Flag4, 5 : Flag5, 6 : Flag6, 7 : Flag7,
+            8 : Flag8, 9 : Flag9, 10 : Flag10, 11 : Flag11, 12 : Flag12, 13 : Flag13, 14 : Flag14, 15 : Flag15,
+            16 : Flag16, 17 : Flag17, 18 : Flag18, 19 : Flag19, 20 : Flag20, 21 : Flag21, 22 : Flag22, 23 : Flag23,
+            24 : Flag24, 25 : Flag25, 26 : Flag26, 27 : Flag27, 28 : Flag28, 29 : Flag29, 30 : Flag30, 31 : Flag31,
         }
     }
 
@@ -1638,14 +1708,14 @@ mod test {
         /// My Test Thing
         u64 MyFieldU64
         MyFlagsU64 {
-            0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
-            8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
-            16 : Flag16 17 : Flag17 18 : Flag18 19 : Flag19 20 : Flag20 21 : Flag21 22 : Flag22 23 : Flag23
-            24 : Flag24 25 : Flag25 26 : Flag26 27 : Flag27 28 : Flag28 29 : Flag29 30 : Flag30 31 : Flag31
-            32 : Flag32 33 : Flag33 34 : Flag34 35 : Flag35 36 : Flag36 37 : Flag37 38 : Flag38 39 : Flag39
-            40 : Flag40 41 : Flag41 42 : Flag42 43 : Flag43 44 : Flag44 45 : Flag45 46 : Flag46 47 : Flag47
-            48 : Flag48 49 : Flag49 50 : Flag50 51 : Flag51 52 : Flag52 53 : Flag53 54 : Flag54 55 : Flag55
-            56 : Flag56 57 : Flag57 58 : Flag58 59 : Flag59 60 : Flag60 61 : Flag61 62 : Flag62 63 : Flag63
+            0 : Flag0, 1 : Flag1, 2 : Flag2, 3 : Flag3, 4 : Flag4, 5 : Flag5, 6 : Flag6, 7 : Flag7,
+            8 : Flag8, 9 : Flag9, 10 : Flag10, 11 : Flag11, 12 : Flag12, 13 : Flag13, 14 : Flag14, 15 : Flag15,
+            16 : Flag16, 17 : Flag17, 18 : Flag18, 19 : Flag19, 20 : Flag20, 21 : Flag21, 22 : Flag22, 23 : Flag23,
+            24 : Flag24, 25 : Flag25, 26 : Flag26, 27 : Flag27, 28 : Flag28, 29 : Flag29, 30 : Flag30, 31 : Flag31,
+            32 : Flag32, 33 : Flag33, 34 : Flag34, 35 : Flag35, 36 : Flag36, 37 : Flag37, 38 : Flag38, 39 : Flag39,
+            40 : Flag40, 41 : Flag41, 42 : Flag42, 43 : Flag43, 44 : Flag44, 45 : Flag45, 46 : Flag46, 47 : Flag47,
+            48 : Flag48, 49 : Flag49, 50 : Flag50, 51 : Flag51, 52 : Flag52, 53 : Flag53, 54 : Flag54, 55 : Flag55,
+            56 : Flag56, 57 : Flag57, 58 : Flag58, 59 : Flag59, 60 : Flag60, 61 : Flag61, 62 : Flag62, 63 : Flag63,
         }
     }
 
@@ -1653,22 +1723,22 @@ mod test {
         /// My Test Thing
         u128 MyFieldU128
         MyFlagsU128 {
-            0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
-            8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
-            16 : Flag16 17 : Flag17 18 : Flag18 19 : Flag19 20 : Flag20 21 : Flag21 22 : Flag22 23 : Flag23
-            24 : Flag24 25 : Flag25 26 : Flag26 27 : Flag27 28 : Flag28 29 : Flag29 30 : Flag30 31 : Flag31
-            32 : Flag32 33 : Flag33 34 : Flag34 35 : Flag35 36 : Flag36 37 : Flag37 38 : Flag38 39 : Flag39
-            40 : Flag40 41 : Flag41 42 : Flag42 43 : Flag43 44 : Flag44 45 : Flag45 46 : Flag46 47 : Flag47
-            48 : Flag48 49 : Flag49 50 : Flag50 51 : Flag51 52 : Flag52 53 : Flag53 54 : Flag54 55 : Flag55
-            56 : Flag56 57 : Flag57 58 : Flag58 59 : Flag59 60 : Flag60 61 : Flag61 62 : Flag62 63 : Flag63
-            64 : Flag64 65 : Flag65 66 : Flag66 67 : Flag67 68 : Flag68 69 : Flag69 70 : Flag70 71 : Flag71
-            72 : Flag72 73 : Flag73 74 : Flag74 75 : Flag75 76 : Flag76 77 : Flag77 78 : Flag78 79 : Flag79
-            80 : Flag80 81 : Flag81 82 : Flag82 83 : Flag83 84 : Flag84 85 : Flag85 86 : Flag86 87 : Flag87
-            88 : Flag88 89 : Flag89 90 : Flag90 91 : Flag91 92 : Flag92 93 : Flag93 94 : Flag94 95 : Flag95
-            96 : Flag96 97 : Flag97 98 : Flag98 99 : Flag99 100 : Flag100 101 : Flag101 102 : Flag102 103 : Flag103
-            104 : Flag104 105 : Flag105 106 : Flag106 107 : Flag107 108 : Flag108 109 : Flag109 110 : Flag110 111 : Flag111
-            112 : Flag112 113 : Flag113 114 : Flag114 115 : Flag115 116 : Flag116 117 : Flag117 118 : Flag118 119 : Flag119
-            120 : Flag120 121 : Flag121 122 : Flag122 123 : Flag123 124 : Flag124 125 : Flag125 126 : Flag126 127 : Flag127
+            0 : Flag0, 1 : Flag1, 2 : Flag2, 3 : Flag3, 4 : Flag4, 5 : Flag5, 6 : Flag6, 7 : Flag7,
+            8 : Flag8, 9 : Flag9, 10 : Flag10, 11 : Flag11, 12 : Flag12, 13 : Flag13, 14 : Flag14, 15 : Flag15,
+            16 : Flag16, 17 : Flag17, 18 : Flag18, 19 : Flag19, 20 : Flag20, 21 : Flag21, 22 : Flag22, 23 : Flag23,
+            24 : Flag24, 25 : Flag25, 26 : Flag26, 27 : Flag27, 28 : Flag28, 29 : Flag29, 30 : Flag30, 31 : Flag31,
+            32 : Flag32, 33 : Flag33, 34 : Flag34, 35 : Flag35, 36 : Flag36, 37 : Flag37, 38 : Flag38, 39 : Flag39,
+            40 : Flag40, 41 : Flag41, 42 : Flag42, 43 : Flag43, 44 : Flag44, 45 : Flag45, 46 : Flag46, 47 : Flag47,
+            48 : Flag48, 49 : Flag49, 50 : Flag50, 51 : Flag51, 52 : Flag52, 53 : Flag53, 54 : Flag54, 55 : Flag55,
+            56 : Flag56, 57 : Flag57, 58 : Flag58, 59 : Flag59, 60 : Flag60, 61 : Flag61, 62 : Flag62, 63 : Flag63,
+            64 : Flag64, 65 : Flag65, 66 : Flag66, 67 : Flag67, 68 : Flag68, 69 : Flag69, 70 : Flag70, 71 : Flag71,
+            72 : Flag72, 73 : Flag73, 74 : Flag74, 75 : Flag75, 76 : Flag76, 77 : Flag77, 78 : Flag78, 79 : Flag79,
+            80 : Flag80, 81 : Flag81, 82 : Flag82, 83 : Flag83, 84 : Flag84, 85 : Flag85, 86 : Flag86, 87 : Flag87,
+            88 : Flag88, 89 : Flag89, 90 : Flag90, 91 : Flag91, 92 : Flag92, 93 : Flag93, 94 : Flag94, 95 : Flag95,
+            96 : Flag96, 97 : Flag97, 98 : Flag98, 99 : Flag99, 100 : Flag100, 101 : Flag101, 102 : Flag102, 103 : Flag103,
+            104 : Flag104, 105 : Flag105, 106 : Flag106, 107 : Flag107, 108 : Flag108, 109 : Flag109, 110 : Flag110, 111 : Flag111,
+            112 : Flag112, 113 : Flag113, 114 : Flag114, 115 : Flag115, 116 : Flag116, 117 : Flag117, 118 : Flag118, 119 : Flag119,
+            120 : Flag120, 121 : Flag121, 122 : Flag122, 123 : Flag123, 124 : Flag124, 125 : Flag125, 126 : Flag126, 127 : Flag127,
         }
     }
 
@@ -1677,14 +1747,14 @@ mod test {
         /// My Test Thing
         usize MyFieldUsize
         MyFlagsUsize {
-            0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
-            8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
-            16 : Flag16 17 : Flag17 18 : Flag18 19 : Flag19 20 : Flag20 21 : Flag21 22 : Flag22 23 : Flag23
-            24 : Flag24 25 : Flag25 26 : Flag26 27 : Flag27 28 : Flag28 29 : Flag29 30 : Flag30 31 : Flag31
-            32 : Flag32 33 : Flag33 34 : Flag34 35 : Flag35 36 : Flag36 37 : Flag37 38 : Flag38 39 : Flag39
-            40 : Flag40 41 : Flag41 42 : Flag42 43 : Flag43 44 : Flag44 45 : Flag45 46 : Flag46 47 : Flag47
-            48 : Flag48 49 : Flag49 50 : Flag50 51 : Flag51 52 : Flag52 53 : Flag53 54 : Flag54 55 : Flag55
-            56 : Flag56 57 : Flag57 58 : Flag58 59 : Flag59 60 : Flag60 61 : Flag61 62 : Flag62 63 : Flag63
+            0 : Flag0, 1 : Flag1, 2 : Flag2, 3 : Flag3, 4 : Flag4, 5 : Flag5, 6 : Flag6, 7 : Flag7,
+            8 : Flag8, 9 : Flag9, 10 : Flag10, 11 : Flag11, 12 : Flag12, 13 : Flag13, 14 : Flag14, 15 : Flag15,
+            16 : Flag16, 17 : Flag17, 18 : Flag18, 19 : Flag19, 20 : Flag20, 21 : Flag21, 22 : Flag22, 23 : Flag23,
+            24 : Flag24, 25 : Flag25, 26 : Flag26, 27 : Flag27, 28 : Flag28, 29 : Flag29, 30 : Flag30, 31 : Flag31,
+            32 : Flag32, 33 : Flag33, 34 : Flag34, 35 : Flag35, 36 : Flag36, 37 : Flag37, 38 : Flag38, 39 : Flag39,
+            40 : Flag40, 41 : Flag41, 42 : Flag42, 43 : Flag43, 44 : Flag44, 45 : Flag45, 46 : Flag46, 47 : Flag47,
+            48 : Flag48, 49 : Flag49, 50 : Flag50, 51 : Flag51, 52 : Flag52, 53 : Flag53, 54 : Flag54, 55 : Flag55,
+            56 : Flag56, 57 : Flag57, 58 : Flag58, 59 : Flag59, 60 : Flag60, 61 : Flag61, 62 : Flag62, 63 : Flag63,
         }
     }
 
@@ -1693,10 +1763,10 @@ mod test {
         /// My Test Thing
         usize MyFieldUsize
         MyFlagsUsize {
-            0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
-            8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
-            16 : Flag16 17 : Flag17 18 : Flag18 19 : Flag19 20 : Flag20 21 : Flag21 22 : Flag22 23 : Flag23
-            24 : Flag24 25 : Flag25 26 : Flag26 27 : Flag27 28 : Flag28 29 : Flag29 30 : Flag30 31 : Flag31
+            0 : Flag0, 1 : Flag1, 2 : Flag2, 3 : Flag3, 4 : Flag4, 5 : Flag5, 6 : Flag6, 7 : Flag7,
+            8 : Flag8, 9 : Flag9, 10 : Flag10, 11 : Flag11, 12 : Flag12, 13 : Flag13, 14 : Flag14, 15 : Flag15,
+            16 : Flag16, 17 : Flag17, 18 : Flag18, 19 : Flag19, 20 : Flag20, 21 : Flag21, 22 : Flag22, 23 : Flag23,
+            24 : Flag24, 25 : Flag25, 26 : Flag26, 27 : Flag27, 28 : Flag28, 29 : Flag29, 30 : Flag30, 31 : Flag31,
         }
     }
 
@@ -1704,7 +1774,7 @@ mod test {
         /// My Test Thing
         u8 MyFieldU8Nf
         MyFlagsU8Nf {
-            0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
+            0 : Flag0, 1 : Flag1, 2 : Flag2, 3 : Flag3, 4 : Flag4, 5 : Flag5, 6 : Flag6, 7 : Flag7,
         }
     }
 
@@ -1712,8 +1782,8 @@ mod test {
         /// My Test Thing
         u16 MyFieldU16Nf
         MyFlagsU16Nf {
-            0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
-            8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
+            0 : Flag0, 1 : Flag1, 2 : Flag2, 3 : Flag3, 4 : Flag4, 5 : Flag5, 6 : Flag6, 7 : Flag7,
+            8 : Flag8, 9 : Flag9, 10 : Flag10, 11 : Flag11, 12 : Flag12, 13 : Flag13, 14 : Flag14, 15 : Flag15,
         }
     }
 
@@ -1721,10 +1791,10 @@ mod test {
         /// My Test Thing
         u32 MyFieldU32Nf
         MyFlagsU32Nf {
-            0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
-            8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
-            16 : Flag16 17 : Flag17 18 : Flag18 19 : Flag19 20 : Flag20 21 : Flag21 22 : Flag22 23 : Flag23
-            24 : Flag24 25 : Flag25 26 : Flag26 27 : Flag27 28 : Flag28 29 : Flag29 30 : Flag30 31 : Flag31
+            0 : Flag0, 1 : Flag1, 2 : Flag2, 3 : Flag3, 4 : Flag4, 5 : Flag5, 6 : Flag6, 7 : Flag7,
+            8 : Flag8, 9 : Flag9, 10 : Flag10, 11 : Flag11, 12 : Flag12, 13 : Flag13, 14 : Flag14, 15 : Flag15,
+            16 : Flag16, 17 : Flag17, 18 : Flag18, 19 : Flag19, 20 : Flag20, 21 : Flag21, 22 : Flag22, 23 : Flag23,
+            24 : Flag24, 25 : Flag25, 26 : Flag26, 27 : Flag27, 28 : Flag28, 29 : Flag29, 30 : Flag30, 31 : Flag31,
         }
     }
 
@@ -1732,14 +1802,14 @@ mod test {
         /// My Test Thing
         u64 MyFieldU64Nf
         MyFlagsU64Nf {
-            0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
-            8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
-            16 : Flag16 17 : Flag17 18 : Flag18 19 : Flag19 20 : Flag20 21 : Flag21 22 : Flag22 23 : Flag23
-            24 : Flag24 25 : Flag25 26 : Flag26 27 : Flag27 28 : Flag28 29 : Flag29 30 : Flag30 31 : Flag31
-            32 : Flag32 33 : Flag33 34 : Flag34 35 : Flag35 36 : Flag36 37 : Flag37 38 : Flag38 39 : Flag39
-            40 : Flag40 41 : Flag41 42 : Flag42 43 : Flag43 44 : Flag44 45 : Flag45 46 : Flag46 47 : Flag47
-            48 : Flag48 49 : Flag49 50 : Flag50 51 : Flag51 52 : Flag52 53 : Flag53 54 : Flag54 55 : Flag55
-            56 : Flag56 57 : Flag57 58 : Flag58 59 : Flag59 60 : Flag60 61 : Flag61 62 : Flag62 63 : Flag63
+            0 : Flag0, 1 : Flag1, 2 : Flag2, 3 : Flag3, 4 : Flag4, 5 : Flag5, 6 : Flag6, 7 : Flag7,
+            8 : Flag8, 9 : Flag9, 10 : Flag10, 11 : Flag11, 12 : Flag12, 13 : Flag13, 14 : Flag14, 15 : Flag15,
+            16 : Flag16, 17 : Flag17, 18 : Flag18, 19 : Flag19, 20 : Flag20, 21 : Flag21, 22 : Flag22, 23 : Flag23,
+            24 : Flag24, 25 : Flag25, 26 : Flag26, 27 : Flag27, 28 : Flag28, 29 : Flag29, 30 : Flag30, 31 : Flag31,
+            32 : Flag32, 33 : Flag33, 34 : Flag34, 35 : Flag35, 36 : Flag36, 37 : Flag37, 38 : Flag38, 39 : Flag39,
+            40 : Flag40, 41 : Flag41, 42 : Flag42, 43 : Flag43, 44 : Flag44, 45 : Flag45, 46 : Flag46, 47 : Flag47,
+            48 : Flag48, 49 : Flag49, 50 : Flag50, 51 : Flag51, 52 : Flag52, 53 : Flag53, 54 : Flag54, 55 : Flag55,
+            56 : Flag56, 57 : Flag57, 58 : Flag58, 59 : Flag59, 60 : Flag60, 61 : Flag61, 62 : Flag62, 63 : Flag63,
         }
     }
 
@@ -1747,22 +1817,22 @@ mod test {
         /// My Test Thing
         u128 MyFieldU128Nf
         MyFlagsU128Nf {
-            0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
-            8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
-            16 : Flag16 17 : Flag17 18 : Flag18 19 : Flag19 20 : Flag20 21 : Flag21 22 : Flag22 23 : Flag23
-            24 : Flag24 25 : Flag25 26 : Flag26 27 : Flag27 28 : Flag28 29 : Flag29 30 : Flag30 31 : Flag31
-            32 : Flag32 33 : Flag33 34 : Flag34 35 : Flag35 36 : Flag36 37 : Flag37 38 : Flag38 39 : Flag39
-            40 : Flag40 41 : Flag41 42 : Flag42 43 : Flag43 44 : Flag44 45 : Flag45 46 : Flag46 47 : Flag47
-            48 : Flag48 49 : Flag49 50 : Flag50 51 : Flag51 52 : Flag52 53 : Flag53 54 : Flag54 55 : Flag55
-            56 : Flag56 57 : Flag57 58 : Flag58 59 : Flag59 60 : Flag60 61 : Flag61 62 : Flag62 63 : Flag63
-            64 : Flag64 65 : Flag65 66 : Flag66 67 : Flag67 68 : Flag68 69 : Flag69 70 : Flag70 71 : Flag71
-            72 : Flag72 73 : Flag73 74 : Flag74 75 : Flag75 76 : Flag76 77 : Flag77 78 : Flag78 79 : Flag79
-            80 : Flag80 81 : Flag81 82 : Flag82 83 : Flag83 84 : Flag84 85 : Flag85 86 : Flag86 87 : Flag87
-            88 : Flag88 89 : Flag89 90 : Flag90 91 : Flag91 92 : Flag92 93 : Flag93 94 : Flag94 95 : Flag95
-            96 : Flag96 97 : Flag97 98 : Flag98 99 : Flag99 100 : Flag100 101 : Flag101 102 : Flag102 103 : Flag103
-            104 : Flag104 105 : Flag105 106 : Flag106 107 : Flag107 108 : Flag108 109 : Flag109 110 : Flag110 111 : Flag111
-            112 : Flag112 113 : Flag113 114 : Flag114 115 : Flag115 116 : Flag116 117 : Flag117 118 : Flag118 119 : Flag119
-            120 : Flag120 121 : Flag121 122 : Flag122 123 : Flag123 124 : Flag124 125 : Flag125 126 : Flag126 127 : Flag127
+            0 : Flag0, 1 : Flag1, 2 : Flag2, 3 : Flag3, 4 : Flag4, 5 : Flag5, 6 : Flag6, 7 : Flag7,
+            8 : Flag8, 9 : Flag9, 10 : Flag10, 11 : Flag11, 12 : Flag12, 13 : Flag13, 14 : Flag14, 15 : Flag15,
+            16 : Flag16, 17 : Flag17, 18 : Flag18, 19 : Flag19, 20 : Flag20, 21 : Flag21, 22 : Flag22, 23 : Flag23,
+            24 : Flag24, 25 : Flag25, 26 : Flag26, 27 : Flag27, 28 : Flag28, 29 : Flag29, 30 : Flag30, 31 : Flag31,
+            32 : Flag32, 33 : Flag33, 34 : Flag34, 35 : Flag35, 36 : Flag36, 37 : Flag37, 38 : Flag38, 39 : Flag39,
+            40 : Flag40, 41 : Flag41, 42 : Flag42, 43 : Flag43, 44 : Flag44, 45 : Flag45, 46 : Flag46, 47 : Flag47,
+            48 : Flag48, 49 : Flag49, 50 : Flag50, 51 : Flag51, 52 : Flag52, 53 : Flag53, 54 : Flag54, 55 : Flag55,
+            56 : Flag56, 57 : Flag57, 58 : Flag58, 59 : Flag59, 60 : Flag60, 61 : Flag61, 62 : Flag62, 63 : Flag63,
+            64 : Flag64, 65 : Flag65, 66 : Flag66, 67 : Flag67, 68 : Flag68, 69 : Flag69, 70 : Flag70, 71 : Flag71,
+            72 : Flag72, 73 : Flag73, 74 : Flag74, 75 : Flag75, 76 : Flag76, 77 : Flag77, 78 : Flag78, 79 : Flag79,
+            80 : Flag80, 81 : Flag81, 82 : Flag82, 83 : Flag83, 84 : Flag84, 85 : Flag85, 86 : Flag86, 87 : Flag87,
+            88 : Flag88, 89 : Flag89, 90 : Flag90, 91 : Flag91, 92 : Flag92, 93 : Flag93, 94 : Flag94, 95 : Flag95,
+            96 : Flag96, 97 : Flag97, 98 : Flag98, 99 : Flag99, 100 : Flag100, 101 : Flag101, 102 : Flag102, 103 : Flag103,
+            104 : Flag104, 105 : Flag105, 106 : Flag106, 107 : Flag107, 108 : Flag108, 109 : Flag109, 110 : Flag110, 111 : Flag111,
+            112 : Flag112, 113 : Flag113, 114 : Flag114, 115 : Flag115, 116 : Flag116, 117 : Flag117, 118 : Flag118, 119 : Flag119,
+            120 : Flag120, 121 : Flag121, 122 : Flag122, 123 : Flag123, 124 : Flag124, 125 : Flag125, 126 : Flag126, 127 : Flag127,
         }
     }
 
@@ -1771,14 +1841,14 @@ mod test {
         /// My Test Thing
         usize MyFieldUsizeNf
         MyFlagsUsizeNf {
-            0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
-            8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
-            16 : Flag16 17 : Flag17 18 : Flag18 19 : Flag19 20 : Flag20 21 : Flag21 22 : Flag22 23 : Flag23
-            24 : Flag24 25 : Flag25 26 : Flag26 27 : Flag27 28 : Flag28 29 : Flag29 30 : Flag30 31 : Flag31
-            32 : Flag32 33 : Flag33 34 : Flag34 35 : Flag35 36 : Flag36 37 : Flag37 38 : Flag38 39 : Flag39
-            40 : Flag40 41 : Flag41 42 : Flag42 43 : Flag43 44 : Flag44 45 : Flag45 46 : Flag46 47 : Flag47
-            48 : Flag48 49 : Flag49 50 : Flag50 51 : Flag51 52 : Flag52 53 : Flag53 54 : Flag54 55 : Flag55
-            56 : Flag56 57 : Flag57 58 : Flag58 59 : Flag59 60 : Flag60 61 : Flag61 62 : Flag62 63 : Flag63
+            0 : Flag0, 1 : Flag1, 2 : Flag2, 3 : Flag3, 4 : Flag4, 5 : Flag5, 6 : Flag6, 7 : Flag7,
+            8 : Flag8, 9 : Flag9, 10 : Flag10, 11 : Flag11, 12 : Flag12, 13 : Flag13, 14 : Flag14, 15 : Flag15,
+            16 : Flag16, 17 : Flag17, 18 : Flag18, 19 : Flag19, 20 : Flag20, 21 : Flag21, 22 : Flag22, 23 : Flag23,
+            24 : Flag24, 25 : Flag25, 26 : Flag26, 27 : Flag27, 28 : Flag28, 29 : Flag29, 30 : Flag30, 31 : Flag31,
+            32 : Flag32, 33 : Flag33, 34 : Flag34, 35 : Flag35, 36 : Flag36, 37 : Flag37, 38 : Flag38, 39 : Flag39,
+            40 : Flag40, 41 : Flag41, 42 : Flag42, 43 : Flag43, 44 : Flag44, 45 : Flag45, 46 : Flag46, 47 : Flag47,
+            48 : Flag48, 49 : Flag49, 50 : Flag50, 51 : Flag51, 52 : Flag52, 53 : Flag53, 54 : Flag54, 55 : Flag55,
+            56 : Flag56, 57 : Flag57, 58 : Flag58, 59 : Flag59, 60 : Flag60, 61 : Flag61, 62 : Flag62, 63 : Flag63,
         }
     }
 
@@ -1787,10 +1857,10 @@ mod test {
         /// My Test Thing
         usize MyFieldUsizeNf
         MyFlagsUsizeNf {
-            0 : Flag0 1 : Flag1 2 : Flag2 3 : Flag3 4 : Flag4 5 : Flag5 6 : Flag6 7 : Flag7
-            8 : Flag8 9 : Flag9 10 : Flag10 11 : Flag11 12 : Flag12 13 : Flag13 14 : Flag14 15 : Flag15
-            16 : Flag16 17 : Flag17 18 : Flag18 19 : Flag19 20 : Flag20 21 : Flag21 22 : Flag22 23 : Flag23
-            24 : Flag24 25 : Flag25 26 : Flag26 27 : Flag27 28 : Flag28 29 : Flag29 30 : Flag30 31 : Flag31
+            0 : Flag0, 1 : Flag1, 2 : Flag2, 3 : Flag3, 4 : Flag4, 5 : Flag5, 6 : Flag6, 7 : Flag7,
+            8 : Flag8, 9 : Flag9, 10 : Flag10, 11 : Flag11, 12 : Flag12, 13 : Flag13, 14 : Flag14, 15 : Flag15,
+            16 : Flag16, 17 : Flag17, 18 : Flag18, 19 : Flag19, 20 : Flag20, 21 : Flag21, 22 : Flag22, 23 : Flag23,
+            24 : Flag24, 25 : Flag25, 26 : Flag26, 27 : Flag27, 28 : Flag28, 29 : Flag29, 30 : Flag30, 31 : Flag31,
         }
     }
 

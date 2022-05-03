@@ -3769,6 +3769,76 @@
 <span id="3764">3764</span>
 <span id="3765">3765</span>
 <span id="3766">3766</span>
+<span id="3767">3767</span>
+<span id="3768">3768</span>
+<span id="3769">3769</span>
+<span id="3770">3770</span>
+<span id="3771">3771</span>
+<span id="3772">3772</span>
+<span id="3773">3773</span>
+<span id="3774">3774</span>
+<span id="3775">3775</span>
+<span id="3776">3776</span>
+<span id="3777">3777</span>
+<span id="3778">3778</span>
+<span id="3779">3779</span>
+<span id="3780">3780</span>
+<span id="3781">3781</span>
+<span id="3782">3782</span>
+<span id="3783">3783</span>
+<span id="3784">3784</span>
+<span id="3785">3785</span>
+<span id="3786">3786</span>
+<span id="3787">3787</span>
+<span id="3788">3788</span>
+<span id="3789">3789</span>
+<span id="3790">3790</span>
+<span id="3791">3791</span>
+<span id="3792">3792</span>
+<span id="3793">3793</span>
+<span id="3794">3794</span>
+<span id="3795">3795</span>
+<span id="3796">3796</span>
+<span id="3797">3797</span>
+<span id="3798">3798</span>
+<span id="3799">3799</span>
+<span id="3800">3800</span>
+<span id="3801">3801</span>
+<span id="3802">3802</span>
+<span id="3803">3803</span>
+<span id="3804">3804</span>
+<span id="3805">3805</span>
+<span id="3806">3806</span>
+<span id="3807">3807</span>
+<span id="3808">3808</span>
+<span id="3809">3809</span>
+<span id="3810">3810</span>
+<span id="3811">3811</span>
+<span id="3812">3812</span>
+<span id="3813">3813</span>
+<span id="3814">3814</span>
+<span id="3815">3815</span>
+<span id="3816">3816</span>
+<span id="3817">3817</span>
+<span id="3818">3818</span>
+<span id="3819">3819</span>
+<span id="3820">3820</span>
+<span id="3821">3821</span>
+<span id="3822">3822</span>
+<span id="3823">3823</span>
+<span id="3824">3824</span>
+<span id="3825">3825</span>
+<span id="3826">3826</span>
+<span id="3827">3827</span>
+<span id="3828">3828</span>
+<span id="3829">3829</span>
+<span id="3830">3830</span>
+<span id="3831">3831</span>
+<span id="3832">3832</span>
+<span id="3833">3833</span>
+<span id="3834">3834</span>
+<span id="3835">3835</span>
+<span id="3836">3836</span>
 </pre><pre class="rust"><code><span class="doccomment">//!</span>
 <span class="doccomment">//! [![crates.io](https://img.shields.io/crates/v/ubits.svg)](https://crates.io/crates/ubits)</span>
 <span class="doccomment">//! [![Downloads](https://img.shields.io/crates/d/ubits.svg)](https://crates.io/crates/ubits)</span>
@@ -3800,14 +3870,14 @@
 <span class="doccomment">//!     bitfield! {</span>
 <span class="doccomment">//!         pub u8 ExampleField</span>
 <span class="doccomment">//!         ExampleFlags {</span>
-<span class="doccomment">//!             0 : Flag0</span>
-<span class="doccomment">//!             1 : Flag1</span>
-<span class="doccomment">//!             2 : Flag2</span>
-<span class="doccomment">//!             3 : Flag3</span>
-<span class="doccomment">//!             4 : Flag4</span>
-<span class="doccomment">//!             5 : Flag5</span>
-<span class="doccomment">//!             6 : Flag6</span>
-<span class="doccomment">//!             7 : Flag7</span>
+<span class="doccomment">//!             0 : Flag0,</span>
+<span class="doccomment">//!             1 : Flag1,</span>
+<span class="doccomment">//!             2 : Flag2,</span>
+<span class="doccomment">//!             3 : Flag3,</span>
+<span class="doccomment">//!             4 : Flag4,</span>
+<span class="doccomment">//!             5 : Flag5,</span>
+<span class="doccomment">//!             6 : Flag6,</span>
+<span class="doccomment">//!             7 : Flag7,</span>
 <span class="doccomment">//!         }</span>
 <span class="doccomment">//!     }</span>
 <span class="doccomment">//! ```</span>
@@ -3820,14 +3890,14 @@
 <span class="doccomment">//! #    bitfield! {</span>
 <span class="doccomment">//! #        pub u8 ExampleField</span>
 <span class="doccomment">//! #        ExampleFlags {</span>
-<span class="doccomment">//! #            0 : Flag0</span>
-<span class="doccomment">//! #            1 : Flag1</span>
-<span class="doccomment">//! #            2 : Flag2</span>
-<span class="doccomment">//! #            3 : Flag3</span>
-<span class="doccomment">//! #            4 : Flag4</span>
-<span class="doccomment">//! #            5 : Flag5</span>
-<span class="doccomment">//! #            6 : Flag6</span>
-<span class="doccomment">//! #            7 : Flag7</span>
+<span class="doccomment">//! #            0 : Flag0,</span>
+<span class="doccomment">//! #            1 : Flag1,</span>
+<span class="doccomment">//! #            2 : Flag2,</span>
+<span class="doccomment">//! #            3 : Flag3,</span>
+<span class="doccomment">//! #            4 : Flag4,</span>
+<span class="doccomment">//! #            5 : Flag5,</span>
+<span class="doccomment">//! #            6 : Flag6,</span>
+<span class="doccomment">//! #            7 : Flag7,</span>
 <span class="doccomment">//! #        }</span>
 <span class="doccomment">//! #    }</span>
 <span class="doccomment">//!</span>
@@ -3841,14 +3911,14 @@
 <span class="doccomment">//! #    bitfield! {</span>
 <span class="doccomment">//! #        pub u8 ExampleField</span>
 <span class="doccomment">//! #        ExampleFlags {</span>
-<span class="doccomment">//! #            0 : Flag0</span>
-<span class="doccomment">//! #            1 : Flag1</span>
-<span class="doccomment">//! #            2 : Flag2</span>
-<span class="doccomment">//! #            3 : Flag3</span>
-<span class="doccomment">//! #            4 : Flag4</span>
-<span class="doccomment">//! #            5 : Flag5</span>
-<span class="doccomment">//! #            6 : Flag6</span>
-<span class="doccomment">//! #            7 : Flag7</span>
+<span class="doccomment">//! #            0 : Flag0,</span>
+<span class="doccomment">//! #            1 : Flag1,</span>
+<span class="doccomment">//! #            2 : Flag2,</span>
+<span class="doccomment">//! #            3 : Flag3,</span>
+<span class="doccomment">//! #            4 : Flag4,</span>
+<span class="doccomment">//! #            5 : Flag5,</span>
+<span class="doccomment">//! #            6 : Flag6,</span>
+<span class="doccomment">//! #            7 : Flag7,</span>
 <span class="doccomment">//! #        }</span>
 <span class="doccomment">//! #    }</span>
 <span class="doccomment">//!</span>
@@ -3862,14 +3932,14 @@
 <span class="doccomment">//! #    bitfield! {</span>
 <span class="doccomment">//! #        pub u8 ExampleField</span>
 <span class="doccomment">//! #        ExampleFlags {</span>
-<span class="doccomment">//! #            0 : Flag0</span>
-<span class="doccomment">//! #            1 : Flag1</span>
-<span class="doccomment">//! #            2 : Flag2</span>
-<span class="doccomment">//! #            3 : Flag3</span>
-<span class="doccomment">//! #            4 : Flag4</span>
-<span class="doccomment">//! #            5 : Flag5</span>
-<span class="doccomment">//! #            6 : Flag6</span>
-<span class="doccomment">//! #            7 : Flag7</span>
+<span class="doccomment">//! #            0 : Flag0,</span>
+<span class="doccomment">//! #            1 : Flag1,</span>
+<span class="doccomment">//! #            2 : Flag2,</span>
+<span class="doccomment">//! #            3 : Flag3,</span>
+<span class="doccomment">//! #            4 : Flag4,</span>
+<span class="doccomment">//! #            5 : Flag5,</span>
+<span class="doccomment">//! #            6 : Flag6,</span>
+<span class="doccomment">//! #            7 : Flag7,</span>
 <span class="doccomment">//! #        }</span>
 <span class="doccomment">//! #    }</span>
 <span class="doccomment">//!</span>
@@ -3884,14 +3954,14 @@
 <span class="doccomment">//! #    bitfield! {</span>
 <span class="doccomment">//! #        pub u8 ExampleField</span>
 <span class="doccomment">//! #        ExampleFlags {</span>
-<span class="doccomment">//! #            0 : Flag0</span>
-<span class="doccomment">//! #            1 : Flag1</span>
-<span class="doccomment">//! #            2 : Flag2</span>
-<span class="doccomment">//! #            3 : Flag3</span>
-<span class="doccomment">//! #            4 : Flag4</span>
-<span class="doccomment">//! #            5 : Flag5</span>
-<span class="doccomment">//! #            6 : Flag6</span>
-<span class="doccomment">//! #            7 : Flag7</span>
+<span class="doccomment">//! #            0 : Flag0,</span>
+<span class="doccomment">//! #            1 : Flag1,</span>
+<span class="doccomment">//! #            2 : Flag2,</span>
+<span class="doccomment">//! #            3 : Flag3,</span>
+<span class="doccomment">//! #            4 : Flag4,</span>
+<span class="doccomment">//! #            5 : Flag5,</span>
+<span class="doccomment">//! #            6 : Flag6,</span>
+<span class="doccomment">//! #            7 : Flag7,</span>
 <span class="doccomment">//! #        }</span>
 <span class="doccomment">//! #    }</span>
 <span class="doccomment">//!</span>
@@ -3908,14 +3978,14 @@
 <span class="doccomment">//! #    bitfield! {</span>
 <span class="doccomment">//! #        pub u8 ExampleField</span>
 <span class="doccomment">//! #        ExampleFlags {</span>
-<span class="doccomment">//! #            0 : Flag0</span>
-<span class="doccomment">//! #            1 : Flag1</span>
-<span class="doccomment">//! #            2 : Flag2</span>
-<span class="doccomment">//! #            3 : Flag3</span>
-<span class="doccomment">//! #            4 : Flag4</span>
-<span class="doccomment">//! #            5 : Flag5</span>
-<span class="doccomment">//! #            6 : Flag6</span>
-<span class="doccomment">//! #            7 : Flag7</span>
+<span class="doccomment">//! #            0 : Flag0,</span>
+<span class="doccomment">//! #            1 : Flag1,</span>
+<span class="doccomment">//! #            2 : Flag2,</span>
+<span class="doccomment">//! #            3 : Flag3,</span>
+<span class="doccomment">//! #            4 : Flag4,</span>
+<span class="doccomment">//! #            5 : Flag5,</span>
+<span class="doccomment">//! #            6 : Flag6,</span>
+<span class="doccomment">//! #            7 : Flag7,</span>
 <span class="doccomment">//! #        }</span>
 <span class="doccomment">//! #    }</span>
 <span class="doccomment">//!</span>
@@ -3931,14 +4001,14 @@
 <span class="doccomment">//! #    bitfield! {</span>
 <span class="doccomment">//! #        pub u8 ExampleField</span>
 <span class="doccomment">//! #        ExampleFlags {</span>
-<span class="doccomment">//! #            0 : Flag0</span>
-<span class="doccomment">//! #            1 : Flag1</span>
-<span class="doccomment">//! #            2 : Flag2</span>
-<span class="doccomment">//! #            3 : Flag3</span>
-<span class="doccomment">//! #            4 : Flag4</span>
-<span class="doccomment">//! #            5 : Flag5</span>
-<span class="doccomment">//! #            6 : Flag6</span>
-<span class="doccomment">//! #            7 : Flag7</span>
+<span class="doccomment">//! #            0 : Flag0,</span>
+<span class="doccomment">//! #            1 : Flag1,</span>
+<span class="doccomment">//! #            2 : Flag2,</span>
+<span class="doccomment">//! #            3 : Flag3,</span>
+<span class="doccomment">//! #            4 : Flag4,</span>
+<span class="doccomment">//! #            5 : Flag5,</span>
+<span class="doccomment">//! #            6 : Flag6,</span>
+<span class="doccomment">//! #            7 : Flag7,</span>
 <span class="doccomment">//! #        }</span>
 <span class="doccomment">//! #    }</span>
 <span class="doccomment">//!</span>
@@ -3954,14 +4024,14 @@
 <span class="doccomment">//! #    bitfield! {</span>
 <span class="doccomment">//! #        pub u8 ExampleField</span>
 <span class="doccomment">//! #        ExampleFlags {</span>
-<span class="doccomment">//! #            0 : Flag0</span>
-<span class="doccomment">//! #            1 : Flag1</span>
-<span class="doccomment">//! #            2 : Flag2</span>
-<span class="doccomment">//! #            3 : Flag3</span>
-<span class="doccomment">//! #            4 : Flag4</span>
-<span class="doccomment">//! #            5 : Flag5</span>
-<span class="doccomment">//! #            6 : Flag6</span>
-<span class="doccomment">//! #            7 : Flag7</span>
+<span class="doccomment">//! #            0 : Flag0,</span>
+<span class="doccomment">//! #            1 : Flag1,</span>
+<span class="doccomment">//! #            2 : Flag2,</span>
+<span class="doccomment">//! #            3 : Flag3,</span>
+<span class="doccomment">//! #            4 : Flag4,</span>
+<span class="doccomment">//! #            5 : Flag5,</span>
+<span class="doccomment">//! #            6 : Flag6,</span>
+<span class="doccomment">//! #            7 : Flag7,</span>
 <span class="doccomment">//! #        }</span>
 <span class="doccomment">//! #    }</span>
 <span class="doccomment">//!</span>
@@ -3978,14 +4048,14 @@
 <span class="doccomment">//! #    bitfield! {</span>
 <span class="doccomment">//! #        pub u8 ExampleField</span>
 <span class="doccomment">//! #        ExampleFlags {</span>
-<span class="doccomment">//! #            0 : Flag0</span>
-<span class="doccomment">//! #            1 : Flag1</span>
-<span class="doccomment">//! #            2 : Flag2</span>
-<span class="doccomment">//! #            3 : Flag3</span>
-<span class="doccomment">//! #            4 : Flag4</span>
-<span class="doccomment">//! #            5 : Flag5</span>
-<span class="doccomment">//! #            6 : Flag6</span>
-<span class="doccomment">//! #            7 : Flag7</span>
+<span class="doccomment">//! #            0 : Flag0,</span>
+<span class="doccomment">//! #            1 : Flag1,</span>
+<span class="doccomment">//! #            2 : Flag2,</span>
+<span class="doccomment">//! #            3 : Flag3,</span>
+<span class="doccomment">//! #            4 : Flag4,</span>
+<span class="doccomment">//! #            5 : Flag5,</span>
+<span class="doccomment">//! #            6 : Flag6,</span>
+<span class="doccomment">//! #            7 : Flag7,</span>
 <span class="doccomment">//! #        }</span>
 <span class="doccomment">//! #    }</span>
 <span class="doccomment">//!</span>
@@ -4002,14 +4072,14 @@
 <span class="doccomment">//! #    bitfield! {</span>
 <span class="doccomment">//! #        pub u8 ExampleField</span>
 <span class="doccomment">//! #        ExampleFlags {</span>
-<span class="doccomment">//! #            0 : Flag0</span>
-<span class="doccomment">//! #            1 : Flag1</span>
-<span class="doccomment">//! #            2 : Flag2</span>
-<span class="doccomment">//! #            3 : Flag3</span>
-<span class="doccomment">//! #            4 : Flag4</span>
-<span class="doccomment">//! #            5 : Flag5</span>
-<span class="doccomment">//! #            6 : Flag6</span>
-<span class="doccomment">//! #            7 : Flag7</span>
+<span class="doccomment">//! #            0 : Flag0,</span>
+<span class="doccomment">//! #            1 : Flag1,</span>
+<span class="doccomment">//! #            2 : Flag2,</span>
+<span class="doccomment">//! #            3 : Flag3,</span>
+<span class="doccomment">//! #            4 : Flag4,</span>
+<span class="doccomment">//! #            5 : Flag5,</span>
+<span class="doccomment">//! #            6 : Flag6,</span>
+<span class="doccomment">//! #            7 : Flag7,</span>
 <span class="doccomment">//! #        }</span>
 <span class="doccomment">//! #    }</span>
 <span class="doccomment">//!</span>
@@ -4026,14 +4096,14 @@
 <span class="doccomment">//! #    bitfield! {</span>
 <span class="doccomment">//! #        pub u8 ExampleField</span>
 <span class="doccomment">//! #        ExampleFlags {</span>
-<span class="doccomment">//! #            0 : Flag0</span>
-<span class="doccomment">//! #            1 : Flag1</span>
-<span class="doccomment">//! #            2 : Flag2</span>
-<span class="doccomment">//! #            3 : Flag3</span>
-<span class="doccomment">//! #            4 : Flag4</span>
-<span class="doccomment">//! #            5 : Flag5</span>
-<span class="doccomment">//! #            6 : Flag6</span>
-<span class="doccomment">//! #            7 : Flag7</span>
+<span class="doccomment">//! #            0 : Flag0,</span>
+<span class="doccomment">//! #            1 : Flag1,</span>
+<span class="doccomment">//! #            2 : Flag2,</span>
+<span class="doccomment">//! #            3 : Flag3,</span>
+<span class="doccomment">//! #            4 : Flag4,</span>
+<span class="doccomment">//! #            5 : Flag5,</span>
+<span class="doccomment">//! #            6 : Flag6,</span>
+<span class="doccomment">//! #            7 : Flag7,</span>
 <span class="doccomment">//! #        }</span>
 <span class="doccomment">//! #    }</span>
 <span class="doccomment">//!</span>
@@ -4050,14 +4120,14 @@
 <span class="doccomment">//! #    bitfield! {</span>
 <span class="doccomment">//! #        pub u8 ExampleField</span>
 <span class="doccomment">//! #        ExampleFlags {</span>
-<span class="doccomment">//! #            0 : Flag0</span>
-<span class="doccomment">//! #            1 : Flag1</span>
-<span class="doccomment">//! #            2 : Flag2</span>
-<span class="doccomment">//! #            3 : Flag3</span>
-<span class="doccomment">//! #            4 : Flag4</span>
-<span class="doccomment">//! #            5 : Flag5</span>
-<span class="doccomment">//! #            6 : Flag6</span>
-<span class="doccomment">//! #            7 : Flag7</span>
+<span class="doccomment">//! #            0 : Flag0,</span>
+<span class="doccomment">//! #            1 : Flag1,</span>
+<span class="doccomment">//! #            2 : Flag2,</span>
+<span class="doccomment">//! #            3 : Flag3,</span>
+<span class="doccomment">//! #            4 : Flag4,</span>
+<span class="doccomment">//! #            5 : Flag5,</span>
+<span class="doccomment">//! #            6 : Flag6,</span>
+<span class="doccomment">//! #            7 : Flag7,</span>
 <span class="doccomment">//! #        }</span>
 <span class="doccomment">//! #    }</span>
 <span class="doccomment">//!</span>
@@ -4075,14 +4145,14 @@
 <span class="doccomment">//! #    bitfield! {</span>
 <span class="doccomment">//! #        pub u8 ExampleField</span>
 <span class="doccomment">//! #        ExampleFlags {</span>
-<span class="doccomment">//! #            0 : Flag0</span>
-<span class="doccomment">//! #            1 : Flag1</span>
-<span class="doccomment">//! #            2 : Flag2</span>
-<span class="doccomment">//! #            3 : Flag3</span>
-<span class="doccomment">//! #            4 : Flag4</span>
-<span class="doccomment">//! #            5 : Flag5</span>
-<span class="doccomment">//! #            6 : Flag6</span>
-<span class="doccomment">//! #            7 : Flag7</span>
+<span class="doccomment">//! #            0 : Flag0,</span>
+<span class="doccomment">//! #            1 : Flag1,</span>
+<span class="doccomment">//! #            2 : Flag2,</span>
+<span class="doccomment">//! #            3 : Flag3,</span>
+<span class="doccomment">//! #            4 : Flag4,</span>
+<span class="doccomment">//! #            5 : Flag5,</span>
+<span class="doccomment">//! #            6 : Flag6,</span>
+<span class="doccomment">//! #            7 : Flag7,</span>
 <span class="doccomment">//! #        }</span>
 <span class="doccomment">//! #    }</span>
 <span class="doccomment">//!</span>
@@ -4091,6 +4161,40 @@
 <span class="doccomment">//! assert_eq!(&quot;01010100&quot;, field.as_binary());</span>
 <span class="doccomment">//! field.toggle_index(0);</span>
 <span class="doccomment">//! assert_eq!(&quot;01010101&quot;, field.as_binary());</span>
+<span class="doccomment">//! ```</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! ### Named Getters and Setters</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! Ubits can generate getter and setter methods for zero or more fields, if a name is provided.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! ```rust</span>
+<span class="doccomment">//! use ubits::bitfield;</span>
+<span class="doccomment">//!    bitfield! {</span>
+<span class="doccomment">//!        pub u8 ExampleField</span>
+<span class="doccomment">//!        ExampleFlags {</span>
+<span class="doccomment">//!            0 : Flag0 : (field_0),  // is_field_0 &amp; set_field_0 &amp; clear_field_0 &amp; toggle_field_0</span>
+<span class="doccomment">//!            1 : Flag1 : (field_1),  // is_field_1 &amp; set_field_1 &amp; clear_field_1 &amp; toggle_field_1</span>
+<span class="doccomment">//!            2 : Flag2,</span>
+<span class="doccomment">//!            3 : Flag3,</span>
+<span class="doccomment">//!            4 : Flag4,</span>
+<span class="doccomment">//!            5 : Flag5,</span>
+<span class="doccomment">//!            6 : Flag6,</span>
+<span class="doccomment">//!            7 : Flag7,</span>
+<span class="doccomment">//!        }</span>
+<span class="doccomment">//!    }</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! let mut field = ExampleField::from_binary_str(&quot;01010101&quot;);</span>
+<span class="doccomment">//! assert_eq!(true, field.is_field_0());</span>
+<span class="doccomment">//! assert_eq!(false, field.is_field_1());</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! field.set_field_1();</span>
+<span class="doccomment">//! assert_eq!(true, field.is_field_1());</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! field.clear_field_1();</span>
+<span class="doccomment">//! assert_eq!(false, field.is_field_1());</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! field.toggle_field_1();</span>
+<span class="doccomment">//! assert_eq!(true, field.is_field_1());</span>
 <span class="doccomment">//! ```</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ### Combinations</span>
@@ -4103,14 +4207,14 @@
 <span class="doccomment">//! #    bitfield! {</span>
 <span class="doccomment">//! #        pub u8 ExampleField</span>
 <span class="doccomment">//! #        ExampleFlags {</span>
-<span class="doccomment">//! #            0 : Flag0</span>
-<span class="doccomment">//! #            1 : Flag1</span>
-<span class="doccomment">//! #            2 : Flag2</span>
-<span class="doccomment">//! #            3 : Flag3</span>
-<span class="doccomment">//! #            4 : Flag4</span>
-<span class="doccomment">//! #            5 : Flag5</span>
-<span class="doccomment">//! #            6 : Flag6</span>
-<span class="doccomment">//! #            7 : Flag7</span>
+<span class="doccomment">//! #            0 : Flag0,</span>
+<span class="doccomment">//! #            1 : Flag1,</span>
+<span class="doccomment">//! #            2 : Flag2,</span>
+<span class="doccomment">//! #            3 : Flag3,</span>
+<span class="doccomment">//! #            4 : Flag4,</span>
+<span class="doccomment">//! #            5 : Flag5,</span>
+<span class="doccomment">//! #            6 : Flag6,</span>
+<span class="doccomment">//! #            7 : Flag7,</span>
 <span class="doccomment">//! #        }</span>
 <span class="doccomment">//! #    }</span>
 <span class="doccomment">//!</span>
@@ -4126,14 +4230,14 @@
 <span class="doccomment">//! #    bitfield! {</span>
 <span class="doccomment">//! #        pub u8 ExampleField</span>
 <span class="doccomment">//! #        ExampleFlags {</span>
-<span class="doccomment">//! #            0 : Flag0</span>
-<span class="doccomment">//! #            1 : Flag1</span>
-<span class="doccomment">//! #            2 : Flag2</span>
-<span class="doccomment">//! #            3 : Flag3</span>
-<span class="doccomment">//! #            4 : Flag4</span>
-<span class="doccomment">//! #            5 : Flag5</span>
-<span class="doccomment">//! #            6 : Flag6</span>
-<span class="doccomment">//! #            7 : Flag7</span>
+<span class="doccomment">//! #            0 : Flag0,</span>
+<span class="doccomment">//! #            1 : Flag1,</span>
+<span class="doccomment">//! #            2 : Flag2,</span>
+<span class="doccomment">//! #            3 : Flag3,</span>
+<span class="doccomment">//! #            4 : Flag4,</span>
+<span class="doccomment">//! #            5 : Flag5,</span>
+<span class="doccomment">//! #            6 : Flag6,</span>
+<span class="doccomment">//! #            7 : Flag7,</span>
 <span class="doccomment">//! #        }</span>
 <span class="doccomment">//! #    }</span>
 <span class="doccomment">//!</span>
@@ -4150,14 +4254,14 @@
 <span class="doccomment">//! #    bitfield! {</span>
 <span class="doccomment">//! #        pub u8 ExampleField</span>
 <span class="doccomment">//! #        ExampleFlags {</span>
-<span class="doccomment">//! #            0 : Flag0</span>
-<span class="doccomment">//! #            1 : Flag1</span>
-<span class="doccomment">//! #            2 : Flag2</span>
-<span class="doccomment">//! #            3 : Flag3</span>
-<span class="doccomment">//! #            4 : Flag4</span>
-<span class="doccomment">//! #            5 : Flag5</span>
-<span class="doccomment">//! #            6 : Flag6</span>
-<span class="doccomment">//! #            7 : Flag7</span>
+<span class="doccomment">//! #            0 : Flag0,</span>
+<span class="doccomment">//! #            1 : Flag1,</span>
+<span class="doccomment">//! #            2 : Flag2,</span>
+<span class="doccomment">//! #            3 : Flag3,</span>
+<span class="doccomment">//! #            4 : Flag4,</span>
+<span class="doccomment">//! #            5 : Flag5,</span>
+<span class="doccomment">//! #            6 : Flag6,</span>
+<span class="doccomment">//! #            7 : Flag7,</span>
 <span class="doccomment">//! #        }</span>
 <span class="doccomment">//! #    }</span>
 <span class="doccomment">//!</span>
@@ -4175,14 +4279,14 @@
 <span class="doccomment">//! #    bitfield! {</span>
 <span class="doccomment">//! #        pub u8 ExampleField</span>
 <span class="doccomment">//! #        ExampleFlags {</span>
-<span class="doccomment">//! #            0 : Flag0</span>
-<span class="doccomment">//! #            1 : Flag1</span>
-<span class="doccomment">//! #            2 : Flag2</span>
-<span class="doccomment">//! #            3 : Flag3</span>
-<span class="doccomment">//! #            4 : Flag4</span>
-<span class="doccomment">//! #            5 : Flag5</span>
-<span class="doccomment">//! #            6 : Flag6</span>
-<span class="doccomment">//! #            7 : Flag7</span>
+<span class="doccomment">//! #            0 : Flag0,</span>
+<span class="doccomment">//! #            1 : Flag1,</span>
+<span class="doccomment">//! #            2 : Flag2,</span>
+<span class="doccomment">//! #            3 : Flag3,</span>
+<span class="doccomment">//! #            4 : Flag4,</span>
+<span class="doccomment">//! #            5 : Flag5,</span>
+<span class="doccomment">//! #            6 : Flag6,</span>
+<span class="doccomment">//! #            7 : Flag7,</span>
 <span class="doccomment">//! #        }</span>
 <span class="doccomment">//! #    }</span>
 <span class="doccomment">//!</span>
@@ -4212,14 +4316,14 @@
 <span class="doccomment">//! #    bitfield! {</span>
 <span class="doccomment">//! #        pub u8 ExampleField</span>
 <span class="doccomment">//! #        ExampleFlags {</span>
-<span class="doccomment">//! #            0 : Flag0</span>
-<span class="doccomment">//! #            1 : Flag1</span>
-<span class="doccomment">//! #            2 : Flag2</span>
-<span class="doccomment">//! #            3 : Flag3</span>
-<span class="doccomment">//! #            4 : Flag4</span>
-<span class="doccomment">//! #            5 : Flag5</span>
-<span class="doccomment">//! #            6 : Flag6</span>
-<span class="doccomment">//! #            7 : Flag7</span>
+<span class="doccomment">//! #            0 : Flag0,</span>
+<span class="doccomment">//! #            1 : Flag1,</span>
+<span class="doccomment">//! #            2 : Flag2,</span>
+<span class="doccomment">//! #            3 : Flag3,</span>
+<span class="doccomment">//! #            4 : Flag4,</span>
+<span class="doccomment">//! #            5 : Flag5,</span>
+<span class="doccomment">//! #            6 : Flag6,</span>
+<span class="doccomment">//! #            7 : Flag7,</span>
 <span class="doccomment">//! #        }</span>
 <span class="doccomment">//! #    }</span>
 <span class="doccomment">//!</span>
@@ -4235,14 +4339,14 @@
 <span class="doccomment">//! #    bitfield! {</span>
 <span class="doccomment">//! #        pub u8 ExampleField</span>
 <span class="doccomment">//! #        ExampleFlags {</span>
-<span class="doccomment">//! #            0 : Flag0</span>
-<span class="doccomment">//! #            1 : Flag1</span>
-<span class="doccomment">//! #            2 : Flag2</span>
-<span class="doccomment">//! #            3 : Flag3</span>
-<span class="doccomment">//! #            4 : Flag4</span>
-<span class="doccomment">//! #            5 : Flag5</span>
-<span class="doccomment">//! #            6 : Flag6</span>
-<span class="doccomment">//! #            7 : Flag7</span>
+<span class="doccomment">//! #            0 : Flag0,</span>
+<span class="doccomment">//! #            1 : Flag1,</span>
+<span class="doccomment">//! #            2 : Flag2,</span>
+<span class="doccomment">//! #            3 : Flag3,</span>
+<span class="doccomment">//! #            4 : Flag4,</span>
+<span class="doccomment">//! #            5 : Flag5,</span>
+<span class="doccomment">//! #            6 : Flag6,</span>
+<span class="doccomment">//! #            7 : Flag7,</span>
 <span class="doccomment">//! #        }</span>
 <span class="doccomment">//! #    }</span>
 <span class="doccomment">//!</span>
@@ -4319,6 +4423,7 @@
 <span class="comment">// Imports</span>
 
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">doc_comment</span>;
+<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">paste</span>;
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">safe_transmute</span>;
 
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
@@ -4328,6 +4433,9 @@
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">safe_transmute</span>::{
     <span class="ident">transmute_one</span> <span class="kw">as</span> <span class="ident">__transmute_one</span>, <span class="ident">TriviallyTransmutable</span> <span class="kw">as</span> <span class="ident">__TriviallyTransmutable</span>,
 };
+
+<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">paste::paste</span> <span class="kw">as</span> <span class="ident">__paste</span>;
 
 <span class="comment">// -------------------------------------------------------------------------------------------------</span>
 <span class="comment">// Generator Macros</span>
@@ -4379,21 +4487,21 @@
 <span class="doccomment">///         /// for [`ExampleFlags`] enum</span>
 <span class="doccomment">///         ExampleFlags {</span>
 <span class="doccomment">///             /// Optional docstring for [`ExampleFlags::Flag0`]</span>
-<span class="doccomment">///             0 : Flag0</span>
+<span class="doccomment">///             0 : Flag0,</span>
 <span class="doccomment">///             /// Optional docstring for [`ExampleFlags::Flag1`]</span>
-<span class="doccomment">///             1 : Flag1</span>
+<span class="doccomment">///             1 : Flag1,</span>
 <span class="doccomment">///             /// Optional docstring for [`ExampleFlags::Flag2`]</span>
-<span class="doccomment">///             2 : Flag2</span>
+<span class="doccomment">///             2 : Flag2,</span>
 <span class="doccomment">///             /// Optional docstring for [`ExampleFlags::Flag3`]</span>
-<span class="doccomment">///             3 : Flag3</span>
+<span class="doccomment">///             3 : Flag3,</span>
 <span class="doccomment">///             /// Optional docstring for [`ExampleFlags::Flag4`]</span>
-<span class="doccomment">///             4 : Flag4</span>
+<span class="doccomment">///             4 : Flag4,</span>
 <span class="doccomment">///             /// Optional docstring for [`ExampleFlags::Flag5`]</span>
-<span class="doccomment">///             5 : Flag5</span>
+<span class="doccomment">///             5 : Flag5,</span>
 <span class="doccomment">///             /// Optional docstring for [`ExampleFlags::Flag6`]</span>
-<span class="doccomment">///             6 : Flag6</span>
+<span class="doccomment">///             6 : Flag6,</span>
 <span class="doccomment">///             /// Optional docstring for [`ExampleFlags::Flag7`]</span>
-<span class="doccomment">///             7 : Flag7</span>
+<span class="doccomment">///             7 : Flag7,</span>
 <span class="doccomment">///         }</span>
 <span class="doccomment">///     }</span>
 <span class="doccomment">/// ```</span>
@@ -4412,11 +4520,11 @@
 <span class="doccomment">///         /// for [`ExampleFlags`] enum</span>
 <span class="doccomment">///         ExampleFlags {</span>
 <span class="doccomment">///             /// Optional docstring for [`ExampleFlags::Flag0`]</span>
-<span class="doccomment">///             0 : Flag0</span>
+<span class="doccomment">///             0 : Flag0,</span>
 <span class="doccomment">///             /// Optional docstring for [`ExampleFlags::Flag1`]</span>
-<span class="doccomment">///             1 : Flag1</span>
+<span class="doccomment">///             1 : Flag1,</span>
 <span class="doccomment">///             /// Optional docstring for [`ExampleFlags::Flag2`]</span>
-<span class="doccomment">///             2 : Flag2</span>
+<span class="doccomment">///             2 : Flag2,</span>
 <span class="doccomment">///         }</span>
 <span class="doccomment">///     }</span>
 <span class="doccomment">/// ```</span>
@@ -4433,11 +4541,11 @@
 <span class="doccomment">///         /// for [`ExampleFlags`] enum</span>
 <span class="doccomment">///         ExampleFlags {</span>
 <span class="doccomment">///             /// Optional docstring for [`ExampleFlags::Flag0`]</span>
-<span class="doccomment">///             0 : Flag0</span>
+<span class="doccomment">///             0 : Flag0,</span>
 <span class="doccomment">///             /// Optional docstring for [`ExampleFlags::Flag1`]</span>
-<span class="doccomment">///             3 : Flag1</span>
+<span class="doccomment">///             3 : Flag1,</span>
 <span class="doccomment">///             /// Optional docstring for [`ExampleFlags::Flag2`]</span>
-<span class="doccomment">///             6 : Flag2</span>
+<span class="doccomment">///             6 : Flag2,</span>
 <span class="doccomment">///         }</span>
 <span class="doccomment">///     }</span>
 <span class="doccomment">/// ```</span>
@@ -4465,12 +4573,12 @@
             <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
                 $(
                     $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
+                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span> $( : ( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span>:<span class="ident">ident</span> ) )<span class="question-mark">?</span>,
                 )<span class="op">*</span>
             }
         )<span class="question-mark">?</span>
     ) =&gt; {
-        <span class="macro">__bitfield_unchecked!</span>( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> [<span class="ident">u8</span>] [<span class="number">8</span>] [<span class="ident">u8::MAX</span>] <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> $($(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> { $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> )<span class="op">*</span> } )<span class="question-mark">?</span>);
+        <span class="macro">__bitfield_unchecked!</span>( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> [<span class="ident">u8</span>] [<span class="number">8</span>] [<span class="ident">u8::MAX</span>] <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> $($(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> { $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> $((<span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span>))<span class="question-mark">?</span>, )<span class="op">*</span> } )<span class="question-mark">?</span>);
     };
 
     <span class="comment">// U16</span>
@@ -4482,12 +4590,12 @@
             <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
                 $(
                     $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
+                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span> $( ( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span>:<span class="ident">ident</span> ) )<span class="question-mark">?</span>,
                 )<span class="op">*</span>
             }
         )<span class="question-mark">?</span>
     ) =&gt; {
-        <span class="macro">__bitfield_unchecked!</span>( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> [<span class="ident">u16</span>] [<span class="number">16</span>] [<span class="ident">u16::MAX</span>] <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> $($(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> { $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> )<span class="op">*</span> } )<span class="question-mark">?</span>);
+        <span class="macro">__bitfield_unchecked!</span>( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> [<span class="ident">u16</span>] [<span class="number">16</span>] [<span class="ident">u16::MAX</span>] <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> $($(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> { $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> $((<span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span>))<span class="question-mark">?</span>, )<span class="op">*</span> } )<span class="question-mark">?</span>);
     };
 
     <span class="comment">// U32</span>
@@ -4499,12 +4607,12 @@
             <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
                 $(
                     $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
+                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span> $( ( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span>:<span class="ident">ident</span> ) )<span class="question-mark">?</span>,
                 )<span class="op">*</span>
             }
         )<span class="question-mark">?</span>
     ) =&gt; {
-        <span class="macro">__bitfield_unchecked!</span>( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> [<span class="ident">u32</span>] [<span class="number">32</span>] [<span class="ident">u32::MAX</span>] <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> $($(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> { $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> )<span class="op">*</span> } )<span class="question-mark">?</span>);
+        <span class="macro">__bitfield_unchecked!</span>( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> [<span class="ident">u32</span>] [<span class="number">32</span>] [<span class="ident">u32::MAX</span>] <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> $($(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> { $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> $((<span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span>))<span class="question-mark">?</span>, )<span class="op">*</span> } )<span class="question-mark">?</span>);
     };
 
     <span class="comment">// U64</span>
@@ -4516,12 +4624,12 @@
             <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
                 $(
                     $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
+                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span> $( ( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span>:<span class="ident">ident</span> ) )<span class="question-mark">?</span>,
                 )<span class="op">*</span>
             }
         )<span class="question-mark">?</span>
     ) =&gt; {
-        <span class="macro">__bitfield_unchecked!</span>( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> [<span class="ident">u64</span>] [<span class="number">64</span>] [<span class="ident">u64::MAX</span>] <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> $($(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> { $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> )<span class="op">*</span> } )<span class="question-mark">?</span>);
+        <span class="macro">__bitfield_unchecked!</span>( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> [<span class="ident">u64</span>] [<span class="number">64</span>] [<span class="ident">u64::MAX</span>] <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> $($(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> { $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> $((<span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span>))<span class="question-mark">?</span>, )<span class="op">*</span> } )<span class="question-mark">?</span>);
     };
 
     <span class="comment">// U128</span>
@@ -4533,12 +4641,12 @@
             <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
                 $(
                     $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
+                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span> $( ( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span>:<span class="ident">ident</span> ) )<span class="question-mark">?</span>,
                 )<span class="op">*</span>
             }
         )<span class="question-mark">?</span>
     ) =&gt; {
-        <span class="macro">__bitfield_unchecked!</span>( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> [<span class="ident">u128</span>] [<span class="number">128</span>] [<span class="ident">u128::MAX</span>] <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> $($(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> { $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> )<span class="op">*</span> } )<span class="question-mark">?</span>);
+        <span class="macro">__bitfield_unchecked!</span>( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> [<span class="ident">u128</span>] [<span class="number">128</span>] [<span class="ident">u128::MAX</span>] <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> $($(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> { $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> $((<span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span>))<span class="question-mark">?</span>, )<span class="op">*</span> } )<span class="question-mark">?</span>);
     };
 
     <span class="comment">// USIZE</span>
@@ -4550,12 +4658,12 @@
             <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
                 $(
                     $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
+                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span> $( ( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span>:<span class="ident">ident</span> ) )<span class="question-mark">?</span>,
                 )<span class="op">*</span>
             }
         )<span class="question-mark">?</span>
     ) =&gt; {
-        <span class="macro">__bitfield_unchecked!</span>( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> [<span class="ident">usize</span>] [<span class="ident">usize::BITS</span> <span class="kw">as</span> <span class="ident">usize</span>] [<span class="ident">usize::MAX</span>] <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> $($(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> { $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> )<span class="op">*</span> } )<span class="question-mark">?</span>);
+        <span class="macro">__bitfield_unchecked!</span>( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> [<span class="ident">usize</span>] [<span class="ident">usize::BITS</span> <span class="kw">as</span> <span class="ident">usize</span>] [<span class="ident">usize::MAX</span>] <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> $($(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> { $( $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> $((<span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span>))<span class="question-mark">?</span>, )<span class="op">*</span> } )<span class="question-mark">?</span>);
     };
 }
 
@@ -4577,7 +4685,7 @@
             <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
                 $(
                     $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
+                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span> $( ( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span>:<span class="ident">ident</span> ) )<span class="question-mark">?</span>,
                 )<span class="op">*</span>
             }
         )<span class="question-mark">?</span>
@@ -4590,7 +4698,7 @@
                 <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> {
                     $(
                         $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span>
-                        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>
+                        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> $((<span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span>))<span class="question-mark">?</span>,
                     )<span class="op">*</span>
                 }
             }
@@ -4603,7 +4711,7 @@
                 <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span> {
                     $(
                         $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>]</span>)<span class="op">*</span>
-                        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>
+                        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span> $((<span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span>))<span class="question-mark">?</span>,
                     )<span class="op">*</span>
                 }
             )<span class="question-mark">?</span>
@@ -4625,7 +4733,7 @@
             <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
                 $(
                     $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
+                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span> $( ( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span>:<span class="ident">ident</span> ) )<span class="question-mark">?</span>,
                 )<span class="op">*</span>
             }
         )<span class="question-mark">?</span>
@@ -4635,6 +4743,38 @@
         $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">field_doc</span>]</span>)<span class="op">*</span>
         <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">PartialEq</span>, <span class="ident">PartialOrd</span>)]</span>
         <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span> <span class="kw">struct</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>(<span class="macro-nonterminal">$</span><span class="kw">type</span>);
+
+        $(
+            <span class="kw">impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> {
+                $(
+                    $(
+                        <span class="macro">__paste!</span> {
+                            <span class="kw">fn</span> [<span class="op">&lt;</span> <span class="ident">is_</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span> <span class="op">&gt;</span>](<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
+                                <span class="self">self</span>.<span class="ident">get</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>::<span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>)
+                            }
+                        }
+
+                        <span class="macro">__paste!</span> {
+                            <span class="kw">fn</span> [<span class="op">&lt;</span> <span class="ident">set_</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span> <span class="op">&gt;</span>](<span class="kw-2">&amp;mut</span> <span class="self">self</span>) {
+                                <span class="self">self</span>.<span class="ident">set</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>::<span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>);
+                            }
+                        }
+
+                        <span class="macro">__paste!</span> {
+                            <span class="kw">fn</span> [<span class="op">&lt;</span> <span class="ident">clear_</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span> <span class="op">&gt;</span>](<span class="kw-2">&amp;mut</span> <span class="self">self</span>) {
+                                <span class="self">self</span>.<span class="ident">clear</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>::<span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>);
+                            }
+                        }
+
+                        <span class="macro">__paste!</span> {
+                            <span class="kw">fn</span> [<span class="op">&lt;</span> <span class="ident">toggle_</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span> <span class="op">&gt;</span>](<span class="kw-2">&amp;mut</span> <span class="self">self</span>) {
+                                <span class="self">self</span>.<span class="ident">toggle</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>::<span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>);
+                            }
+                        }
+                    )<span class="question-mark">?</span>
+                )<span class="op">*</span>
+            }
+        )<span class="question-mark">?</span>
 
         <span class="comment">// Constants</span>
         <span class="macro">__impl_field_constants!</span> {
@@ -4756,7 +4896,7 @@
         <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
             $(
                 $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span>
+                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span> $( ( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span>:<span class="ident">ident</span> ) )<span class="question-mark">?</span>,
             )<span class="op">*</span>
         }
     ) =&gt; {
@@ -5319,21 +5459,21 @@
             <span class="doccomment">/// Optional docstring for my flag enum.</span>
             <span class="ident">ExampleFlags</span> {
                 <span class="doccomment">/// Optional docstring for Flag0</span>
-                <span class="number">0</span> : <span class="ident">Flag0</span>
+                <span class="number">0</span> : <span class="ident">Flag0</span>,
                 <span class="doccomment">/// Optional docstring for Flag1</span>
-                <span class="number">1</span> : <span class="ident">Flag1</span>
+                <span class="number">1</span> : <span class="ident">Flag1</span>,
                 <span class="doccomment">/// Optional docstring for Flag2</span>
-                <span class="number">2</span> : <span class="ident">Flag2</span>
+                <span class="number">2</span> : <span class="ident">Flag2</span>,
                 <span class="doccomment">/// Optional docstring for Flag3</span>
-                <span class="number">3</span> : <span class="ident">Flag3</span>
+                <span class="number">3</span> : <span class="ident">Flag3</span>,
                 <span class="doccomment">/// Optional docstring for Flag4</span>
-                <span class="number">4</span> : <span class="ident">Flag4</span>
+                <span class="number">4</span> : <span class="ident">Flag4</span>,
                 <span class="doccomment">/// Optional docstring for Flag5</span>
-                <span class="number">5</span> : <span class="ident">Flag5</span>
+                <span class="number">5</span> : <span class="ident">Flag5</span>,
                 <span class="doccomment">/// Optional docstring for Flag6</span>
-                <span class="number">6</span> : <span class="ident">Flag6</span>
+                <span class="number">6</span> : <span class="ident">Flag6</span>,
                 <span class="doccomment">/// Optional docstring for Flag7</span>
-                <span class="number">7</span> : <span class="ident">Flag7</span>
+                <span class="number">7</span> : <span class="ident">Flag7</span>,
             }
         }
     }
@@ -5381,7 +5521,7 @@
         <span class="doccomment">/// My Test Thing</span>
         <span class="ident">u8</span> <span class="ident">MyFieldU8</span>
         <span class="ident">MyFlagsU8</span> {
-            <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
+            <span class="number">0</span> : <span class="ident">Flag0</span>, <span class="number">1</span> : <span class="ident">Flag1</span>, <span class="number">2</span> : <span class="ident">Flag2</span>, <span class="number">3</span> : <span class="ident">Flag3</span>, <span class="number">4</span> : <span class="ident">Flag4</span>, <span class="number">5</span> : <span class="ident">Flag5</span>, <span class="number">6</span> : <span class="ident">Flag6</span>, <span class="number">7</span> : <span class="ident">Flag7</span>,
         }
     }
 
@@ -5389,8 +5529,8 @@
         <span class="doccomment">/// My Test Thing</span>
         <span class="ident">u16</span> <span class="ident">MyFieldU16</span>
         <span class="ident">MyFlagsU16</span> {
-            <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
-            <span class="number">8</span> : <span class="ident">Flag8</span> <span class="number">9</span> : <span class="ident">Flag9</span> <span class="number">10</span> : <span class="ident">Flag10</span> <span class="number">11</span> : <span class="ident">Flag11</span> <span class="number">12</span> : <span class="ident">Flag12</span> <span class="number">13</span> : <span class="ident">Flag13</span> <span class="number">14</span> : <span class="ident">Flag14</span> <span class="number">15</span> : <span class="ident">Flag15</span>
+            <span class="number">0</span> : <span class="ident">Flag0</span>, <span class="number">1</span> : <span class="ident">Flag1</span>, <span class="number">2</span> : <span class="ident">Flag2</span>, <span class="number">3</span> : <span class="ident">Flag3</span>, <span class="number">4</span> : <span class="ident">Flag4</span>, <span class="number">5</span> : <span class="ident">Flag5</span>, <span class="number">6</span> : <span class="ident">Flag6</span>, <span class="number">7</span> : <span class="ident">Flag7</span>,
+            <span class="number">8</span> : <span class="ident">Flag8</span>, <span class="number">9</span> : <span class="ident">Flag9</span>, <span class="number">10</span> : <span class="ident">Flag10</span>, <span class="number">11</span> : <span class="ident">Flag11</span>, <span class="number">12</span> : <span class="ident">Flag12</span>, <span class="number">13</span> : <span class="ident">Flag13</span>, <span class="number">14</span> : <span class="ident">Flag14</span>, <span class="number">15</span> : <span class="ident">Flag15</span>,
         }
     }
 
@@ -5398,10 +5538,10 @@
         <span class="doccomment">/// My Test Thing</span>
         <span class="ident">u32</span> <span class="ident">MyFieldU32</span>
         <span class="ident">MyFlagsU32</span> {
-            <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
-            <span class="number">8</span> : <span class="ident">Flag8</span> <span class="number">9</span> : <span class="ident">Flag9</span> <span class="number">10</span> : <span class="ident">Flag10</span> <span class="number">11</span> : <span class="ident">Flag11</span> <span class="number">12</span> : <span class="ident">Flag12</span> <span class="number">13</span> : <span class="ident">Flag13</span> <span class="number">14</span> : <span class="ident">Flag14</span> <span class="number">15</span> : <span class="ident">Flag15</span>
-            <span class="number">16</span> : <span class="ident">Flag16</span> <span class="number">17</span> : <span class="ident">Flag17</span> <span class="number">18</span> : <span class="ident">Flag18</span> <span class="number">19</span> : <span class="ident">Flag19</span> <span class="number">20</span> : <span class="ident">Flag20</span> <span class="number">21</span> : <span class="ident">Flag21</span> <span class="number">22</span> : <span class="ident">Flag22</span> <span class="number">23</span> : <span class="ident">Flag23</span>
-            <span class="number">24</span> : <span class="ident">Flag24</span> <span class="number">25</span> : <span class="ident">Flag25</span> <span class="number">26</span> : <span class="ident">Flag26</span> <span class="number">27</span> : <span class="ident">Flag27</span> <span class="number">28</span> : <span class="ident">Flag28</span> <span class="number">29</span> : <span class="ident">Flag29</span> <span class="number">30</span> : <span class="ident">Flag30</span> <span class="number">31</span> : <span class="ident">Flag31</span>
+            <span class="number">0</span> : <span class="ident">Flag0</span>, <span class="number">1</span> : <span class="ident">Flag1</span>, <span class="number">2</span> : <span class="ident">Flag2</span>, <span class="number">3</span> : <span class="ident">Flag3</span>, <span class="number">4</span> : <span class="ident">Flag4</span>, <span class="number">5</span> : <span class="ident">Flag5</span>, <span class="number">6</span> : <span class="ident">Flag6</span>, <span class="number">7</span> : <span class="ident">Flag7</span>,
+            <span class="number">8</span> : <span class="ident">Flag8</span>, <span class="number">9</span> : <span class="ident">Flag9</span>, <span class="number">10</span> : <span class="ident">Flag10</span>, <span class="number">11</span> : <span class="ident">Flag11</span>, <span class="number">12</span> : <span class="ident">Flag12</span>, <span class="number">13</span> : <span class="ident">Flag13</span>, <span class="number">14</span> : <span class="ident">Flag14</span>, <span class="number">15</span> : <span class="ident">Flag15</span>,
+            <span class="number">16</span> : <span class="ident">Flag16</span>, <span class="number">17</span> : <span class="ident">Flag17</span>, <span class="number">18</span> : <span class="ident">Flag18</span>, <span class="number">19</span> : <span class="ident">Flag19</span>, <span class="number">20</span> : <span class="ident">Flag20</span>, <span class="number">21</span> : <span class="ident">Flag21</span>, <span class="number">22</span> : <span class="ident">Flag22</span>, <span class="number">23</span> : <span class="ident">Flag23</span>,
+            <span class="number">24</span> : <span class="ident">Flag24</span>, <span class="number">25</span> : <span class="ident">Flag25</span>, <span class="number">26</span> : <span class="ident">Flag26</span>, <span class="number">27</span> : <span class="ident">Flag27</span>, <span class="number">28</span> : <span class="ident">Flag28</span>, <span class="number">29</span> : <span class="ident">Flag29</span>, <span class="number">30</span> : <span class="ident">Flag30</span>, <span class="number">31</span> : <span class="ident">Flag31</span>,
         }
     }
 
@@ -5409,14 +5549,14 @@
         <span class="doccomment">/// My Test Thing</span>
         <span class="ident">u64</span> <span class="ident">MyFieldU64</span>
         <span class="ident">MyFlagsU64</span> {
-            <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
-            <span class="number">8</span> : <span class="ident">Flag8</span> <span class="number">9</span> : <span class="ident">Flag9</span> <span class="number">10</span> : <span class="ident">Flag10</span> <span class="number">11</span> : <span class="ident">Flag11</span> <span class="number">12</span> : <span class="ident">Flag12</span> <span class="number">13</span> : <span class="ident">Flag13</span> <span class="number">14</span> : <span class="ident">Flag14</span> <span class="number">15</span> : <span class="ident">Flag15</span>
-            <span class="number">16</span> : <span class="ident">Flag16</span> <span class="number">17</span> : <span class="ident">Flag17</span> <span class="number">18</span> : <span class="ident">Flag18</span> <span class="number">19</span> : <span class="ident">Flag19</span> <span class="number">20</span> : <span class="ident">Flag20</span> <span class="number">21</span> : <span class="ident">Flag21</span> <span class="number">22</span> : <span class="ident">Flag22</span> <span class="number">23</span> : <span class="ident">Flag23</span>
-            <span class="number">24</span> : <span class="ident">Flag24</span> <span class="number">25</span> : <span class="ident">Flag25</span> <span class="number">26</span> : <span class="ident">Flag26</span> <span class="number">27</span> : <span class="ident">Flag27</span> <span class="number">28</span> : <span class="ident">Flag28</span> <span class="number">29</span> : <span class="ident">Flag29</span> <span class="number">30</span> : <span class="ident">Flag30</span> <span class="number">31</span> : <span class="ident">Flag31</span>
-            <span class="number">32</span> : <span class="ident">Flag32</span> <span class="number">33</span> : <span class="ident">Flag33</span> <span class="number">34</span> : <span class="ident">Flag34</span> <span class="number">35</span> : <span class="ident">Flag35</span> <span class="number">36</span> : <span class="ident">Flag36</span> <span class="number">37</span> : <span class="ident">Flag37</span> <span class="number">38</span> : <span class="ident">Flag38</span> <span class="number">39</span> : <span class="ident">Flag39</span>
-            <span class="number">40</span> : <span class="ident">Flag40</span> <span class="number">41</span> : <span class="ident">Flag41</span> <span class="number">42</span> : <span class="ident">Flag42</span> <span class="number">43</span> : <span class="ident">Flag43</span> <span class="number">44</span> : <span class="ident">Flag44</span> <span class="number">45</span> : <span class="ident">Flag45</span> <span class="number">46</span> : <span class="ident">Flag46</span> <span class="number">47</span> : <span class="ident">Flag47</span>
-            <span class="number">48</span> : <span class="ident">Flag48</span> <span class="number">49</span> : <span class="ident">Flag49</span> <span class="number">50</span> : <span class="ident">Flag50</span> <span class="number">51</span> : <span class="ident">Flag51</span> <span class="number">52</span> : <span class="ident">Flag52</span> <span class="number">53</span> : <span class="ident">Flag53</span> <span class="number">54</span> : <span class="ident">Flag54</span> <span class="number">55</span> : <span class="ident">Flag55</span>
-            <span class="number">56</span> : <span class="ident">Flag56</span> <span class="number">57</span> : <span class="ident">Flag57</span> <span class="number">58</span> : <span class="ident">Flag58</span> <span class="number">59</span> : <span class="ident">Flag59</span> <span class="number">60</span> : <span class="ident">Flag60</span> <span class="number">61</span> : <span class="ident">Flag61</span> <span class="number">62</span> : <span class="ident">Flag62</span> <span class="number">63</span> : <span class="ident">Flag63</span>
+            <span class="number">0</span> : <span class="ident">Flag0</span>, <span class="number">1</span> : <span class="ident">Flag1</span>, <span class="number">2</span> : <span class="ident">Flag2</span>, <span class="number">3</span> : <span class="ident">Flag3</span>, <span class="number">4</span> : <span class="ident">Flag4</span>, <span class="number">5</span> : <span class="ident">Flag5</span>, <span class="number">6</span> : <span class="ident">Flag6</span>, <span class="number">7</span> : <span class="ident">Flag7</span>,
+            <span class="number">8</span> : <span class="ident">Flag8</span>, <span class="number">9</span> : <span class="ident">Flag9</span>, <span class="number">10</span> : <span class="ident">Flag10</span>, <span class="number">11</span> : <span class="ident">Flag11</span>, <span class="number">12</span> : <span class="ident">Flag12</span>, <span class="number">13</span> : <span class="ident">Flag13</span>, <span class="number">14</span> : <span class="ident">Flag14</span>, <span class="number">15</span> : <span class="ident">Flag15</span>,
+            <span class="number">16</span> : <span class="ident">Flag16</span>, <span class="number">17</span> : <span class="ident">Flag17</span>, <span class="number">18</span> : <span class="ident">Flag18</span>, <span class="number">19</span> : <span class="ident">Flag19</span>, <span class="number">20</span> : <span class="ident">Flag20</span>, <span class="number">21</span> : <span class="ident">Flag21</span>, <span class="number">22</span> : <span class="ident">Flag22</span>, <span class="number">23</span> : <span class="ident">Flag23</span>,
+            <span class="number">24</span> : <span class="ident">Flag24</span>, <span class="number">25</span> : <span class="ident">Flag25</span>, <span class="number">26</span> : <span class="ident">Flag26</span>, <span class="number">27</span> : <span class="ident">Flag27</span>, <span class="number">28</span> : <span class="ident">Flag28</span>, <span class="number">29</span> : <span class="ident">Flag29</span>, <span class="number">30</span> : <span class="ident">Flag30</span>, <span class="number">31</span> : <span class="ident">Flag31</span>,
+            <span class="number">32</span> : <span class="ident">Flag32</span>, <span class="number">33</span> : <span class="ident">Flag33</span>, <span class="number">34</span> : <span class="ident">Flag34</span>, <span class="number">35</span> : <span class="ident">Flag35</span>, <span class="number">36</span> : <span class="ident">Flag36</span>, <span class="number">37</span> : <span class="ident">Flag37</span>, <span class="number">38</span> : <span class="ident">Flag38</span>, <span class="number">39</span> : <span class="ident">Flag39</span>,
+            <span class="number">40</span> : <span class="ident">Flag40</span>, <span class="number">41</span> : <span class="ident">Flag41</span>, <span class="number">42</span> : <span class="ident">Flag42</span>, <span class="number">43</span> : <span class="ident">Flag43</span>, <span class="number">44</span> : <span class="ident">Flag44</span>, <span class="number">45</span> : <span class="ident">Flag45</span>, <span class="number">46</span> : <span class="ident">Flag46</span>, <span class="number">47</span> : <span class="ident">Flag47</span>,
+            <span class="number">48</span> : <span class="ident">Flag48</span>, <span class="number">49</span> : <span class="ident">Flag49</span>, <span class="number">50</span> : <span class="ident">Flag50</span>, <span class="number">51</span> : <span class="ident">Flag51</span>, <span class="number">52</span> : <span class="ident">Flag52</span>, <span class="number">53</span> : <span class="ident">Flag53</span>, <span class="number">54</span> : <span class="ident">Flag54</span>, <span class="number">55</span> : <span class="ident">Flag55</span>,
+            <span class="number">56</span> : <span class="ident">Flag56</span>, <span class="number">57</span> : <span class="ident">Flag57</span>, <span class="number">58</span> : <span class="ident">Flag58</span>, <span class="number">59</span> : <span class="ident">Flag59</span>, <span class="number">60</span> : <span class="ident">Flag60</span>, <span class="number">61</span> : <span class="ident">Flag61</span>, <span class="number">62</span> : <span class="ident">Flag62</span>, <span class="number">63</span> : <span class="ident">Flag63</span>,
         }
     }
 
@@ -5424,22 +5564,22 @@
         <span class="doccomment">/// My Test Thing</span>
         <span class="ident">u128</span> <span class="ident">MyFieldU128</span>
         <span class="ident">MyFlagsU128</span> {
-            <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
-            <span class="number">8</span> : <span class="ident">Flag8</span> <span class="number">9</span> : <span class="ident">Flag9</span> <span class="number">10</span> : <span class="ident">Flag10</span> <span class="number">11</span> : <span class="ident">Flag11</span> <span class="number">12</span> : <span class="ident">Flag12</span> <span class="number">13</span> : <span class="ident">Flag13</span> <span class="number">14</span> : <span class="ident">Flag14</span> <span class="number">15</span> : <span class="ident">Flag15</span>
-            <span class="number">16</span> : <span class="ident">Flag16</span> <span class="number">17</span> : <span class="ident">Flag17</span> <span class="number">18</span> : <span class="ident">Flag18</span> <span class="number">19</span> : <span class="ident">Flag19</span> <span class="number">20</span> : <span class="ident">Flag20</span> <span class="number">21</span> : <span class="ident">Flag21</span> <span class="number">22</span> : <span class="ident">Flag22</span> <span class="number">23</span> : <span class="ident">Flag23</span>
-            <span class="number">24</span> : <span class="ident">Flag24</span> <span class="number">25</span> : <span class="ident">Flag25</span> <span class="number">26</span> : <span class="ident">Flag26</span> <span class="number">27</span> : <span class="ident">Flag27</span> <span class="number">28</span> : <span class="ident">Flag28</span> <span class="number">29</span> : <span class="ident">Flag29</span> <span class="number">30</span> : <span class="ident">Flag30</span> <span class="number">31</span> : <span class="ident">Flag31</span>
-            <span class="number">32</span> : <span class="ident">Flag32</span> <span class="number">33</span> : <span class="ident">Flag33</span> <span class="number">34</span> : <span class="ident">Flag34</span> <span class="number">35</span> : <span class="ident">Flag35</span> <span class="number">36</span> : <span class="ident">Flag36</span> <span class="number">37</span> : <span class="ident">Flag37</span> <span class="number">38</span> : <span class="ident">Flag38</span> <span class="number">39</span> : <span class="ident">Flag39</span>
-            <span class="number">40</span> : <span class="ident">Flag40</span> <span class="number">41</span> : <span class="ident">Flag41</span> <span class="number">42</span> : <span class="ident">Flag42</span> <span class="number">43</span> : <span class="ident">Flag43</span> <span class="number">44</span> : <span class="ident">Flag44</span> <span class="number">45</span> : <span class="ident">Flag45</span> <span class="number">46</span> : <span class="ident">Flag46</span> <span class="number">47</span> : <span class="ident">Flag47</span>
-            <span class="number">48</span> : <span class="ident">Flag48</span> <span class="number">49</span> : <span class="ident">Flag49</span> <span class="number">50</span> : <span class="ident">Flag50</span> <span class="number">51</span> : <span class="ident">Flag51</span> <span class="number">52</span> : <span class="ident">Flag52</span> <span class="number">53</span> : <span class="ident">Flag53</span> <span class="number">54</span> : <span class="ident">Flag54</span> <span class="number">55</span> : <span class="ident">Flag55</span>
-            <span class="number">56</span> : <span class="ident">Flag56</span> <span class="number">57</span> : <span class="ident">Flag57</span> <span class="number">58</span> : <span class="ident">Flag58</span> <span class="number">59</span> : <span class="ident">Flag59</span> <span class="number">60</span> : <span class="ident">Flag60</span> <span class="number">61</span> : <span class="ident">Flag61</span> <span class="number">62</span> : <span class="ident">Flag62</span> <span class="number">63</span> : <span class="ident">Flag63</span>
-            <span class="number">64</span> : <span class="ident">Flag64</span> <span class="number">65</span> : <span class="ident">Flag65</span> <span class="number">66</span> : <span class="ident">Flag66</span> <span class="number">67</span> : <span class="ident">Flag67</span> <span class="number">68</span> : <span class="ident">Flag68</span> <span class="number">69</span> : <span class="ident">Flag69</span> <span class="number">70</span> : <span class="ident">Flag70</span> <span class="number">71</span> : <span class="ident">Flag71</span>
-            <span class="number">72</span> : <span class="ident">Flag72</span> <span class="number">73</span> : <span class="ident">Flag73</span> <span class="number">74</span> : <span class="ident">Flag74</span> <span class="number">75</span> : <span class="ident">Flag75</span> <span class="number">76</span> : <span class="ident">Flag76</span> <span class="number">77</span> : <span class="ident">Flag77</span> <span class="number">78</span> : <span class="ident">Flag78</span> <span class="number">79</span> : <span class="ident">Flag79</span>
-            <span class="number">80</span> : <span class="ident">Flag80</span> <span class="number">81</span> : <span class="ident">Flag81</span> <span class="number">82</span> : <span class="ident">Flag82</span> <span class="number">83</span> : <span class="ident">Flag83</span> <span class="number">84</span> : <span class="ident">Flag84</span> <span class="number">85</span> : <span class="ident">Flag85</span> <span class="number">86</span> : <span class="ident">Flag86</span> <span class="number">87</span> : <span class="ident">Flag87</span>
-            <span class="number">88</span> : <span class="ident">Flag88</span> <span class="number">89</span> : <span class="ident">Flag89</span> <span class="number">90</span> : <span class="ident">Flag90</span> <span class="number">91</span> : <span class="ident">Flag91</span> <span class="number">92</span> : <span class="ident">Flag92</span> <span class="number">93</span> : <span class="ident">Flag93</span> <span class="number">94</span> : <span class="ident">Flag94</span> <span class="number">95</span> : <span class="ident">Flag95</span>
-            <span class="number">96</span> : <span class="ident">Flag96</span> <span class="number">97</span> : <span class="ident">Flag97</span> <span class="number">98</span> : <span class="ident">Flag98</span> <span class="number">99</span> : <span class="ident">Flag99</span> <span class="number">100</span> : <span class="ident">Flag100</span> <span class="number">101</span> : <span class="ident">Flag101</span> <span class="number">102</span> : <span class="ident">Flag102</span> <span class="number">103</span> : <span class="ident">Flag103</span>
-            <span class="number">104</span> : <span class="ident">Flag104</span> <span class="number">105</span> : <span class="ident">Flag105</span> <span class="number">106</span> : <span class="ident">Flag106</span> <span class="number">107</span> : <span class="ident">Flag107</span> <span class="number">108</span> : <span class="ident">Flag108</span> <span class="number">109</span> : <span class="ident">Flag109</span> <span class="number">110</span> : <span class="ident">Flag110</span> <span class="number">111</span> : <span class="ident">Flag111</span>
-            <span class="number">112</span> : <span class="ident">Flag112</span> <span class="number">113</span> : <span class="ident">Flag113</span> <span class="number">114</span> : <span class="ident">Flag114</span> <span class="number">115</span> : <span class="ident">Flag115</span> <span class="number">116</span> : <span class="ident">Flag116</span> <span class="number">117</span> : <span class="ident">Flag117</span> <span class="number">118</span> : <span class="ident">Flag118</span> <span class="number">119</span> : <span class="ident">Flag119</span>
-            <span class="number">120</span> : <span class="ident">Flag120</span> <span class="number">121</span> : <span class="ident">Flag121</span> <span class="number">122</span> : <span class="ident">Flag122</span> <span class="number">123</span> : <span class="ident">Flag123</span> <span class="number">124</span> : <span class="ident">Flag124</span> <span class="number">125</span> : <span class="ident">Flag125</span> <span class="number">126</span> : <span class="ident">Flag126</span> <span class="number">127</span> : <span class="ident">Flag127</span>
+            <span class="number">0</span> : <span class="ident">Flag0</span>, <span class="number">1</span> : <span class="ident">Flag1</span>, <span class="number">2</span> : <span class="ident">Flag2</span>, <span class="number">3</span> : <span class="ident">Flag3</span>, <span class="number">4</span> : <span class="ident">Flag4</span>, <span class="number">5</span> : <span class="ident">Flag5</span>, <span class="number">6</span> : <span class="ident">Flag6</span>, <span class="number">7</span> : <span class="ident">Flag7</span>,
+            <span class="number">8</span> : <span class="ident">Flag8</span>, <span class="number">9</span> : <span class="ident">Flag9</span>, <span class="number">10</span> : <span class="ident">Flag10</span>, <span class="number">11</span> : <span class="ident">Flag11</span>, <span class="number">12</span> : <span class="ident">Flag12</span>, <span class="number">13</span> : <span class="ident">Flag13</span>, <span class="number">14</span> : <span class="ident">Flag14</span>, <span class="number">15</span> : <span class="ident">Flag15</span>,
+            <span class="number">16</span> : <span class="ident">Flag16</span>, <span class="number">17</span> : <span class="ident">Flag17</span>, <span class="number">18</span> : <span class="ident">Flag18</span>, <span class="number">19</span> : <span class="ident">Flag19</span>, <span class="number">20</span> : <span class="ident">Flag20</span>, <span class="number">21</span> : <span class="ident">Flag21</span>, <span class="number">22</span> : <span class="ident">Flag22</span>, <span class="number">23</span> : <span class="ident">Flag23</span>,
+            <span class="number">24</span> : <span class="ident">Flag24</span>, <span class="number">25</span> : <span class="ident">Flag25</span>, <span class="number">26</span> : <span class="ident">Flag26</span>, <span class="number">27</span> : <span class="ident">Flag27</span>, <span class="number">28</span> : <span class="ident">Flag28</span>, <span class="number">29</span> : <span class="ident">Flag29</span>, <span class="number">30</span> : <span class="ident">Flag30</span>, <span class="number">31</span> : <span class="ident">Flag31</span>,
+            <span class="number">32</span> : <span class="ident">Flag32</span>, <span class="number">33</span> : <span class="ident">Flag33</span>, <span class="number">34</span> : <span class="ident">Flag34</span>, <span class="number">35</span> : <span class="ident">Flag35</span>, <span class="number">36</span> : <span class="ident">Flag36</span>, <span class="number">37</span> : <span class="ident">Flag37</span>, <span class="number">38</span> : <span class="ident">Flag38</span>, <span class="number">39</span> : <span class="ident">Flag39</span>,
+            <span class="number">40</span> : <span class="ident">Flag40</span>, <span class="number">41</span> : <span class="ident">Flag41</span>, <span class="number">42</span> : <span class="ident">Flag42</span>, <span class="number">43</span> : <span class="ident">Flag43</span>, <span class="number">44</span> : <span class="ident">Flag44</span>, <span class="number">45</span> : <span class="ident">Flag45</span>, <span class="number">46</span> : <span class="ident">Flag46</span>, <span class="number">47</span> : <span class="ident">Flag47</span>,
+            <span class="number">48</span> : <span class="ident">Flag48</span>, <span class="number">49</span> : <span class="ident">Flag49</span>, <span class="number">50</span> : <span class="ident">Flag50</span>, <span class="number">51</span> : <span class="ident">Flag51</span>, <span class="number">52</span> : <span class="ident">Flag52</span>, <span class="number">53</span> : <span class="ident">Flag53</span>, <span class="number">54</span> : <span class="ident">Flag54</span>, <span class="number">55</span> : <span class="ident">Flag55</span>,
+            <span class="number">56</span> : <span class="ident">Flag56</span>, <span class="number">57</span> : <span class="ident">Flag57</span>, <span class="number">58</span> : <span class="ident">Flag58</span>, <span class="number">59</span> : <span class="ident">Flag59</span>, <span class="number">60</span> : <span class="ident">Flag60</span>, <span class="number">61</span> : <span class="ident">Flag61</span>, <span class="number">62</span> : <span class="ident">Flag62</span>, <span class="number">63</span> : <span class="ident">Flag63</span>,
+            <span class="number">64</span> : <span class="ident">Flag64</span>, <span class="number">65</span> : <span class="ident">Flag65</span>, <span class="number">66</span> : <span class="ident">Flag66</span>, <span class="number">67</span> : <span class="ident">Flag67</span>, <span class="number">68</span> : <span class="ident">Flag68</span>, <span class="number">69</span> : <span class="ident">Flag69</span>, <span class="number">70</span> : <span class="ident">Flag70</span>, <span class="number">71</span> : <span class="ident">Flag71</span>,
+            <span class="number">72</span> : <span class="ident">Flag72</span>, <span class="number">73</span> : <span class="ident">Flag73</span>, <span class="number">74</span> : <span class="ident">Flag74</span>, <span class="number">75</span> : <span class="ident">Flag75</span>, <span class="number">76</span> : <span class="ident">Flag76</span>, <span class="number">77</span> : <span class="ident">Flag77</span>, <span class="number">78</span> : <span class="ident">Flag78</span>, <span class="number">79</span> : <span class="ident">Flag79</span>,
+            <span class="number">80</span> : <span class="ident">Flag80</span>, <span class="number">81</span> : <span class="ident">Flag81</span>, <span class="number">82</span> : <span class="ident">Flag82</span>, <span class="number">83</span> : <span class="ident">Flag83</span>, <span class="number">84</span> : <span class="ident">Flag84</span>, <span class="number">85</span> : <span class="ident">Flag85</span>, <span class="number">86</span> : <span class="ident">Flag86</span>, <span class="number">87</span> : <span class="ident">Flag87</span>,
+            <span class="number">88</span> : <span class="ident">Flag88</span>, <span class="number">89</span> : <span class="ident">Flag89</span>, <span class="number">90</span> : <span class="ident">Flag90</span>, <span class="number">91</span> : <span class="ident">Flag91</span>, <span class="number">92</span> : <span class="ident">Flag92</span>, <span class="number">93</span> : <span class="ident">Flag93</span>, <span class="number">94</span> : <span class="ident">Flag94</span>, <span class="number">95</span> : <span class="ident">Flag95</span>,
+            <span class="number">96</span> : <span class="ident">Flag96</span>, <span class="number">97</span> : <span class="ident">Flag97</span>, <span class="number">98</span> : <span class="ident">Flag98</span>, <span class="number">99</span> : <span class="ident">Flag99</span>, <span class="number">100</span> : <span class="ident">Flag100</span>, <span class="number">101</span> : <span class="ident">Flag101</span>, <span class="number">102</span> : <span class="ident">Flag102</span>, <span class="number">103</span> : <span class="ident">Flag103</span>,
+            <span class="number">104</span> : <span class="ident">Flag104</span>, <span class="number">105</span> : <span class="ident">Flag105</span>, <span class="number">106</span> : <span class="ident">Flag106</span>, <span class="number">107</span> : <span class="ident">Flag107</span>, <span class="number">108</span> : <span class="ident">Flag108</span>, <span class="number">109</span> : <span class="ident">Flag109</span>, <span class="number">110</span> : <span class="ident">Flag110</span>, <span class="number">111</span> : <span class="ident">Flag111</span>,
+            <span class="number">112</span> : <span class="ident">Flag112</span>, <span class="number">113</span> : <span class="ident">Flag113</span>, <span class="number">114</span> : <span class="ident">Flag114</span>, <span class="number">115</span> : <span class="ident">Flag115</span>, <span class="number">116</span> : <span class="ident">Flag116</span>, <span class="number">117</span> : <span class="ident">Flag117</span>, <span class="number">118</span> : <span class="ident">Flag118</span>, <span class="number">119</span> : <span class="ident">Flag119</span>,
+            <span class="number">120</span> : <span class="ident">Flag120</span>, <span class="number">121</span> : <span class="ident">Flag121</span>, <span class="number">122</span> : <span class="ident">Flag122</span>, <span class="number">123</span> : <span class="ident">Flag123</span>, <span class="number">124</span> : <span class="ident">Flag124</span>, <span class="number">125</span> : <span class="ident">Flag125</span>, <span class="number">126</span> : <span class="ident">Flag126</span>, <span class="number">127</span> : <span class="ident">Flag127</span>,
         }
     }
 
@@ -5448,14 +5588,14 @@
         <span class="doccomment">/// My Test Thing</span>
         <span class="ident">usize</span> <span class="ident">MyFieldUsize</span>
         <span class="ident">MyFlagsUsize</span> {
-            <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
-            <span class="number">8</span> : <span class="ident">Flag8</span> <span class="number">9</span> : <span class="ident">Flag9</span> <span class="number">10</span> : <span class="ident">Flag10</span> <span class="number">11</span> : <span class="ident">Flag11</span> <span class="number">12</span> : <span class="ident">Flag12</span> <span class="number">13</span> : <span class="ident">Flag13</span> <span class="number">14</span> : <span class="ident">Flag14</span> <span class="number">15</span> : <span class="ident">Flag15</span>
-            <span class="number">16</span> : <span class="ident">Flag16</span> <span class="number">17</span> : <span class="ident">Flag17</span> <span class="number">18</span> : <span class="ident">Flag18</span> <span class="number">19</span> : <span class="ident">Flag19</span> <span class="number">20</span> : <span class="ident">Flag20</span> <span class="number">21</span> : <span class="ident">Flag21</span> <span class="number">22</span> : <span class="ident">Flag22</span> <span class="number">23</span> : <span class="ident">Flag23</span>
-            <span class="number">24</span> : <span class="ident">Flag24</span> <span class="number">25</span> : <span class="ident">Flag25</span> <span class="number">26</span> : <span class="ident">Flag26</span> <span class="number">27</span> : <span class="ident">Flag27</span> <span class="number">28</span> : <span class="ident">Flag28</span> <span class="number">29</span> : <span class="ident">Flag29</span> <span class="number">30</span> : <span class="ident">Flag30</span> <span class="number">31</span> : <span class="ident">Flag31</span>
-            <span class="number">32</span> : <span class="ident">Flag32</span> <span class="number">33</span> : <span class="ident">Flag33</span> <span class="number">34</span> : <span class="ident">Flag34</span> <span class="number">35</span> : <span class="ident">Flag35</span> <span class="number">36</span> : <span class="ident">Flag36</span> <span class="number">37</span> : <span class="ident">Flag37</span> <span class="number">38</span> : <span class="ident">Flag38</span> <span class="number">39</span> : <span class="ident">Flag39</span>
-            <span class="number">40</span> : <span class="ident">Flag40</span> <span class="number">41</span> : <span class="ident">Flag41</span> <span class="number">42</span> : <span class="ident">Flag42</span> <span class="number">43</span> : <span class="ident">Flag43</span> <span class="number">44</span> : <span class="ident">Flag44</span> <span class="number">45</span> : <span class="ident">Flag45</span> <span class="number">46</span> : <span class="ident">Flag46</span> <span class="number">47</span> : <span class="ident">Flag47</span>
-            <span class="number">48</span> : <span class="ident">Flag48</span> <span class="number">49</span> : <span class="ident">Flag49</span> <span class="number">50</span> : <span class="ident">Flag50</span> <span class="number">51</span> : <span class="ident">Flag51</span> <span class="number">52</span> : <span class="ident">Flag52</span> <span class="number">53</span> : <span class="ident">Flag53</span> <span class="number">54</span> : <span class="ident">Flag54</span> <span class="number">55</span> : <span class="ident">Flag55</span>
-            <span class="number">56</span> : <span class="ident">Flag56</span> <span class="number">57</span> : <span class="ident">Flag57</span> <span class="number">58</span> : <span class="ident">Flag58</span> <span class="number">59</span> : <span class="ident">Flag59</span> <span class="number">60</span> : <span class="ident">Flag60</span> <span class="number">61</span> : <span class="ident">Flag61</span> <span class="number">62</span> : <span class="ident">Flag62</span> <span class="number">63</span> : <span class="ident">Flag63</span>
+            <span class="number">0</span> : <span class="ident">Flag0</span>, <span class="number">1</span> : <span class="ident">Flag1</span>, <span class="number">2</span> : <span class="ident">Flag2</span>, <span class="number">3</span> : <span class="ident">Flag3</span>, <span class="number">4</span> : <span class="ident">Flag4</span>, <span class="number">5</span> : <span class="ident">Flag5</span>, <span class="number">6</span> : <span class="ident">Flag6</span>, <span class="number">7</span> : <span class="ident">Flag7</span>,
+            <span class="number">8</span> : <span class="ident">Flag8</span>, <span class="number">9</span> : <span class="ident">Flag9</span>, <span class="number">10</span> : <span class="ident">Flag10</span>, <span class="number">11</span> : <span class="ident">Flag11</span>, <span class="number">12</span> : <span class="ident">Flag12</span>, <span class="number">13</span> : <span class="ident">Flag13</span>, <span class="number">14</span> : <span class="ident">Flag14</span>, <span class="number">15</span> : <span class="ident">Flag15</span>,
+            <span class="number">16</span> : <span class="ident">Flag16</span>, <span class="number">17</span> : <span class="ident">Flag17</span>, <span class="number">18</span> : <span class="ident">Flag18</span>, <span class="number">19</span> : <span class="ident">Flag19</span>, <span class="number">20</span> : <span class="ident">Flag20</span>, <span class="number">21</span> : <span class="ident">Flag21</span>, <span class="number">22</span> : <span class="ident">Flag22</span>, <span class="number">23</span> : <span class="ident">Flag23</span>,
+            <span class="number">24</span> : <span class="ident">Flag24</span>, <span class="number">25</span> : <span class="ident">Flag25</span>, <span class="number">26</span> : <span class="ident">Flag26</span>, <span class="number">27</span> : <span class="ident">Flag27</span>, <span class="number">28</span> : <span class="ident">Flag28</span>, <span class="number">29</span> : <span class="ident">Flag29</span>, <span class="number">30</span> : <span class="ident">Flag30</span>, <span class="number">31</span> : <span class="ident">Flag31</span>,
+            <span class="number">32</span> : <span class="ident">Flag32</span>, <span class="number">33</span> : <span class="ident">Flag33</span>, <span class="number">34</span> : <span class="ident">Flag34</span>, <span class="number">35</span> : <span class="ident">Flag35</span>, <span class="number">36</span> : <span class="ident">Flag36</span>, <span class="number">37</span> : <span class="ident">Flag37</span>, <span class="number">38</span> : <span class="ident">Flag38</span>, <span class="number">39</span> : <span class="ident">Flag39</span>,
+            <span class="number">40</span> : <span class="ident">Flag40</span>, <span class="number">41</span> : <span class="ident">Flag41</span>, <span class="number">42</span> : <span class="ident">Flag42</span>, <span class="number">43</span> : <span class="ident">Flag43</span>, <span class="number">44</span> : <span class="ident">Flag44</span>, <span class="number">45</span> : <span class="ident">Flag45</span>, <span class="number">46</span> : <span class="ident">Flag46</span>, <span class="number">47</span> : <span class="ident">Flag47</span>,
+            <span class="number">48</span> : <span class="ident">Flag48</span>, <span class="number">49</span> : <span class="ident">Flag49</span>, <span class="number">50</span> : <span class="ident">Flag50</span>, <span class="number">51</span> : <span class="ident">Flag51</span>, <span class="number">52</span> : <span class="ident">Flag52</span>, <span class="number">53</span> : <span class="ident">Flag53</span>, <span class="number">54</span> : <span class="ident">Flag54</span>, <span class="number">55</span> : <span class="ident">Flag55</span>,
+            <span class="number">56</span> : <span class="ident">Flag56</span>, <span class="number">57</span> : <span class="ident">Flag57</span>, <span class="number">58</span> : <span class="ident">Flag58</span>, <span class="number">59</span> : <span class="ident">Flag59</span>, <span class="number">60</span> : <span class="ident">Flag60</span>, <span class="number">61</span> : <span class="ident">Flag61</span>, <span class="number">62</span> : <span class="ident">Flag62</span>, <span class="number">63</span> : <span class="ident">Flag63</span>,
         }
     }
 
@@ -5464,10 +5604,10 @@
         <span class="doccomment">/// My Test Thing</span>
         <span class="ident">usize</span> <span class="ident">MyFieldUsize</span>
         <span class="ident">MyFlagsUsize</span> {
-            <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
-            <span class="number">8</span> : <span class="ident">Flag8</span> <span class="number">9</span> : <span class="ident">Flag9</span> <span class="number">10</span> : <span class="ident">Flag10</span> <span class="number">11</span> : <span class="ident">Flag11</span> <span class="number">12</span> : <span class="ident">Flag12</span> <span class="number">13</span> : <span class="ident">Flag13</span> <span class="number">14</span> : <span class="ident">Flag14</span> <span class="number">15</span> : <span class="ident">Flag15</span>
-            <span class="number">16</span> : <span class="ident">Flag16</span> <span class="number">17</span> : <span class="ident">Flag17</span> <span class="number">18</span> : <span class="ident">Flag18</span> <span class="number">19</span> : <span class="ident">Flag19</span> <span class="number">20</span> : <span class="ident">Flag20</span> <span class="number">21</span> : <span class="ident">Flag21</span> <span class="number">22</span> : <span class="ident">Flag22</span> <span class="number">23</span> : <span class="ident">Flag23</span>
-            <span class="number">24</span> : <span class="ident">Flag24</span> <span class="number">25</span> : <span class="ident">Flag25</span> <span class="number">26</span> : <span class="ident">Flag26</span> <span class="number">27</span> : <span class="ident">Flag27</span> <span class="number">28</span> : <span class="ident">Flag28</span> <span class="number">29</span> : <span class="ident">Flag29</span> <span class="number">30</span> : <span class="ident">Flag30</span> <span class="number">31</span> : <span class="ident">Flag31</span>
+            <span class="number">0</span> : <span class="ident">Flag0</span>, <span class="number">1</span> : <span class="ident">Flag1</span>, <span class="number">2</span> : <span class="ident">Flag2</span>, <span class="number">3</span> : <span class="ident">Flag3</span>, <span class="number">4</span> : <span class="ident">Flag4</span>, <span class="number">5</span> : <span class="ident">Flag5</span>, <span class="number">6</span> : <span class="ident">Flag6</span>, <span class="number">7</span> : <span class="ident">Flag7</span>,
+            <span class="number">8</span> : <span class="ident">Flag8</span>, <span class="number">9</span> : <span class="ident">Flag9</span>, <span class="number">10</span> : <span class="ident">Flag10</span>, <span class="number">11</span> : <span class="ident">Flag11</span>, <span class="number">12</span> : <span class="ident">Flag12</span>, <span class="number">13</span> : <span class="ident">Flag13</span>, <span class="number">14</span> : <span class="ident">Flag14</span>, <span class="number">15</span> : <span class="ident">Flag15</span>,
+            <span class="number">16</span> : <span class="ident">Flag16</span>, <span class="number">17</span> : <span class="ident">Flag17</span>, <span class="number">18</span> : <span class="ident">Flag18</span>, <span class="number">19</span> : <span class="ident">Flag19</span>, <span class="number">20</span> : <span class="ident">Flag20</span>, <span class="number">21</span> : <span class="ident">Flag21</span>, <span class="number">22</span> : <span class="ident">Flag22</span>, <span class="number">23</span> : <span class="ident">Flag23</span>,
+            <span class="number">24</span> : <span class="ident">Flag24</span>, <span class="number">25</span> : <span class="ident">Flag25</span>, <span class="number">26</span> : <span class="ident">Flag26</span>, <span class="number">27</span> : <span class="ident">Flag27</span>, <span class="number">28</span> : <span class="ident">Flag28</span>, <span class="number">29</span> : <span class="ident">Flag29</span>, <span class="number">30</span> : <span class="ident">Flag30</span>, <span class="number">31</span> : <span class="ident">Flag31</span>,
         }
     }
 
@@ -5475,7 +5615,7 @@
         <span class="doccomment">/// My Test Thing</span>
         <span class="ident">u8</span> <span class="ident">MyFieldU8Nf</span>
         <span class="ident">MyFlagsU8Nf</span> {
-            <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
+            <span class="number">0</span> : <span class="ident">Flag0</span>, <span class="number">1</span> : <span class="ident">Flag1</span>, <span class="number">2</span> : <span class="ident">Flag2</span>, <span class="number">3</span> : <span class="ident">Flag3</span>, <span class="number">4</span> : <span class="ident">Flag4</span>, <span class="number">5</span> : <span class="ident">Flag5</span>, <span class="number">6</span> : <span class="ident">Flag6</span>, <span class="number">7</span> : <span class="ident">Flag7</span>,
         }
     }
 
@@ -5483,8 +5623,8 @@
         <span class="doccomment">/// My Test Thing</span>
         <span class="ident">u16</span> <span class="ident">MyFieldU16Nf</span>
         <span class="ident">MyFlagsU16Nf</span> {
-            <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
-            <span class="number">8</span> : <span class="ident">Flag8</span> <span class="number">9</span> : <span class="ident">Flag9</span> <span class="number">10</span> : <span class="ident">Flag10</span> <span class="number">11</span> : <span class="ident">Flag11</span> <span class="number">12</span> : <span class="ident">Flag12</span> <span class="number">13</span> : <span class="ident">Flag13</span> <span class="number">14</span> : <span class="ident">Flag14</span> <span class="number">15</span> : <span class="ident">Flag15</span>
+            <span class="number">0</span> : <span class="ident">Flag0</span>, <span class="number">1</span> : <span class="ident">Flag1</span>, <span class="number">2</span> : <span class="ident">Flag2</span>, <span class="number">3</span> : <span class="ident">Flag3</span>, <span class="number">4</span> : <span class="ident">Flag4</span>, <span class="number">5</span> : <span class="ident">Flag5</span>, <span class="number">6</span> : <span class="ident">Flag6</span>, <span class="number">7</span> : <span class="ident">Flag7</span>,
+            <span class="number">8</span> : <span class="ident">Flag8</span>, <span class="number">9</span> : <span class="ident">Flag9</span>, <span class="number">10</span> : <span class="ident">Flag10</span>, <span class="number">11</span> : <span class="ident">Flag11</span>, <span class="number">12</span> : <span class="ident">Flag12</span>, <span class="number">13</span> : <span class="ident">Flag13</span>, <span class="number">14</span> : <span class="ident">Flag14</span>, <span class="number">15</span> : <span class="ident">Flag15</span>,
         }
     }
 
@@ -5492,10 +5632,10 @@
         <span class="doccomment">/// My Test Thing</span>
         <span class="ident">u32</span> <span class="ident">MyFieldU32Nf</span>
         <span class="ident">MyFlagsU32Nf</span> {
-            <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
-            <span class="number">8</span> : <span class="ident">Flag8</span> <span class="number">9</span> : <span class="ident">Flag9</span> <span class="number">10</span> : <span class="ident">Flag10</span> <span class="number">11</span> : <span class="ident">Flag11</span> <span class="number">12</span> : <span class="ident">Flag12</span> <span class="number">13</span> : <span class="ident">Flag13</span> <span class="number">14</span> : <span class="ident">Flag14</span> <span class="number">15</span> : <span class="ident">Flag15</span>
-            <span class="number">16</span> : <span class="ident">Flag16</span> <span class="number">17</span> : <span class="ident">Flag17</span> <span class="number">18</span> : <span class="ident">Flag18</span> <span class="number">19</span> : <span class="ident">Flag19</span> <span class="number">20</span> : <span class="ident">Flag20</span> <span class="number">21</span> : <span class="ident">Flag21</span> <span class="number">22</span> : <span class="ident">Flag22</span> <span class="number">23</span> : <span class="ident">Flag23</span>
-            <span class="number">24</span> : <span class="ident">Flag24</span> <span class="number">25</span> : <span class="ident">Flag25</span> <span class="number">26</span> : <span class="ident">Flag26</span> <span class="number">27</span> : <span class="ident">Flag27</span> <span class="number">28</span> : <span class="ident">Flag28</span> <span class="number">29</span> : <span class="ident">Flag29</span> <span class="number">30</span> : <span class="ident">Flag30</span> <span class="number">31</span> : <span class="ident">Flag31</span>
+            <span class="number">0</span> : <span class="ident">Flag0</span>, <span class="number">1</span> : <span class="ident">Flag1</span>, <span class="number">2</span> : <span class="ident">Flag2</span>, <span class="number">3</span> : <span class="ident">Flag3</span>, <span class="number">4</span> : <span class="ident">Flag4</span>, <span class="number">5</span> : <span class="ident">Flag5</span>, <span class="number">6</span> : <span class="ident">Flag6</span>, <span class="number">7</span> : <span class="ident">Flag7</span>,
+            <span class="number">8</span> : <span class="ident">Flag8</span>, <span class="number">9</span> : <span class="ident">Flag9</span>, <span class="number">10</span> : <span class="ident">Flag10</span>, <span class="number">11</span> : <span class="ident">Flag11</span>, <span class="number">12</span> : <span class="ident">Flag12</span>, <span class="number">13</span> : <span class="ident">Flag13</span>, <span class="number">14</span> : <span class="ident">Flag14</span>, <span class="number">15</span> : <span class="ident">Flag15</span>,
+            <span class="number">16</span> : <span class="ident">Flag16</span>, <span class="number">17</span> : <span class="ident">Flag17</span>, <span class="number">18</span> : <span class="ident">Flag18</span>, <span class="number">19</span> : <span class="ident">Flag19</span>, <span class="number">20</span> : <span class="ident">Flag20</span>, <span class="number">21</span> : <span class="ident">Flag21</span>, <span class="number">22</span> : <span class="ident">Flag22</span>, <span class="number">23</span> : <span class="ident">Flag23</span>,
+            <span class="number">24</span> : <span class="ident">Flag24</span>, <span class="number">25</span> : <span class="ident">Flag25</span>, <span class="number">26</span> : <span class="ident">Flag26</span>, <span class="number">27</span> : <span class="ident">Flag27</span>, <span class="number">28</span> : <span class="ident">Flag28</span>, <span class="number">29</span> : <span class="ident">Flag29</span>, <span class="number">30</span> : <span class="ident">Flag30</span>, <span class="number">31</span> : <span class="ident">Flag31</span>,
         }
     }
 
@@ -5503,14 +5643,14 @@
         <span class="doccomment">/// My Test Thing</span>
         <span class="ident">u64</span> <span class="ident">MyFieldU64Nf</span>
         <span class="ident">MyFlagsU64Nf</span> {
-            <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
-            <span class="number">8</span> : <span class="ident">Flag8</span> <span class="number">9</span> : <span class="ident">Flag9</span> <span class="number">10</span> : <span class="ident">Flag10</span> <span class="number">11</span> : <span class="ident">Flag11</span> <span class="number">12</span> : <span class="ident">Flag12</span> <span class="number">13</span> : <span class="ident">Flag13</span> <span class="number">14</span> : <span class="ident">Flag14</span> <span class="number">15</span> : <span class="ident">Flag15</span>
-            <span class="number">16</span> : <span class="ident">Flag16</span> <span class="number">17</span> : <span class="ident">Flag17</span> <span class="number">18</span> : <span class="ident">Flag18</span> <span class="number">19</span> : <span class="ident">Flag19</span> <span class="number">20</span> : <span class="ident">Flag20</span> <span class="number">21</span> : <span class="ident">Flag21</span> <span class="number">22</span> : <span class="ident">Flag22</span> <span class="number">23</span> : <span class="ident">Flag23</span>
-            <span class="number">24</span> : <span class="ident">Flag24</span> <span class="number">25</span> : <span class="ident">Flag25</span> <span class="number">26</span> : <span class="ident">Flag26</span> <span class="number">27</span> : <span class="ident">Flag27</span> <span class="number">28</span> : <span class="ident">Flag28</span> <span class="number">29</span> : <span class="ident">Flag29</span> <span class="number">30</span> : <span class="ident">Flag30</span> <span class="number">31</span> : <span class="ident">Flag31</span>
-            <span class="number">32</span> : <span class="ident">Flag32</span> <span class="number">33</span> : <span class="ident">Flag33</span> <span class="number">34</span> : <span class="ident">Flag34</span> <span class="number">35</span> : <span class="ident">Flag35</span> <span class="number">36</span> : <span class="ident">Flag36</span> <span class="number">37</span> : <span class="ident">Flag37</span> <span class="number">38</span> : <span class="ident">Flag38</span> <span class="number">39</span> : <span class="ident">Flag39</span>
-            <span class="number">40</span> : <span class="ident">Flag40</span> <span class="number">41</span> : <span class="ident">Flag41</span> <span class="number">42</span> : <span class="ident">Flag42</span> <span class="number">43</span> : <span class="ident">Flag43</span> <span class="number">44</span> : <span class="ident">Flag44</span> <span class="number">45</span> : <span class="ident">Flag45</span> <span class="number">46</span> : <span class="ident">Flag46</span> <span class="number">47</span> : <span class="ident">Flag47</span>
-            <span class="number">48</span> : <span class="ident">Flag48</span> <span class="number">49</span> : <span class="ident">Flag49</span> <span class="number">50</span> : <span class="ident">Flag50</span> <span class="number">51</span> : <span class="ident">Flag51</span> <span class="number">52</span> : <span class="ident">Flag52</span> <span class="number">53</span> : <span class="ident">Flag53</span> <span class="number">54</span> : <span class="ident">Flag54</span> <span class="number">55</span> : <span class="ident">Flag55</span>
-            <span class="number">56</span> : <span class="ident">Flag56</span> <span class="number">57</span> : <span class="ident">Flag57</span> <span class="number">58</span> : <span class="ident">Flag58</span> <span class="number">59</span> : <span class="ident">Flag59</span> <span class="number">60</span> : <span class="ident">Flag60</span> <span class="number">61</span> : <span class="ident">Flag61</span> <span class="number">62</span> : <span class="ident">Flag62</span> <span class="number">63</span> : <span class="ident">Flag63</span>
+            <span class="number">0</span> : <span class="ident">Flag0</span>, <span class="number">1</span> : <span class="ident">Flag1</span>, <span class="number">2</span> : <span class="ident">Flag2</span>, <span class="number">3</span> : <span class="ident">Flag3</span>, <span class="number">4</span> : <span class="ident">Flag4</span>, <span class="number">5</span> : <span class="ident">Flag5</span>, <span class="number">6</span> : <span class="ident">Flag6</span>, <span class="number">7</span> : <span class="ident">Flag7</span>,
+            <span class="number">8</span> : <span class="ident">Flag8</span>, <span class="number">9</span> : <span class="ident">Flag9</span>, <span class="number">10</span> : <span class="ident">Flag10</span>, <span class="number">11</span> : <span class="ident">Flag11</span>, <span class="number">12</span> : <span class="ident">Flag12</span>, <span class="number">13</span> : <span class="ident">Flag13</span>, <span class="number">14</span> : <span class="ident">Flag14</span>, <span class="number">15</span> : <span class="ident">Flag15</span>,
+            <span class="number">16</span> : <span class="ident">Flag16</span>, <span class="number">17</span> : <span class="ident">Flag17</span>, <span class="number">18</span> : <span class="ident">Flag18</span>, <span class="number">19</span> : <span class="ident">Flag19</span>, <span class="number">20</span> : <span class="ident">Flag20</span>, <span class="number">21</span> : <span class="ident">Flag21</span>, <span class="number">22</span> : <span class="ident">Flag22</span>, <span class="number">23</span> : <span class="ident">Flag23</span>,
+            <span class="number">24</span> : <span class="ident">Flag24</span>, <span class="number">25</span> : <span class="ident">Flag25</span>, <span class="number">26</span> : <span class="ident">Flag26</span>, <span class="number">27</span> : <span class="ident">Flag27</span>, <span class="number">28</span> : <span class="ident">Flag28</span>, <span class="number">29</span> : <span class="ident">Flag29</span>, <span class="number">30</span> : <span class="ident">Flag30</span>, <span class="number">31</span> : <span class="ident">Flag31</span>,
+            <span class="number">32</span> : <span class="ident">Flag32</span>, <span class="number">33</span> : <span class="ident">Flag33</span>, <span class="number">34</span> : <span class="ident">Flag34</span>, <span class="number">35</span> : <span class="ident">Flag35</span>, <span class="number">36</span> : <span class="ident">Flag36</span>, <span class="number">37</span> : <span class="ident">Flag37</span>, <span class="number">38</span> : <span class="ident">Flag38</span>, <span class="number">39</span> : <span class="ident">Flag39</span>,
+            <span class="number">40</span> : <span class="ident">Flag40</span>, <span class="number">41</span> : <span class="ident">Flag41</span>, <span class="number">42</span> : <span class="ident">Flag42</span>, <span class="number">43</span> : <span class="ident">Flag43</span>, <span class="number">44</span> : <span class="ident">Flag44</span>, <span class="number">45</span> : <span class="ident">Flag45</span>, <span class="number">46</span> : <span class="ident">Flag46</span>, <span class="number">47</span> : <span class="ident">Flag47</span>,
+            <span class="number">48</span> : <span class="ident">Flag48</span>, <span class="number">49</span> : <span class="ident">Flag49</span>, <span class="number">50</span> : <span class="ident">Flag50</span>, <span class="number">51</span> : <span class="ident">Flag51</span>, <span class="number">52</span> : <span class="ident">Flag52</span>, <span class="number">53</span> : <span class="ident">Flag53</span>, <span class="number">54</span> : <span class="ident">Flag54</span>, <span class="number">55</span> : <span class="ident">Flag55</span>,
+            <span class="number">56</span> : <span class="ident">Flag56</span>, <span class="number">57</span> : <span class="ident">Flag57</span>, <span class="number">58</span> : <span class="ident">Flag58</span>, <span class="number">59</span> : <span class="ident">Flag59</span>, <span class="number">60</span> : <span class="ident">Flag60</span>, <span class="number">61</span> : <span class="ident">Flag61</span>, <span class="number">62</span> : <span class="ident">Flag62</span>, <span class="number">63</span> : <span class="ident">Flag63</span>,
         }
     }
 
@@ -5518,22 +5658,22 @@
         <span class="doccomment">/// My Test Thing</span>
         <span class="ident">u128</span> <span class="ident">MyFieldU128Nf</span>
         <span class="ident">MyFlagsU128Nf</span> {
-            <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
-            <span class="number">8</span> : <span class="ident">Flag8</span> <span class="number">9</span> : <span class="ident">Flag9</span> <span class="number">10</span> : <span class="ident">Flag10</span> <span class="number">11</span> : <span class="ident">Flag11</span> <span class="number">12</span> : <span class="ident">Flag12</span> <span class="number">13</span> : <span class="ident">Flag13</span> <span class="number">14</span> : <span class="ident">Flag14</span> <span class="number">15</span> : <span class="ident">Flag15</span>
-            <span class="number">16</span> : <span class="ident">Flag16</span> <span class="number">17</span> : <span class="ident">Flag17</span> <span class="number">18</span> : <span class="ident">Flag18</span> <span class="number">19</span> : <span class="ident">Flag19</span> <span class="number">20</span> : <span class="ident">Flag20</span> <span class="number">21</span> : <span class="ident">Flag21</span> <span class="number">22</span> : <span class="ident">Flag22</span> <span class="number">23</span> : <span class="ident">Flag23</span>
-            <span class="number">24</span> : <span class="ident">Flag24</span> <span class="number">25</span> : <span class="ident">Flag25</span> <span class="number">26</span> : <span class="ident">Flag26</span> <span class="number">27</span> : <span class="ident">Flag27</span> <span class="number">28</span> : <span class="ident">Flag28</span> <span class="number">29</span> : <span class="ident">Flag29</span> <span class="number">30</span> : <span class="ident">Flag30</span> <span class="number">31</span> : <span class="ident">Flag31</span>
-            <span class="number">32</span> : <span class="ident">Flag32</span> <span class="number">33</span> : <span class="ident">Flag33</span> <span class="number">34</span> : <span class="ident">Flag34</span> <span class="number">35</span> : <span class="ident">Flag35</span> <span class="number">36</span> : <span class="ident">Flag36</span> <span class="number">37</span> : <span class="ident">Flag37</span> <span class="number">38</span> : <span class="ident">Flag38</span> <span class="number">39</span> : <span class="ident">Flag39</span>
-            <span class="number">40</span> : <span class="ident">Flag40</span> <span class="number">41</span> : <span class="ident">Flag41</span> <span class="number">42</span> : <span class="ident">Flag42</span> <span class="number">43</span> : <span class="ident">Flag43</span> <span class="number">44</span> : <span class="ident">Flag44</span> <span class="number">45</span> : <span class="ident">Flag45</span> <span class="number">46</span> : <span class="ident">Flag46</span> <span class="number">47</span> : <span class="ident">Flag47</span>
-            <span class="number">48</span> : <span class="ident">Flag48</span> <span class="number">49</span> : <span class="ident">Flag49</span> <span class="number">50</span> : <span class="ident">Flag50</span> <span class="number">51</span> : <span class="ident">Flag51</span> <span class="number">52</span> : <span class="ident">Flag52</span> <span class="number">53</span> : <span class="ident">Flag53</span> <span class="number">54</span> : <span class="ident">Flag54</span> <span class="number">55</span> : <span class="ident">Flag55</span>
-            <span class="number">56</span> : <span class="ident">Flag56</span> <span class="number">57</span> : <span class="ident">Flag57</span> <span class="number">58</span> : <span class="ident">Flag58</span> <span class="number">59</span> : <span class="ident">Flag59</span> <span class="number">60</span> : <span class="ident">Flag60</span> <span class="number">61</span> : <span class="ident">Flag61</span> <span class="number">62</span> : <span class="ident">Flag62</span> <span class="number">63</span> : <span class="ident">Flag63</span>
-            <span class="number">64</span> : <span class="ident">Flag64</span> <span class="number">65</span> : <span class="ident">Flag65</span> <span class="number">66</span> : <span class="ident">Flag66</span> <span class="number">67</span> : <span class="ident">Flag67</span> <span class="number">68</span> : <span class="ident">Flag68</span> <span class="number">69</span> : <span class="ident">Flag69</span> <span class="number">70</span> : <span class="ident">Flag70</span> <span class="number">71</span> : <span class="ident">Flag71</span>
-            <span class="number">72</span> : <span class="ident">Flag72</span> <span class="number">73</span> : <span class="ident">Flag73</span> <span class="number">74</span> : <span class="ident">Flag74</span> <span class="number">75</span> : <span class="ident">Flag75</span> <span class="number">76</span> : <span class="ident">Flag76</span> <span class="number">77</span> : <span class="ident">Flag77</span> <span class="number">78</span> : <span class="ident">Flag78</span> <span class="number">79</span> : <span class="ident">Flag79</span>
-            <span class="number">80</span> : <span class="ident">Flag80</span> <span class="number">81</span> : <span class="ident">Flag81</span> <span class="number">82</span> : <span class="ident">Flag82</span> <span class="number">83</span> : <span class="ident">Flag83</span> <span class="number">84</span> : <span class="ident">Flag84</span> <span class="number">85</span> : <span class="ident">Flag85</span> <span class="number">86</span> : <span class="ident">Flag86</span> <span class="number">87</span> : <span class="ident">Flag87</span>
-            <span class="number">88</span> : <span class="ident">Flag88</span> <span class="number">89</span> : <span class="ident">Flag89</span> <span class="number">90</span> : <span class="ident">Flag90</span> <span class="number">91</span> : <span class="ident">Flag91</span> <span class="number">92</span> : <span class="ident">Flag92</span> <span class="number">93</span> : <span class="ident">Flag93</span> <span class="number">94</span> : <span class="ident">Flag94</span> <span class="number">95</span> : <span class="ident">Flag95</span>
-            <span class="number">96</span> : <span class="ident">Flag96</span> <span class="number">97</span> : <span class="ident">Flag97</span> <span class="number">98</span> : <span class="ident">Flag98</span> <span class="number">99</span> : <span class="ident">Flag99</span> <span class="number">100</span> : <span class="ident">Flag100</span> <span class="number">101</span> : <span class="ident">Flag101</span> <span class="number">102</span> : <span class="ident">Flag102</span> <span class="number">103</span> : <span class="ident">Flag103</span>
-            <span class="number">104</span> : <span class="ident">Flag104</span> <span class="number">105</span> : <span class="ident">Flag105</span> <span class="number">106</span> : <span class="ident">Flag106</span> <span class="number">107</span> : <span class="ident">Flag107</span> <span class="number">108</span> : <span class="ident">Flag108</span> <span class="number">109</span> : <span class="ident">Flag109</span> <span class="number">110</span> : <span class="ident">Flag110</span> <span class="number">111</span> : <span class="ident">Flag111</span>
-            <span class="number">112</span> : <span class="ident">Flag112</span> <span class="number">113</span> : <span class="ident">Flag113</span> <span class="number">114</span> : <span class="ident">Flag114</span> <span class="number">115</span> : <span class="ident">Flag115</span> <span class="number">116</span> : <span class="ident">Flag116</span> <span class="number">117</span> : <span class="ident">Flag117</span> <span class="number">118</span> : <span class="ident">Flag118</span> <span class="number">119</span> : <span class="ident">Flag119</span>
-            <span class="number">120</span> : <span class="ident">Flag120</span> <span class="number">121</span> : <span class="ident">Flag121</span> <span class="number">122</span> : <span class="ident">Flag122</span> <span class="number">123</span> : <span class="ident">Flag123</span> <span class="number">124</span> : <span class="ident">Flag124</span> <span class="number">125</span> : <span class="ident">Flag125</span> <span class="number">126</span> : <span class="ident">Flag126</span> <span class="number">127</span> : <span class="ident">Flag127</span>
+            <span class="number">0</span> : <span class="ident">Flag0</span>, <span class="number">1</span> : <span class="ident">Flag1</span>, <span class="number">2</span> : <span class="ident">Flag2</span>, <span class="number">3</span> : <span class="ident">Flag3</span>, <span class="number">4</span> : <span class="ident">Flag4</span>, <span class="number">5</span> : <span class="ident">Flag5</span>, <span class="number">6</span> : <span class="ident">Flag6</span>, <span class="number">7</span> : <span class="ident">Flag7</span>,
+            <span class="number">8</span> : <span class="ident">Flag8</span>, <span class="number">9</span> : <span class="ident">Flag9</span>, <span class="number">10</span> : <span class="ident">Flag10</span>, <span class="number">11</span> : <span class="ident">Flag11</span>, <span class="number">12</span> : <span class="ident">Flag12</span>, <span class="number">13</span> : <span class="ident">Flag13</span>, <span class="number">14</span> : <span class="ident">Flag14</span>, <span class="number">15</span> : <span class="ident">Flag15</span>,
+            <span class="number">16</span> : <span class="ident">Flag16</span>, <span class="number">17</span> : <span class="ident">Flag17</span>, <span class="number">18</span> : <span class="ident">Flag18</span>, <span class="number">19</span> : <span class="ident">Flag19</span>, <span class="number">20</span> : <span class="ident">Flag20</span>, <span class="number">21</span> : <span class="ident">Flag21</span>, <span class="number">22</span> : <span class="ident">Flag22</span>, <span class="number">23</span> : <span class="ident">Flag23</span>,
+            <span class="number">24</span> : <span class="ident">Flag24</span>, <span class="number">25</span> : <span class="ident">Flag25</span>, <span class="number">26</span> : <span class="ident">Flag26</span>, <span class="number">27</span> : <span class="ident">Flag27</span>, <span class="number">28</span> : <span class="ident">Flag28</span>, <span class="number">29</span> : <span class="ident">Flag29</span>, <span class="number">30</span> : <span class="ident">Flag30</span>, <span class="number">31</span> : <span class="ident">Flag31</span>,
+            <span class="number">32</span> : <span class="ident">Flag32</span>, <span class="number">33</span> : <span class="ident">Flag33</span>, <span class="number">34</span> : <span class="ident">Flag34</span>, <span class="number">35</span> : <span class="ident">Flag35</span>, <span class="number">36</span> : <span class="ident">Flag36</span>, <span class="number">37</span> : <span class="ident">Flag37</span>, <span class="number">38</span> : <span class="ident">Flag38</span>, <span class="number">39</span> : <span class="ident">Flag39</span>,
+            <span class="number">40</span> : <span class="ident">Flag40</span>, <span class="number">41</span> : <span class="ident">Flag41</span>, <span class="number">42</span> : <span class="ident">Flag42</span>, <span class="number">43</span> : <span class="ident">Flag43</span>, <span class="number">44</span> : <span class="ident">Flag44</span>, <span class="number">45</span> : <span class="ident">Flag45</span>, <span class="number">46</span> : <span class="ident">Flag46</span>, <span class="number">47</span> : <span class="ident">Flag47</span>,
+            <span class="number">48</span> : <span class="ident">Flag48</span>, <span class="number">49</span> : <span class="ident">Flag49</span>, <span class="number">50</span> : <span class="ident">Flag50</span>, <span class="number">51</span> : <span class="ident">Flag51</span>, <span class="number">52</span> : <span class="ident">Flag52</span>, <span class="number">53</span> : <span class="ident">Flag53</span>, <span class="number">54</span> : <span class="ident">Flag54</span>, <span class="number">55</span> : <span class="ident">Flag55</span>,
+            <span class="number">56</span> : <span class="ident">Flag56</span>, <span class="number">57</span> : <span class="ident">Flag57</span>, <span class="number">58</span> : <span class="ident">Flag58</span>, <span class="number">59</span> : <span class="ident">Flag59</span>, <span class="number">60</span> : <span class="ident">Flag60</span>, <span class="number">61</span> : <span class="ident">Flag61</span>, <span class="number">62</span> : <span class="ident">Flag62</span>, <span class="number">63</span> : <span class="ident">Flag63</span>,
+            <span class="number">64</span> : <span class="ident">Flag64</span>, <span class="number">65</span> : <span class="ident">Flag65</span>, <span class="number">66</span> : <span class="ident">Flag66</span>, <span class="number">67</span> : <span class="ident">Flag67</span>, <span class="number">68</span> : <span class="ident">Flag68</span>, <span class="number">69</span> : <span class="ident">Flag69</span>, <span class="number">70</span> : <span class="ident">Flag70</span>, <span class="number">71</span> : <span class="ident">Flag71</span>,
+            <span class="number">72</span> : <span class="ident">Flag72</span>, <span class="number">73</span> : <span class="ident">Flag73</span>, <span class="number">74</span> : <span class="ident">Flag74</span>, <span class="number">75</span> : <span class="ident">Flag75</span>, <span class="number">76</span> : <span class="ident">Flag76</span>, <span class="number">77</span> : <span class="ident">Flag77</span>, <span class="number">78</span> : <span class="ident">Flag78</span>, <span class="number">79</span> : <span class="ident">Flag79</span>,
+            <span class="number">80</span> : <span class="ident">Flag80</span>, <span class="number">81</span> : <span class="ident">Flag81</span>, <span class="number">82</span> : <span class="ident">Flag82</span>, <span class="number">83</span> : <span class="ident">Flag83</span>, <span class="number">84</span> : <span class="ident">Flag84</span>, <span class="number">85</span> : <span class="ident">Flag85</span>, <span class="number">86</span> : <span class="ident">Flag86</span>, <span class="number">87</span> : <span class="ident">Flag87</span>,
+            <span class="number">88</span> : <span class="ident">Flag88</span>, <span class="number">89</span> : <span class="ident">Flag89</span>, <span class="number">90</span> : <span class="ident">Flag90</span>, <span class="number">91</span> : <span class="ident">Flag91</span>, <span class="number">92</span> : <span class="ident">Flag92</span>, <span class="number">93</span> : <span class="ident">Flag93</span>, <span class="number">94</span> : <span class="ident">Flag94</span>, <span class="number">95</span> : <span class="ident">Flag95</span>,
+            <span class="number">96</span> : <span class="ident">Flag96</span>, <span class="number">97</span> : <span class="ident">Flag97</span>, <span class="number">98</span> : <span class="ident">Flag98</span>, <span class="number">99</span> : <span class="ident">Flag99</span>, <span class="number">100</span> : <span class="ident">Flag100</span>, <span class="number">101</span> : <span class="ident">Flag101</span>, <span class="number">102</span> : <span class="ident">Flag102</span>, <span class="number">103</span> : <span class="ident">Flag103</span>,
+            <span class="number">104</span> : <span class="ident">Flag104</span>, <span class="number">105</span> : <span class="ident">Flag105</span>, <span class="number">106</span> : <span class="ident">Flag106</span>, <span class="number">107</span> : <span class="ident">Flag107</span>, <span class="number">108</span> : <span class="ident">Flag108</span>, <span class="number">109</span> : <span class="ident">Flag109</span>, <span class="number">110</span> : <span class="ident">Flag110</span>, <span class="number">111</span> : <span class="ident">Flag111</span>,
+            <span class="number">112</span> : <span class="ident">Flag112</span>, <span class="number">113</span> : <span class="ident">Flag113</span>, <span class="number">114</span> : <span class="ident">Flag114</span>, <span class="number">115</span> : <span class="ident">Flag115</span>, <span class="number">116</span> : <span class="ident">Flag116</span>, <span class="number">117</span> : <span class="ident">Flag117</span>, <span class="number">118</span> : <span class="ident">Flag118</span>, <span class="number">119</span> : <span class="ident">Flag119</span>,
+            <span class="number">120</span> : <span class="ident">Flag120</span>, <span class="number">121</span> : <span class="ident">Flag121</span>, <span class="number">122</span> : <span class="ident">Flag122</span>, <span class="number">123</span> : <span class="ident">Flag123</span>, <span class="number">124</span> : <span class="ident">Flag124</span>, <span class="number">125</span> : <span class="ident">Flag125</span>, <span class="number">126</span> : <span class="ident">Flag126</span>, <span class="number">127</span> : <span class="ident">Flag127</span>,
         }
     }
 
@@ -5542,14 +5682,14 @@
         <span class="doccomment">/// My Test Thing</span>
         <span class="ident">usize</span> <span class="ident">MyFieldUsizeNf</span>
         <span class="ident">MyFlagsUsizeNf</span> {
-            <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
-            <span class="number">8</span> : <span class="ident">Flag8</span> <span class="number">9</span> : <span class="ident">Flag9</span> <span class="number">10</span> : <span class="ident">Flag10</span> <span class="number">11</span> : <span class="ident">Flag11</span> <span class="number">12</span> : <span class="ident">Flag12</span> <span class="number">13</span> : <span class="ident">Flag13</span> <span class="number">14</span> : <span class="ident">Flag14</span> <span class="number">15</span> : <span class="ident">Flag15</span>
-            <span class="number">16</span> : <span class="ident">Flag16</span> <span class="number">17</span> : <span class="ident">Flag17</span> <span class="number">18</span> : <span class="ident">Flag18</span> <span class="number">19</span> : <span class="ident">Flag19</span> <span class="number">20</span> : <span class="ident">Flag20</span> <span class="number">21</span> : <span class="ident">Flag21</span> <span class="number">22</span> : <span class="ident">Flag22</span> <span class="number">23</span> : <span class="ident">Flag23</span>
-            <span class="number">24</span> : <span class="ident">Flag24</span> <span class="number">25</span> : <span class="ident">Flag25</span> <span class="number">26</span> : <span class="ident">Flag26</span> <span class="number">27</span> : <span class="ident">Flag27</span> <span class="number">28</span> : <span class="ident">Flag28</span> <span class="number">29</span> : <span class="ident">Flag29</span> <span class="number">30</span> : <span class="ident">Flag30</span> <span class="number">31</span> : <span class="ident">Flag31</span>
-            <span class="number">32</span> : <span class="ident">Flag32</span> <span class="number">33</span> : <span class="ident">Flag33</span> <span class="number">34</span> : <span class="ident">Flag34</span> <span class="number">35</span> : <span class="ident">Flag35</span> <span class="number">36</span> : <span class="ident">Flag36</span> <span class="number">37</span> : <span class="ident">Flag37</span> <span class="number">38</span> : <span class="ident">Flag38</span> <span class="number">39</span> : <span class="ident">Flag39</span>
-            <span class="number">40</span> : <span class="ident">Flag40</span> <span class="number">41</span> : <span class="ident">Flag41</span> <span class="number">42</span> : <span class="ident">Flag42</span> <span class="number">43</span> : <span class="ident">Flag43</span> <span class="number">44</span> : <span class="ident">Flag44</span> <span class="number">45</span> : <span class="ident">Flag45</span> <span class="number">46</span> : <span class="ident">Flag46</span> <span class="number">47</span> : <span class="ident">Flag47</span>
-            <span class="number">48</span> : <span class="ident">Flag48</span> <span class="number">49</span> : <span class="ident">Flag49</span> <span class="number">50</span> : <span class="ident">Flag50</span> <span class="number">51</span> : <span class="ident">Flag51</span> <span class="number">52</span> : <span class="ident">Flag52</span> <span class="number">53</span> : <span class="ident">Flag53</span> <span class="number">54</span> : <span class="ident">Flag54</span> <span class="number">55</span> : <span class="ident">Flag55</span>
-            <span class="number">56</span> : <span class="ident">Flag56</span> <span class="number">57</span> : <span class="ident">Flag57</span> <span class="number">58</span> : <span class="ident">Flag58</span> <span class="number">59</span> : <span class="ident">Flag59</span> <span class="number">60</span> : <span class="ident">Flag60</span> <span class="number">61</span> : <span class="ident">Flag61</span> <span class="number">62</span> : <span class="ident">Flag62</span> <span class="number">63</span> : <span class="ident">Flag63</span>
+            <span class="number">0</span> : <span class="ident">Flag0</span>, <span class="number">1</span> : <span class="ident">Flag1</span>, <span class="number">2</span> : <span class="ident">Flag2</span>, <span class="number">3</span> : <span class="ident">Flag3</span>, <span class="number">4</span> : <span class="ident">Flag4</span>, <span class="number">5</span> : <span class="ident">Flag5</span>, <span class="number">6</span> : <span class="ident">Flag6</span>, <span class="number">7</span> : <span class="ident">Flag7</span>,
+            <span class="number">8</span> : <span class="ident">Flag8</span>, <span class="number">9</span> : <span class="ident">Flag9</span>, <span class="number">10</span> : <span class="ident">Flag10</span>, <span class="number">11</span> : <span class="ident">Flag11</span>, <span class="number">12</span> : <span class="ident">Flag12</span>, <span class="number">13</span> : <span class="ident">Flag13</span>, <span class="number">14</span> : <span class="ident">Flag14</span>, <span class="number">15</span> : <span class="ident">Flag15</span>,
+            <span class="number">16</span> : <span class="ident">Flag16</span>, <span class="number">17</span> : <span class="ident">Flag17</span>, <span class="number">18</span> : <span class="ident">Flag18</span>, <span class="number">19</span> : <span class="ident">Flag19</span>, <span class="number">20</span> : <span class="ident">Flag20</span>, <span class="number">21</span> : <span class="ident">Flag21</span>, <span class="number">22</span> : <span class="ident">Flag22</span>, <span class="number">23</span> : <span class="ident">Flag23</span>,
+            <span class="number">24</span> : <span class="ident">Flag24</span>, <span class="number">25</span> : <span class="ident">Flag25</span>, <span class="number">26</span> : <span class="ident">Flag26</span>, <span class="number">27</span> : <span class="ident">Flag27</span>, <span class="number">28</span> : <span class="ident">Flag28</span>, <span class="number">29</span> : <span class="ident">Flag29</span>, <span class="number">30</span> : <span class="ident">Flag30</span>, <span class="number">31</span> : <span class="ident">Flag31</span>,
+            <span class="number">32</span> : <span class="ident">Flag32</span>, <span class="number">33</span> : <span class="ident">Flag33</span>, <span class="number">34</span> : <span class="ident">Flag34</span>, <span class="number">35</span> : <span class="ident">Flag35</span>, <span class="number">36</span> : <span class="ident">Flag36</span>, <span class="number">37</span> : <span class="ident">Flag37</span>, <span class="number">38</span> : <span class="ident">Flag38</span>, <span class="number">39</span> : <span class="ident">Flag39</span>,
+            <span class="number">40</span> : <span class="ident">Flag40</span>, <span class="number">41</span> : <span class="ident">Flag41</span>, <span class="number">42</span> : <span class="ident">Flag42</span>, <span class="number">43</span> : <span class="ident">Flag43</span>, <span class="number">44</span> : <span class="ident">Flag44</span>, <span class="number">45</span> : <span class="ident">Flag45</span>, <span class="number">46</span> : <span class="ident">Flag46</span>, <span class="number">47</span> : <span class="ident">Flag47</span>,
+            <span class="number">48</span> : <span class="ident">Flag48</span>, <span class="number">49</span> : <span class="ident">Flag49</span>, <span class="number">50</span> : <span class="ident">Flag50</span>, <span class="number">51</span> : <span class="ident">Flag51</span>, <span class="number">52</span> : <span class="ident">Flag52</span>, <span class="number">53</span> : <span class="ident">Flag53</span>, <span class="number">54</span> : <span class="ident">Flag54</span>, <span class="number">55</span> : <span class="ident">Flag55</span>,
+            <span class="number">56</span> : <span class="ident">Flag56</span>, <span class="number">57</span> : <span class="ident">Flag57</span>, <span class="number">58</span> : <span class="ident">Flag58</span>, <span class="number">59</span> : <span class="ident">Flag59</span>, <span class="number">60</span> : <span class="ident">Flag60</span>, <span class="number">61</span> : <span class="ident">Flag61</span>, <span class="number">62</span> : <span class="ident">Flag62</span>, <span class="number">63</span> : <span class="ident">Flag63</span>,
         }
     }
 
@@ -5558,10 +5698,10 @@
         <span class="doccomment">/// My Test Thing</span>
         <span class="ident">usize</span> <span class="ident">MyFieldUsizeNf</span>
         <span class="ident">MyFlagsUsizeNf</span> {
-            <span class="number">0</span> : <span class="ident">Flag0</span> <span class="number">1</span> : <span class="ident">Flag1</span> <span class="number">2</span> : <span class="ident">Flag2</span> <span class="number">3</span> : <span class="ident">Flag3</span> <span class="number">4</span> : <span class="ident">Flag4</span> <span class="number">5</span> : <span class="ident">Flag5</span> <span class="number">6</span> : <span class="ident">Flag6</span> <span class="number">7</span> : <span class="ident">Flag7</span>
-            <span class="number">8</span> : <span class="ident">Flag8</span> <span class="number">9</span> : <span class="ident">Flag9</span> <span class="number">10</span> : <span class="ident">Flag10</span> <span class="number">11</span> : <span class="ident">Flag11</span> <span class="number">12</span> : <span class="ident">Flag12</span> <span class="number">13</span> : <span class="ident">Flag13</span> <span class="number">14</span> : <span class="ident">Flag14</span> <span class="number">15</span> : <span class="ident">Flag15</span>
-            <span class="number">16</span> : <span class="ident">Flag16</span> <span class="number">17</span> : <span class="ident">Flag17</span> <span class="number">18</span> : <span class="ident">Flag18</span> <span class="number">19</span> : <span class="ident">Flag19</span> <span class="number">20</span> : <span class="ident">Flag20</span> <span class="number">21</span> : <span class="ident">Flag21</span> <span class="number">22</span> : <span class="ident">Flag22</span> <span class="number">23</span> : <span class="ident">Flag23</span>
-            <span class="number">24</span> : <span class="ident">Flag24</span> <span class="number">25</span> : <span class="ident">Flag25</span> <span class="number">26</span> : <span class="ident">Flag26</span> <span class="number">27</span> : <span class="ident">Flag27</span> <span class="number">28</span> : <span class="ident">Flag28</span> <span class="number">29</span> : <span class="ident">Flag29</span> <span class="number">30</span> : <span class="ident">Flag30</span> <span class="number">31</span> : <span class="ident">Flag31</span>
+            <span class="number">0</span> : <span class="ident">Flag0</span>, <span class="number">1</span> : <span class="ident">Flag1</span>, <span class="number">2</span> : <span class="ident">Flag2</span>, <span class="number">3</span> : <span class="ident">Flag3</span>, <span class="number">4</span> : <span class="ident">Flag4</span>, <span class="number">5</span> : <span class="ident">Flag5</span>, <span class="number">6</span> : <span class="ident">Flag6</span>, <span class="number">7</span> : <span class="ident">Flag7</span>,
+            <span class="number">8</span> : <span class="ident">Flag8</span>, <span class="number">9</span> : <span class="ident">Flag9</span>, <span class="number">10</span> : <span class="ident">Flag10</span>, <span class="number">11</span> : <span class="ident">Flag11</span>, <span class="number">12</span> : <span class="ident">Flag12</span>, <span class="number">13</span> : <span class="ident">Flag13</span>, <span class="number">14</span> : <span class="ident">Flag14</span>, <span class="number">15</span> : <span class="ident">Flag15</span>,
+            <span class="number">16</span> : <span class="ident">Flag16</span>, <span class="number">17</span> : <span class="ident">Flag17</span>, <span class="number">18</span> : <span class="ident">Flag18</span>, <span class="number">19</span> : <span class="ident">Flag19</span>, <span class="number">20</span> : <span class="ident">Flag20</span>, <span class="number">21</span> : <span class="ident">Flag21</span>, <span class="number">22</span> : <span class="ident">Flag22</span>, <span class="number">23</span> : <span class="ident">Flag23</span>,
+            <span class="number">24</span> : <span class="ident">Flag24</span>, <span class="number">25</span> : <span class="ident">Flag25</span>, <span class="number">26</span> : <span class="ident">Flag26</span>, <span class="number">27</span> : <span class="ident">Flag27</span>, <span class="number">28</span> : <span class="ident">Flag28</span>, <span class="number">29</span> : <span class="ident">Flag29</span>, <span class="number">30</span> : <span class="ident">Flag30</span>, <span class="number">31</span> : <span class="ident">Flag31</span>,
         }
     }
 

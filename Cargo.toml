@@ -1,6 +1,6 @@
 [package]
 name = "ubits"
-version = "0.2.1"
+version = "0.3.0"
 edition = "2021"
 description = "Bit fields and masks."
 keywords = ["bitfield", "bitmask"]
@@ -18,3 +18,4 @@ license-file = "LICENSE"
 [dependencies]
 doc-comment = "0.3.3"
 safe-transmute = "0.11.2"
+paste = "1.0.7"

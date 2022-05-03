@@ -31,14 +31,14 @@ use ubits::bitfield;
     bitfield! {
         pub u8 ExampleField
         ExampleFlags {
-            0 : Flag0
-            1 : Flag1
-            2 : Flag2
-            3 : Flag3
-            4 : Flag4
-            5 : Flag5
-            6 : Flag6
-            7 : Flag7
+            0 : Flag0,
+            1 : Flag1,
+            2 : Flag2,
+            3 : Flag3,
+            4 : Flag4,
+            5 : Flag5,
+            6 : Flag6,
+            7 : Flag7,
         }
     }
 ```
@@ -154,6 +154,40 @@ field.toggle_index(0);
 assert_eq!("01010100", field.as_binary());
 field.toggle_index(0);
 assert_eq!("01010101", field.as_binary());
+```
+
+#### Named Getters and Setters
+
+Ubits can generate getter and setter methods for zero or more fields, if a name is provided.
+
+```rust
+use ubits::bitfield;
+   bitfield! {
+       pub u8 ExampleField
+       ExampleFlags {
+           0 : Flag0 : (field_0),  // is_field_0 & set_field_0 & clear_field_0 & toggle_field_0
+           1 : Flag1 : (field_1),  // is_field_1 & set_field_1 & clear_field_1 & toggle_field_1
+           2 : Flag2,
+           3 : Flag3,
+           4 : Flag4,
+           5 : Flag5,
+           6 : Flag6,
+           7 : Flag7,
+       }
+   }
+
+let mut field = ExampleField::from_binary_str("01010101");
+assert_eq!(true, field.is_field_0());
+assert_eq!(false, field.is_field_1());
+
+field.set_field_1();
+assert_eq!(true, field.is_field_1());
+
+field.clear_field_1();
+assert_eq!(false, field.is_field_1());
+
+field.toggle_field_1();
+assert_eq!(true, field.is_field_1());
 ```
 
 #### Combinations
