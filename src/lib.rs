@@ -331,8 +331,8 @@
 //!    bitfield! {
 //!        pub u8 ExampleField
 //!        ExampleFlags {
-//!            0 : Flag0 : (field_0),  // get_field_0 & set_field_0 & clear_field_0 & toggle_field_0
-//!            1 : Flag1 : (field_1),  // get_field_1 & set_field_1 & clear_field_1 & toggle_field_1
+//!            0 : Flag0 : (field_0),  // is_field_0 & set_field_0 & clear_field_0 & toggle_field_0
+//!            1 : Flag1 : (field_1),  // is_field_1 & set_field_1 & clear_field_1 & toggle_field_1
 //!            2 : Flag2,
 //!            3 : Flag3,
 //!            4 : Flag4,
@@ -343,17 +343,17 @@
 //!    }
 //!
 //! let mut field = ExampleField::from_binary_str("01010101");
-//! assert_eq!(true, field.get_field_0());
-//! assert_eq!(false, field.get_field_1());
+//! assert_eq!(true, field.is_field_0());
+//! assert_eq!(false, field.is_field_1());
 //!
 //! field.set_field_1();
-//! assert_eq!(true, field.get_field_1());
+//! assert_eq!(true, field.is_field_1());
 //!
 //! field.clear_field_1();
-//! assert_eq!(false, field.get_field_1());
+//! assert_eq!(false, field.is_field_1());
 //!
 //! field.toggle_field_1();
-//! assert_eq!(true, field.get_field_1());
+//! assert_eq!(true, field.is_field_1());
 //! ```
 //!
 //! ### Combinations
@@ -905,7 +905,7 @@ macro_rules! __def_field_struct {
                 $(
                     $(
                         paste::paste! {
-                            fn [< get_ $named_getter >](&self) -> bool {
+                            fn [< is_ $named_getter >](&self) -> bool {
                                 self.get($flag::$field)
                             }
                         }
