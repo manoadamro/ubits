@@ -134,11 +134,11 @@ jobs:
           owner: ${{ github.repository_owner }}
           repo: ${{ github.repository }}
           token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: trstringer/manual-approval@v1
-        with:
-          secret: ${{ github.TOKEN }}
-          approvers: manoadamro
-          minimum-approvals: 1
+#      - uses: trstringer/manual-approval@v1
+#        with:
+#          secret: ${{ github.TOKEN }}
+#          approvers: manoadamro
+#          minimum-approvals: 1
       - uses: katyo/publish-crates@v1
         with:
             registry-token: ${{ secrets.CARGO_REGISTRY_TOKEN }}

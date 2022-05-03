@@ -908,25 +908,25 @@ macro_rules! __def_field_struct {
                 $(
                     $(
                         __paste! {
-                            fn [< is_ $named_getter >](&self) -> bool {
+                            pub fn [< is_ $named_getter >](&self) -> bool {
                                 self.get($flag::$field)
                             }
                         }
 
                         __paste! {
-                            fn [< set_ $named_getter >](&mut self) {
+                            pub fn [< set_ $named_getter >](&mut self) {
                                 self.set($flag::$field);
                             }
                         }
 
                         __paste! {
-                            fn [< clear_ $named_getter >](&mut self) {
+                            pub fn [< clear_ $named_getter >](&mut self) {
                                 self.clear($flag::$field);
                             }
                         }
 
                         __paste! {
-                            fn [< toggle_ $named_getter >](&mut self) {
+                            pub fn [< toggle_ $named_getter >](&mut self) {
                                 self.toggle($flag::$field);
                             }
                         }
