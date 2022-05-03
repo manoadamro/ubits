@@ -593,6 +593,10 @@ pub use safe_transmute::{
     transmute_one as __transmute_one, TriviallyTransmutable as __TriviallyTransmutable,
 };
 
+#[doc(hidden)]
+pub use paste::paste as __paste;
+
+
 // -------------------------------------------------------------------------------------------------
 // Generator Macros
 
@@ -904,25 +908,25 @@ macro_rules! __def_field_struct {
             impl $name {
                 $(
                     $(
-                        paste::paste! {
+                        __paste! {
                             fn [< is_ $named_getter >](&self) -> bool {
                                 self.get($flag::$field)
                             }
                         }
 
-                        paste::paste! {
+                        __paste! {
                             fn [< set_ $named_getter >](&mut self) {
                                 self.set($flag::$field);
                             }
                         }
 
-                        paste::paste! {
+                        __paste! {
                             fn [< clear_ $named_getter >](&mut self) {
                                 self.clear($flag::$field);
                             }
                         }
 
-                        paste::paste! {
+                        __paste! {
                             fn [< toggle_ $named_getter >](&mut self) {
                                 self.toggle($flag::$field);
                             }
