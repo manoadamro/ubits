@@ -1,1 +1,1 @@
-initSidebarItems({"macro":[["bitfield","Generates a bitfield struct and a corresponding flag enum."]],"mod":[["examples","Examples of generated output using different configurations."]]});
+window.SIDEBAR_ITEMS = {"macro":[["bitfield","Generates a bitfield struct and a corresponding flag enum."]],"mod":[["examples","Examples of generated output using different configurations."]]};
