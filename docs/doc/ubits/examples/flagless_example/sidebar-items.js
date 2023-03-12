@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ExampleField","Optional docstring for my example bit field."]]});
+window.SIDEBAR_ITEMS = {"struct":[["ExampleField","Optional docstring for my example bit field."]]};
