@@ -109,7 +109,7 @@ jobs:
           repo: ${{ github.repository }}
           token: ${{ secrets.GITHUB_TOKEN }}
           dry_run: true
-      - uses: katyo/publish-crates@v1
+      - uses: katyo/publish-crates@v2
         with:
             registry-token: ${{ secrets.CARGO_REGISTRY_TOKEN }}
             ignore-unpublished-changes: true
@@ -139,7 +139,7 @@ jobs:
 #          secret: ${{ github.TOKEN }}
 #          approvers: manoadamro
 #          minimum-approvals: 1
-      - uses: katyo/publish-crates@v1
+      - uses: katyo/publish-crates@v2
         with:
             registry-token: ${{ secrets.CARGO_REGISTRY_TOKEN }}
             ignore-unpublished-changes: true
