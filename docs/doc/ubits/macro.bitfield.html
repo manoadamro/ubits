@@ -1,94 +1,87 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Generates a bitfield struct and a corresponding flag enum."><meta name="keywords" content="rust, rustlang, rust-lang, bitfield"><title>bitfield in ubits - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../dark.css" disabled><link rel="stylesheet" type="text/css" href="../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../storage.js"></script><script src="../crates.js"></script><script defer src="../main.js"></script>
-    <noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../favicon.svg"></head><body class="rustdoc macro"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../ubits/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../ubits/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div>
-        </a><div class="sidebar-elems"><h2 class="location"><a href="index.html">In ubits</a></h2><div id="sidebar-vars" data-name="bitfield" data-ty="macro" data-relpath=""></div><script defer src="sidebar-items.js"></script></div></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../ubits/index.html"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker hidden"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="22" height="22" alt="Pick another theme!" src="../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="main-heading">
-    <h1 class="fqn"><span class="in-band">Macro <a href="index.html">ubits</a>::<wbr><a class="macro" href="#">bitfield</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></span></h1><span class="out-of-band"><a class="srclink" href="../src/ubits/lib.rs.html#724-827">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><div class="docblock item-decl"><div class="example-wrap"><pre class="rust macro"><code><span class="macro">macro_rules!</span> <span class="ident">bitfield</span> {
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Generates a bitfield struct and a corresponding flag enum."><title>bitfield in ubits - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2"href="../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../static.files/rustdoc-e56847b5.css"><meta name="rustdoc-vars" data-root-path="../" data-static-root-path="../static.files/" data-current-crate="ubits" data-themes="" data-resource-suffix="" data-rustdoc-version="1.91.1 (ed61e7d7e 2025-11-07)" data-channel="1.91.1" data-search-js="search-e256b49e.js" data-stringdex-js="stringdex-c3e638e9.js" data-settings-js="settings-c38705f0.js" ><script src="../static.files/storage-e2aeef58.js"></script><script defer src="sidebar-items.js"></script><script defer src="../static.files/main-6dc2a7f3.js"></script><noscript><link rel="stylesheet" href="../static.files/noscript-263c88ec.css"></noscript><link rel="alternate icon" type="image/png" href="../static.files/favicon-32x32-eab170b8.png"><link rel="icon" type="image/svg+xml" href="../static.files/favicon-044be391.svg"></head><body class="rustdoc macro"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><rustdoc-topbar><h2><a href="#">bitfield</a></h2></rustdoc-topbar><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../ubits/index.html">ubits</a><span class="version">0.3.1</span></h2></div><div class="sidebar-elems"><section id="rustdoc-toc"><h2 class="location"><a href="#">bitfield</a></h2><h3><a href="#">Sections</a></h3><ul class="block top-toc"><li><a href="#args" title="Args">Args</a></li><li><a href="#examples" title="Examples:">Examples:</a></li></ul></section><div id="rustdoc-modnav"><h2 class="in-crate"><a href="index.html">In crate ubits</a></h2></div></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><div class="width-limiter"><section id="main-content" class="content"><div class="main-heading"><div class="rustdoc-breadcrumbs"><a href="index.html">ubits</a></div><h1>Macro <span class="macro">bitfield</span>&nbsp;<button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../src/ubits/lib.rs.html#724-827">Source</a> </span></div><pre class="rust item-decl"><code>macro_rules! bitfield {
     (
-        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span> <span class="ident">u8</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
+        $(#[$doc:meta])*
+        $access:vis u8 $name:ident
         $(
-            $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
+            $(#[$flag_doc:meta])*
+            $flag:ident {
                 $(
-                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span> $( : ( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span>:<span class="ident">ident</span> ) )<span class="question-mark">?</span>,
-                )<span class="op">*</span>
+                    $(#[$member_doc:meta])*
+                    $idx:literal : $field:ident $( : ( $named_getter:ident ) )?,
+                )*
             }
-        )<span class="question-mark">?</span>
+        )?
     ) =&gt; { ... };
     (
-        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span> <span class="ident">u16</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
+        $(#[$doc:meta])*
+        $access:vis u16 $name:ident
         $(
-            $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
+            $(#[$flag_doc:meta])*
+            $flag:ident {
                 $(
-                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span> $( ( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span>:<span class="ident">ident</span> ) )<span class="question-mark">?</span>,
-                )<span class="op">*</span>
+                    $(#[$member_doc:meta])*
+                    $idx:literal : $field:ident $( ( $named_getter:ident ) )?,
+                )*
             }
-        )<span class="question-mark">?</span>
+        )?
     ) =&gt; { ... };
     (
-        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span> <span class="ident">u32</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
+        $(#[$doc:meta])*
+        $access:vis u32 $name:ident
         $(
-            $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
+            $(#[$flag_doc:meta])*
+            $flag:ident {
                 $(
-                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span> $( ( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span>:<span class="ident">ident</span> ) )<span class="question-mark">?</span>,
-                )<span class="op">*</span>
+                    $(#[$member_doc:meta])*
+                    $idx:literal : $field:ident $( ( $named_getter:ident ) )?,
+                )*
             }
-        )<span class="question-mark">?</span>
+        )?
     ) =&gt; { ... };
     (
-        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span> <span class="ident">u64</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
+        $(#[$doc:meta])*
+        $access:vis u64 $name:ident
         $(
-            $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
+            $(#[$flag_doc:meta])*
+            $flag:ident {
                 $(
-                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span> $( ( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span>:<span class="ident">ident</span> ) )<span class="question-mark">?</span>,
-                )<span class="op">*</span>
+                    $(#[$member_doc:meta])*
+                    $idx:literal : $field:ident $( ( $named_getter:ident ) )?,
+                )*
             }
-        )<span class="question-mark">?</span>
+        )?
     ) =&gt; { ... };
     (
-        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span> <span class="ident">u128</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
+        $(#[$doc:meta])*
+        $access:vis u128 $name:ident
         $(
-            $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
+            $(#[$flag_doc:meta])*
+            $flag:ident {
                 $(
-                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span> $( ( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span>:<span class="ident">ident</span> ) )<span class="question-mark">?</span>,
-                )<span class="op">*</span>
+                    $(#[$member_doc:meta])*
+                    $idx:literal : $field:ident $( ( $named_getter:ident ) )?,
+                )*
             }
-        )<span class="question-mark">?</span>
+        )?
     ) =&gt; { ... };
     (
-        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">access</span>:<span class="ident">vis</span> <span class="ident">usize</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>
+        $(#[$doc:meta])*
+        $access:vis usize $name:ident
         $(
-            $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">flag</span>:<span class="ident">ident</span> {
+            $(#[$flag_doc:meta])*
+            $flag:ident {
                 $(
-                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">member_doc</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
-                    <span class="macro-nonterminal">$</span><span class="macro-nonterminal">idx</span>:<span class="ident">literal</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">field</span>:<span class="ident">ident</span> $( ( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">named_getter</span>:<span class="ident">ident</span> ) )<span class="question-mark">?</span>,
-                )<span class="op">*</span>
+                    $(#[$member_doc:meta])*
+                    $idx:literal : $field:ident $( ( $named_getter:ident ) )?,
+                )*
             }
-        )<span class="question-mark">?</span>
+        )?
     ) =&gt; { ... };
-}</code></pre></div>
-</div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>Generates a bitfield struct and a corresponding flag enum.</p>
+}</code></pre><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>Generates a bitfield struct and a corresponding flag enum.</p>
 <p>Can be used multiple times in a single codebase
 as long as the identifiers are unique or are isolated so as not to clash.</p>
-<p><strong>See the <a href="examples/index.html" title="examples"><code>examples</code></a> module for examples of the generated output.</strong></p>
-<h2 id="args"><a href="#args">Args</a></h2>
+<p><strong>See the <a href="examples/index.html" title="mod ubits::examples"><code>examples</code></a> module for examples of the generated output.</strong></p>
+<h2 id="args"><a class="doc-anchor" href="#args">§</a>Args</h2>
 <ul>
 <li>
 <p><code>pub</code> - optional accessor: if provided, both generated items will public.
@@ -105,11 +98,11 @@ If omitted, both will be private. <br>
 </li>
 <li>
 <p><code>u8</code> - unsigned integer type to use as a bit array. <em>Must be an unsigned integer</em> <br>
-valid options are: <a href="https://doc.rust-lang.org/1.60.0/std/primitive.u8.html" title="u8"><code>u8</code></a>,<a href="https://doc.rust-lang.org/1.60.0/std/primitive.u16.html" title="u16"><code>u16</code></a>, <a href="https://doc.rust-lang.org/1.60.0/std/primitive.u32.html" title="u32"><code>u32</code></a>, <a href="https://doc.rust-lang.org/1.60.0/std/primitive.u64.html" title="u64"><code>u64</code></a>, <a href="https://doc.rust-lang.org/1.60.0/std/primitive.u128.html" title="u128"><code>u128</code></a>, <a href="https://doc.rust-lang.org/1.60.0/std/primitive.usize.html" title="usize"><code>usize</code></a></p>
+valid options are: <a href="https://doc.rust-lang.org/1.91.1/std/primitive.u8.html" title="primitive u8"><code>u8</code></a>,<a href="https://doc.rust-lang.org/1.91.1/std/primitive.u16.html" title="primitive u16"><code>u16</code></a>, <a href="https://doc.rust-lang.org/1.91.1/std/primitive.u32.html" title="primitive u32"><code>u32</code></a>, <a href="https://doc.rust-lang.org/1.91.1/std/primitive.u64.html" title="primitive u64"><code>u64</code></a>, <a href="https://doc.rust-lang.org/1.91.1/std/primitive.u128.html" title="primitive u128"><code>u128</code></a>, <a href="https://doc.rust-lang.org/1.91.1/std/primitive.usize.html" title="primitive usize"><code>usize</code></a></p>
 </li>
 <li>
 <p><code>0 : Flag0</code> - defines each member of the flag enum. <br>
-The left hand side must be a <a href="https://doc.rust-lang.org/1.60.0/std/primitive.u8.html" title="u8"><code>u8</code></a> <code>(0..=254)</code>
+The left hand side must be a <a href="https://doc.rust-lang.org/1.91.1/std/primitive.u8.html" title="primitive u8"><code>u8</code></a> <code>(0..=254)</code>
 and must be less than the number of bits in the underlying unsigned type.
 This value determines the index of the target bit within the field. <br>
 The right hand side can be any valid identifier (unique to this enum).
@@ -118,87 +111,86 @@ These identifiers will be used to access the corresponding field.</p>
 <li>
 <p><code>/// docstrings</code> - Each element can take optional docstrings.
 This includes the bit field struct, the flag enum, and each member within the flag enum.
-See <a href="examples/index.html" title="examples"><code>examples</code></a> for more information.</p>
+See <a href="examples/index.html" title="mod ubits::examples"><code>examples</code></a> for more information.</p>
 </li>
 </ul>
-<h2 id="examples"><a href="#examples">Examples:</a></h2>
+<h2 id="examples"><a class="doc-anchor" href="#examples">§</a>Examples:</h2>
 <p>Full Example - (see below for explanation for each parameter):</p>
 
-<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use</span> <span class="ident">ubits::bitfield</span>;
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>ubits::bitfield;
 
     <span class="macro">bitfield!</span> {
-        <span class="doccomment">/// Optional docstring</span>
-        <span class="doccomment">/// for [`ExampleField`] struct</span>
-        <span class="kw">pub</span> <span class="ident">u8</span> <span class="ident">ExampleField</span>
-        <span class="doccomment">/// Optional docstring</span>
-        <span class="doccomment">/// for [`ExampleFlags`] enum</span>
-        <span class="ident">ExampleFlags</span> {
-            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag0`]</span>
-            <span class="number">0</span> : <span class="ident">Flag0</span>,
-            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag1`]</span>
-            <span class="number">1</span> : <span class="ident">Flag1</span>,
-            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag2`]</span>
-            <span class="number">2</span> : <span class="ident">Flag2</span>,
-            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag3`]</span>
-            <span class="number">3</span> : <span class="ident">Flag3</span>,
-            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag4`]</span>
-            <span class="number">4</span> : <span class="ident">Flag4</span>,
-            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag5`]</span>
-            <span class="number">5</span> : <span class="ident">Flag5</span>,
-            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag6`]</span>
-            <span class="number">6</span> : <span class="ident">Flag6</span>,
-            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag7`]</span>
-            <span class="number">7</span> : <span class="ident">Flag7</span>,
+        <span class="doccomment">/// Optional docstring
+        /// for [`ExampleField`] struct
+        </span><span class="kw">pub </span>u8 ExampleField
+        <span class="doccomment">/// Optional docstring
+        /// for [`ExampleFlags`] enum
+        </span>ExampleFlags {
+            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag0`]
+            </span><span class="number">0 </span>: Flag0,
+            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag1`]
+            </span><span class="number">1 </span>: Flag1,
+            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag2`]
+            </span><span class="number">2 </span>: Flag2,
+            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag3`]
+            </span><span class="number">3 </span>: Flag3,
+            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag4`]
+            </span><span class="number">4 </span>: Flag4,
+            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag5`]
+            </span><span class="number">5 </span>: Flag5,
+            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag6`]
+            </span><span class="number">6 </span>: Flag6,
+            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag7`]
+            </span><span class="number">7 </span>: Flag7,
         }
     }</code></pre></div>
 <p>You don’t have to name <em>all</em> the fields if you don’t need them…</p>
 <p>You can use just a few from the front:</p>
 
-<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use</span> <span class="ident">ubits::bitfield</span>;
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>ubits::bitfield;
 
     <span class="macro">bitfield!</span> {
-        <span class="doccomment">/// Optional docstring</span>
-        <span class="doccomment">/// for [`ExampleField`] struct</span>
-        <span class="kw">pub</span> <span class="ident">u8</span> <span class="ident">ExampleField</span>
-        <span class="doccomment">/// Optional docstring</span>
-        <span class="doccomment">/// for [`ExampleFlags`] enum</span>
-        <span class="ident">ExampleFlags</span> {
-            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag0`]</span>
-            <span class="number">0</span> : <span class="ident">Flag0</span>,
-            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag1`]</span>
-            <span class="number">1</span> : <span class="ident">Flag1</span>,
-            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag2`]</span>
-            <span class="number">2</span> : <span class="ident">Flag2</span>,
+        <span class="doccomment">/// Optional docstring
+        /// for [`ExampleField`] struct
+        </span><span class="kw">pub </span>u8 ExampleField
+        <span class="doccomment">/// Optional docstring
+        /// for [`ExampleFlags`] enum
+        </span>ExampleFlags {
+            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag0`]
+            </span><span class="number">0 </span>: Flag0,
+            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag1`]
+            </span><span class="number">1 </span>: Flag1,
+            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag2`]
+            </span><span class="number">2 </span>: Flag2,
         }
     }</code></pre></div>
 <p>… or any valid indices:</p>
 
-<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use</span> <span class="ident">ubits::bitfield</span>;
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>ubits::bitfield;
 
     <span class="macro">bitfield!</span> {
-        <span class="doccomment">/// Optional docstring</span>
-        <span class="doccomment">/// for [`ExampleField`] struct</span>
-        <span class="kw">pub</span> <span class="ident">u8</span> <span class="ident">ExampleField</span>
-        <span class="doccomment">/// Optional docstring</span>
-        <span class="doccomment">/// for [`ExampleFlags`] enum</span>
-        <span class="ident">ExampleFlags</span> {
-            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag0`]</span>
-            <span class="number">0</span> : <span class="ident">Flag0</span>,
-            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag1`]</span>
-            <span class="number">3</span> : <span class="ident">Flag1</span>,
-            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag2`]</span>
-            <span class="number">6</span> : <span class="ident">Flag2</span>,
+        <span class="doccomment">/// Optional docstring
+        /// for [`ExampleField`] struct
+        </span><span class="kw">pub </span>u8 ExampleField
+        <span class="doccomment">/// Optional docstring
+        /// for [`ExampleFlags`] enum
+        </span>ExampleFlags {
+            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag0`]
+            </span><span class="number">0 </span>: Flag0,
+            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag1`]
+            </span><span class="number">3 </span>: Flag1,
+            <span class="doccomment">/// Optional docstring for [`ExampleFlags::Flag2`]
+            </span><span class="number">6 </span>: Flag2,
         }
     }</code></pre></div>
 <p>… or just omit the flags altogether and use indices only.:</p>
 
-<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use</span> <span class="ident">ubits::bitfield</span>;
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>ubits::bitfield;
     <span class="macro">bitfield!</span> {
-        <span class="doccomment">/// Optional docstring</span>
-        <span class="doccomment">/// for [`ExampleField`] struct</span>
-        <span class="kw">pub</span> <span class="ident">u8</span> <span class="ident">ExampleField</span>
+        <span class="doccomment">/// Optional docstring
+        /// for [`ExampleField`] struct
+        </span><span class="kw">pub </span>u8 ExampleField
     }</code></pre></div>
 <p><strong>Note: if you omit flags, no flag enum will be generated
 and no methods for the bitfield struct that rely on flags will be generated.</strong></p>
-</div></details></section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../" data-current-crate="ubits" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.60.0 (7737e0b5c 2022-04-04)" ></div>
-</body></html>
+</div></details></section></div></main></body></html>
