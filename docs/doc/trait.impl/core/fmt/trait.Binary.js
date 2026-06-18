@@ -1,0 +1,9 @@
+(function() {
+    const implementors = Object.fromEntries([["ubits",[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.96.0/core/fmt/trait.Binary.html\" title=\"trait core::fmt::Binary\">Binary</a> for <a class=\"struct\" href=\"ubits/examples/flagless_example/struct.ExampleField.html\" title=\"struct ubits::examples::flagless_example::ExampleField\">ExampleField</a>",0],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.96.0/core/fmt/trait.Binary.html\" title=\"trait core::fmt::Binary\">Binary</a> for <a class=\"struct\" href=\"ubits/examples/full_example/struct.ExampleField.html\" title=\"struct ubits::examples::full_example::ExampleField\">ExampleField</a>",0]]]]);
+    if (window.register_implementors) {
+        window.register_implementors(implementors);
+    } else {
+        window.pending_implementors = implementors;
+    }
+})()
+//{"start":59,"fragment_lengths":[635]}
